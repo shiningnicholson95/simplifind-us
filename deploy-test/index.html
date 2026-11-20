@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Deploy Test</title>
+  <style>
+    :root { --bg: #171010; --fg: #ffffff; --accent: #B55D38; --muted: rgba(255,255,255,0.7); }
+    * { box-sizing: border-box; margin: 0; }
+    body { min-height: 100vh; display: grid; place-items: center; background: var(--bg); color: var(--fg);
+           font-family: system-ui, -apple-system, "Segoe UI", sans-serif; padding: 1rem; text-align: center; }
+    .tag { color: var(--accent); font-weight: 600; font-size: 13px; letter-spacing: .08em; text-transform: uppercase; margin-bottom: .75rem; }
+    h1 { font-size: clamp(28px, 5vw, 48px); text-transform: uppercase; line-height: 1.15; margin-bottom: 1rem; }
+    p { color: var(--muted); max-width: 45ch; margin-inline: auto; line-height: 1.6; }
+    .ok { display: inline-block; margin-top: 1.5rem; padding: .6rem 1.2rem; background: var(--accent); font-weight: 600; }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="tag">simplifind-us &middot; CI/CD</div>
+    <h1>Deploy test</h1>
+    <p>If you can read this, the GitHub Actions SFTP deploy uploaded this folder to the server and it is being served.</p>
+    <div class="ok">Deployed: 2026-11-20</div>
+  </main>
+</body>
+</html>
