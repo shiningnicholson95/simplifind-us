@@ -9,6 +9,9 @@ Pushing to `main` deploys via `.github/workflows/deploy.yml` (SFTP, upload only,
 Follow the `the-hair-specialists/` pattern. Every page is a **folder containing `index.html`**,
 so URLs never show `.html`.
 
+Applies to every NEW site/theme. Existing sites that use `page.html` files stay as they are —
+do not convert them unless explicitly asked.
+
 ```
 <site>/
 ├── index.html              → /<site>/
