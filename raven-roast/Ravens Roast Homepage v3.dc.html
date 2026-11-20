@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+  <script src="./image-slot.js"></script>
+  <style>
+    :root {
+      --ink:#3E2E1E; --brown:#5A4632; --brown-deep:#4A3826; --gold:#D9A227; --gold-soft:#E8C169;
+      --cream:#FDF8F0; --cream-warm:#F6EDE0; --card:#FFFFFF; --muted:#8A7C6C; --body:#5C5142;
+      --serif:'Playfair Display',Georgia,serif; --sans:'Source Sans 3',system-ui,sans-serif;
+    }
+    body { margin:0; background:var(--cream); padding-bottom:84px; -webkit-font-smoothing:antialiased; }
+    a { color:var(--brown); text-decoration:none; }
+    a:hover { color:var(--gold); text-decoration:underline; }
+    image-slot { max-width:100%; }
+    @media (min-width:900px) { .rr-callbar { display:none !important; } body { padding-bottom:0; } }
+  </style>
+</helmet>
+
+<div style="font-family:var(--sans);color:var(--body);background:var(--cream);overflow-x:hidden;">
+
+  <div style="background:var(--brown);color:#F3E7D5;font-size:clamp(12px,2.6vw,14px);font-weight:700;letter-spacing:0.08em;text-transform:uppercase;text-align:center;padding:11px 16px;">Dine-In &amp; Takeout · Downtown Estes Park · (970) 586-4326</div>
+
+  <header style="position:sticky;top:0;z-index:50;background:var(--cream);border-bottom:1px solid rgba(90,70,50,0.12);">
+    <div style="max-width:1180px;margin:0 auto;padding:14px clamp(16px,4vw,32px);display:flex;align-items:center;justify-content:space-between;gap:16px;">
+      <div style="width:44px;"></div>
+      <a href="#top" style="display:flex;flex-direction:column;align-items:center;gap:2px;text-decoration:none;">
+        <svg viewBox="0 0 220 200" width="24" height="24" style="color:var(--brown);flex:none;margin-bottom:2px;">
+<g fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+<path d="M34 178C82 168 142 168 190 177"></path>
+<path d="M56 173C48 163 38 158 27 158"></path>
+<path d="M56 173C52 184 42 190 31 191"></path>
+<path d="M96 153L92 176"></path>
+<path d="M118 149L122 176"></path>
+</g>
+<path fill="currentColor" stroke="none" fill-rule="evenodd" d="M8 66L52 52c-2-14 10-24 28-24 24 0 52 16 68 46 8 16 12 28 10 40l56 52-18 12-56-56c-8 18-28 30-50 30-26 0-44-14-48-36-3-14-3-28 0-38ZM66 51a5 5 0 1 0 .1 0ZM96 88c16 20 36 38 60 54-20-22-42-44-58-62Z"></path>
+</svg>
+        <span style="font-family:var(--serif);font-size:clamp(30px,7.4vw,44px);font-weight:700;letter-spacing:0.03em;color:var(--brown);line-height:1.05;">RAVEN’S ROAST</span>
+        <span style="font-family:var(--sans);font-size:clamp(18px,4.4vw,26px);font-weight:700;letter-spacing:0.16em;color:var(--ink);line-height:1.1;">COFFEE</span>
+      </a>
+      <button type="button" onClick="{{ toggleNav }}" aria-label="Menu" style="width:44px;height:44px;display:flex;flex-direction:column;justify-content:center;gap:6px;background:none;border:none;cursor:pointer;padding:0 8px;">
+        <span style="display:block;height:2.5px;background:var(--ink);border-radius:2px;"></span>
+        <span style="display:block;height:2.5px;background:var(--ink);border-radius:2px;"></span>
+        <span style="display:block;height:2.5px;background:var(--ink);border-radius:2px;"></span>
+      </button>
+    </div>
+    <sc-if value="{{ navOpen }}" hint-placeholder-val="{{ false }}">
+      <nav style="border-top:1px solid rgba(90,70,50,0.12);background:var(--cream);">
+        <div style="max-width:1180px;margin:0 auto;padding:8px clamp(16px,4vw,32px) 18px;display:grid;gap:2px;">
+          <a href="Menu.dc.html" onClick="{{ closeNav }}" style="padding:13px 4px;font-size:17px;font-weight:600;border-bottom:1px solid rgba(90,70,50,0.10);">Menu</a>
+          <a href="Our Story.dc.html" onClick="{{ closeNav }}" style="padding:13px 4px;font-size:17px;font-weight:600;border-bottom:1px solid rgba(90,70,50,0.10);">Our Story</a>
+          <a href="Reviews.dc.html" onClick="{{ closeNav }}" style="padding:13px 4px;font-size:17px;font-weight:600;border-bottom:1px solid rgba(90,70,50,0.10);">Reviews</a>
+          <a href="Visit Us.dc.html" onClick="{{ closeNav }}" style="padding:13px 4px;font-size:17px;font-weight:600;border-bottom:1px solid rgba(90,70,50,0.10);">Visit Us</a>
+          <a href="Terminology.dc.html" onClick="{{ closeNav }}" style="padding:13px 4px;font-size:17px;font-weight:600;border-bottom:1px solid rgba(90,70,50,0.10);">Terminology</a>
+          <a href="FAQ.dc.html" onClick="{{ closeNav }}" style="padding:13px 4px;font-size:17px;font-weight:600;border-bottom:1px solid rgba(90,70,50,0.10);">FAQ</a>
+          <a href="Contact Us.dc.html" onClick="{{ closeNav }}" style="padding:13px 4px;font-size:17px;font-weight:600;">Contact Us</a>
+        </div>
+      </nav>
+    </sc-if>
+  </header>
+
+  <section id="top" style="position:relative;min-height:clamp(560px,86vh,820px);display:flex;align-items:flex-end;background:#2A1F14;">
+    <div style="position:absolute;inset:0;background:linear-gradient(150deg,#3E2E1E,#6B4E31 55%,#2A1F14);"><image-slot id="rr2-hero" shape="rect" placeholder="Hero photo — guests with drinks outside the shop"></image-slot></div>
+    <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(30,22,14,0.35) 0%,rgba(30,22,14,0.15) 35%,rgba(30,22,14,0.78) 100%);"></div>
+    <div style="position:relative;width:100%;max-width:1180px;margin:0 auto;padding:clamp(52px,10vw,110px) clamp(20px,5vw,32px);text-align:center;">
+      <div style="width:clamp(210px,44vw,264px);margin:0 auto clamp(26px,5vw,38px);background:var(--cream);clip-path:polygon(50% 0%,100% 25%,100% 75%,50% 100%,0% 75%,0% 25%);padding:clamp(36px,7vw,46px) 26px clamp(32px,6vw,42px);box-sizing:border-box;">
+        <svg viewBox="0 0 220 200" width="46" height="46" style="color:var(--brown);">
+<g fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+<path d="M34 178C82 168 142 168 190 177"></path>
+<path d="M56 173C48 163 38 158 27 158"></path>
+<path d="M56 173C52 184 42 190 31 191"></path>
+<path d="M96 153L92 176"></path>
+<path d="M118 149L122 176"></path>
+</g>
+<path fill="currentColor" stroke="none" fill-rule="evenodd" d="M8 66L52 52c-2-14 10-24 28-24 24 0 52 16 68 46 8 16 12 28 10 40l56 52-18 12-56-56c-8 18-28 30-50 30-26 0-44-14-48-36-3-14-3-28 0-38ZM66 51a5 5 0 1 0 .1 0ZM96 88c16 20 36 38 60 54-20-22-42-44-58-62Z"></path>
+</svg>
+        <div style="font-family:var(--serif);font-size:clamp(23px,4.8vw,29px);font-weight:700;letter-spacing:0.07em;color:var(--brown);line-height:1.16;margin-top:8px;">RAVEN’S<br>ROAST</div>
+        <div style="font-size:clamp(10px,2.1vw,12px);font-weight:700;letter-spacing:0.28em;color:var(--brown);margin-top:9px;">COFFEE</div>
+        <div style="width:26px;height:1.5px;background:var(--brown);margin:10px auto 8px;"></div>
+        <div style="font-size:clamp(9px,1.8vw,10px);font-weight:700;letter-spacing:0.22em;color:var(--brown);">EST. 2013</div>
+      </div>
+      <h1 style="font-family:var(--serif);font-size:clamp(38px,8.4vw,78px);font-weight:700;line-height:1.08;color:#FFFDF8;margin:0 auto;max-width:15ch;text-wrap:balance;">Coffee With <span style="color:var(--gold-soft);">Character</span> in the Heart of Estes Park</h1>
+      <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:8px 14px;margin-top:22px;font-size:clamp(16px,3.6vw,20px);color:#EADBC4;">
+        <span>Dine-In</span><span style="color:var(--gold);">•</span><span>Takeout</span><span style="color:var(--gold);">•</span><span>Baked Goods</span>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:32px;">
+        <a href="Menu.dc.html" style="display:inline-flex;align-items:center;justify-content:center;background:var(--gold);color:#3E2E1E;border-radius:999px;padding:19px 40px;font-size:19px;font-weight:700;min-height:56px;text-decoration:none;box-shadow:0 10px 26px rgba(30,22,14,0.35);">View Our Menu</a>
+        <a href="Visit Us.dc.html" style="display:inline-flex;align-items:center;justify-content:center;background:rgba(253,248,240,0.10);border:1.5px solid rgba(253,248,240,0.55);color:#FFFDF8;border-radius:999px;padding:19px 40px;font-size:19px;font-weight:700;min-height:56px;text-decoration:none;">Plan Your Visit</a>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:var(--cream-warm);border-bottom:1px solid rgba(90,70,50,0.12);">
+    <div style="max-width:1180px;margin:0 auto;padding:clamp(28px,4.5vw,40px) clamp(16px,4vw,32px);display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:20px;text-align:center;">
+      <div><div style="font-family:var(--serif);font-size:clamp(28px,5vw,38px);font-weight:700;color:var(--brown);">4.6 ★</div><div style="font-size:16px;color:var(--muted);margin-top:4px;">535+ Google reviews</div></div>
+      <div><div style="font-family:var(--serif);font-size:clamp(28px,5vw,38px);font-weight:700;color:var(--brown);">70+</div><div style="font-size:16px;color:var(--muted);margin-top:4px;">Teas &amp; latte flavors</div></div>
+      <div><div style="font-family:var(--serif);font-size:clamp(28px,5vw,38px);font-weight:700;color:var(--brown);">Dogs</div><div style="font-size:16px;color:var(--muted);margin-top:4px;">Welcome inside &amp; out</div></div>
+      <div><div style="font-family:var(--serif);font-size:clamp(28px,5vw,38px);font-weight:700;color:var(--brown);">Free</div><div style="font-size:16px;color:var(--muted);margin-top:4px;">Wi-Fi &amp; parking nearby</div></div>
+    </div>
+  </section>
+
+  <section style="background:var(--cream);">
+    <div style="max-width:1180px;margin:0 auto;padding:clamp(52px,8vw,88px) clamp(16px,4vw,32px);">
+      <div style="text-align:center;max-width:56ch;margin:0 auto;">
+        <h2 style="font-family:var(--serif);font-size:clamp(30px,6vw,50px);font-weight:700;color:var(--brown);margin:0;line-height:1.12;text-wrap:balance;">A small shop with a very long menu</h2>
+        <div style="width:110px;height:4px;background:var(--gold);border-radius:2px;margin:18px auto 0;"></div>
+        <p style="font-size:clamp(17px,3.4vw,21px);line-height:1.7;color:var(--muted);margin:22px 0 0;">Coffee, tea and cocoa served at the counter along with cookies and other baked goods — plus chai, matcha, smoothies, Italian sodas and mocktails. Dairy alternatives, sugar free syrups, vegan and gluten free options throughout.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:clamp(20px,3vw,26px);margin-top:clamp(34px,5vw,48px);">
+        <a href="Menu.dc.html" style="background:var(--card);border-radius:22px;overflow:hidden;box-shadow:0 6px 24px rgba(62,46,30,0.10);text-decoration:none;display:flex;flex-direction:column;">
+          <div style="height:clamp(180px,26vw,220px);background:linear-gradient(140deg,#EADCC4,#CDB08A);"><image-slot id="rr2-menu-1" shape="rect" placeholder="Coffee photo"></image-slot></div>
+          <div style="padding:clamp(22px,4vw,28px);">
+            <h3 style="font-family:var(--serif);font-size:clamp(23px,4.2vw,29px);font-weight:700;color:var(--brown);margin:0;">Menu</h3>
+            <p style="font-size:17px;line-height:1.6;color:var(--muted);margin:9px 0 0;">Lattes, cappuccinos, specialty teas, cocoa, smoothies and the full flavor list with prices.</p>
+            <div style="font-size:16px;font-weight:700;letter-spacing:0.06em;color:var(--gold);margin-top:14px;">See the menu →</div>
+          </div>
+        </a>
+        <a href="Our Story.dc.html" style="background:var(--card);border-radius:22px;overflow:hidden;box-shadow:0 6px 24px rgba(62,46,30,0.10);text-decoration:none;display:flex;flex-direction:column;">
+          <div style="height:clamp(180px,26vw,220px);background:linear-gradient(140deg,#EADCC4,#CDB08A);"><image-slot id="rr2-story-1" shape="rect" placeholder="Interior or storefront photo"></image-slot></div>
+          <div style="padding:clamp(22px,4vw,28px);">
+            <h3 style="font-family:var(--serif);font-size:clamp(23px,4.2vw,29px);font-weight:700;color:var(--brown);margin:0;">Our Story</h3>
+            <p style="font-size:17px;line-height:1.6;color:var(--muted);margin:9px 0 0;">A locally owned shop in the George Hix Riverside Plaza, a block off the main strip.</p>
+            <div style="font-size:16px;font-weight:700;letter-spacing:0.06em;color:var(--gold);margin-top:14px;">Read more →</div>
+          </div>
+        </a>
+        <a href="Visit Us.dc.html" style="background:var(--card);border-radius:22px;overflow:hidden;box-shadow:0 6px 24px rgba(62,46,30,0.10);text-decoration:none;display:flex;flex-direction:column;">
+          <div style="height:clamp(180px,26vw,220px);background:linear-gradient(140deg,#EADCC4,#CDB08A);"><image-slot id="rr2-map" shape="rect" placeholder="Map or exterior photo"></image-slot></div>
+          <div style="padding:clamp(22px,4vw,28px);">
+            <h3 style="font-family:var(--serif);font-size:clamp(23px,4.2vw,29px);font-weight:700;color:var(--brown);margin:0;">Visit Us</h3>
+            <p style="font-size:17px;line-height:1.6;color:var(--muted);margin:9px 0 0;">Location, directions, seating, parking and everything to expect when you arrive.</p>
+            <div style="font-size:16px;font-weight:700;letter-spacing:0.06em;color:var(--gold);margin-top:14px;">Plan your visit →</div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:linear-gradient(180deg,#4A3826,#3A2B1C);">
+    <div style="max-width:1180px;margin:0 auto;padding:clamp(52px,8vw,88px) clamp(16px,4vw,32px);text-align:center;">
+      <h2 style="font-family:var(--serif);font-size:clamp(28px,5.4vw,44px);font-weight:700;color:#FFFDF8;margin:0;line-height:1.14;text-wrap:balance;">What guests mention most</h2>
+      <div style="width:110px;height:4px;background:var(--gold);border-radius:2px;margin:18px auto 0;"></div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:20px;margin-top:36px;text-align:left;">
+        <div style="background:rgba(253,248,240,0.07);border:1px solid rgba(233,219,196,0.2);border-radius:18px;padding:26px;">
+          <div style="color:var(--gold);font-size:17px;letter-spacing:2px;">★★★★★</div>
+          <p style="font-family:var(--serif);font-size:19px;font-weight:600;line-height:1.5;color:#FFFDF8;margin:12px 0 0;">“The menu is huge! Any flavor you can think of they have it.”</p>
+          <div style="font-size:15px;color:#C9B79A;margin-top:12px;">Abigail Sage</div>
+        </div>
+        <div style="background:rgba(253,248,240,0.07);border:1px solid rgba(233,219,196,0.2);border-radius:18px;padding:26px;">
+          <div style="color:var(--gold);font-size:17px;letter-spacing:2px;">★★★★★</div>
+          <p style="font-family:var(--serif);font-size:19px;font-weight:600;line-height:1.5;color:#FFFDF8;margin:12px 0 0;">“Amazing coffee and even better people.”</p>
+          <div style="font-size:15px;color:#C9B79A;margin-top:12px;">Mary Massoumi</div>
+        </div>
+        <div style="background:rgba(253,248,240,0.07);border:1px solid rgba(233,219,196,0.2);border-radius:18px;padding:26px;">
+          <div style="color:var(--gold);font-size:17px;letter-spacing:2px;">★★★★★</div>
+          <p style="font-family:var(--serif);font-size:19px;font-weight:600;line-height:1.5;color:#FFFDF8;margin:12px 0 0;">“Best coffee shop in Estes Park for sure.”</p>
+          <div style="font-size:15px;color:#C9B79A;margin-top:12px;">Brain</div>
+        </div>
+      </div>
+      <div style="margin-top:32px;">
+        <a href="Reviews.dc.html" style="display:inline-flex;align-items:center;justify-content:center;background:var(--gold);color:#3E2E1E;border-radius:999px;padding:17px 36px;font-size:18px;font-weight:700;min-height:54px;text-decoration:none;">Read All Reviews</a>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:var(--cream);">
+    <div style="max-width:920px;margin:0 auto;padding:clamp(52px,8vw,88px) clamp(16px,4vw,32px);">
+      <div style="background:var(--card);border-radius:22px;padding:clamp(28px,5vw,40px);box-shadow:0 6px 22px rgba(62,46,30,0.09);">
+        <div style="display:flex;align-items:center;gap:16px;">
+          <div style="flex:none;width:56px;height:56px;border-radius:14px;background:#FBF2DF;display:flex;align-items:center;justify-content:center;color:var(--gold);"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 1 1 16 0z"></path><path d="M12 13a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"></path></svg></div>
+          <h2 style="font-family:var(--serif);font-size:clamp(24px,4.4vw,32px);font-weight:700;color:var(--brown);margin:0;">Find us downtown</h2>
+        </div>
+        <div style="font-size:18px;line-height:1.7;color:var(--body);margin-top:20px;">164 East Elkhorn Ave, Unit I<br>George Hix Riverside Plaza<br>Estes Park, CO 80517</div>
+        <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:20px;">
+          <span style="background:#FBF2DF;border-radius:999px;padding:11px 20px;font-size:16px;font-weight:600;color:var(--brown);">Dine-In</span>
+          <span style="background:#FBF2DF;border-radius:999px;padding:11px 20px;font-size:16px;font-weight:600;color:var(--brown);">Takeout</span>
+          <span style="background:#FBF2DF;border-radius:999px;padding:11px 20px;font-size:16px;font-weight:600;color:var(--brown);">Outdoor seating</span>
+          <span style="background:#FBF2DF;border-radius:999px;padding:11px 20px;font-size:16px;font-weight:600;color:var(--brown);">Free Wi-Fi</span>
+        </div>
+        <p style="font-size:17px;line-height:1.65;color:var(--muted);margin:20px 0 0;">Call for today’s hours and what’s fresh in the bakery case, or see the <a href="FAQ.dc.html" style="color:var(--brown);font-weight:700;">FAQ</a> for accessibility, parking and pets.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:24px;">
+          <a href="tel:+19705864326" style="display:inline-flex;align-items:center;justify-content:center;background:var(--brown);color:#FFF9EF;border-radius:999px;padding:17px 34px;font-size:18px;font-weight:700;min-height:54px;text-decoration:none;">Call (970) 586-4326</a>
+          <a href="https://maps.google.com/?q=164+East+Elkhorn+Ave+Estes+Park+CO+80517" style="display:inline-flex;align-items:center;justify-content:center;background:transparent;border:1.5px solid var(--brown);color:var(--brown);border-radius:999px;padding:17px 34px;font-size:18px;font-weight:700;min-height:54px;text-decoration:none;">Get Directions</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer style="background:var(--brown);border-top:4px solid var(--gold);color:#DFCFB6;">
+    <div style="max-width:920px;margin:0 auto;padding:clamp(48px,8vw,80px) clamp(16px,4vw,32px);text-align:center;">
+      <div style="width:clamp(140px,26vw,180px);margin:0 auto;background:#FBF0DA;clip-path:polygon(50% 0%,100% 25%,100% 75%,50% 100%,0% 75%,0% 25%);padding:clamp(26px,5vw,34px) 18px;">
+        <svg viewBox="0 0 220 200" width="36" height="36" style="color:var(--brown);">
+<g fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+<path d="M34 178C82 168 142 168 190 177"></path>
+<path d="M56 173C48 163 38 158 27 158"></path>
+<path d="M56 173C52 184 42 190 31 191"></path>
+<path d="M96 153L92 176"></path>
+<path d="M118 149L122 176"></path>
+</g>
+<path fill="currentColor" stroke="none" fill-rule="evenodd" d="M8 66L52 52c-2-14 10-24 28-24 24 0 52 16 68 46 8 16 12 28 10 40l56 52-18 12-56-56c-8 18-28 30-50 30-26 0-44-14-48-36-3-14-3-28 0-38ZM66 51a5 5 0 1 0 .1 0ZM96 88c16 20 36 38 60 54-20-22-42-44-58-62Z"></path>
+</svg>
+        <div style="font-family:var(--serif);font-size:clamp(15px,3vw,18px);font-weight:700;letter-spacing:0.10em;color:var(--brown);margin-top:8px;line-height:1.2;">RAVEN’S<br>ROAST</div>
+        <div style="font-size:9px;font-weight:700;letter-spacing:0.20em;color:var(--brown);margin-top:6px;">COFFEE</div>
+        <div style="font-size:8px;font-weight:700;letter-spacing:0.22em;color:var(--brown);opacity:0.7;margin-top:5px;">EST. 2013</div>
+      </div>
+      <p style="font-family:var(--serif);font-size:clamp(17px,3.4vw,21px);font-style:italic;color:#EADBC4;margin:26px 0 0;">Coffee with character in the heart of Estes Park</p>
+      <div style="display:flex;justify-content:center;gap:14px;margin-top:28px;">
+        <a href="https://facebook.com/ravensroast" aria-label="Facebook" style="width:52px;height:52px;border-radius:50%;background:rgba(253,248,240,0.12);border:1px solid rgba(233,219,196,0.35);display:flex;align-items:center;justify-content:center;color:#FFF9EF;text-decoration:none;"><svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor"><path d="M13.5 22v-8h2.8l.4-3.2h-3.2V8.7c0-.9.3-1.6 1.6-1.6h1.7V4.2A22 22 0 0 0 14.3 4c-2.5 0-4.1 1.5-4.1 4.3v2.5H7.4V14h2.8v8h3.3z"></path></svg></a>
+        <a href="https://instagram.com/ravensroast" aria-label="Instagram" style="width:52px;height:52px;border-radius:50%;background:rgba(253,248,240,0.12);border:1px solid rgba(233,219,196,0.35);display:flex;align-items:center;justify-content:center;color:#FFF9EF;text-decoration:none;"><svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor"><path d="M12 2.2c-2.7 0-3 0-4.1.1-1 0-1.8.2-2.4.5a4.8 4.8 0 0 0-1.8 1.1 4.8 4.8 0 0 0-1.1 1.8c-.3.6-.4 1.4-.5 2.4C2 9.2 2 9.5 2 12s0 2.8.1 3.9c0 1 .2 1.8.5 2.4a4.8 4.8 0 0 0 1.1 1.8 4.8 4.8 0 0 0 1.8 1.1c.6.3 1.4.4 2.4.5 1.1.1 1.4.1 4.1.1s3 0 4.1-.1c1 0 1.8-.2 2.4-.5a5 5 0 0 0 2.9-2.9c.3-.6.4-1.4.5-2.4.1-1.1.1-1.4.1-3.9s0-2.8-.1-3.9c0-1-.2-1.8-.5-2.4a4.8 4.8 0 0 0-1.1-1.8 4.8 4.8 0 0 0-1.8-1.1c-.6-.3-1.4-.4-2.4-.5C15 2.2 14.7 2.2 12 2.2zm0 1.8c2.6 0 2.9 0 4 .1.8 0 1.3.2 1.6.3.4.2.7.4 1 .7.3.3.5.6.7 1 .1.3.3.8.3 1.6.1 1.1.1 1.4.1 4s0 2.9-.1 4c0 .8-.2 1.3-.3 1.6-.2.4-.4.7-.7 1-.3.3-.6.5-1 .7-.3.1-.8.3-1.6.3-1.1.1-1.4.1-4 .1s-2.9 0-4-.1c-.8 0-1.3-.2-1.6-.3-.4-.2-.7-.4-1-.7a2.7 2.7 0 0 1-.7-1c-.1-.3-.3-.8-.3-1.6-.1-1.1-.1-1.4-.1-4s0-2.9.1-4c0-.8.2-1.3.3-1.6.2-.4.4-.7.7-1 .3-.3.6-.5 1-.7.3-.1.8-.3 1.6-.3 1.1-.1 1.4-.1 4-.1zm0 3.1a4.9 4.9 0 1 0 0 9.8 4.9 4.9 0 0 0 0-9.8zm0 8a3.2 3.2 0 1 1 0-6.4 3.2 3.2 0 0 1 0 6.4zm6.3-8.2a1.2 1.2 0 1 1-2.3 0 1.2 1.2 0 0 1 2.3 0z"></path></svg></a>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:12px 26px;margin-top:26px;font-size:17px;font-weight:600;">
+        <a href="Menu.dc.html" style="color:#FFF9EF;">Menu</a>
+        <a href="Our Story.dc.html" style="color:#FFF9EF;">Our Story</a>
+        <a href="Reviews.dc.html" style="color:#FFF9EF;">Reviews</a>
+        <a href="Visit Us.dc.html" style="color:#FFF9EF;">Visit Us</a>
+        <a href="Terminology.dc.html" style="color:#FFF9EF;">Terminology</a>
+        <a href="FAQ.dc.html" style="color:#FFF9EF;">FAQ</a>
+        <a href="Contact Us.dc.html" style="color:#FFF9EF;">Contact Us</a>
+      </div>
+      <div style="border-top:1px solid rgba(233,219,196,0.22);margin-top:32px;padding-top:22px;font-size:15px;color:#C4B399;">© Raven’s Roast Coffee · 164 East Elkhorn Ave, Estes Park, CO 80517 · (970) 586-4326</div>
+    </div>
+  </footer>
+
+  <div class="rr-callbar" style="position:fixed;left:0;right:0;bottom:0;z-index:60;background:rgba(62,46,30,0.97);backdrop-filter:blur(8px);border-top:1px solid rgba(233,219,196,0.25);padding:11px 14px;display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+    <a href="tel:+19705864326" style="display:inline-flex;align-items:center;justify-content:center;gap:9px;background:var(--gold);color:#3E2E1E;border-radius:999px;padding:14px 10px;font-size:17px;font-weight:700;min-height:50px;text-decoration:none;">Call Now</a>
+    <a href="https://maps.google.com/?q=164+East+Elkhorn+Ave+Estes+Park+CO+80517" style="display:inline-flex;align-items:center;justify-content:center;gap:9px;background:transparent;border:1.5px solid rgba(255,249,239,0.6);color:#FFF9EF;border-radius:999px;padding:14px 10px;font-size:17px;font-weight:700;min-height:50px;text-decoration:none;">Directions</a>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:420,&quot;height&quot;:900}}">
+class Component extends DCLogic {
+  state = { navOpen: false };
+  renderVals() {
+    return {
+      navOpen: this.state.navOpen,
+      toggleNav: () => this.setState(s => ({ navOpen: !s.navOpen })),
+      closeNav: () => this.setState({ navOpen: false })
+    };
+  }
+}
+</script>
+</body>
+</html>

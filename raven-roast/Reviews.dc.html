@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+  <script src="./image-slot.js"></script>
+  <style>
+    :root {
+      --ink:#3E2E1E; --brown:#5A4632; --brown-deep:#4A3826; --gold:#D9A227; --gold-soft:#E8C169;
+      --cream:#FDF8F0; --cream-warm:#F6EDE0; --card:#FFFFFF; --muted:#8A7C6C; --body:#5C5142;
+      --serif:'Playfair Display',Georgia,serif; --sans:'Source Sans 3',system-ui,sans-serif;
+    }
+    body { margin:0; background:var(--cream); padding-bottom:84px; -webkit-font-smoothing:antialiased; }
+    a { color:var(--brown); text-decoration:none; }
+    a:hover { color:var(--gold); text-decoration:underline; }
+    image-slot { max-width:100%; }
+    @media (min-width:900px) { .rr-callbar { display:none !important; } body { padding-bottom:0; } }
+  </style>
+</helmet>
+
+<div style="font-family:var(--sans);color:var(--body);background:var(--cream);overflow-x:hidden;">
+
+  <div style="background:var(--brown);color:#F3E7D5;font-size:clamp(12px,2.6vw,14px);font-weight:700;letter-spacing:0.08em;text-transform:uppercase;text-align:center;padding:11px 16px;">Dine-In &amp; Takeout · Downtown Estes Park · (970) 586-4326</div>
+
+  <header style="position:sticky;top:0;z-index:50;background:var(--cream);border-bottom:1px solid rgba(90,70,50,0.12);">
+    <div style="max-width:1180px;margin:0 auto;padding:14px clamp(16px,4vw,32px);display:flex;align-items:center;justify-content:space-between;gap:16px;">
+      <div style="width:44px;"></div>
+      <a href="Ravens Roast Homepage v2.dc.html" style="display:flex;flex-direction:column;align-items:center;gap:2px;text-decoration:none;">
+        <svg viewBox="0 0 220 200" width="24" height="24" style="color:var(--brown);flex:none;margin-bottom:2px;">
+<g fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+<path d="M34 178C82 168 142 168 190 177"></path>
+<path d="M56 173C48 163 38 158 27 158"></path>
+<path d="M56 173C52 184 42 190 31 191"></path>
+<path d="M96 153L92 176"></path>
+<path d="M118 149L122 176"></path>
+</g>
+<path fill="currentColor" stroke="none" fill-rule="evenodd" d="M8 66L52 52c-2-14 10-24 28-24 24 0 52 16 68 46 8 16 12 28 10 40l56 52-18 12-56-56c-8 18-28 30-50 30-26 0-44-14-48-36-3-14-3-28 0-38ZM66 51a5 5 0 1 0 .1 0ZM96 88c16 20 36 38 60 54-20-22-42-44-58-62Z"></path>
+</svg>
+        <span style="font-family:var(--serif);font-size:clamp(30px,7.4vw,44px);font-weight:700;letter-spacing:0.03em;color:var(--brown);line-height:1.05;">RAVEN'S ROAST</span>
+        <span style="font-family:var(--sans);font-size:clamp(18px,4.4vw,26px);font-weight:700;letter-spacing:0.16em;color:var(--ink);line-height:1.1;">COFFEE</span>
+      </a>
+      <button type="button" onClick="{{ toggleNav }}" aria-label="Menu" style="width:44px;height:44px;display:flex;flex-direction:column;justify-content:center;gap:6px;background:none;border:none;cursor:pointer;padding:0 8px;">
+        <span style="display:block;height:2.5px;background:var(--ink);border-radius:2px;"></span>
+        <span style="display:block;height:2.5px;background:var(--ink);border-radius:2px;"></span>
+        <span style="display:block;height:2.5px;background:var(--ink);border-radius:2px;"></span>
+      </button>
+    </div>
+    <sc-if value="{{ navOpen }}" hint-placeholder-val="{{ false }}">
+      <nav style="border-top:1px solid rgba(90,70,50,0.12);background:var(--cream);">
+        <div style="max-width:1180px;margin:0 auto;padding:8px clamp(16px,4vw,32px) 18px;display:grid;gap:2px;">
+          <a href="Ravens Roast Homepage v2.dc.html" onClick="{{ closeNav }}" style="padding:13px 4px;font-size:17px;font-weight:600;border-bottom:1px solid rgba(90,70,50,0.10);">Home</a>
+          <a href="Menu.dc.html" onClick="{{ closeNav }}" style="padding:13px 4px;font-size:17px;font-weight:600;border-bottom:1px solid rgba(90,70,50,0.10);">Menu</a>
+          <a href="Our Story.dc.html" onClick="{{ closeNav }}" style="padding:13px 4px;font-size:17px;font-weight:600;border-bottom:1px solid rgba(90,70,50,0.10);">Our Story</a>
+          <a href="Visit Us.dc.html" onClick="{{ closeNav }}" style="padding:13px 4px;font-size:17px;font-weight:600;border-bottom:1px solid rgba(90,70,50,0.10);">Visit Us</a>
+          <a href="Terminology.dc.html" onClick="{{ closeNav }}" style="padding:13px 4px;font-size:17px;font-weight:600;border-bottom:1px solid rgba(90,70,50,0.10);">Terminology</a>
+          <a href="FAQ.dc.html" onClick="{{ closeNav }}" style="padding:13px 4px;font-size:17px;font-weight:600;border-bottom:1px solid rgba(90,70,50,0.10);">FAQ</a>
+          <a href="Contact Us.dc.html" onClick="{{ closeNav }}" style="padding:13px 4px;font-size:17px;font-weight:600;">Contact Us</a>
+        </div>
+      </nav>
+    </sc-if>
+  </header>
+
+  <section style="background:linear-gradient(180deg,#4A3826,#3A2B1C);">
+    <div style="max-width:1180px;margin:0 auto;padding:clamp(48px,9vw,86px) clamp(20px,5vw,32px);text-align:center;">
+      <div style="width:clamp(180px,40vw,224px);margin:0 auto clamp(24px,4.5vw,34px);background:var(--cream);clip-path:polygon(50% 0%,100% 25%,100% 75%,50% 100%,0% 75%,0% 25%);padding:clamp(32px,6vw,42px) 26px clamp(28px,5vw,38px);box-sizing:border-box;text-align:center;">
+        <svg viewBox="0 0 220 200" width="42" height="42" style="color:var(--brown);">
+<g fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+<path d="M34 178C82 168 142 168 190 177"></path>
+<path d="M56 173C48 163 38 158 27 158"></path>
+<path d="M56 173C52 184 42 190 31 191"></path>
+<path d="M96 153L92 176"></path>
+<path d="M118 149L122 176"></path>
+</g>
+<path fill="currentColor" stroke="none" fill-rule="evenodd" d="M8 66L52 52c-2-14 10-24 28-24 24 0 52 16 68 46 8 16 12 28 10 40l56 52-18 12-56-56c-8 18-28 30-50 30-26 0-44-14-48-36-3-14-3-28 0-38ZM66 51a5 5 0 1 0 .1 0ZM96 88c16 20 36 38 60 54-20-22-42-44-58-62Z"></path>
+</svg>
+        <div style="font-family:var(--serif);font-size:clamp(21px,4.4vw,27px);font-weight:700;letter-spacing:0.07em;color:var(--brown);line-height:1.16;margin-top:8px;">RAVEN’S<br>ROAST</div>
+        <div style="font-size:clamp(10px,2vw,12px);font-weight:700;letter-spacing:0.28em;color:var(--brown);margin-top:9px;">COFFEE</div>
+        <div style="width:26px;height:1.5px;background:var(--brown);margin:10px auto 8px;"></div>
+        <div style="font-size:clamp(9px,1.7vw,10px);font-weight:700;letter-spacing:0.22em;color:var(--brown);">EST. 2013</div>
+      </div>
+      <h1 style="font-family:var(--serif);font-size:clamp(34px,7.4vw,64px);font-weight:700;line-height:1.08;color:#FFFDF8;margin:0 auto;max-width:18ch;text-wrap:balance;">Reviews</h1>
+      <div style="width:110px;height:4px;background:var(--gold);border-radius:2px;margin:20px auto 0;"></div>
+      <p style="font-size:clamp(17px,3.4vw,21px);line-height:1.6;color:#DFCFB6;margin:22px auto 0;max-width:48ch;">What guests say after a cup at Raven's Roast</p>
+    </div>
+  </section>
+
+  <section style="background:var(--cream-warm);">
+    <div style="max-width:1180px;margin:0 auto;padding:clamp(48px,8vw,80px) clamp(16px,4vw,32px);">
+      <div style="text-align:center;">
+        <div style="display:inline-flex;align-items:center;gap:14px;background:var(--card);border-radius:999px;padding:14px 26px;box-shadow:0 4px 16px rgba(62,46,30,0.08);">
+          <svg viewBox="0 0 48 48" width="26" height="26" style="flex:none;"><path fill="#4285F4" d="M45.1 24.5c0-1.6-.1-3.1-.4-4.5H24v8.5h11.8c-.5 2.7-2 5-4.3 6.6v5.5h7c4.1-3.8 6.6-9.4 6.6-16.1z"></path><path fill="#34A853" d="M24 46c5.8 0 10.7-1.9 14.3-5.2l-7-5.5c-1.9 1.3-4.4 2.1-7.3 2.1-5.6 0-10.4-3.8-12.1-8.9H4.7v5.6C8.3 41.4 15.6 46 24 46z"></path><path fill="#FBBC05" d="M11.9 28.5c-.4-1.3-.7-2.7-.7-4.5s.3-3.2.7-4.5v-5.6H4.7C3.1 17.1 2.2 20.4 2.2 24s.9 6.9 2.5 10.1l7.2-5.6z"></path><path fill="#EA4335" d="M24 10.6c3.2 0 6 1.1 8.2 3.2l6.2-6.2C34.7 4.1 29.8 2 24 2 15.6 2 8.3 6.6 4.7 13.9l7.2 5.6c1.7-5.1 6.5-8.9 12.1-8.9z"></path></svg>
+          <span style="font-size:19px;font-weight:700;color:var(--brown);">4.6 ★ · 535+ Google reviews</span>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;margin-top:32px;">
+        <sc-for list="{{ visibleReviews }}" as="rev" hint-placeholder-count="6">
+          <div style="background:var(--card);border-radius:20px;padding:clamp(24px,4vw,32px);box-shadow:0 4px 18px rgba(62,46,30,0.08);text-align:left;">
+            <div style="color:var(--gold);font-size:18px;letter-spacing:2px;">★★★★★</div>
+            <p style="font-family:var(--serif);font-size:clamp(18px,3.2vw,21px);font-weight:600;line-height:1.5;color:var(--brown);margin:14px 0 0;text-wrap:pretty;">{{ rev.quote }}</p>
+            <div style="font-size:16px;font-weight:700;color:var(--ink);margin-top:16px;">{{ rev.name }}</div>
+            <div style="font-size:15px;color:var(--muted);margin-top:2px;">{{ rev.meta }}</div>
+          </div>
+        </sc-for>
+      </div>
+      <sc-if value="{{ hasMore }}" hint-placeholder-val="{{ true }}">
+        <div style="display:flex;flex-direction:column;align-items:center;gap:12px;margin-top:32px;">
+          <button type="button" onClick="{{ loadMore }}" style="display:inline-flex;align-items:center;justify-content:center;gap:10px;background:var(--brown);color:#FFF9EF;border:none;border-radius:999px;padding:17px 36px;font-family:var(--sans);font-size:18px;font-weight:700;min-height:54px;cursor:pointer;">Load More Reviews</button>
+          <div style="font-size:16px;color:var(--muted);">{{ shownLabel }}</div>
+        </div>
+      </sc-if>
+      <div style="background:var(--card);border-radius:22px;padding:clamp(28px,5vw,40px);margin-top:clamp(28px,5vw,40px);box-shadow:0 6px 22px rgba(62,46,30,0.09);text-align:center;">
+        <h3 style="font-family:var(--serif);font-size:clamp(24px,4.4vw,32px);font-weight:700;color:var(--brown);margin:0;">Been in lately?</h3>
+        <p style="font-size:18px;line-height:1.7;color:var(--muted);margin:12px auto 0;max-width:48ch;">Reviews help other visitors find us. If you enjoyed your cup, we'd love to hear about it.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:24px;">
+          <a href="https://www.google.com/search?q=Ravens+Roast+Coffee+Estes+Park" style="display:inline-flex;align-items:center;justify-content:center;background:var(--brown);color:#FFF9EF;border-radius:999px;padding:17px 34px;font-size:18px;font-weight:700;min-height:54px;text-decoration:none;">Leave a Google Review</a>
+          <a href="Menu.dc.html" style="display:inline-flex;align-items:center;justify-content:center;background:transparent;border:1.5px solid var(--brown);color:var(--brown);border-radius:999px;padding:17px 34px;font-size:18px;font-weight:700;min-height:54px;text-decoration:none;">See the Menu</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer style="background:var(--brown);border-top:4px solid var(--gold);color:#DFCFB6;">
+    <div style="max-width:920px;margin:0 auto;padding:clamp(48px,8vw,80px) clamp(16px,4vw,32px);text-align:center;">
+      <div style="width:clamp(140px,26vw,180px);margin:0 auto;background:#FBF0DA;clip-path:polygon(50% 0%,100% 25%,100% 75%,50% 100%,0% 75%,0% 25%);padding:clamp(26px,5vw,34px) 18px;">
+        <svg viewBox="0 0 220 200" width="36" height="36" style="color:var(--brown);">
+<g fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+<path d="M34 178C82 168 142 168 190 177"></path>
+<path d="M56 173C48 163 38 158 27 158"></path>
+<path d="M56 173C52 184 42 190 31 191"></path>
+<path d="M96 153L92 176"></path>
+<path d="M118 149L122 176"></path>
+</g>
+<path fill="currentColor" stroke="none" fill-rule="evenodd" d="M8 66L52 52c-2-14 10-24 28-24 24 0 52 16 68 46 8 16 12 28 10 40l56 52-18 12-56-56c-8 18-28 30-50 30-26 0-44-14-48-36-3-14-3-28 0-38ZM66 51a5 5 0 1 0 .1 0ZM96 88c16 20 36 38 60 54-20-22-42-44-58-62Z"></path>
+</svg>
+        <div style="font-family:var(--serif);font-size:clamp(15px,3vw,18px);font-weight:700;letter-spacing:0.10em;color:var(--brown);margin-top:8px;line-height:1.2;">RAVEN'S<br>ROAST</div>
+        <div style="font-size:9px;font-weight:700;letter-spacing:0.20em;color:var(--brown);margin-top:6px;">COFFEE</div>
+        <div style="font-size:8px;font-weight:700;letter-spacing:0.22em;color:var(--brown);opacity:0.7;margin-top:5px;">EST. 2013</div>
+      </div>
+      <p style="font-family:var(--serif);font-size:clamp(17px,3.4vw,21px);font-style:italic;color:#EADBC4;margin:26px 0 0;">Coffee with character in the heart of Estes Park</p>
+      <div style="display:flex;justify-content:center;gap:14px;margin-top:28px;">
+        <a href="https://facebook.com/ravensroast" aria-label="Facebook" style="width:52px;height:52px;border-radius:50%;background:rgba(253,248,240,0.12);border:1px solid rgba(233,219,196,0.35);display:flex;align-items:center;justify-content:center;color:#FFF9EF;text-decoration:none;"><svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor"><path d="M13.5 22v-8h2.8l.4-3.2h-3.2V8.7c0-.9.3-1.6 1.6-1.6h1.7V4.2A22 22 0 0 0 14.3 4c-2.5 0-4.1 1.5-4.1 4.3v2.5H7.4V14h2.8v8h3.3z"></path></svg></a>
+        <a href="https://instagram.com/ravensroast" aria-label="Instagram" style="width:52px;height:52px;border-radius:50%;background:rgba(253,248,240,0.12);border:1px solid rgba(233,219,196,0.35);display:flex;align-items:center;justify-content:center;color:#FFF9EF;text-decoration:none;"><svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor"><path d="M12 2.2c-2.7 0-3 0-4.1.1-1 0-1.8.2-2.4.5a4.8 4.8 0 0 0-1.8 1.1 4.8 4.8 0 0 0-1.1 1.8c-.3.6-.4 1.4-.5 2.4C2 9.2 2 9.5 2 12s0 2.8.1 3.9c0 1 .2 1.8.5 2.4a4.8 4.8 0 0 0 1.1 1.8 4.8 4.8 0 0 0 1.8 1.1c.6.3 1.4.4 2.4.5 1.1.1 1.4.1 4.1.1s3 0 4.1-.1c1 0 1.8-.2 2.4-.5a5 5 0 0 0 2.9-2.9c.3-.6.4-1.4.5-2.4.1-1.1.1-1.4.1-3.9s0-2.8-.1-3.9c0-1-.2-1.8-.5-2.4a4.8 4.8 0 0 0-1.1-1.8 4.8 4.8 0 0 0-1.8-1.1c-.6-.3-1.4-.4-2.4-.5C15 2.2 14.7 2.2 12 2.2zm0 1.8c2.6 0 2.9 0 4 .1.8 0 1.3.2 1.6.3.4.2.7.4 1 .7.3.3.5.6.7 1 .1.3.3.8.3 1.6.1 1.1.1 1.4.1 4s0 2.9-.1 4c0 .8-.2 1.3-.3 1.6-.2.4-.4.7-.7 1-.3.3-.6.5-1 .7-.3.1-.8.3-1.6.3-1.1.1-1.4.1-4 .1s-2.9 0-4-.1c-.8 0-1.3-.2-1.6-.3-.4-.2-.7-.4-1-.7a2.7 2.7 0 0 1-.7-1c-.1-.3-.3-.8-.3-1.6-.1-1.1-.1-1.4-.1-4s0-2.9.1-4c0-.8.2-1.3.3-1.6.2-.4.4-.7.7-1 .3-.3.6-.5 1-.7.3-.1.8-.3 1.6-.3 1.1-.1 1.4-.1 4-.1zm0 3.1a4.9 4.9 0 1 0 0 9.8 4.9 4.9 0 0 0 0-9.8zm0 8a3.2 3.2 0 1 1 0-6.4 3.2 3.2 0 0 1 0 6.4zm6.3-8.2a1.2 1.2 0 1 1-2.3 0 1.2 1.2 0 0 1 2.3 0z"></path></svg></a>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:12px 26px;margin-top:26px;font-size:17px;font-weight:600;">
+        <a href="Menu.dc.html" style="color:#FFF9EF;">Menu</a>
+        <a href="Our Story.dc.html" style="color:#FFF9EF;">Our Story</a>
+        <a href="Reviews.dc.html" style="color:#FFF9EF;">Reviews</a>
+        <a href="Visit Us.dc.html" style="color:#FFF9EF;">Visit Us</a>
+        <a href="Terminology.dc.html" style="color:#FFF9EF;">Terminology</a>
+        <a href="FAQ.dc.html" style="color:#FFF9EF;">FAQ</a>
+        <a href="Contact Us.dc.html" style="color:#FFF9EF;">Contact Us</a>
+      </div>
+      <div style="border-top:1px solid rgba(233,219,196,0.22);margin-top:32px;padding-top:22px;font-size:15px;color:#C4B399;">© Raven's Roast Coffee · 164 East Elkhorn Ave, Estes Park, CO 80517 · (970) 586-4326</div>
+    </div>
+  </footer>
+
+  <div class="rr-callbar" style="position:fixed;left:0;right:0;bottom:0;z-index:60;background:rgba(62,46,30,0.97);backdrop-filter:blur(8px);border-top:1px solid rgba(233,219,196,0.25);padding:11px 14px;display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+    <a href="tel:+19705864326" style="display:inline-flex;align-items:center;justify-content:center;gap:9px;background:var(--gold);color:#3E2E1E;border-radius:999px;padding:14px 10px;font-size:17px;font-weight:700;min-height:50px;text-decoration:none;">Call Now</a>
+    <a href="https://maps.google.com/?q=164+East+Elkhorn+Ave+Estes+Park+CO+80517" style="display:inline-flex;align-items:center;justify-content:center;gap:9px;background:transparent;border:1.5px solid rgba(255,249,239,0.6);color:#FFF9EF;border-radius:999px;padding:14px 10px;font-size:17px;font-weight:700;min-height:50px;text-decoration:none;">Directions</a>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:420,&quot;height&quot;:900}}">
+class Component extends DCLogic {
+  state = { navOpen: false, shown: 12 };
+
+  reviews() {
+    return [
+          {
+                "quote": "“Amazing coffee and even better people. We were visiting Colorado from Maryland and stopped here after a hike. The coffee and sweets were both great, and the place had such a nice cozy feel.”",
+                "name": "Mary Massoumi",
+                "meta": "Local Guide · 9 months ago"
+          },
+          {
+                "quote": "“I was very impressed with the huge selection of coffee and tea here, the menu is huge! Any flavor you can think of they have it. I ordered the tiramisu latte with maple and oat milk and it was so good! The baristas were so nice.”",
+                "name": "Abigail Sage",
+                "meta": "Local Guide · 9 months ago"
+          },
+          {
+                "quote": "“The whole vibe and esthetic of the shop is wonderful. Food was exceptional. Coffee was absolutely perfect. Best coffee shop in Estes Park for sure.”",
+                "name": "Brain",
+                "meta": "Local Guide · 2 months ago"
+          },
+          {
+                "quote": "“Lovely Gothic atmosphere. A large selection of teas and coffee flavorings. They had multiple milk alternatives including macadamia milk! They also had a wonderful selection of gluten free goodies.”",
+                "name": "Chelsey Linclau Watts",
+                "meta": "Local Guide · 5 months ago"
+          },
+          {
+                "quote": "“Different coffee flavors, teas available to purchase. Cozy atmosphere in a tiny coffee shop by the stream nearby. I love hitting this spot before my hikes near Estes Park! The servers are kind and very quick with your order.”",
+                "name": "Liz Hernandez",
+                "meta": "Local Guide · 2 months ago"
+          },
+          {
+                "quote": "“Delicious coffee, plentiful tea options, friendly and helpful staff, cute decor... I love this place!!!!!”",
+                "name": "QE Monkey",
+                "meta": "Local Guide · 7 months ago"
+          },
+          {
+                "quote": "“A warm, friendly, relaxing cafe a block off Main Street. Great tasting lattes with over 12 sugar free syrups to choose from. A great selection of teas (black, green, herbal), too. The pastries are fresh.”",
+                "name": "DeDee Morrison",
+                "meta": "Local Guide · a year ago"
+          },
+          {
+                "quote": "“Great people, wonderful coffee, and a cool atmosphere. Prices are reasonable, coffee and teas for 4 people was under 20 dollars. A little hidden away, but a total vibe.”",
+                "name": "Michael Savage",
+                "meta": "Local Guide · a year ago"
+          },
+          {
+                "quote": "“Pleasantly surprised to find a place that welcomes four legged friends, even in the presence of human food on offer. The shop was packed but given the speediness of service, you wouldn’t know it.”",
+                "name": "Sara Hanson",
+                "meta": "Local Guide · 6 months ago"
+          },
+          {
+                "quote": "“Tucked into the storybook corners of Estes Park, this raven-themed cafe feels like a cozy exhale after wandering through Rocky Mountain National Park. We ordered a lemon bar that was soft and spongy.”",
+                "name": "bartika dutta",
+                "meta": "Local Guide · 5 months ago"
+          },
+          {
+                "quote": "“Staff was extremely friendly and the coffee was so good, well brewed, you can tell the employees are very experienced. Miqmar was especially helpful and had a beautiful smile while helping me!”",
+                "name": "Draven Nobles",
+                "meta": "2 months ago"
+          },
+          {
+                "quote": "“Wonderful space with an enormous amount of options. These baristas really know their coffee!”",
+                "name": "Kayla Hartmann",
+                "meta": "Local Guide · 4 months ago"
+          },
+          {
+                "quote": "“Came here for the first time with my mom and we immediately loved the atmosphere and the drinks even more! They also have a great amount of sugar free options and vegan food options.”",
+                "name": "Allison Cooper",
+                "meta": "10 months ago"
+          },
+          {
+                "quote": "“I don’t know why you would go to a chain over the Raven’s Roast! RR has excellent coffee and delectable sweet treats! Also a great spot to pick up some trinkets — pins, stickers and patches. Support local.”",
+                "name": "itchesbtrippin",
+                "meta": "Local Guide · 9 months ago"
+          },
+          {
+                "quote": "“Wonderful, unique shop with lots of choices, especially for us who want alternatives to dairy with our coffee.”",
+                "name": "Susan Stienstra",
+                "meta": "Local Guide · 8 months ago"
+          },
+          {
+                "quote": "“Great local spot for coffee, tea, and pastries! The shop is small and cozy, with indoor and outdoor seating. They have lots of local art and things like pins, stickers, and mugs for sale.”",
+                "name": "Gavin Skousen",
+                "meta": "Local Guide · 3 years ago"
+          },
+          {
+                "quote": "“This coffee shop is tucked away off the main path of town. Plenty of seats inside and a good place to cowork (wifi and outlets).”",
+                "name": "Tina Mellone",
+                "meta": "Local Guide · 2 years ago"
+          },
+          {
+                "quote": "“A wonderful little coffee shop in the heart of town with a variety of other drinks like smoothies and pastries.”",
+                "name": "Travis Menghini",
+                "meta": "Local Guide · a month ago"
+          }
+    ];
+  }
+
+  renderVals() {
+    const all = this.reviews();
+    const shown = Math.min(this.state.shown, all.length);
+    return {
+      navOpen: this.state.navOpen,
+      toggleNav: () => this.setState(s => ({ navOpen: !s.navOpen })),
+      closeNav: () => this.setState({ navOpen: false }),
+      visibleReviews: all.slice(0, shown),
+      hasMore: shown < all.length,
+      shownLabel: 'Showing ' + shown + ' of ' + all.length + ' reviews',
+      loadMore: () => this.setState(s => ({ shown: s.shown + 9 }))
+    };
+  }
+}
+</script>
+</body>
+</html>

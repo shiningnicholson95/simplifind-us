@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Studio Visits — Liz Kelly Pottery</title>
+<meta name="description" content="Book a studio visit to shop in person at Liz Kelly Pottery in Boylan Heights, Raleigh, NC.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='32' fill='%23a8674b'/%3E%3Ctext x='32' y='42' font-size='28' font-family='Georgia,serif' fill='white' text-anchor='middle'%3ELK%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  body { margin:0; background:oklch(0.97 0.015 90); }
+  a { color: oklch(0.64 0.12 40); }
+  a:hover { color: oklch(0.52 0.12 40); }
+</style>
+<template id="__bundler_thumbnail"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400"><rect width="400" height="400" fill="#e8ded2"/><text x="200" y="210" font-size="140" font-family="Georgia,serif" fill="#a8674b" text-anchor="middle">LK</text></svg></template>
+</helmet>
+
+<dc-import name="nav" current-page="studio-visits" hint-size="100%,72px"></dc-import>
+
+<main style="font-family:'Work Sans',sans-serif;color:oklch(0.24 0.02 50);">
+  <section style="max-width:1100px;margin:0 auto;padding:clamp(36px,6vw,64px) clamp(16px,4vw,32px);display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(28px,4vw,56px);align-items:center;">
+    <div>
+      <div style="font-size:13px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:oklch(0.52 0.12 40);margin-bottom:14px;">Studio Visits</div>
+      <h1 style="font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;font-size:clamp(34px,5vw,52px);margin:0 0 18px;">Book a studio visit.</h1>
+      <p style="font-size:16px;line-height:1.7;color:oklch(0.42 0.02 50);max-width:52ch;margin:0 0 28px;text-wrap:pretty;">The studio is located in the historic Boylan Heights neighborhood of Raleigh, NC, and studio shopping is welcome. Reach out by email or phone to schedule a time to browse in person.</p>
+      <div style="display:flex;flex-direction:column;gap:16px;margin-bottom:28px;">
+        <div style="display:flex;gap:14px;align-items:flex-start;">
+          <div style="flex:none;width:44px;height:44px;border-radius:12px;background:oklch(0.9 0.03 40);color:oklch(0.52 0.12 40);display:flex;align-items:center;justify-content:center;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s-7-6.2-7-11a7 7 0 1 1 14 0c0 4.8-7 11-7 11Z"></path><circle cx="12" cy="10" r="2.4"></circle></svg>
+          </div>
+          <div><div style="font-weight:700;font-size:15px;">Boylan Heights Studio</div><a href="https://maps.google.com/maps?q=Liz+Kelly+Pottery+Raleigh+NC" style="font-size:14px;color:oklch(0.42 0.02 50);text-decoration:none;">1201 W. Lenoir St., Raleigh, NC 27603</a></div>
+        </div>
+        <div style="display:flex;gap:14px;align-items:flex-start;">
+          <div style="flex:none;width:44px;height:44px;border-radius:12px;background:oklch(0.9 0.03 85);color:oklch(0.55 0.12 85);display:flex;align-items:center;justify-content:center;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="17" rx="2"></rect><path d="M8 2v4M16 2v4M3 9h18"></path></svg>
+          </div>
+          <div><div style="font-weight:700;font-size:15px;">By Appointment</div><div style="font-size:14px;color:oklch(0.42 0.02 50);">Email or call ahead to schedule a time</div></div>
+        </div>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:14px;">
+        <a href="mailto:lizkelly33@gmail.com?subject=Studio Visit Request" style="text-decoration:none;background:oklch(0.64 0.12 40);color:oklch(0.99 0.008 90);font-weight:600;font-size:15px;padding:14px 24px;border-radius:11px;">Email to Book</a>
+        <a href="tel:9196566099" style="text-decoration:none;background:transparent;border:1.5px solid oklch(0.24 0.02 50);color:oklch(0.24 0.02 50);font-weight:600;font-size:15px;padding:13px 24px;border-radius:11px;">Call (919) 656-6099</a>
+      </div>
+    </div>
+    <div style="border-radius:22px;overflow:hidden;aspect-ratio:4/5;box-shadow:0 20px 50px -20px oklch(0.24 0.02 50 / 0.35);">
+      <img src="assets/studio-shelves-2.jpg" alt="Shelves of pottery ready for studio visitors to browse" style="width:100%;height:100%;object-fit:cover;display:block;">
+    </div>
+  </section>
+</main>
+
+<dc-import name="footer" hint-size="100%,320px"></dc-import>
+</x-dc>
+</body>
+</html>

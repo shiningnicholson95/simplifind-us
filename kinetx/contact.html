@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Fraunces:ital,opsz,wght,SOFT@0,9..144,400..700,0..100;1,9..144,400..700,0..100&family=Source+Sans+3:wght@400;600;700&family=Caveat:wght@600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css?v=3">
+<style>
+  *{ box-sizing:border-box; }
+  body{ margin:0; }
+  @keyframes kx-fade{ from{ opacity:0; transform:translateY(14px);} to{ opacity:1; transform:none;} }
+  input:focus, textarea:focus, select:focus{ outline:none; border-color:var(--accent) !important; }
+  input::placeholder, textarea::placeholder{ color:#9a9a9a; }
+</style>
+</helmet>
+
+<div class="kx-page">
+
+    <!-- HEADER -->
+  <div class="kx-note">Welcoming new patients from Exton &amp; across Chester County &nbsp;·&nbsp; <a href="sms:+16103685372">Text (610) 368-5372</a><span class="kx-note-mail"> &nbsp;·&nbsp; <a href="mailto:info@kinetx.org">info@kinetx.org</a></span></div>
+  <header class="kx-header">
+    <div class="kx-header-in">
+      <a href="./" class="kx-brand" aria-label="KinetX Rehab with Dr. Gene Serafim, home">
+        <span class="kx-logo-mark" aria-hidden="true"><span>K</span></span>
+        <span><span class="kx-logo-word">KINETX<span> REHAB</span></span><span class="kx-brand-sub"><img src="assets/dr-serafim-200.jpg" alt="" width="20" height="20">with Dr. Gene Serafim, DC</span></span>
+      </a>
+      <sc-if value="{{ showDesktopNav }}" hint-placeholder-val="{{ true }}">
+        <nav class="kx-nav" aria-label="Main">
+          <sc-for list="{{ navItems }}" as="item" hint-placeholder-count="6">
+            <a href="{{ item.href }}">{{ item.label }}</a>
+          </sc-for>
+        </nav>
+      </sc-if>
+      <div class="kx-head-cta">
+        <a href="tel:+16103048471" class="kx-head-phone">(610) 304-8471</a>
+        <a href="sms:+16103685372" class="btn btn-primary">Text to book</a>
+        <sc-if value="{{ showMobileNav }}" hint-placeholder-val="{{ false }}">
+          <button onClick="{{ toggleMenu }}" class="kx-burger" aria-label="Open menu">☰</button>
+        </sc-if>
+      </div>
+    </div>
+    <sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+      <nav class="kx-mnav" aria-label="Mobile">
+        <sc-for list="{{ navItems }}" as="item" hint-placeholder-count="6">
+          <a href="{{ item.href }}" onClick="{{ closeMenu }}">{{ item.label }}</a>
+        </sc-for>
+        <a href="tel:+16103048471">Call (610) 304-8471</a>
+      </nav>
+    </sc-if>
+  </header>
+
+  <div style="max-width:1280px; margin:0 auto; padding:18px 28px 0;">
+    <div style="font-family:var(--sans); font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-3); font-weight:600;">
+      <a href="./" style="color:var(--ink-3); text-decoration:none;">Home</a>
+      <span style="color:var(--ink-2); margin:0 8px;">/</span><span style="color:var(--accent-ink);">Contact</span>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <section>
+    <div style="max-width:840px; margin:0 auto; padding:clamp(40px,5vw,72px) 28px clamp(24px,3vw,40px); animation:kx-fade .6s ease both;">
+      <div style="display:inline-flex; align-items:center; gap:10px; font-family:var(--sans); font-weight:600; font-size:13px; letter-spacing:.08em; text-transform:uppercase; color:var(--accent-ink); margin-bottom:20px;">
+        <span style="width:26px; height:1px; background:var(--accent); color:#fff;"></span>Get In Touch
+      </div>
+      <h1 style="font-family:var(--serif); font-weight:500; font-size:clamp(32.6px,4.8vw,62.2px); line-height:1.1; margin:0 0 22px;">Get in touch with Dr. Gene's office</h1>
+      <p style="font-size:clamp(16px,1.6vw,19px); line-height:1.65; color:var(--ink-2); max-width:600px; margin:0;">The fastest way to book is to text us at (610) 368-5372. Have a clinical question or want to speak with Dr. Serafim? Call (610) 304-8471, or send a message below and we'll get right back to you.</p>
+    </div>
+  </section>
+
+  <!-- CONTACT METHODS -->
+  <section style="padding:0 28px clamp(16px,3vw,32px);">
+    <div style="max-width:1280px; margin:0 auto; display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:14px;">
+      <a href="sms:+16103685372" style="border:1px solid var(--line-dark); background:var(--forest-2); padding:26px 24px; text-decoration:none; color:var(--on-dark); display:block; border-radius:16px;">
+        <div style="font-family:var(--sans); font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:#F2C4AE; margin-bottom:10px; font-weight:600;">Text to Schedule</div>
+        <div style="font-family:var(--serif); font-size:22.2px; line-height:1.1; font-weight:500;">(610) 368-5372</div>
+        <div style="font-size:13px; color:var(--on-dark-2); margin-top:8px;">Fastest way to book — preferred</div>
+      </a>
+      <a href="tel:+16103048471" style="border:1px solid var(--line-dark); background:var(--forest-2); padding:26px 24px; text-decoration:none; color:var(--on-dark); display:block; border-radius:16px;">
+        <div style="font-family:var(--sans); font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:#F2C4AE; margin-bottom:10px; font-weight:600;">Clinical Questions</div>
+        <div style="font-family:var(--serif); font-size:22.2px; line-height:1.1; font-weight:500;">(610) 304-8471</div>
+        <div style="font-size:13px; color:var(--on-dark-2); margin-top:8px;">Speak with the doctor</div>
+      </a>
+      <a href="https://www.google.com/maps/dir/?api=1&destination=661+Exton+Commons,+Exton,+PA+19341" target="_blank" rel="noopener" style="border:1px solid var(--line-dark); background:var(--forest-2); padding:26px 24px; text-decoration:none; color:var(--on-dark); display:block; border-radius:16px;">
+        <div style="font-family:var(--sans); font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:#F2C4AE; margin-bottom:10px; font-weight:600;">Visit Us</div>
+        <div style="font-family:var(--serif); font-size:22.2px; line-height:1.1; font-weight:500;">661 Exton Commons</div>
+        <div style="font-size:13px; color:var(--on-dark-2); margin-top:8px;">Exton, PA 19341 — get directions</div>
+      </a>
+      <a href="mailto:info@kinetx.org" style="border:1px solid var(--line-dark); background:var(--forest-2); padding:26px 24px; text-decoration:none; color:var(--on-dark); display:block; border-radius:16px;">
+        <div style="font-family:var(--sans); font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:#F2C4AE; margin-bottom:10px; font-weight:600;">Email Us</div>
+        <div style="font-family:var(--serif); font-size:22.2px; line-height:1.1; font-weight:500;">info@kinetx.org</div>
+        <div style="font-size:13px; color:var(--on-dark-2); margin-top:8px;">For records, forms &amp; general questions</div>
+      </a>
+    </div>
+  </section>
+
+  <!-- FORM + INFO -->
+  <section style="background:var(--paper); color:var(--ink); padding:clamp(56px,7vw,96px) 28px; margin-top:clamp(32px,4vw,52px);">
+    <div style="max-width:1280px; margin:0 auto; display:flex; flex-wrap:wrap; gap:48px;">
+      <div style="flex:2 1 460px; min-width:300px;">
+        <div style="font-family:var(--sans); font-weight:600; font-size:13px; letter-spacing:.08em; text-transform:uppercase; color:var(--accent-ink); margin-bottom:14px;">Send a Message</div>
+        <h2 style="font-family:var(--serif); font-size:clamp(22.2px,3vw,37px); line-height:1.1; margin:0 0 26px; font-weight:500;">We'll Get Back to You Quickly</h2>
+
+        <sc-if value="{{ submitted }}" hint-placeholder-val="{{ false }}">
+          <div style="border:1px solid #E7C3B0; background:var(--accent-soft); padding:30px 28px; border-radius:16px;">
+            <div style="font-family:var(--serif); font-size:22.2px; color:var(--ink); line-height:1.1; margin-bottom:10px; font-weight:500;">Thank You!</div>
+            <p style="font-size:15.5px; line-height:1.65; color:var(--ink-2); margin:0 0 16px;">Your message has been received. We'll be in touch shortly. Need to reach us right now? Text (610) 368-5372.</p>
+            <button onClick="{{ resetForm }}" style="font-family:var(--sans); font-weight:600; font-size:13px; letter-spacing:.08em; text-transform:uppercase; color:#fff; background:var(--accent); border:none; padding:13px 22px; cursor:pointer; border-radius:999px;">Send Another</button>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{ showForm }}" hint-placeholder-val="{{ true }}">
+          <form onSubmit="{{ onSubmit }}" style="display:flex; flex-direction:column; gap:16px; max-width:600px;">
+            <div style="display:flex; flex-wrap:wrap; gap:16px;">
+              <div style="flex:1 1 220px;">
+                <label style="display:block; font-family:var(--sans); font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-2); margin-bottom:7px; font-weight:600;">First Name *</label>
+                <input type="text" name="firstName" required="required" placeholder="Jane" style="width:100%; padding:13px 14px; border:1px solid var(--line); background:var(--paper); font-family:var(--sans); font-size:15px; color:var(--ink);">
+              </div>
+              <div style="flex:1 1 220px;">
+                <label style="display:block; font-family:var(--sans); font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-2); margin-bottom:7px; font-weight:600;">Last Name *</label>
+                <input type="text" name="lastName" required="required" placeholder="Doe" style="width:100%; padding:13px 14px; border:1px solid var(--line); background:var(--paper); font-family:var(--sans); font-size:15px; color:var(--ink);">
+              </div>
+            </div>
+            <div style="display:flex; flex-wrap:wrap; gap:16px;">
+              <div style="flex:1 1 220px;">
+                <label style="display:block; font-family:var(--sans); font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-2); margin-bottom:7px; font-weight:600;">Email *</label>
+                <input type="email" name="email" required="required" placeholder="jane@email.com" style="width:100%; padding:13px 14px; border:1px solid var(--line); background:var(--paper); font-family:var(--sans); font-size:15px; color:var(--ink);">
+              </div>
+              <div style="flex:1 1 220px;">
+                <label style="display:block; font-family:var(--sans); font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-2); margin-bottom:7px; font-weight:600;">Phone</label>
+                <input type="tel" name="phone" placeholder="(610) 555-0123" style="width:100%; padding:13px 14px; border:1px solid var(--line); background:var(--paper); font-family:var(--sans); font-size:15px; color:var(--ink);">
+              </div>
+            </div>
+            <div>
+              <label style="display:block; font-family:var(--sans); font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-2); margin-bottom:7px; font-weight:600;">How Can We Help?</label>
+              <select name="reason" style="width:100%; padding:13px 14px; border:1px solid var(--line); background:var(--paper); font-family:var(--sans); font-size:15px; color:var(--ink);">
+                <option>Book an appointment</option>
+                <option>Ask a clinical question</option>
+                <option>Insurance &amp; pricing</option>
+                <option>Something else</option>
+              </select>
+            </div>
+            <div>
+              <label style="display:block; font-family:var(--sans); font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-2); margin-bottom:7px; font-weight:600;">Message *</label>
+              <textarea name="message" required="required" rows="5" placeholder="Tell us what's going on and what you'd like help with…" style="width:100%; padding:13px 14px; border:1px solid var(--line); background:var(--paper); font-family:var(--sans); font-size:15px; color:var(--ink); resize:vertical;"></textarea>
+            </div>
+            <button type="submit" style="font-family:var(--sans); font-weight:700; font-size:16.5px; color:var(--on-dark); background:var(--forest); border:none; padding:17px 30px; cursor:pointer; align-self:flex-start; border-radius:999px;">Send Message →</button>
+            <p style="font-size:12.5px; line-height:1.5; color:var(--ink-2); margin:4px 0 0; max-width:480px;">By submitting, you agree to be contacted about your request. We respect your privacy and never share your information.</p>
+          </form>
+        </sc-if>
+      </div>
+
+      <div style="flex:1 1 280px; min-width:260px;">
+        <div style="border:1px solid var(--line); padding:30px 28px; margin-bottom:14px; border-radius:16px;">
+          <div style="font-family:var(--sans); font-weight:600; font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:var(--accent-ink); margin-bottom:16px;">Clinic Hours</div>
+          <sc-for list="{{ hours }}" as="h" hint-placeholder-count="3">
+            <div style="display:flex; justify-content:space-between; gap:14px; padding:9px 0; border-bottom:1px solid var(--line); font-size:14.5px;">
+              <span style="font-family:var(--sans); font-weight:600; color:var(--ink-2); font-size:17.5px;">{{ h.day }}</span>
+              <span style="color:var(--ink-3);">{{ h.time }}</span>
+            </div>
+          </sc-for>
+        </div>
+        <div style="border:1px solid var(--line); padding:30px 28px; border-radius:16px;">
+          <div style="font-family:var(--sans); font-weight:600; font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:var(--accent-ink); margin-bottom:16px;">Visit</div>
+          <div style="font-size:15px; line-height:1.7; color:var(--ink-2);">661 Exton Commons<br>Exton, PA 19341</div>
+          <div style="font-size:14px; line-height:1.9; color:var(--ink-2); margin-top:14px;">
+            Text: <a href="sms:+16103685372" style="color:var(--accent-ink); text-decoration:none;">(610) 368-5372</a><br>
+            Call: <a href="tel:+16103048471" style="color:var(--accent-ink); text-decoration:none;">(610) 304-8471</a><br>
+            Email: <a href="mailto:info@kinetx.org" style="color:var(--accent-ink); text-decoration:none;">info@kinetx.org</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAP -->
+  <section style="background:var(--forest-deep); padding:0 0 0 0; border-top:1px solid var(--line-dark); color:var(--on-dark);">
+    <div style="aspect-ratio:21/7; min-height:320px; overflow:hidden; border-radius:18px;">
+      <iframe title="Kinetx Rehabilitation — 661 Exton Commons, Exton, PA 19341" src="https://www.google.com/maps?q=661+Exton+Commons,+Exton,+PA+19341&output=embed" style="width:100%; height:100%; border:0; display:block;" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </section>
+
+    <!-- DOCTOR CTA -->
+  <section class="dr-cta bg-forest kx-section">
+    <div class="kx-wrap dr-cta-in">
+      <div class="dr-cta-photo"><img src="assets/dr-serafim-1000.jpg" alt="Dr. Gene Serafim, DC" loading="lazy"></div>
+      <div class="dr-cta-text">
+        <h2 class="h2">Not sure if I can help? Just ask.</h2>
+        <p>Text my office with what's going on and we'll get back to you, usually the same day. If it sounds like something I can fix, we'll find you a time. If it isn't, I'll point you to someone who can.</p>
+        <div class="btn-row">
+          <a href="sms:+16103685372" class="btn btn-light">Text (610) 368-5372</a>
+          <a href="tel:+16103048471" class="btn btn-ghost">Call (610) 304-8471</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+    <!-- FOOTER -->
+  <footer class="kx-footer">
+    <div class="kx-wrap">
+      <div class="kx-foot-grid">
+        <div>
+          <div class="kx-foot-logo"><span class="kx-logo-mark" aria-hidden="true"><span>K</span></span><span class="kx-logo-word">KINETX<span> REHAB</span></span></div>
+          <div class="kx-foot-dr">
+            <img src="assets/dr-serafim-200.jpg" alt="Dr. Gene Serafim" loading="lazy">
+            <div><div class="n">Dr. Gene Serafim, DC</div><div class="s">Chiropractor &amp; Kinesiologist · Founder</div></div>
+          </div>
+          <p style="margin:0 0 14px; max-width:300px;">Kinetx Rehabilitation, Chiropractic &amp; Massage. A neighborhood practice in Exton, PA.</p>
+          <p style="margin:0; line-height:1.8;">661 Exton Commons, Exton, PA 19341<br><a href="sms:+16103685372" style="color:#F2C4AE; font-weight:600;">Text (610) 368-5372</a><br><a href="tel:+16103048471">Call (610) 304-8471</a><br><a href="mailto:info@kinetx.org">info@kinetx.org</a></p>
+          <p style="margin:14px 0 0; line-height:1.7; color:var(--on-dark-3);">Mon–Fri 8am–7pm · Sat 8am–12pm · Sun closed</p>
+        </div>
+        <div>
+          <div class="kx-foot-h">Care</div>
+          <div class="kx-foot-links">
+            <a href="services.html#chiropractic-care">Chiropractic Care</a>
+            <a href="services.html#functional-rehabilitation">Functional Rehab</a>
+            <a href="services.html#massage-therapy">Massage Therapy</a>
+            <a href="services.html#soft-tissue-therapy">Soft Tissue Therapy</a>
+            <a href="services.html">All services</a>
+          </div>
+        </div>
+        <div>
+          <div class="kx-foot-h">Conditions</div>
+          <div class="kx-foot-links">
+            <a href="conditions.html#back-pain">Back Pain</a>
+            <a href="conditions.html#neck-pain">Neck Pain</a>
+            <a href="conditions.html#sciatica">Sciatica</a>
+            <a href="conditions.html#headaches">Headaches</a>
+            <a href="conditions.html">All conditions</a>
+          </div>
+        </div>
+        <div>
+          <div class="kx-foot-h">Nearby</div>
+          <div class="kx-foot-links">
+            <a href="locations.html#exton-pa">Exton</a>
+            <a href="locations.html#west-chester-pa">West Chester</a>
+            <a href="locations.html#downingtown-pa">Downingtown</a>
+            <a href="locations.html#malvern-pa">Malvern</a>
+            <a href="locations.html">All towns</a>
+          </div>
+        </div>
+        <div>
+          <div class="kx-foot-h">The practice</div>
+          <div class="kx-foot-links">
+            <a href="about.html">Meet Dr. Gene</a>
+            <a href="blog.html">Blog</a>
+            <a href="contact.html">Contact</a>
+            <a href="book-appointment.html">Request a visit</a>
+          </div>
+        </div>
+      </div>
+      <div class="kx-foot-bottom">
+        <span>© 2026 Kinetx Rehabilitation, Chiropractic &amp; Massage</span>
+        <span><a href="#">Privacy</a><a href="#">Accessibility</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <a href="sms:+16103685372" class="kx-float" aria-label="Text Dr. Gene's office"><img src="assets/dr-serafim-200.jpg" alt="">Text us</a>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1440,&quot;height&quot;:1900}}">
+class Component extends DCLogic {
+  state = { menuOpen:false, isMobile:false, submitted:false };
+  componentDidMount(){
+    this._onResize = () => this.setState({ isMobile: window.innerWidth < 980 });
+    this._onResize();
+    window.addEventListener("resize", this._onResize);
+  }
+  componentWillUnmount(){ window.removeEventListener("resize", this._onResize); }
+
+  navItems = [
+    { label:"Home", href:"./" },
+    { label:"Meet Dr. Gene", href:"about.html" },
+    { label:"Services", href:"services.html" },
+    { label:"Conditions", href:"conditions.html" },
+    { label:"Blog", href:"blog.html" },
+    { label:"Contact", href:"contact.html" },
+  ];
+
+  hours = [
+    { day:"Monday – Friday", time:"8:00am – 7:00pm" },
+    { day:"Saturday", time:"8:00am – 12:00pm" },
+    { day:"Sunday", time:"Closed" },
+  ];
+
+  onSubmit = (e) => { e.preventDefault(); this.setState({ submitted:true }); try{ window.scrollTo({top:0,behavior:'smooth'}); }catch(err){} };
+  resetForm = () => this.setState({ submitted:false });
+  toggleMenu = () => this.setState(s => ({ menuOpen: !s.menuOpen }));
+  closeMenu = () => this.setState({ menuOpen:false });
+
+  renderVals(){
+    const m = this.state.isMobile;
+    return {
+      showDesktopNav: !m, showMobileNav: m, menuOpen: this.state.menuOpen,
+      toggleMenu: this.toggleMenu, closeMenu: this.closeMenu, navItems: this.navItems,
+      hours: this.hours,
+      submitted: this.state.submitted, showForm: !this.state.submitted,
+      onSubmit: this.onSubmit, resetForm: this.resetForm,
+    };
+  }
+}
+</script>
+</body>
+</html>

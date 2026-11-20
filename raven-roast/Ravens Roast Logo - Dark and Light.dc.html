@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Source+Sans+3:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    body { margin:0; background:#EFE7D8; }
+    :root { --serif:'Playfair Display',Georgia,serif; --sans:'Source Sans 3',system-ui,sans-serif;
+            --brown:#5A4632; --ink:#3E2E1E; --gold:#D9A227; --cream:#FBF0DA; }
+    a { color:#A05F22; } a:hover { color:#D9A227; }
+  </style>
+</helmet>
+
+<div style="font-family:var(--sans);padding:clamp(20px,4vw,48px);display:flex;flex-direction:column;gap:clamp(24px,4vw,44px);">
+
+  <div>
+    <div style="font-family:var(--serif);font-size:clamp(26px,4vw,34px);font-weight:700;color:var(--ink);">Raven's Roast Coffee — dark &amp; light</div>
+    <div style="font-size:18px;line-height:1.6;color:#6D6255;margin-top:8px;">Light version for dark backgrounds, dark version for light backgrounds. Badge and horizontal lockup of each.</div>
+  </div>
+
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:clamp(20px,3vw,32px);">
+
+    <div style="display:flex;flex-direction:column;gap:12px;">
+      <div style="font-size:14px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#6D6255;">Light version — badge</div>
+      <div style="aspect-ratio:1;background:var(--brown);display:flex;align-items:center;justify-content:center;padding:40px;box-sizing:border-box;">
+        <div style="width:100%;max-width:320px;aspect-ratio:0.92;background:var(--cream);clip-path:polygon(50% 0%,100% 25%,100% 75%,50% 100%,0% 75%,0% 25%);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 12%;box-sizing:border-box;">
+          <svg viewBox="0 0 220 200" width="47" height="47" style="color:var(--brown);flex:none;"><g fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+<path d="M34 178C82 168 142 168 190 177"></path>
+<path d="M56 173C48 163 38 158 27 158"></path>
+<path d="M56 173C52 184 42 190 31 191"></path>
+<path d="M96 153L92 176"></path>
+<path d="M118 149L122 176"></path>
+</g>
+<path fill="currentColor" stroke="none" fill-rule="evenodd" d="M8 66L52 52c-2-14 10-24 28-24 24 0 52 16 68 46 8 16 12 28 10 40l56 52-18 12-56-56c-8 18-28 30-50 30-26 0-44-14-48-36-3-14-3-28 0-38ZM66 51a5 5 0 1 0 .1 0ZM96 88c16 20 36 38 60 54-20-22-42-44-58-62Z"></path></svg>
+          <div style="font-family:var(--serif);font-size:26px;font-weight:700;letter-spacing:0.05em;color:var(--brown);line-height:1.14;margin-top:8px;">RAVEN'S<br>ROAST</div>
+          <div style="width:30px;height:2px;background:var(--gold);margin:8px auto;"></div>
+          <div style="font-size:11px;font-weight:700;letter-spacing:0.28em;color:var(--brown);">COFFEE</div>
+          <div style="font-size:9px;font-weight:700;letter-spacing:0.22em;color:var(--brown);opacity:0.75;margin-top:7px;">EST. 2013</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:12px;">
+      <div style="font-size:14px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#6D6255;">Dark version — badge</div>
+      <div style="aspect-ratio:1;background:#FDF8F0;border:1px solid #E2D6C0;display:flex;align-items:center;justify-content:center;padding:40px;box-sizing:border-box;">
+        <div style="width:100%;max-width:320px;aspect-ratio:0.92;background:var(--brown);clip-path:polygon(50% 0%,100% 25%,100% 75%,50% 100%,0% 75%,0% 25%);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 12%;box-sizing:border-box;">
+          <svg viewBox="0 0 220 200" width="47" height="47" style="color:var(--cream);flex:none;"><g fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+<path d="M34 178C82 168 142 168 190 177"></path>
+<path d="M56 173C48 163 38 158 27 158"></path>
+<path d="M56 173C52 184 42 190 31 191"></path>
+<path d="M96 153L92 176"></path>
+<path d="M118 149L122 176"></path>
+</g>
+<path fill="currentColor" stroke="none" fill-rule="evenodd" d="M8 66L52 52c-2-14 10-24 28-24 24 0 52 16 68 46 8 16 12 28 10 40l56 52-18 12-56-56c-8 18-28 30-50 30-26 0-44-14-48-36-3-14-3-28 0-38ZM66 51a5 5 0 1 0 .1 0ZM96 88c16 20 36 38 60 54-20-22-42-44-58-62Z"></path></svg>
+          <div style="font-family:var(--serif);font-size:26px;font-weight:700;letter-spacing:0.05em;color:var(--cream);line-height:1.14;margin-top:8px;">RAVEN'S<br>ROAST</div>
+          <div style="width:30px;height:2px;background:var(--gold);margin:8px auto;"></div>
+          <div style="font-size:11px;font-weight:700;letter-spacing:0.28em;color:var(--gold);">COFFEE</div>
+          <div style="font-size:9px;font-weight:700;letter-spacing:0.22em;color:var(--cream);opacity:0.75;margin-top:7px;">EST. 2013</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:clamp(20px,3vw,32px);">
+
+    <div style="display:flex;flex-direction:column;gap:12px;">
+      <div style="font-size:14px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#6D6255;">Light version — horizontal</div>
+      <div style="aspect-ratio:16/7;background:var(--brown);display:flex;align-items:center;justify-content:center;padding:24px;box-sizing:border-box;">
+        <div style="display:flex;align-items:center;gap:20px;">
+          <svg viewBox="0 0 220 200" width="52" height="52" style="color:var(--cream);flex:none;"><g fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+<path d="M34 178C82 168 142 168 190 177"></path>
+<path d="M56 173C48 163 38 158 27 158"></path>
+<path d="M56 173C52 184 42 190 31 191"></path>
+<path d="M96 153L92 176"></path>
+<path d="M118 149L122 176"></path>
+</g>
+<path fill="currentColor" stroke="none" fill-rule="evenodd" d="M8 66L52 52c-2-14 10-24 28-24 24 0 52 16 68 46 8 16 12 28 10 40l56 52-18 12-56-56c-8 18-28 30-50 30-26 0-44-14-48-36-3-14-3-28 0-38ZM66 51a5 5 0 1 0 .1 0ZM96 88c16 20 36 38 60 54-20-22-42-44-58-62Z"></path></svg>
+          <div style="width:2px;height:62px;background:var(--gold);"></div>
+          <div>
+            <div style="font-family:var(--serif);font-size:clamp(26px,4.4vw,38px);font-weight:700;letter-spacing:0.05em;color:var(--cream);line-height:1;white-space:nowrap;">RAVEN'S ROAST</div>
+            <div style="font-size:13px;font-weight:700;letter-spacing:0.32em;color:var(--gold);margin-top:8px;">COFFEE</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:12px;">
+      <div style="font-size:14px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#6D6255;">Dark version — horizontal</div>
+      <div style="aspect-ratio:16/7;background:#FDF8F0;border:1px solid #E2D6C0;display:flex;align-items:center;justify-content:center;padding:24px;box-sizing:border-box;">
+        <div style="display:flex;align-items:center;gap:20px;">
+          <svg viewBox="0 0 220 200" width="52" height="52" style="color:var(--brown);flex:none;"><g fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+<path d="M34 178C82 168 142 168 190 177"></path>
+<path d="M56 173C48 163 38 158 27 158"></path>
+<path d="M56 173C52 184 42 190 31 191"></path>
+<path d="M96 153L92 176"></path>
+<path d="M118 149L122 176"></path>
+</g>
+<path fill="currentColor" stroke="none" fill-rule="evenodd" d="M8 66L52 52c-2-14 10-24 28-24 24 0 52 16 68 46 8 16 12 28 10 40l56 52-18 12-56-56c-8 18-28 30-50 30-26 0-44-14-48-36-3-14-3-28 0-38ZM66 51a5 5 0 1 0 .1 0ZM96 88c16 20 36 38 60 54-20-22-42-44-58-62Z"></path></svg>
+          <div style="width:2px;height:62px;background:var(--gold);"></div>
+          <div>
+            <div style="font-family:var(--serif);font-size:clamp(26px,4.4vw,38px);font-weight:700;letter-spacing:0.05em;color:var(--brown);line-height:1;white-space:nowrap;">RAVEN'S ROAST</div>
+            <div style="font-size:13px;font-weight:700;letter-spacing:0.32em;color:var(--ink);margin-top:8px;">COFFEE</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+</x-dc>
+</body>
+</html>

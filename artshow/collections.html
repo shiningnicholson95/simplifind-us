@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Collections | ArtSho Galleries</title>
+<meta name="description" content="Browse the full ArtSho collection of contemporary still-life paintings by David Stainback, digitized and presented in full.">
+<link rel="icon" href="https://lightsteelblue-rail-575356.hostingersite.com/wp-content/uploads/2017/09/cropped-Abstractart-3-32x32.jpg">
+<link rel="stylesheet" href="css/style.css?v=1787154245689">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a href="index.html" class="logo-lockup" aria-label="ArtSho Galleries">
+      <img class="logo-mark" src="https://lightsteelblue-rail-575356.hostingersite.com/wp-content/uploads/2026/02/artsho-logo.png" alt="ARTSHO">
+    </a>
+    <nav class="main-nav">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="artist.html">Artist</a></li>
+        <li><a href="collections.html" class="active">Collections</a></li>
+        <li><a href="events.html">Host Your Event</a></li>
+        <li><a href="visit.html">Visit Us</a></li>
+      </ul>
+    </nav>
+    <button class="nav-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<section class="page-banner" style="background-image:url('https://lightsteelblue-rail-575356.hostingersite.com/wp-content/uploads/2026/02/16-2048x2048.jpg');">
+  <div class="wrap">
+    <span class="eyebrow">Collections</span>
+    <h1>The Digitized Collection</h1>
+    <p>Browse the full collection — David Stainback's large-scale oil paintings alongside E. H. Suydam's graphite studies. Filter by artist, or click any piece to view it larger.</p>
+  </div>
+</section>
+
+<section class="section-tight">
+  <div class="wrap">
+    <div class="gallery-toolbar">
+      <div class="filter-bar" id="filter-bar">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="David Stainback">David Stainback</button>
+        <button class="filter-btn" data-filter="E. H. Suydam">E. H. Suydam</button>
+      </div>
+      <span class="gallery-count" id="gallery-count"></span>
+    </div>
+    <div class="gallery-grid" id="gallery-grid"></div>
+  </div>
+</section>
+
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" aria-label="Close">&times;</button>
+  <button class="lightbox-prev" aria-label="Previous">&#8249;</button>
+  <img src="" alt="">
+  <button class="lightbox-next" aria-label="Next">&#8250;</button>
+  <div class="lightbox-caption"></div>
+</div>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="logo-lockup footer-logo-lockup" aria-label="ArtSho Galleries">
+          <img class="logo-mark" src="https://lightsteelblue-rail-575356.hostingersite.com/wp-content/uploads/2026/02/artsho-logo.png" alt="ARTSHO">
+        </a>
+        <p class="footer-tagline">David Stainback ~ Fine Arts</p>
+        <p style="margin-top:14px;">ARTSHO Galleries showcases a striking collection of large-scale oil paintings by David Stainback, inspired by the urban environment and viewed through a distinctive designer's eye.</p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="artist.html">Artist</a></li>
+          <li><a href="collections.html">Collections</a></li>
+          <li><a href="events.html">Host Your Event</a></li>
+          <li><a href="visit.html">Visit Us</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li>212 E Market Street, West Chester, PA 19382</li>
+          <li><a href="tel:3016533084">301-653-3084</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 ArtSho Galleries. All rights reserved.</span>
+      <span>Designed for David Stainback &amp; E. H. Suydam</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/artworks-data.js?v=1787154934247"></script>
+<script src="js/main.js"></script>
+<script>
+  const grid = document.getElementById('gallery-grid');
+  grid.innerHTML = ARTWORKS.map((a, i) => `
+    <a class="art-card" href="painting.html?num=${a.num}" data-artist="${a.artist}">
+      <div class="art-card-media">
+        <span class="artist-tag">${a.artist === 'E. H. Suydam' ? 'Suydam' : 'Stainback'}</span>
+        <button class="qv-btn" data-art-index="${i}" aria-label="Quick view">&#8635;</button>
+        <img src="${a.thumb}" alt="${a.title}, ${a.artist}" loading="lazy">
+      </div>
+      <span class="cap"><span class="title">${a.title}</span><span class="num">No. ${a.num}</span></span>
+    </a>
+  `).join('');
+  initLightbox(ARTWORKS);
+
+  const filterBar = document.getElementById('filter-bar');
+  const countEl = document.getElementById('gallery-count');
+
+  function updateCount() {
+    const active = filterBar.querySelector('.filter-btn.active').dataset.filter;
+    const n = active === 'all' ? ARTWORKS.length : ARTWORKS.filter(a => a.artist === active).length;
+    countEl.textContent = n + (n === 1 ? ' work' : ' works');
+  }
+
+  filterBar.addEventListener('click', (e) => {
+    const btn = e.target.closest('.filter-btn');
+    if (!btn) return;
+    filterBar.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    grid.dataset.filter = btn.dataset.filter;
+    updateCount();
+  });
+
+  updateCount();
+</script>
+</body>
+</html>

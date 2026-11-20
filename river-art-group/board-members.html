@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Board Members | Leadership of River Art Group · San Antonio</title>
+<meta name="description" content="Meet the board of River Art Group — the member artists who steward our La Villita gallery, exhibitions and membership program in San Antonio.">
+<link rel="icon" type="image/png" href="assets/favicon-icon.png">
+<link rel="apple-touch-icon" href="assets/favicon-icon.png">
+<link rel="canonical" href="https://riverartgroup.com/board-members">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Board Members · River Art Group">
+<meta property="og:description" content="The member artists who lead and steward River Art Group in La Villita, San Antonio.">
+<meta property="og:image" content="assets/img/gallery-exterior-hero.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>body{margin:0;background:#FBF5E9;}*{box-sizing:border-box;}</style>
+<script src="assets/data.js"></script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://riverartgroup.com/"},{"@type":"ListItem","position":2,"name":"Board Members","item":"https://riverartgroup.com/board-members"}]}
+</script>
+</helmet>
+<div style="font-family:'Hanken Grotesk',system-ui,sans-serif;color:#2B2622;background:#FBF5E9;min-height:100vh;">
+  <dc-import name="Header" active="board" hint-size="100%,118px"></dc-import>
+
+  <section style="background:linear-gradient(180deg,#F6ECD6,#FBF5E9);">
+    <div style="max-width:1080px;margin:0 auto;padding:46px 24px 38px;">
+      <nav aria-label="Breadcrumb" style="font-size:13.5px;color:#8a7f6d;margin-bottom:18px;"><a href="index.html" style="color:#16726D;text-decoration:none;">Home</a> <span style="color:#c3b594;">/</span> <span>Board Members</span></nav>
+      <span style="font-size:12.5px;letter-spacing:.2em;text-transform:uppercase;color:#1F8F89;font-weight:700;">Our leadership</span>
+      <h1 style="font-family:'Spectral',serif;font-weight:600;font-size:clamp(34px,4.6vw,54px);line-height:1.08;margin:12px 0 0;color:#1C3B57;">Board members</h1>
+      <p style="font-size:18px;line-height:1.65;color:#5a5246;margin:16px 0 0;max-width:660px;">River Art Group is run by its members. Our 2026 board are working artists who volunteer their time to steward the gallery, our exhibitions, competitions, and the membership that keeps La Villita's longest-running art collective thriving.</p>
+    </div>
+  </section>
+
+  <!-- PRESIDENT -->
+  <section style="max-width:1080px;margin:0 auto;padding:40px 24px 8px;">
+    <sc-for list="{{ president }}" as="m" hint-placeholder-count="1">
+      <article style="background:#1C3B57;color:#eaf1f3;border-radius:20px;padding:36px;display:flex;align-items:center;gap:26px;flex-wrap:wrap;box-shadow:0 20px 44px -22px rgba(28,59,87,.5);">
+        <span aria-hidden="true" style="flex-shrink:0;width:88px;height:88px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Spectral',serif;font-size:32px;font-weight:600;color:#1C3B57;background:linear-gradient(135deg,#E0A02E,#eab243);">{{ m.initials }}</span>
+        <div style="min-width:220px;">
+          <span style="font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:#E0A02E;font-weight:700;">{{ m.office }}</span>
+          <h2 style="font-family:'Spectral',serif;font-size:32px;margin:6px 0 0;color:#fff;font-weight:600;line-height:1.1;">{{ m.name }}</h2>
+          <p style="margin:8px 0 0;font-size:15.5px;color:#bcccd2;">Leads the board and stewards River Art Group's programs across the year.</p>
+        </div>
+      </article>
+    </sc-for>
+  </section>
+
+  <!-- BOARD GRID -->
+  <section style="max-width:1080px;margin:0 auto;padding:24px 24px 16px;">
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(258px,1fr));gap:20px;">
+      <sc-for list="{{ members }}" as="m" hint-placeholder-count="8">
+        <article style="background:#fff;border-radius:16px;border:1px solid #ece1c8;box-shadow:0 10px 26px -18px rgba(28,59,87,.3);padding:22px;display:flex;align-items:center;gap:15px;">
+          <span aria-hidden="true" style="{{ m.avatarStyle }}">{{ m.initials }}</span>
+          <div style="min-width:0;">
+            <span style="display:block;font-size:11px;letter-spacing:.11em;text-transform:uppercase;color:#1F8F89;font-weight:700;">{{ m.office }}</span>
+            <h2 style="font-family:'Spectral',serif;font-size:19px;margin:3px 0 0;color:#1C3B57;font-weight:600;line-height:1.15;">{{ m.name }}</h2>
+            <p style="margin:3px 0 0;font-size:13.5px;color:#857b6c;">{{ m.role }}</p>
+            <sc-if value="{{ m.hasEmail }}" hint-placeholder-val="{{ false }}">
+              <a href="{{ m.emailHref }}" style="display:inline-flex;align-items:center;gap:6px;margin-top:8px;font-size:13px;font-weight:700;color:#16726D;text-decoration:none;" style-hover="color:#0f5854;">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="m3 7 9 6 9-6"></path></svg>
+                Email
+              </a>
+            </sc-if>
+          </div>
+        </article>
+      </sc-for>
+    </div>
+    <p style="font-size:13.5px;color:#9a8e78;margin:22px 0 0;">Annual Show Chair and Gallery Operations Director positions are currently open (TBA).</p>
+  </section>
+
+  <section style="max-width:1080px;margin:0 auto;padding:48px 24px 84px;">
+    <div style="background:#1C3B57;color:#eaf1f3;border-radius:20px;padding:44px;text-align:center;">
+      <h2 style="font-family:'Spectral',serif;font-weight:600;font-size:clamp(24px,3vw,34px);color:#fff;margin:0 0 10px;">Interested in serving or joining?</h2>
+      <p style="font-size:16.5px;color:#bcccd2;margin:0 auto 22px;max-width:560px;line-height:1.6;">Board positions are filled from our membership. Become a member first — new artists are juried in twice a year.</p>
+      <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
+        <a href="membership.html" style="display:inline-block;padding:14px 26px;border-radius:11px;background:#E0A02E;color:#1C3B57;text-decoration:none;font-weight:700;font-size:16px;" style-hover="background:#eab243;">Explore membership</a>
+        <a href="contact.html" style="display:inline-block;padding:14px 26px;border-radius:11px;background:transparent;color:#fff;text-decoration:none;font-weight:700;font-size:16px;border:1.5px solid rgba(255,255,255,.35);" style-hover="border-color:#fff;">Contact the gallery</a>
+      </div>
+    </div>
+  </section>
+
+  <dc-import name="Footer" hint-size="100%,420px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { ready:false };
+  componentDidMount(){
+    this._tick = () => { if(window.RAG){ this.setState({ ready:true }); } else { setTimeout(this._tick, 30); } };
+    this._tick();
+  }
+  initials(name){ return name.split(/\s+/).map(w=>w[0]).join("").slice(0,2).toUpperCase(); }
+  renderVals(){
+    const RAG = window.RAG;
+    const grads = ["linear-gradient(135deg,#1F8F89,#16726D)","linear-gradient(135deg,#E0A02E,#c4861a)","linear-gradient(135deg,#1C3B57,#13293c)","linear-gradient(135deg,#B4434E,#963641)","linear-gradient(135deg,#3B6E8F,#274A63)","linear-gradient(135deg,#8A6D3B,#6B5228)"];
+    const board = (RAG && RAG.BOARD) || [];
+    const map = (m,i)=>({
+      initials:this.initials(m.name), name:m.name, office:m.office, role:m.role,
+      hasEmail: !!m.email, emailHref: m.email?("mailto:"+m.email):"#",
+      avatarStyle:`flex-shrink:0;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Spectral',serif;font-size:20px;font-weight:600;color:#fff;background:${grads[i%grads.length]};`
+    });
+    const president = board.filter(m=>m.lead).map(map);
+    const members = board.filter(m=>!m.lead).map(map);
+    return { president, members };
+  }
+}
+</script>
+</body>
+</html>

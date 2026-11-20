@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Gallery — Kafe Krave | San Antonio Coffee & Cocktail Bar</title>
+<meta name="description" content="A visual tour of Kafe Krave — coffee, cocktails, interior, community and storefront across San Antonio's coffee-by-day, cocktails-by-night bar.">
+<link rel="canonical" href="https://kafekravesatx.com/gallery.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Gallery — Kafe Krave">
+<meta property="og:description" content="Coffee, cocktails, interior and community at Kafe Krave, San Antonio.">
+<meta property="og:image" content="images/storefront-dusk.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"ImageGallery","name":"Kafe Krave Gallery","url":"https://kafekravesatx.com/gallery.html"}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { background: #111111; }
+  ::selection { background: #C6A15B; color: #111111; }
+  .kk-reveal { opacity: 0; transform: translateY(30px); transition: opacity .9s cubic-bezier(.16,1,.3,1), transform .9s cubic-bezier(.16,1,.3,1); }
+  .kk-reveal.kk-in { opacity: 1; transform: none; }
+  .kk-tile img { transition: transform 1s cubic-bezier(.16,1,.3,1); }
+  .kk-tile:hover img { transform: scale(1.08); }
+  .kk-burger { display: none; }
+  .kk-bar { display: none; }
+  @media (max-width: 880px) {
+    .kk-desknav { display: none !important; }
+    .kk-burger { display: flex !important; }
+    .kk-bar { display: grid !important; }
+    .kk-foot-pad { padding-bottom: 96px !important; }
+  }
+  @media (max-width: 760px) {
+    .kk-grid { columns: 2 !important; }
+    .kk-footer-grid { grid-template-columns: 1fr 1fr !important; }
+  }
+  @media (max-width: 460px) {
+    .kk-grid { columns: 1 !important; }
+    .kk-footer-grid { grid-template-columns: 1fr !important; }
+  }
+</style>
+</helmet>
+<div style="font-family: 'Inter', sans-serif; background: #111111; color: #F5F1EA; overflow-x: hidden; width: 100%;">
+
+  <!-- HEADER START -->
+  <header style="position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 14px clamp(20px, 5vw, 64px); background: rgba(17,17,17,.92); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(245,241,234,.08);">
+    <a href="index.html" style="font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 20px; letter-spacing: .14em; text-transform: uppercase; color: #F5F1EA; text-decoration: none; display: flex; align-items: center; gap: 10px;"><span style="width: 9px; height: 9px; border-radius: 50%; background: #C6A15B;"></span>Kafe Krave</a>
+    <nav class="kk-desknav" style="display: flex; align-items: center; gap: 38px;">
+      <a href="index.html" style="font-size: 13px; letter-spacing: .12em; text-transform: uppercase; color: #F5F1EA; text-decoration: none; opacity: .85;">Home</a>
+      <a href="about.html" style="font-size: 13px; letter-spacing: .12em; text-transform: uppercase; color: #F5F1EA; text-decoration: none; opacity: .85;">About</a>
+      <a href="gallery.html" style="font-size: 13px; letter-spacing: .12em; text-transform: uppercase; color: #C6A15B; text-decoration: none;">Gallery</a>
+      <a href="contact.html" style="font-size: 13px; letter-spacing: .12em; text-transform: uppercase; color: #F5F1EA; text-decoration: none; opacity: .85;">Visit</a>
+      <a href="reviews.html" style="font-size: 13px; letter-spacing: .12em; text-transform: uppercase; color: #F5F1EA; text-decoration: none; opacity: .85;">Reviews</a>
+      <a href="tel:+17262488930" style="font-size: 13px; letter-spacing: .12em; text-transform: uppercase; color: #111111; text-decoration: none; background: #C6A15B; padding: 11px 22px; border-radius: 999px; font-weight: 600;">Call</a>
+    </nav>
+    <button class="kk-burger" aria-label="Open menu" onClick="{{ toggleMenu }}" ref="{{ burgerRef }}" style="flex-direction: column; gap: 6px; background: none; border: none; cursor: pointer; padding: 8px;">
+      <span style="width: 26px; height: 2px; background: #F5F1EA; display: block; transition: transform .4s ease;"></span>
+      <span style="width: 26px; height: 2px; background: #F5F1EA; display: block; transition: opacity .4s ease;"></span>
+      <span style="width: 26px; height: 2px; background: #F5F1EA; display: block; transition: transform .4s ease;"></span>
+    </button>
+  </header>
+
+  <div ref="{{ mobileMenuRef }}" style="position: fixed; inset: 0; z-index: 99; background: rgba(17,17,17,.97); backdrop-filter: blur(8px); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 30px; opacity: 0; pointer-events: none; transition: opacity .5s ease;">
+    <a href="index.html" style="font-family: 'Poppins', sans-serif; font-size: 30px; color: #F5F1EA; text-decoration: none;">Home</a>
+    <a href="about.html" style="font-family: 'Poppins', sans-serif; font-size: 30px; color: #F5F1EA; text-decoration: none;">About</a>
+    <a href="gallery.html" style="font-family: 'Poppins', sans-serif; font-size: 30px; color: #F5F1EA; text-decoration: none;">Gallery</a>
+    <a href="reviews.html" style="font-family: 'Poppins', sans-serif; font-size: 30px; color: #F5F1EA; text-decoration: none;">Reviews</a>
+    <a href="contact.html" style="font-family: 'Poppins', sans-serif; font-size: 30px; color: #F5F1EA; text-decoration: none;">Visit</a>
+    <a href="tel:+17262488930" style="margin-top: 14px; font-size: 14px; letter-spacing: .12em; text-transform: uppercase; color: #111111; text-decoration: none; background: #C6A15B; padding: 14px 30px; border-radius: 999px; font-weight: 600;">Call Now</a>
+  </div>
+
+  <!-- HERO START -->
+  <section style="padding: clamp(130px, 20vh, 200px) clamp(20px, 5vw, 64px) clamp(40px, 6vh, 70px); text-align: center; max-width: 900px; margin: 0 auto;">
+    <span style="display: inline-block; font-size: 12px; letter-spacing: .32em; text-transform: uppercase; color: #C6A15B; margin-bottom: 20px; font-weight: 500;">Gallery</span>
+    <h1 style="font-family: 'Poppins', sans-serif; font-weight: 600; font-size: clamp(38px, 7vw, 88px); line-height: 1; letter-spacing: -.02em; color: #FFFFFF; margin-bottom: 22px;">Inside the Room</h1>
+    <p style="font-size: clamp(15px, 1.6vw, 18px); line-height: 1.6; color: rgba(245,241,234,.7); font-weight: 300; max-width: 520px; margin: 0 auto;">From morning espresso to the last cocktail of the night — a look at the space, the craft, and the people.</p>
+  </section>
+
+  <!-- FILTERS START -->
+  <div ref="{{ filterRef }}" style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; padding: 0 clamp(20px, 5vw, 64px) clamp(40px, 6vh, 60px);">
+    <button data-filter="all" style="font-size: 12px; letter-spacing: .1em; text-transform: uppercase; font-weight: 600; color: #111111; background: #C6A15B; border: 1px solid #C6A15B; padding: 11px 22px; border-radius: 999px; cursor: pointer;">All</button>
+    <button data-filter="coffee" style="font-size: 12px; letter-spacing: .1em; text-transform: uppercase; font-weight: 600; color: #F5F1EA; background: transparent; border: 1px solid rgba(245,241,234,.25); padding: 11px 22px; border-radius: 999px; cursor: pointer;">Coffee</button>
+    <button data-filter="cocktails" style="font-size: 12px; letter-spacing: .1em; text-transform: uppercase; font-weight: 600; color: #F5F1EA; background: transparent; border: 1px solid rgba(245,241,234,.25); padding: 11px 22px; border-radius: 999px; cursor: pointer;">Cocktails</button>
+    <button data-filter="interior" style="font-size: 12px; letter-spacing: .1em; text-transform: uppercase; font-weight: 600; color: #F5F1EA; background: transparent; border: 1px solid rgba(245,241,234,.25); padding: 11px 22px; border-radius: 999px; cursor: pointer;">Interior</button>
+    <button data-filter="community" style="font-size: 12px; letter-spacing: .1em; text-transform: uppercase; font-weight: 600; color: #F5F1EA; background: transparent; border: 1px solid rgba(245,241,234,.25); padding: 11px 22px; border-radius: 999px; cursor: pointer;">Community</button>
+    <button data-filter="exterior" style="font-size: 12px; letter-spacing: .1em; text-transform: uppercase; font-weight: 600; color: #F5F1EA; background: transparent; border: 1px solid rgba(245,241,234,.25); padding: 11px 22px; border-radius: 999px; cursor: pointer;">Exterior</button>
+  </div>
+
+  <!-- MASONRY GRID START -->
+  <section style="padding: 0 clamp(20px, 5vw, 64px) clamp(72px, 12vh, 130px);">
+    <div class="kk-grid" ref="{{ gridRef }}" style="max-width: 1320px; margin: 0 auto; columns: 3; column-gap: 16px;">
+      <button class="kk-tile" data-cat="coffee" data-cap="Cortado served on a checkerboard table" aria-label="Open image: Cortado served on a checkerboard table" style="display:block;width:100%;margin:0 0 16px;padding:0;border:none;background:#181818;border-radius:14px;overflow:hidden;cursor:pointer;break-inside:avoid;"><img src="images/latte-art.jpg" alt="Cortado served on a checkerboard table" loading="lazy" style="width:100%;display:block;"></button>
+      <button class="kk-tile" data-cat="cocktails" data-cap="The back bar at night" aria-label="Open image: The back bar at night" style="display:block;width:100%;margin:0 0 16px;padding:0;border:none;background:#181818;border-radius:14px;overflow:hidden;cursor:pointer;break-inside:avoid;"><img src="images/bar-night.jpg" alt="The back bar at Kafe Krave at night" loading="lazy" style="width:100%;display:block;"></button>
+      <button class="kk-tile" data-cat="coffee" data-cap="Dirty Horchata — vanilla cold brew, horchata cold foam, cinnamon" aria-label="Open image: Dirty Horchata" style="display:block;width:100%;margin:0 0 16px;padding:0;border:none;background:#181818;border-radius:14px;overflow:hidden;cursor:pointer;break-inside:avoid;"><img src="images/dirty-horchata.jpg" alt="Dirty Horchata cold brew with cinnamon" loading="lazy" style="width:100%;display:block;"></button>
+      <button class="kk-tile" data-cat="interior" data-cap="Green velvet booths in the dining room" aria-label="Open image: Green velvet booths in the dining room" style="display:block;width:100%;margin:0 0 16px;padding:0;border:none;background:#181818;border-radius:14px;overflow:hidden;cursor:pointer;break-inside:avoid;"><img src="images/interior-booths.jpg" alt="Green velvet booths in the dining room" loading="lazy" style="width:100%;display:block;"></button>
+      <button class="kk-tile" data-cat="coffee" data-cap="Biscoff Cookie Butter — caramel, Biscoff cold foam & crumbs" aria-label="Open image: Biscoff Cookie Butter" style="display:block;width:100%;margin:0 0 16px;padding:0;border:none;background:#181818;border-radius:14px;overflow:hidden;cursor:pointer;break-inside:avoid;"><img src="images/biscoff-cookie-butter.jpg" alt="Biscoff Cookie Butter cold brew" loading="lazy" style="width:100%;display:block;"></button>
+      <button class="kk-tile" data-cat="exterior" data-cap="Kafe Krave storefront at dusk" aria-label="Open image: Kafe Krave storefront at dusk" style="display:block;width:100%;margin:0 0 16px;padding:0;border:none;background:#181818;border-radius:14px;overflow:hidden;cursor:pointer;break-inside:avoid;"><img src="images/storefront-dusk.jpg" alt="Kafe Krave storefront lit up at dusk" loading="lazy" style="width:100%;display:block;"></button>
+      <button class="kk-tile" data-cat="coffee" data-cap="Caked Up — vanilla bean, buttercream, cake batter cold foam" aria-label="Open image: Caked Up" style="display:block;width:100%;margin:0 0 16px;padding:0;border:none;background:#181818;border-radius:14px;overflow:hidden;cursor:pointer;break-inside:avoid;"><img src="images/caked-up.jpg" alt="Caked Up iced latte with a birthday candle" loading="lazy" style="width:100%;display:block;"></button>
+      <button class="kk-tile" data-cat="interior" data-cap="Curved corner booth by the window" aria-label="Open image: Curved corner booth by the window" style="display:block;width:100%;margin:0 0 16px;padding:0;border:none;background:#181818;border-radius:14px;overflow:hidden;cursor:pointer;break-inside:avoid;"><img src="images/green-booth.jpg" alt="Curved green velvet corner booth by the window" loading="lazy" style="width:100%;display:block;"></button>
+      <button class="kk-tile" data-cat="coffee" data-cap="Mont Blanc — cold brew, orange-infused cold foam, orange zest" aria-label="Open image: Mont Blanc" style="display:block;width:100%;margin:0 0 16px;padding:0;border:none;background:#181818;border-radius:14px;overflow:hidden;cursor:pointer;break-inside:avoid;"><img src="images/mont-blanc.jpg" alt="Mont Blanc cold brew with orange cold foam" loading="lazy" style="width:100%;display:block;"></button>
+      <button class="kk-tile" data-cat="community" data-cap="The room fills up over morning coffee" aria-label="Open image: The room fills up over morning coffee" style="display:block;width:100%;margin:0 0 16px;padding:0;border:none;background:#181818;border-radius:14px;overflow:hidden;cursor:pointer;break-inside:avoid;"><img src="images/interior-booths.jpg" alt="The dining room fills up over morning coffee" loading="lazy" style="width:100%;display:block;"></button>
+    </div>
+  </section>
+
+  <!-- LIGHTBOX START -->
+  <div ref="{{ lightboxRef }}" role="dialog" aria-modal="true" aria-label="Image viewer" style="position: fixed; inset: 0; z-index: 200; background: rgba(10,10,10,.96); backdrop-filter: blur(6px); display: none; align-items: center; justify-content: center; padding: clamp(16px, 4vw, 60px);">
+    <button aria-label="Close" onClick="{{ closeLb }}" style="position: absolute; top: 22px; right: 26px; background: none; border: none; color: #F5F1EA; font-size: 36px; line-height: 1; cursor: pointer; font-weight: 300;">&times;</button>
+    <button aria-label="Previous image" onClick="{{ prevLb }}" style="position: absolute; left: clamp(10px, 3vw, 40px); top: 50%; transform: translateY(-50%); background: rgba(245,241,234,.1); border: 1px solid rgba(245,241,234,.2); color: #F5F1EA; width: 52px; height: 52px; border-radius: 50%; font-size: 22px; cursor: pointer;">&#8249;</button>
+    <button aria-label="Next image" onClick="{{ nextLb }}" style="position: absolute; right: clamp(10px, 3vw, 40px); top: 50%; transform: translateY(-50%); background: rgba(245,241,234,.1); border: 1px solid rgba(245,241,234,.2); color: #F5F1EA; width: 52px; height: 52px; border-radius: 50%; font-size: 22px; cursor: pointer;">&#8250;</button>
+    <figure style="margin: 0; max-width: 1100px; width: 100%; text-align: center;">
+      <img ref="{{ lbImgRef }}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="" style="max-width: 100%; max-height: 80vh; border-radius: 12px; object-fit: contain;">
+      <figcaption ref="{{ lbCapRef }}" style="margin-top: 16px; font-size: 14px; letter-spacing: .04em; color: rgba(245,241,234,.7); font-weight: 300;"></figcaption>
+    </figure>
+  </div>
+
+  <!-- FOOTER START -->
+  <footer style="background: #181818; color: #F5F1EA; padding: clamp(60px, 9vh, 100px) clamp(20px, 5vw, 64px) 0;">
+    <div class="kk-footer-grid" style="max-width: 1240px; margin: 0 auto; display: grid; grid-template-columns: 1.4fr 1fr 1fr 1.3fr; gap: clamp(32px, 5vw, 60px); padding-bottom: 60px; border-bottom: 1px solid rgba(245,241,234,.12);">
+      <div>
+        <div style="font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 22px; letter-spacing: .14em; text-transform: uppercase; margin-bottom: 18px; display: flex; align-items: center; gap: 10px;"><span style="width: 9px; height: 9px; border-radius: 50%; background: #C6A15B;"></span>Kafe Krave</div>
+        <p style="font-size: 15px; line-height: 1.7; color: rgba(245,241,234,.6); font-weight: 300; max-width: 280px;">Coffee by day, cocktails by night. A San Antonio room worth staying in.</p>
+      </div>
+      <div>
+        <h4 style="font-size: 11px; letter-spacing: .22em; text-transform: uppercase; color: #C6A15B; margin-bottom: 20px;">Explore</h4>
+        <ul style="list-style: none; display: flex; flex-direction: column; gap: 12px;">
+          <li><a href="index.html" style="font-size: 15px; color: rgba(245,241,234,.75); text-decoration: none; font-weight: 300;">Home</a></li>
+          <li><a href="about.html" style="font-size: 15px; color: rgba(245,241,234,.75); text-decoration: none; font-weight: 300;">About</a></li>
+          <li><a href="gallery.html" style="font-size: 15px; color: rgba(245,241,234,.75); text-decoration: none; font-weight: 300;">Gallery</a></li>
+          <li><a href="reviews.html" style="font-size: 15px; color: rgba(245,241,234,.75); text-decoration: none; font-weight: 300;">Reviews</a></li>
+          <li><a href="contact.html" style="font-size: 15px; color: rgba(245,241,234,.75); text-decoration: none; font-weight: 300;">Visit</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 style="font-size: 11px; letter-spacing: .22em; text-transform: uppercase; color: #C6A15B; margin-bottom: 20px;">Connect</h4>
+        <ul style="list-style: none; display: flex; flex-direction: column; gap: 12px;">
+          <li><a href="https://instagram.com" target="_blank" rel="noopener" style="font-size: 15px; color: rgba(245,241,234,.75); text-decoration: none; font-weight: 300;">Instagram</a></li>
+          <li><a href="https://facebook.com" target="_blank" rel="noopener" style="font-size: 15px; color: rgba(245,241,234,.75); text-decoration: none; font-weight: 300;">Facebook</a></li>
+          <li><a href="mailto:info@kafekravesatx.com" style="font-size: 15px; color: rgba(245,241,234,.75); text-decoration: none; font-weight: 300;">Email</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 style="font-size: 11px; letter-spacing: .22em; text-transform: uppercase; color: #C6A15B; margin-bottom: 20px;">Newsletter</h4>
+        <p style="font-size: 14px; color: rgba(245,241,234,.6); font-weight: 300; margin-bottom: 16px; line-height: 1.6;">Slow mornings, late nights, and the occasional pour. No spam.</p>
+        <form onSubmit="{{ onSubscribe }}" style="display: flex; gap: 8px;">
+          <input type="email" required placeholder="Your email" aria-label="Email address" style="flex: 1; min-width: 0; background: #111111; border: 1px solid rgba(245,241,234,.18); border-radius: 999px; padding: 12px 18px; color: #F5F1EA; font-size: 14px; font-family: inherit;">
+          <button type="submit" aria-label="Subscribe" style="background: #C6A15B; border: none; border-radius: 999px; padding: 12px 20px; color: #111111; font-weight: 600; font-size: 13px; cursor: pointer;">&rarr;</button>
+        </form>
+      </div>
+    </div>
+    <div class="kk-foot-pad" style="max-width: 1240px; margin: 0 auto; padding: 26px 0 40px; display: flex; flex-wrap: wrap; gap: 14px; justify-content: space-between; font-size: 13px; color: rgba(245,241,234,.45); font-weight: 300;">
+      <span>&copy; 2026 Kafe Krave. All rights reserved.</span>
+      <span>San Antonio, Texas</span>
+    </div>
+  </footer>
+
+  <div class="kk-bar" style="position: fixed; bottom: 0; left: 0; right: 0; z-index: 90; grid-template-columns: 1fr 1fr; background: rgba(17,17,17,.96); backdrop-filter: blur(10px); border-top: 1px solid rgba(245,241,234,.12);">
+    <a href="tel:+17262488930" style="text-align: center; padding: 16px; font-size: 13px; letter-spacing: .1em; text-transform: uppercase; font-weight: 600; color: #F5F1EA; text-decoration: none; border-right: 1px solid rgba(245,241,234,.12);">Call</a>
+    <a href="https://maps.google.com/?q=227+Dwyer+Ave+San+Antonio+TX" target="_blank" rel="noopener" style="text-align: center; padding: 16px; font-size: 13px; letter-spacing: .1em; text-transform: uppercase; font-weight: 600; color: #C6A15B; text-decoration: none;">Directions</a>
+  </div>
+
+</div>
+<template id="__bundler_thumbnail">
+  <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><rect width="200" height="200" fill="#181818"/><rect x="50" y="56" width="44" height="44" rx="4" fill="none" stroke="#C6A15B" stroke-width="4"/><rect x="106" y="56" width="44" height="44" rx="4" fill="none" stroke="#C6A15B" stroke-width="4"/><text x="100" y="150" font-family="Poppins,sans-serif" font-size="17" font-weight="600" fill="#F5F1EA" text-anchor="middle" letter-spacing="2">GALLERY</text></svg>
+</template>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      burgerRef: (el) => { this._burger = el; },
+      mobileMenuRef: (el) => { this._menu = el; },
+      filterRef: (el) => { this._filters = el; },
+      gridRef: (el) => { this._grid = el; },
+      lightboxRef: (el) => { this._lb = el; },
+      lbImgRef: (el) => { this._lbImg = el; },
+      lbCapRef: (el) => { this._lbCap = el; },
+      toggleMenu: () => this._setMenu(!this._menuOpen),
+      closeLb: () => this._closeLb(),
+      prevLb: () => this._step(-1),
+      nextLb: () => this._step(1),
+      onSubscribe: (e) => { e.preventDefault(); const i = e.target.querySelector('input'); if (i) { i.value=''; i.placeholder='Thanks \u2014 you\u2019re in.'; } },
+    };
+  }
+  _setMenu(open) {
+    this._menuOpen = open;
+    if (this._menu) { this._menu.style.opacity = open ? '1' : '0'; this._menu.style.pointerEvents = open ? 'auto' : 'none'; }
+    if (this._burger) {
+      const s = this._burger.children;
+      s[0].style.transform = open ? 'translateY(8px) rotate(45deg)' : 'none';
+      s[1].style.opacity = open ? '0' : '1';
+      s[2].style.transform = open ? 'translateY(-8px) rotate(-45deg)' : 'none';
+    }
+    document.body.style.overflow = open ? 'hidden' : '';
+  }
+  _render(filter) {
+    if (!this._grid) return;
+    this._current = [];
+    this._tiles.forEach(t => {
+      const show = filter === 'all' || t.getAttribute('data-cat') === filter;
+      t.style.display = show ? 'block' : 'none';
+      if (show) this._current.push(t);
+    });
+  }
+  _openLb(idx) {
+    this._idx = idx;
+    this._show();
+    if (this._lb) this._lb.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+  }
+  _show() {
+    const t = this._current[this._idx];
+    if (!t) return;
+    const img = t.querySelector('img');
+    if (this._lbImg && img) { this._lbImg.src = img.src; this._lbImg.alt = img.alt; }
+    if (this._lbCap) this._lbCap.textContent = t.getAttribute('data-cap') || '';
+  }
+  _step(n) { this._idx = (this._idx + n + this._current.length) % this._current.length; this._show(); }
+  _closeLb() { if (this._lb) this._lb.style.display = 'none'; document.body.style.overflow = ''; }
+  componentDidMount() {
+    this._menuOpen = false;
+    this._idx = 0;
+    if (this._menu) this._menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => this._setMenu(false)));
+    this._tiles = this._grid ? Array.from(this._grid.querySelectorAll('.kk-tile')) : [];
+    this._tiles.forEach(t => t.addEventListener('click', () => { this._openLb(this._current.indexOf(t)); }));
+    this._render('all');
+    if (this._filters) {
+      this._filters.querySelectorAll('button').forEach(btn => {
+        btn.addEventListener('click', () => {
+          this._filters.querySelectorAll('button').forEach(b => {
+            b.style.background = 'transparent'; b.style.color = '#F5F1EA'; b.style.borderColor = 'rgba(245,241,234,.25)';
+          });
+          btn.style.background = '#C6A15B'; btn.style.color = '#111111'; btn.style.borderColor = '#C6A15B';
+          this._render(btn.getAttribute('data-filter'));
+        });
+      });
+    }
+    document.addEventListener('keydown', (e) => {
+      if (!this._lb || this._lb.style.display !== 'flex') return;
+      if (e.key === 'Escape') this._closeLb();
+      else if (e.key === 'ArrowRight') this._step(1);
+      else if (e.key === 'ArrowLeft') this._step(-1);
+    });
+    if (this._lb) this._lb.addEventListener('click', (e) => { if (e.target === this._lb) this._closeLb(); });
+  }
+}
+</script>
+</body>
+</html>

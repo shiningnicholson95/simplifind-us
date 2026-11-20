@@ -1,0 +1,102 @@
+/* ============================================================
+   Van Fleet Services — Color tokens
+   Trust-based palette: navy primary, service blue secondary,
+   warm orange CTA accent, emergency red. White + soft blue-gray.
+   ============================================================ */
+:root {
+  /* --- Brand navy (primary) --- */
+  --navy-50:  #EEF1FA;
+  --navy-100: #D6DCF1;
+  --navy-200: #AEB8E0;
+  --navy-300: #7C89C7;
+  --navy-400: #4D5BA6;
+  --navy-500: #2C3A86;
+  --navy-600: #1F2A6E;   /* logo navy */
+  --navy-700: #182158;
+  --navy-800: #111A45;
+  --navy-900: #0B1233;
+
+  /* --- Service blue (secondary) --- */
+  --blue-50:  #E8F2FC;
+  --blue-100: #CCE3F8;
+  --blue-200: #99C6F0;
+  --blue-300: #5EA6E6;
+  --blue-400: #2E88D6;
+  --blue-500: #1E78C8;   /* logo accent blue */
+  --blue-600: #1763A8;
+  --blue-700: #134F86;
+
+  /* --- Orange accent (primary CTA) --- */
+  --orange-50:  #FEF3EA;
+  --orange-100: #FDE0C9;
+  --orange-200: #FABF8E;
+  --orange-300: #F69A52;
+  --orange-400: #F47E2A;
+  --orange-500: #ED6A14;   /* CTA */
+  --orange-600: #D2570D;
+  --orange-700: #AE470B;
+
+  /* --- Emergency red --- */
+  --red-50:  #FCECEB;
+  --red-100: #F8D2D0;
+  --red-500: #D6312B;   /* emergency CTA */
+  --red-600: #BC241F;
+  --red-700: #9C1A16;
+
+  /* --- Success / info (trust badges, form states) --- */
+  --green-50:  #E8F5EE;
+  --green-500: #1E9E5A;
+  --green-600: #16834A;
+  --amber-500: #E8A93B;
+
+  /* --- Neutrals (warm-cool slate) --- */
+  --white:    #FFFFFF;
+  --gray-25:  #FAFBFD;
+  --gray-50:  #F4F7FB;   /* section background, soft blue-gray */
+  --gray-100: #EAEFF6;
+  --gray-200: #DCE3ED;   /* borders */
+  --gray-300: #C3CCDA;
+  --gray-400: #9AA6B8;
+  --gray-500: #6B7889;   /* muted text */
+  --gray-600: #4B5768;
+  --gray-700: #334155;
+  --gray-800: #1F2937;
+  --ink:      #16203A;   /* charcoal heading/body text */
+
+  /* ============================================================
+     Semantic aliases — use these in components
+     ============================================================ */
+  --color-primary:        var(--navy-600);
+  --color-primary-hover:   var(--navy-700);
+  --color-primary-active:  var(--navy-800);
+  --color-secondary:       var(--blue-500);
+  --color-secondary-hover: var(--blue-600);
+
+  --color-cta:             var(--orange-500);
+  --color-cta-hover:       var(--orange-600);
+  --color-cta-active:      var(--orange-700);
+
+  --color-emergency:       var(--red-500);
+  --color-emergency-hover: var(--red-600);
+
+  --surface-page:    var(--white);
+  --surface-section: var(--gray-50);
+  --surface-card:    var(--white);
+  --surface-navy:    var(--navy-600);
+  --surface-navy-deep: var(--navy-800);
+  --surface-tint:    var(--blue-50);
+
+  --text-heading:  var(--ink);
+  --text-body:     var(--gray-700);
+  --text-muted:    var(--gray-500);
+  --text-on-navy:  var(--white);
+  --text-on-navy-muted: var(--navy-200);
+  --text-link:     var(--blue-600);
+
+  --border-default: var(--gray-200);
+  --border-strong:  var(--gray-300);
+  --border-focus:   var(--blue-400);
+
+  --color-star: var(--amber-500);
+  --color-success: var(--green-500);
+}

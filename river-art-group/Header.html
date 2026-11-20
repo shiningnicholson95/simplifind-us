@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+</helmet>
+<header data-rag-header="1" style="position:sticky;top:0;z-index:50;font-family:'Hanken Grotesk',system-ui,sans-serif;">
+  <div style="background:rgba(251,245,233,.92);backdrop-filter:saturate(1.4) blur(8px);border-bottom:1px solid #E7DCC6;">
+    <div style="max-width:1240px;margin:0 auto;padding:12px 24px;display:flex;align-items:center;gap:18px;">
+      <a href="index.html" aria-label="River Art Group — home" style="display:flex;align-items:center;gap:12px;text-decoration:none;flex-shrink:0;">
+        <span style="width:48px;height:48px;border-radius:12px;background:#fff;border:1px solid #E7DCC6;display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 2px 10px rgba(28,59,87,.12);overflow:hidden;">
+          <img src="assets/logo-mark.png" alt="" width="48" height="48" style="width:42px;height:42px;object-fit:contain;display:block;">
+        </span>
+        <span style="line-height:1.05;">
+          <span style="display:block;font-family:'Spectral',serif;font-weight:600;font-size:20px;color:#1C3B57;letter-spacing:.01em;">River Art Group</span>
+          <span style="display:block;font-size:10px;letter-spacing:.2em;color:#1F8F89;font-weight:600;text-transform:uppercase;margin-top:1px;">Gallery · Est. 1947</span>
+        </span>
+      </a>
+      <nav aria-label="Primary" style="margin-left:auto;display:flex;align-items:center;gap:1px;" data-rag-nav>
+        <a data-nav="home" href="index.html" style="padding:8px 9px;border-radius:8px;text-decoration:none;color:#3a342c;font-weight:500;font-size:14px;" style-hover="background:#F1E6CF;">Home</a>
+        <a data-nav="about" href="about.html" style="padding:8px 9px;border-radius:8px;text-decoration:none;color:#3a342c;font-weight:500;font-size:14px;" style-hover="background:#F1E6CF;">About</a>
+        <a data-nav="artists" href="artists.html" style="padding:8px 9px;border-radius:8px;text-decoration:none;color:#3a342c;font-weight:500;font-size:14px;" style-hover="background:#F1E6CF;">Artists</a>
+        <a data-nav="board" href="board-members.html" style="padding:8px 9px;border-radius:8px;text-decoration:none;color:#3a342c;font-weight:500;font-size:14px;" style-hover="background:#F1E6CF;">Board</a>
+        <a data-nav="gallery" href="gallery.html" style="padding:8px 9px;border-radius:8px;text-decoration:none;color:#3a342c;font-weight:500;font-size:14px;" style-hover="background:#F1E6CF;">Gallery</a>
+        <a data-nav="products" href="products.html" style="padding:8px 9px;border-radius:8px;text-decoration:none;color:#3a342c;font-weight:500;font-size:14px;" style-hover="background:#F1E6CF;">Products</a>
+        <a data-nav="events" href="events.html" style="padding:8px 9px;border-radius:8px;text-decoration:none;color:#3a342c;font-weight:500;font-size:14px;" style-hover="background:#F1E6CF;">Events</a>
+        <a data-nav="membership" href="membership.html" style="padding:8px 9px;border-radius:8px;text-decoration:none;color:#3a342c;font-weight:500;font-size:14px;" style-hover="background:#F1E6CF;">Membership</a>
+        <a data-nav="visit" href="visit.html" style="padding:8px 9px;border-radius:8px;text-decoration:none;color:#3a342c;font-weight:500;font-size:14px;" style-hover="background:#F1E6CF;">Visit</a>
+        <a data-nav="contact" href="contact.html" style="padding:8px 9px;border-radius:8px;text-decoration:none;color:#3a342c;font-weight:500;font-size:14px;" style-hover="background:#F1E6CF;">Contact</a>
+        <div style="position:relative;margin-left:6px;">
+          <button type="button" aria-label="Cart" aria-expanded="{{ cartOpen }}" onClick="{{ toggleCart }}" style="position:relative;width:42px;height:42px;border:1px solid #E7DCC6;border-radius:10px;background:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;" style-hover="border-color:#1F8F89;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1C3B57" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="20" r="1.4"></circle><circle cx="18" cy="20" r="1.4"></circle><path d="M2 3h2.2l2.3 12.5a1.6 1.6 0 0 0 1.6 1.3h8.9a1.6 1.6 0 0 0 1.6-1.2L21 7H5.3"></path></svg>
+            <sc-if value="{{ hasItems }}" hint-placeholder-val="{{ false }}">
+              <span style="position:absolute;top:-7px;right:-7px;min-width:19px;height:19px;padding:0 5px;border-radius:999px;background:#E0A02E;color:#1C3B57;font-size:11.5px;font-weight:800;display:flex;align-items:center;justify-content:center;line-height:1;">{{ cartCount }}</span>
+            </sc-if>
+          </button>
+          <sc-if value="{{ cartOpen }}" hint-placeholder-val="{{ false }}">
+            <div role="dialog" aria-label="Cart" style="position:absolute;right:0;top:52px;width:250px;background:#fff;border:1px solid #E7DCC6;border-radius:12px;box-shadow:0 18px 40px -16px rgba(28,59,87,.4);padding:16px;z-index:60;">
+              <p style="margin:0 0 4px;font-weight:700;color:#1C3B57;font-size:15px;">Your cart</p>
+              <p style="margin:0 0 12px;font-size:13.5px;color:#857b6c;">{{ cartLine }}</p>
+              <a href="products.html" style="display:block;text-align:center;padding:11px;border-radius:9px;background:#1F8F89;color:#fff;text-decoration:none;font-weight:700;font-size:14px;" style-hover="background:#16726D;">Continue shopping</a>
+              <p style="margin:10px 0 0;font-size:12px;color:#a89c84;text-align:center;">Secure checkout coming soon</p>
+            </div>
+          </sc-if>
+        </div>
+      </nav>
+      <button type="button" aria-label="Cart" onClick="{{ toggleCart }}" style="margin-left:auto;position:relative;display:none;align-items:center;justify-content:center;width:46px;height:46px;border:1px solid #E7DCC6;border-radius:10px;background:#fff;cursor:pointer;" data-rag-cart-mobile>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1C3B57" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="20" r="1.4"></circle><circle cx="18" cy="20" r="1.4"></circle><path d="M2 3h2.2l2.3 12.5a1.6 1.6 0 0 0 1.6 1.3h8.9a1.6 1.6 0 0 0 1.6-1.2L21 7H5.3"></path></svg>
+        <sc-if value="{{ hasItems }}" hint-placeholder-val="{{ false }}">
+          <span style="position:absolute;top:-7px;right:-7px;min-width:19px;height:19px;padding:0 5px;border-radius:999px;background:#E0A02E;color:#1C3B57;font-size:11.5px;font-weight:800;display:flex;align-items:center;justify-content:center;line-height:1;">{{ cartCount }}</span>
+        </sc-if>
+      </button>
+      <button type="button" aria-label="Open menu" aria-expanded="{{ open }}" onClick="{{ toggle }}" style="margin-left:8px;display:none;align-items:center;justify-content:center;width:46px;height:46px;border:1px solid #E7DCC6;border-radius:10px;background:#fff;cursor:pointer;" data-rag-burger>
+        <svg width="22" height="22" viewBox="0 0 24 24" stroke="#1C3B57" stroke-width="2.2" stroke-linecap="round"><line x1="3" y1="7" x2="21" y2="7"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="17" x2="21" y2="17"></line></svg>
+      </button>
+    </div>
+    <sc-if value="{{ cartOpen }}" hint-placeholder-val="{{ false }}">
+      <div data-rag-cart-pop style="display:none;border-top:1px solid #E7DCC6;background:#FBF5E9;padding:14px 24px;">
+        <p style="margin:0 0 4px;font-weight:700;color:#1C3B57;font-size:15px;">Your cart · {{ cartLine }}</p>
+        <a href="products.html" style="display:inline-block;margin-top:8px;padding:11px 18px;border-radius:9px;background:#1F8F89;color:#fff;text-decoration:none;font-weight:700;font-size:14px;">Continue shopping</a>
+        <span style="display:block;margin-top:8px;font-size:12px;color:#a89c84;">Secure checkout coming soon</span>
+      </div>
+    </sc-if>
+    <sc-if value="{{ open }}" hint-placeholder-val="{{ false }}">
+      <div style="border-top:1px solid #E7DCC6;background:#FBF5E9;padding:8px 16px 16px;" data-rag-mobile>
+        <a href="index.html" style="display:block;padding:13px 12px;text-decoration:none;color:#2B2622;font-weight:600;font-size:16px;border-bottom:1px solid #efe6d2;">Home</a>
+        <a href="about.html" style="display:block;padding:13px 12px;text-decoration:none;color:#2B2622;font-weight:600;font-size:16px;border-bottom:1px solid #efe6d2;">About</a>
+        <a href="artists.html" style="display:block;padding:13px 12px;text-decoration:none;color:#2B2622;font-weight:600;font-size:16px;border-bottom:1px solid #efe6d2;">Artists</a>
+        <a href="board-members.html" style="display:block;padding:13px 12px;text-decoration:none;color:#2B2622;font-weight:600;font-size:16px;border-bottom:1px solid #efe6d2;">Board Members</a>
+        <a href="gallery.html" style="display:block;padding:13px 12px;text-decoration:none;color:#2B2622;font-weight:600;font-size:16px;border-bottom:1px solid #efe6d2;">Gallery</a>
+        <a href="products.html" style="display:block;padding:13px 12px;text-decoration:none;color:#2B2622;font-weight:600;font-size:16px;border-bottom:1px solid #efe6d2;">Products</a>
+        <a href="events.html" style="display:block;padding:13px 12px;text-decoration:none;color:#2B2622;font-weight:600;font-size:16px;border-bottom:1px solid #efe6d2;">Events</a>
+        <a href="membership.html" style="display:block;padding:13px 12px;text-decoration:none;color:#2B2622;font-weight:600;font-size:16px;border-bottom:1px solid #efe6d2;">Membership</a>
+        <a href="visit.html" style="display:block;padding:13px 12px;text-decoration:none;color:#2B2622;font-weight:600;font-size:16px;border-bottom:1px solid #efe6d2;">Visit</a>
+        <a href="contact.html" style="display:block;padding:13px 12px;text-decoration:none;color:#2B2622;font-weight:600;font-size:16px;border-bottom:1px solid #efe6d2;">Contact</a>
+        <a href="https://riverartgalleries.com/" target="_blank" rel="noopener" style="display:block;margin-top:12px;text-align:center;padding:14px;border-radius:10px;background:#1F8F89;color:#fff;text-decoration:none;font-weight:700;font-size:16px;">Shop Art Online →</a>
+      </div>
+    </sc-if>
+  </div>
+</header>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1240,&quot;height&quot;:120},&quot;active&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;home&quot;,&quot;about&quot;,&quot;artists&quot;,&quot;board&quot;,&quot;gallery&quot;,&quot;products&quot;,&quot;events&quot;,&quot;membership&quot;,&quot;visit&quot;,&quot;contact&quot;],&quot;default&quot;:&quot;home&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
+class Component extends DCLogic {
+  state = { open: false, cartOpen: false, cartCount: 0 };
+  toggle = () => this.setState(s => ({ open: !s.open, cartOpen:false }));
+  toggleCart = () => this.setState(s => ({ cartOpen: !s.cartOpen, open:false }));
+  readCart(){
+    try{ return JSON.parse(localStorage.getItem('rag_cart')||'[]'); }catch(e){ return []; }
+  }
+  syncCart = () => { this.setState({ cartCount: this.readCart().length }); };
+  componentDidMount(){
+    this.syncCart();
+    this.applyActive();
+    this.applyResponsive();
+    this._onResize = () => this.applyResponsive();
+    window.addEventListener('resize', this._onResize);
+    window.addEventListener('rag-cart', this.syncCart);
+    window.addEventListener('storage', this.syncCart);
+  }
+  componentDidUpdate(){ this.applyActive(); this.applyResponsive(); this.applyCartPop(); }
+  componentWillUnmount(){
+    if(this._onResize) window.removeEventListener('resize', this._onResize);
+    window.removeEventListener('rag-cart', this.syncCart);
+    window.removeEventListener('storage', this.syncCart);
+  }
+  applyActive(){
+    const active = this.props.active;
+    if(!active) return;
+    document.querySelectorAll('header[data-rag-header] [data-rag-nav] a[data-nav]').forEach(a=>{
+      if(a.getAttribute('data-nav')===active){
+        a.style.color = '#16726D';
+        a.style.background = '#EAF4F2';
+        a.style.fontWeight = '700';
+      }
+    });
+  }
+  applyResponsive(){
+    const wide = window.innerWidth >= 1240;
+    document.querySelectorAll('header[data-rag-header] [data-rag-nav]').forEach(n=>{ n.style.display = wide ? 'flex' : 'none'; });
+    document.querySelectorAll('header[data-rag-header] [data-rag-burger]').forEach(b=>{ b.style.display = wide ? 'none' : 'flex'; });
+    document.querySelectorAll('header[data-rag-header] [data-rag-cart-mobile]').forEach(b=>{ b.style.display = wide ? 'none' : 'flex'; });
+  }
+  applyCartPop(){
+    const wide = window.innerWidth >= 1240;
+    document.querySelectorAll('header[data-rag-header] [data-rag-cart-pop]').forEach(b=>{ b.style.display = (!wide && this.state.cartOpen) ? 'block' : 'none'; });
+  }
+  renderVals(){
+    const n = this.state.cartCount;
+    return {
+      open:this.state.open, toggle:this.toggle,
+      cartOpen:this.state.cartOpen, toggleCart:this.toggleCart,
+      cartCount:n, hasItems:n>0,
+      cartLine: n===0 ? "No items yet" : (n + (n===1?" item":" items"))
+    };
+  }
+}
+</script>
+</body>
+</html>

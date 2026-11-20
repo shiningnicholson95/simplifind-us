@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Fraunces:ital,opsz,wght,SOFT@0,9..144,400..700,0..100;1,9..144,400..700,0..100&family=Source+Sans+3:wght@400;600;700&family=Caveat:wght@600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css?v=3">
+<style>
+  *{ box-sizing:border-box; }
+  body{ margin:0; }
+  @keyframes kx-fade{ from{ opacity:0; transform:translateY(14px);} to{ opacity:1; transform:none;} }
+</style>
+</helmet>
+
+<div class="kx-page">
+
+    <!-- HEADER -->
+  <div class="kx-note">Welcoming new patients from Exton &amp; across Chester County &nbsp;·&nbsp; <a href="sms:+16103685372">Text (610) 368-5372</a><span class="kx-note-mail"> &nbsp;·&nbsp; <a href="mailto:info@kinetx.org">info@kinetx.org</a></span></div>
+  <header class="kx-header">
+    <div class="kx-header-in">
+      <a href="./" class="kx-brand" aria-label="KinetX Rehab with Dr. Gene Serafim, home">
+        <span class="kx-logo-mark" aria-hidden="true"><span>K</span></span>
+        <span><span class="kx-logo-word">KINETX<span> REHAB</span></span><span class="kx-brand-sub"><img src="assets/dr-serafim-200.jpg" alt="" width="20" height="20">with Dr. Gene Serafim, DC</span></span>
+      </a>
+      <sc-if value="{{ showDesktopNav }}" hint-placeholder-val="{{ true }}">
+        <nav class="kx-nav" aria-label="Main">
+          <sc-for list="{{ navItems }}" as="item" hint-placeholder-count="6">
+            <a href="{{ item.href }}">{{ item.label }}</a>
+          </sc-for>
+        </nav>
+      </sc-if>
+      <div class="kx-head-cta">
+        <a href="tel:+16103048471" class="kx-head-phone">(610) 304-8471</a>
+        <a href="sms:+16103685372" class="btn btn-primary">Text to book</a>
+        <sc-if value="{{ showMobileNav }}" hint-placeholder-val="{{ false }}">
+          <button onClick="{{ toggleMenu }}" class="kx-burger" aria-label="Open menu">☰</button>
+        </sc-if>
+      </div>
+    </div>
+    <sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+      <nav class="kx-mnav" aria-label="Mobile">
+        <sc-for list="{{ navItems }}" as="item" hint-placeholder-count="6">
+          <a href="{{ item.href }}" onClick="{{ closeMenu }}">{{ item.label }}</a>
+        </sc-for>
+        <a href="tel:+16103048471">Call (610) 304-8471</a>
+      </nav>
+    </sc-if>
+  </header>
+
+  <!-- ===== INDEX VIEW ===== -->
+  <sc-if value="{{ isIndex }}" hint-placeholder-val="{{ false }}">
+    <div>
+      <div style="max-width:1280px; margin:0 auto; padding:18px 28px 0;">
+        <div style="font-family:var(--sans); font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-3); font-weight:600;">
+          <a href="./" style="color:var(--ink-3); text-decoration:none;">Home</a>
+          <span style="color:var(--ink-2); margin:0 8px;">/</span><span style="color:var(--accent-ink);">Services</span>
+        </div>
+      </div>
+      <section>
+        <div style="max-width:840px; margin:0 auto; padding:clamp(40px,5vw,72px) 28px clamp(28px,4vw,44px);">
+          <div style="display:inline-flex; align-items:center; gap:10px; font-family:var(--sans); font-weight:600; font-size:13px; letter-spacing:.08em; text-transform:uppercase; color:var(--accent-ink); margin-bottom:20px;">
+            <span style="width:26px; height:1px; background:var(--accent); color:#fff;"></span>How I can help
+          </div>
+          <h1 style="font-family:var(--serif); font-weight:500; font-size:clamp(32.6px,4.8vw,62.2px); line-height:1.1; margin:0 0 22px;">Care that treats the cause, not just the pain</h1>
+          <p style="font-size:clamp(16px,1.6vw,19px); line-height:1.65; color:var(--ink-2); max-width:620px; margin:0;">From precise chiropractic adjustments to progressive rehab and ConnectX soft-tissue work, everything I offer is aimed at getting you out of pain and back to the things you enjoy. Here's what we do at the office in Exton.</p>
+        </div>
+      </section>
+      <section style="background:var(--cream); color:var(--ink); padding:clamp(44px,5vw,72px) 28px clamp(40px,5vw,64px);">
+        <div style="max-width:1280px; margin:0 auto; display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:24px;">
+          <sc-for list="{{ indexCards }}" as="ic" hint-placeholder-count="8">
+            <a href="{{ ic.href }}" style="background:var(--card); border:1px solid var(--line); text-decoration:none; color:var(--ink); display:flex; flex-direction:column;">
+              <div style="aspect-ratio:16/10; overflow:hidden; background:var(--cream); border-bottom:1px solid var(--line); border-radius:18px;">
+                <img src="{{ ic.img }}" alt="{{ ic.name }} in Exton, PA" loading="lazy" style="width:100%; height:100%; object-fit:cover;">
+              </div>
+              <div style="padding:24px 24px 26px;">
+                <div style="font-family:var(--sans); font-weight:600; font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--accent-ink); margin-bottom:10px;">{{ ic.tagline }}</div>
+                <h2 style="font-family:var(--sans); font-weight:600; font-size:22px; margin:0 0 10px;">{{ ic.name }}</h2>
+                <p style="font-size:14px; line-height:1.6; color:var(--ink-3); margin:0 0 14px;">{{ ic.blurb }}</p>
+                <span style="font-family:var(--sans); font-weight:600; font-size:13px; letter-spacing:.08em; text-transform:uppercase; color:var(--ink);">Learn More →</span>
+              </div>
+            </a>
+          </sc-for>
+        </div>
+      </section>
+    </div>
+  </sc-if>
+
+  <!-- ===== DETAIL VIEW ===== -->
+  <sc-if value="{{ isDetail }}" hint-placeholder-val="{{ true }}">
+  <div>
+  <!-- BREADCRUMB -->
+  <div style="max-width:1280px; margin:0 auto; padding:18px 28px 0;">
+    <div style="font-family:var(--sans); font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-3); font-weight:600;">
+      <a href="./" style="color:var(--ink-3); text-decoration:none;">Home</a>
+      <span style="color:var(--ink-2); margin:0 8px;">/</span>
+      <a href="services.html" style="color:var(--ink-3); text-decoration:none;">Services</a>
+      <span style="color:var(--ink-2); margin:0 8px;">/</span>
+      <span style="color:var(--accent-ink);">{{ s.name }}</span>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <section>
+    <div style="max-width:1280px; margin:0 auto; padding:clamp(36px,5vw,64px) 28px clamp(40px,5vw,72px); display:flex; flex-wrap:wrap; gap:48px; align-items:center;">
+      <div style="flex:1 1 460px; min-width:300px; animation:kx-fade .6s ease both;">
+        <div style="display:inline-flex; align-items:center; gap:10px; font-family:var(--sans); font-weight:600; font-size:13px; letter-spacing:.08em; text-transform:uppercase; color:var(--accent-ink); margin-bottom:20px;">
+          <span style="width:26px; height:1px; background:var(--accent); color:#fff;"></span>{{ s.tagline }} • Exton, PA
+        </div>
+        <h1 style="font-family:var(--serif); font-weight:500; font-size:clamp(31.1px,4.4vw,59.2px); line-height:1.1; margin:0 0 22px;">{{ s.h1 }}</h1>
+        <p style="font-size:clamp(16px,1.6vw,19px); line-height:1.65; color:var(--ink-2); max-width:540px; margin:0 0 30px;">{{ s.heroSub }}</p>
+        <div style="display:flex; flex-wrap:wrap; gap:14px;">
+          <a href="sms:+16103685372" style="font-family:var(--sans); font-weight:600; font-size:16.5px; color:#fff; background:var(--accent); padding:17px 30px; text-decoration:none; border-radius:999px;">Text to Book →</a>
+          <a href="tel:+16103048471" style="font-family:var(--sans); font-weight:600; font-size:16.5px; color:var(--ink); border:1px solid var(--line); padding:17px 30px; text-decoration:none; border-radius:999px;">Call the Clinic</a>
+        </div>
+      </div>
+      <div style="flex:1 1 360px; min-width:300px;">
+        <div style="aspect-ratio:4/3; border:1px solid var(--line-dark); overflow:hidden; background:var(--forest-2); color:var(--on-dark); border-radius:18px;">
+          <img src="{{ s.heroImg }}" alt="{{ s.h1 }}" style="width:100%; height:100%; object-fit:cover;">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OVERVIEW + GOOD FOR -->
+  <section style="background:var(--paper); color:var(--ink); padding:clamp(56px,7vw,96px) 28px;">
+    <div style="max-width:1280px; margin:0 auto; display:flex; flex-wrap:wrap; gap:48px;">
+      <div style="flex:2 1 460px; min-width:300px;">
+        <div style="font-family:var(--sans); font-weight:600; font-size:13px; letter-spacing:.08em; text-transform:uppercase; color:var(--accent-ink); margin-bottom:14px;">Overview</div>
+        <h2 style="font-family:var(--serif); font-size:clamp(23.7px,3.1vw,40px); line-height:1.1; margin:0 0 22px; max-width:620px; font-weight:500;">{{ s.overviewHeading }}</h2>
+        <sc-for list="{{ s.intro }}" as="p" hint-placeholder-count="2">
+          <p style="font-size:16.5px; line-height:1.75; color:var(--ink-2); max-width:640px; margin:0 0 18px;">{{ p }}</p>
+        </sc-for>
+      </div>
+      <div style="flex:1 1 250px; min-width:240px; border:1px solid var(--line); padding:30px 28px; align-self:flex-start; border-radius:16px;">
+        <div style="font-family:var(--sans); font-weight:600; font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:var(--accent-ink); margin-bottom:16px;">Helps With</div>
+        <div style="display:flex; flex-direction:column; gap:8px;">
+          <sc-for list="{{ goodFor }}" as="g" hint-placeholder-count="4">
+            <a href="{{ g.href }}" style="display:flex; align-items:center; gap:10px; font-family:var(--sans); font-weight:600; font-size:16.5px; color:var(--ink-2); text-decoration:none; padding:8px 0; border-bottom:1px solid var(--line);">
+              <span style="color:var(--accent-ink);">→</span>{{ g.name }}
+            </a>
+          </sc-for>
+        </div>
+        <a href="sms:+16103685372" style="display:block; text-align:center; margin-top:22px; font-family:var(--sans); font-weight:600; font-size:15.5px; color:#fff; background:var(--accent); padding:14px; text-decoration:none; border-radius:999px;">Text to Book</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- BENEFITS -->
+  <section style="background:var(--cream); color:var(--ink); padding:clamp(56px,7vw,96px) 28px;">
+    <div style="max-width:1280px; margin:0 auto;">
+      <div style="margin-bottom:42px;">
+        <div style="font-family:var(--sans); font-weight:600; font-size:13px; letter-spacing:.08em; text-transform:uppercase; color:var(--accent-ink); margin-bottom:14px;">The Benefits</div>
+        <h2 style="font-family:var(--serif); font-size:clamp(23.7px,3.1vw,40px); line-height:1.1; margin:0; max-width:640px; font-weight:500;">{{ s.benefitsHeading }}</h2>
+      </div>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:14px;">
+        <sc-for list="{{ s.benefits }}" as="b" hint-placeholder-count="6">
+          <div style="background:var(--card); border:1px solid var(--line); padding:28px 26px; border-radius:16px;">
+            <div style="width:34px; height:3px; background:var(--accent); margin-bottom:16px; color:#fff;"></div>
+            <h3 style="font-family:var(--sans); font-weight:600; font-size:19px; margin:0 0 8px;">{{ b.title }}</h3>
+            <p style="font-size:14.5px; line-height:1.6; color:var(--ink-2); margin:0;">{{ b.desc }}</p>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT TO EXPECT -->
+  <section style="background:var(--forest); padding:clamp(56px,7vw,96px) 28px; color:var(--on-dark);">
+    <div style="max-width:1280px; margin:0 auto;">
+      <div style="margin-bottom:42px;">
+        <div style="font-family:var(--sans); font-weight:600; font-size:13px; letter-spacing:.08em; text-transform:uppercase; color:#F2C4AE; margin-bottom:14px;">What To Expect</div>
+        <h2 style="font-family:var(--serif); font-size:clamp(23.7px,3.1vw,40px); line-height:1.1; margin:0; font-weight:500;">What working with me looks like</h2>
+      </div>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:14px;">
+        <sc-for list="{{ s.expect }}" as="e" hint-placeholder-count="4">
+          <div style="border:1px solid var(--line-dark); background:var(--forest-2); padding:28px 24px; color:var(--on-dark); border-radius:16px;">
+            <div style="font-family:var(--serif); font-size:29.6px; color:#F2C4AE; line-height:1.1; margin-bottom:14px; font-weight:500;">{{ e.n }}</div>
+            <h3 style="font-family:var(--sans); font-weight:600; font-size:19px; margin:0 0 8px; color:var(--on-dark);">{{ e.title }}</h3>
+            <p style="font-size:14px; line-height:1.6; color:var(--on-dark-2); margin:0;">{{ e.desc }}</p>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- TECHNIQUES -->
+  <section style="background:var(--paper); color:var(--ink); padding:clamp(56px,7vw,96px) 28px;">
+    <div style="max-width:1280px; margin:0 auto; display:flex; flex-wrap:wrap; gap:48px;">
+      <div style="flex:1 1 300px; min-width:280px;">
+        <div style="font-family:var(--sans); font-weight:600; font-size:13px; letter-spacing:.08em; text-transform:uppercase; color:var(--accent-ink); margin-bottom:14px;">How I treat it</div>
+        <h2 style="font-family:var(--serif); font-size:clamp(23.7px,3.1vw,38.5px); line-height:1.1; margin:0 0 18px; font-weight:500;">{{ s.techHeading }}</h2>
+        <p style="font-size:16px; line-height:1.7; color:var(--ink-2); max-width:380px; margin:0 0 24px;">Every technique is chosen for your specific condition and goals — never one-size-fits-all.</p>
+        <a href="sms:+16103685372" style="font-family:var(--sans); font-weight:600; font-size:15.5px; color:var(--ink); border-bottom:2px solid var(--accent); padding-bottom:4px; text-decoration:none;">Book Your Visit →</a>
+      </div>
+      <div style="flex:2 1 420px; min-width:300px; display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:16px;">
+        <sc-for list="{{ s.techniques }}" as="t" hint-placeholder-count="4">
+          <div style="background:var(--card); padding:26px 24px; border-radius:16px;">
+            <h3 style="font-family:var(--sans); font-weight:600; font-size:19.5px; margin:0 0 8px;">{{ t.name }}</h3>
+            <p style="font-size:14px; line-height:1.6; color:var(--ink-3); margin:0;">{{ t.desc }}</p>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section style="background:var(--forest-deep); padding:clamp(56px,7vw,96px) 28px; border-top:1px solid var(--line-dark); color:var(--on-dark);">
+    <div style="max-width:980px; margin:0 auto; display:flex; flex-wrap:wrap; gap:48px;">
+      <div style="flex:1 1 260px; min-width:240px;">
+        <div style="font-family:var(--sans); font-weight:600; font-size:13px; letter-spacing:.08em; text-transform:uppercase; color:#F2C4AE; margin-bottom:14px;">FAQ</div>
+        <h2 style="font-family:var(--serif); font-size:clamp(23.7px,3.1vw,38.5px); line-height:1.1; margin:0 0 18px; font-weight:500;">{{ s.name }} Questions</h2>
+        <a href="sms:+16103685372" style="font-family:var(--sans); font-weight:600; font-size:15.5px; color:var(--on-dark); border-bottom:2px solid var(--accent); padding-bottom:4px; text-decoration:none;">Text (610) 368-5372</a>
+      </div>
+      <div style="flex:2 1 420px; min-width:300px;">
+        <sc-for list="{{ faqs }}" as="f" hint-placeholder-count="4">
+          <div style="border-bottom:1px solid var(--line-dark);">
+            <button onClick="{{ f.onToggle }}" style="width:100%; background:none; border:none; cursor:pointer; text-align:left; padding:22px 0; display:flex; align-items:center; justify-content:space-between; gap:18px;">
+              <span style="font-family:var(--sans); font-weight:600; font-size:19.5px; color:var(--on-dark);">{{ f.q }}</span>
+              <span style="font-family:var(--sans); font-size:24px; color:#F2C4AE; flex:none; line-height:1; font-weight:600;">{{ f.icon }}</span>
+            </button>
+            <sc-if value="{{ f.open }}" hint-placeholder-val="{{ false }}">
+              <p style="font-size:15.5px; line-height:1.7; color:var(--on-dark-2); margin:0; padding:0 0 24px; max-width:600px;">{{ f.a }}</p>
+            </sc-if>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- RELATED SERVICES -->
+  <section style="background:var(--cream); color:var(--ink); padding:clamp(56px,7vw,90px) 28px;">
+    <div style="max-width:1280px; margin:0 auto;">
+      <div style="margin-bottom:36px;">
+        <div style="font-family:var(--sans); font-weight:600; font-size:13px; letter-spacing:.08em; text-transform:uppercase; color:var(--accent-ink); margin-bottom:14px;">Explore More</div>
+        <h2 style="font-family:var(--serif); font-size:clamp(22.2px,3vw,37px); line-height:1.1; margin:0; font-weight:500;">Related Services</h2>
+      </div>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:14px;">
+        <sc-for list="{{ related }}" as="r" hint-placeholder-count="3">
+          <a href="{{ r.href }}" style="background:var(--card); border:1px solid var(--line); padding:28px 26px; text-decoration:none; color:var(--ink); display:flex; flex-direction:column; justify-content:space-between; min-height:150px; border-radius:16px;">
+            <div>
+              <div style="font-family:var(--serif); font-size:17.8px; color:var(--accent-ink); line-height:1.1; margin-bottom:12px; font-weight:500;">{{ r.tagline }}</div>
+              <h3 style="font-family:var(--sans); font-weight:600; font-size:20px; margin:0;">{{ r.title }}</h3>
+            </div>
+            <span style="font-family:var(--sans); font-weight:600; font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:var(--accent-ink); margin-top:18px;">View Service →</span>
+          </a>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  </div>
+  </sc-if>
+
+    <!-- DOCTOR CTA -->
+  <section class="dr-cta bg-forest kx-section">
+    <div class="kx-wrap dr-cta-in">
+      <div class="dr-cta-photo"><img src="assets/dr-serafim-1000.jpg" alt="Dr. Gene Serafim, DC" loading="lazy"></div>
+      <div class="dr-cta-text">
+        <h2 class="h2">Not sure if I can help? Just ask.</h2>
+        <p>Text my office with what's going on and we'll get back to you, usually the same day. If it sounds like something I can fix, we'll find you a time. If it isn't, I'll point you to someone who can.</p>
+        <div class="btn-row">
+          <a href="sms:+16103685372" class="btn btn-light">Text (610) 368-5372</a>
+          <a href="tel:+16103048471" class="btn btn-ghost">Call (610) 304-8471</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+    <!-- FOOTER -->
+  <footer class="kx-footer">
+    <div class="kx-wrap">
+      <div class="kx-foot-grid">
+        <div>
+          <div class="kx-foot-logo"><span class="kx-logo-mark" aria-hidden="true"><span>K</span></span><span class="kx-logo-word">KINETX<span> REHAB</span></span></div>
+          <div class="kx-foot-dr">
+            <img src="assets/dr-serafim-200.jpg" alt="Dr. Gene Serafim" loading="lazy">
+            <div><div class="n">Dr. Gene Serafim, DC</div><div class="s">Chiropractor &amp; Kinesiologist · Founder</div></div>
+          </div>
+          <p style="margin:0 0 14px; max-width:300px;">Kinetx Rehabilitation, Chiropractic &amp; Massage. A neighborhood practice in Exton, PA.</p>
+          <p style="margin:0; line-height:1.8;">661 Exton Commons, Exton, PA 19341<br><a href="sms:+16103685372" style="color:#F2C4AE; font-weight:600;">Text (610) 368-5372</a><br><a href="tel:+16103048471">Call (610) 304-8471</a><br><a href="mailto:info@kinetx.org">info@kinetx.org</a></p>
+          <p style="margin:14px 0 0; line-height:1.7; color:var(--on-dark-3);">Mon–Fri 8am–7pm · Sat 8am–12pm · Sun closed</p>
+        </div>
+        <div>
+          <div class="kx-foot-h">Care</div>
+          <div class="kx-foot-links">
+            <a href="services.html#chiropractic-care">Chiropractic Care</a>
+            <a href="services.html#functional-rehabilitation">Functional Rehab</a>
+            <a href="services.html#massage-therapy">Massage Therapy</a>
+            <a href="services.html#soft-tissue-therapy">Soft Tissue Therapy</a>
+            <a href="services.html">All services</a>
+          </div>
+        </div>
+        <div>
+          <div class="kx-foot-h">Conditions</div>
+          <div class="kx-foot-links">
+            <a href="conditions.html#back-pain">Back Pain</a>
+            <a href="conditions.html#neck-pain">Neck Pain</a>
+            <a href="conditions.html#sciatica">Sciatica</a>
+            <a href="conditions.html#headaches">Headaches</a>
+            <a href="conditions.html">All conditions</a>
+          </div>
+        </div>
+        <div>
+          <div class="kx-foot-h">Nearby</div>
+          <div class="kx-foot-links">
+            <a href="locations.html#exton-pa">Exton</a>
+            <a href="locations.html#west-chester-pa">West Chester</a>
+            <a href="locations.html#downingtown-pa">Downingtown</a>
+            <a href="locations.html#malvern-pa">Malvern</a>
+            <a href="locations.html">All towns</a>
+          </div>
+        </div>
+        <div>
+          <div class="kx-foot-h">The practice</div>
+          <div class="kx-foot-links">
+            <a href="about.html">Meet Dr. Gene</a>
+            <a href="blog.html">Blog</a>
+            <a href="contact.html">Contact</a>
+            <a href="book-appointment.html">Request a visit</a>
+          </div>
+        </div>
+      </div>
+      <div class="kx-foot-bottom">
+        <span>© 2026 Kinetx Rehabilitation, Chiropractic &amp; Massage</span>
+        <span><a href="#">Privacy</a><a href="#">Accessibility</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <a href="sms:+16103685372" class="kx-float" aria-label="Text Dr. Gene's office"><img src="assets/dr-serafim-200.jpg" alt="">Text us</a>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1440,&quot;height&quot;:2400}}">
+class Component extends DCLogic {
+  state = { menuOpen:false, isMobile:false, openFaq:0, slug:"" };
+
+  componentDidMount(){
+    this._onResize = () => this.setState({ isMobile: window.innerWidth < 980 });
+    this._onResize();
+    this._sync = () => {
+      const h = (location.hash || "").replace("#","").trim();
+      const slug = this.SERVICES[h] ? h : "";
+      if (slug !== this.state.slug){ this.setState({ slug, openFaq:0 }); try{ window.scrollTo(0,0); }catch(e){} }
+    };
+    this._sync();
+    window.addEventListener("hashchange", this._sync);
+    window.addEventListener("resize", this._onResize);
+  }
+  componentWillUnmount(){
+    window.removeEventListener("hashchange", this._sync);
+    window.removeEventListener("resize", this._onResize);
+  }
+
+  condHref = (name) => name === "Sports Injuries" ? "conditions.html#sports-injuries" : (
+    { "Back Pain":"back-pain","Neck Pain":"neck-pain","Shoulder Pain":"shoulder-pain","Knee Pain":"knee-pain","Hip Pain":"hip-pain","Sciatica":"sciatica","Headaches":"headaches" }[name] ? "conditions.html#" + { "Back Pain":"back-pain","Neck Pain":"neck-pain","Shoulder Pain":"shoulder-pain","Knee Pain":"knee-pain","Hip Pain":"hip-pain","Sciatica":"sciatica","Headaches":"headaches" }[name] : "conditions.html"
+  );
+
+  order = ["chiropractic-care","functional-rehabilitation","kinesiology","massage-therapy","corrective-exercise","soft-tissue-therapy","mobility-therapy","sports-injury-recovery"];
+
+  SERVICES = {
+    "chiropractic-care": {
+      name:"Chiropractic Care", tagline:"Precision Adjustments",
+      h1:"Chiropractic Care in Exton, PA",
+      heroImg:"assets/dr-serafim-1000.jpg",
+      heroSub:"Precise, comfortable adjustments — paired with soft-tissue and rehab — that actually hold. Less pain, freer movement, better performance.",
+      overviewHeading:"More Than a Crack-and-Go",
+      intro:[
+        "Chiropractic care restores proper movement to joints that have become stiff, restricted, or misaligned — the kind of restriction that quietly drains your strength, range of motion, and comfort. At Kinetx, an adjustment is never a rushed crack-and-go.",
+        "Dr. Gene Serafim pairs precise, controlled adjustments with soft-tissue work and targeted rehab, so the correction actually holds. The result is less pain, freer movement, and a body that performs the way you want it to."
+      ],
+      benefitsHeading:"What Chiropractic Care Does For You",
+      benefits:[
+        { title:"Real Pain Relief", desc:"Calm down irritated joints and muscles so you can move comfortably again." },
+        { title:"Better Range of Motion", desc:"Free up stiff segments in the spine, hips, and shoulders." },
+        { title:"Improved Posture", desc:"Offset the daily toll of desk work, driving, and training load." },
+        { title:"Fewer Headaches", desc:"Address the neck-driven tension that triggers recurring headaches." },
+        { title:"Faster Recovery", desc:"Help your nervous system and tissues bounce back between sessions." },
+        { title:"Better Performance", desc:"Move with more power and control in sport and in the gym." }
+      ],
+      expect:[
+        { n:"1", title:"Assessment", desc:"A full history plus movement, orthopedic, and neurological testing to find the real driver." },
+        { n:"2", title:"Diagnosis", desc:"A clear explanation of what's wrong and what's realistic — no scare tactics." },
+        { n:"3", title:"Adjustment", desc:"Precise, comfortable adjustments paired with soft-tissue and muscle work." },
+        { n:"4", title:"Plan", desc:"A focused care plan with home strategies so the results stick." }
+      ],
+      techHeading:"Techniques We Use",
+      techniques:[
+        { name:"Diversified Adjusting", desc:"Specific, hands-on adjustments for the spine and extremities." },
+        { name:"Drop-Table", desc:"Lower-force corrections using a segmented, cushioned table." },
+        { name:"Instrument-Assisted", desc:"Gentle, controlled adjustments for sensitive areas." },
+        { name:"Joint Mobilization", desc:"Graded movement to restore motion without heavy force." }
+      ],
+      goodFor:["Back Pain","Neck Pain","Headaches","Sciatica"],
+      faqs:[
+        { q:"Does an adjustment hurt?", a:"Most patients feel immediate relief, not pain. Adjustments are quick and controlled, and we tailor the force to your comfort and condition." },
+        { q:"Is chiropractic safe?", a:"Yes. For the vast majority of people it's very safe. We screen thoroughly first and choose techniques appropriate for you — including low-force options." },
+        { q:"How many visits will I need?", a:"It depends on your condition and goals. Many patients feel meaningful relief within a few visits; we set a clear plan and reassess as you progress." },
+        { q:"Do I need a referral?", a:"No referral is needed. You can text us to book directly, and we accept most major insurance." }
+      ],
+      related:["functional-rehabilitation","soft-tissue-therapy","corrective-exercise"]
+    },
+
+    "functional-rehabilitation": {
+      name:"Functional Rehabilitation", tagline:"Rebuild & Bulletproof",
+      h1:"Functional Rehabilitation in Exton, PA",
+      heroImg:"https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=1100&q=80&auto=format&fit=crop",
+      heroSub:"Getting out of pain is step one. Functional rehab rebuilds the strength, stability, and control that keep it from coming back.",
+      overviewHeading:"Stay Out of Pain — For Good",
+      intro:[
+        "Getting out of pain is step one. Staying out of pain is the real goal — and that takes more than passive treatment. Functional rehab rebuilds the strength, stability, and movement control your body lost to injury, pain, or years of compensating.",
+        "Dr. Serafim, a DACRB rehabilitation diplomate, designs progressive programs that retrain how you move under load. You'll leave knowing exactly what to do — and why — so you don't keep ending up back where you started."
+      ],
+      benefitsHeading:"Why Rehab Makes the Difference",
+      benefits:[
+        { title:"Lasting Results", desc:"Fix the cause, not just the symptom, so pain stays gone." },
+        { title:"Strength Where It Counts", desc:"Rebuild the muscles that stabilize your joints under load." },
+        { title:"Better Movement", desc:"Retrain efficient, pain-free patterns for sport and daily life." },
+        { title:"Injury Prevention", desc:"Address weak links before they become your next injury." },
+        { title:"Confidence to Train", desc:"Return to lifting, running, or your sport without second-guessing." },
+        { title:"Clear Home Program", desc:"Know exactly what to do between visits to keep progressing." }
+      ],
+      expect:[
+        { n:"1", title:"Movement Screen", desc:"We test how you actually move to find the weak links." },
+        { n:"2", title:"Targeted Program", desc:"A custom plan of corrective and strength exercises built for you." },
+        { n:"3", title:"Coached Progression", desc:"Hands-on coaching to load tissue safely and steadily." },
+        { n:"4", title:"Return to Performance", desc:"A staged path back to full training and competition." }
+      ],
+      techHeading:"How We Rebuild You",
+      techniques:[
+        { name:"Corrective Exercise", desc:"Targeted drills to restore control and stability." },
+        { name:"Progressive Loading", desc:"Gradually building strength and tissue capacity." },
+        { name:"Movement Retraining", desc:"Grooving efficient squat, hinge, and gait patterns." },
+        { name:"Sport-Specific Prep", desc:"Drills that mirror the demands of your sport." }
+      ],
+      goodFor:["Sports Injuries","Back Pain","Knee Pain","Shoulder Pain"],
+      faqs:[
+        { q:"How is this different from physical therapy?", a:"There's overlap — both rebuild function. Our advantage is combining hands-on chiropractic and soft-tissue care with rehab in one place, so treatment and training reinforce each other." },
+        { q:"Do I need to be an athlete?", a:"Not at all. We rehab desk workers, weekend warriors, and competitive athletes alike — the plan is always scaled to you." },
+        { q:"Will I get exercises to do at home?", a:"Yes. A simple, specific home program is part of every plan, and we adjust it as you progress." },
+        { q:"How long does rehab take?", a:"Many patients see meaningful change within a few weeks. The full arc depends on your injury, history, and goals." }
+      ],
+      related:["chiropractic-care","corrective-exercise","sports-injury-recovery"]
+    },
+
+    "kinesiology": {
+      name:"Kinesiology & Movement Testing", tagline:"Find the Root Cause",
+      h1:"Kinesiology & Movement Screening in Exton, PA",
+      heroImg:"https://images.unsplash.com/photo-1599058945522-28d584b6f0ff?w=1100&q=80&auto=format&fit=crop",
+      heroSub:"Pain rarely starts where it hurts. We map how your body moves and compensates to find the true source — then treat that.",
+      overviewHeading:"Treat the Cause, Not the Symptom",
+      intro:[
+        "Pain rarely starts where it hurts. A cranky knee can come from a stiff hip; nagging shoulder pain can trace back to the mid-back or core. Kinesiology — the science of human movement — is how we find the true source instead of chasing symptoms.",
+        "Using detailed movement screens and muscle testing, Dr. Serafim maps how your body loads, moves, and compensates. That assessment becomes the blueprint for treatment, so every adjustment and exercise targets the actual problem."
+      ],
+      benefitsHeading:"Why Movement Testing Matters",
+      benefits:[
+        { title:"Accurate Diagnosis", desc:"Pinpoint the real driver of your pain, not just the symptom." },
+        { title:"Targeted Treatment", desc:"Spend your time and energy on what actually matters." },
+        { title:"Movement Insight", desc:"Understand exactly how and why your body compensates." },
+        { title:"Performance Gains", desc:"Unlock the restrictions that quietly cap your output." },
+        { title:"Injury Screening", desc:"Catch weak links before they turn into injuries." },
+        { title:"Measurable Progress", desc:"Re-test over time to prove your plan is working." }
+      ],
+      expect:[
+        { n:"1", title:"History", desc:"We dig into your symptoms, training, and past injuries." },
+        { n:"2", title:"Movement Screen", desc:"Standardized tests reveal restrictions and asymmetries." },
+        { n:"3", title:"Muscle Testing", desc:"We assess strength and activation joint by joint." },
+        { n:"4", title:"Action Plan", desc:"Findings translate directly into your treatment plan." }
+      ],
+      techHeading:"How We Test You",
+      techniques:[
+        { name:"Functional Movement Screen", desc:"A proven system to grade movement quality (FMS)." },
+        { name:"Selective Tests (SFMA)", desc:"Breaking down painful patterns to their source." },
+        { name:"Manual Muscle Testing", desc:"Assessing strength and neuromuscular control." },
+        { name:"Gait & Posture Analysis", desc:"Evaluating how you stand, walk, and run." }
+      ],
+      goodFor:["Sports Injuries","Hip Pain","Knee Pain","Back Pain"],
+      faqs:[
+        { q:"What is a movement screen?", a:"It's a set of standardized tests that grade how well you move. Poor patterns reveal where you're restricted, weak, or compensating." },
+        { q:"Do I need this if I just want an adjustment?", a:"A brief screen helps us treat smarter. It only takes a few minutes and makes every adjustment and exercise more effective." },
+        { q:"Is it useful for athletes with no pain?", a:"Absolutely. Screening catches the limitations and asymmetries that lead to injury and hold back performance." },
+        { q:"Will you re-test me?", a:"Yes — re-testing is how we prove progress and adjust your plan objectively." }
+      ],
+      related:["functional-rehabilitation","corrective-exercise","mobility-therapy"]
+    },
+
+    "massage-therapy": {
+      name:"Massage Therapy", tagline:"Release & Recover",
+      h1:"Massage Therapy in Exton, PA",
+      heroImg:"https://images.unsplash.com/photo-1600334129128-685c5582fd35?w=1100&q=80&auto=format&fit=crop",
+      heroSub:"Clinical and sports massage that targets tension directly — easing pain, improving circulation, and speeding recovery from hard training.",
+      overviewHeading:"Recovery, Not Just Relaxation",
+      intro:[
+        "Tight, overworked tissue doesn't just feel bad — it limits how you move and how fast you recover. Clinical and sports massage targets that tension directly, easing pain, improving circulation, and helping your body bounce back from hard training.",
+        "At Kinetx, massage isn't a spa add-on — it's part of a results-driven plan. We use it to prep tissue before treatment, speed recovery after, and keep athletes and active adults feeling loose and ready to perform."
+      ],
+      benefitsHeading:"What Massage Therapy Delivers",
+      benefits:[
+        { title:"Tension Relief", desc:"Release tight, knotted muscles that limit your movement." },
+        { title:"Faster Recovery", desc:"Bounce back quicker between hard training sessions." },
+        { title:"Better Circulation", desc:"Boost blood flow to help tissue heal and refuel." },
+        { title:"Less Pain", desc:"Calm the overworked muscles that drive aches and stiffness." },
+        { title:"Improved Flexibility", desc:"Restore length to tight tissue for freer movement." },
+        { title:"Stress Relief", desc:"Down-regulate a stressed nervous system and sleep better." }
+      ],
+      expect:[
+        { n:"1", title:"Quick Consult", desc:"We identify your problem areas and goals for the session." },
+        { n:"2", title:"Targeted Work", desc:"Focused pressure on the tissue that actually needs it." },
+        { n:"3", title:"Integration", desc:"Massage paired with adjustments and rehab when it helps." },
+        { n:"4", title:"Aftercare", desc:"Simple tips to keep the tissue feeling good." }
+      ],
+      techHeading:"Our Massage Techniques",
+      techniques:[
+        { name:"Deep Tissue", desc:"Firm, focused pressure for chronically tight muscles." },
+        { name:"Sports Massage", desc:"Recovery-focused work for training athletes." },
+        { name:"Trigger Point", desc:"Releasing the knots that refer pain elsewhere." },
+        { name:"Myofascial Release", desc:"Easing tension in the connective tissue." }
+      ],
+      goodFor:["Neck Pain","Back Pain","Shoulder Pain","Sports Injuries"],
+      faqs:[
+        { q:"Is the massage painful?", a:"Deep work can feel intense but should never be unbearable. We constantly check in and adjust pressure to your comfort." },
+        { q:"How often should I get massage?", a:"It depends on your training and goals. Some come weekly during heavy training; others monthly for maintenance." },
+        { q:"Can massage be combined with my adjustment?", a:"Yes — pairing massage with chiropractic and rehab often gets faster, longer-lasting results." },
+        { q:"Do you accept insurance for massage?", a:"Coverage varies by plan. We'll check your benefits and offer transparent rates either way." }
+      ],
+      related:["soft-tissue-therapy","chiropractic-care","mobility-therapy"]
+    },
+
+    "corrective-exercise": {
+      name:"Corrective Exercise", tagline:"Fix It For Good",
+      h1:"Corrective Exercise in Exton, PA",
+      heroImg:"https://images.unsplash.com/photo-1534258936925-c58bed479fcb?w=1100&q=80&auto=format&fit=crop",
+      heroSub:"If the same pain keeps coming back, the fix isn't the joint — it's how you move it. Targeted drills that solve the root cause.",
+      overviewHeading:"Stop Chasing the Same Pain",
+      intro:[
+        "If the same pain keeps coming back, the problem usually isn't the joint that hurts — it's how you move and load it. Corrective exercise rewires those patterns with targeted, specific drills that fix the root cause instead of masking it.",
+        "Dr. Serafim prescribes a focused set of movements built around your assessment — not a generic handout. Done consistently, they restore the strength, mobility, and control your body needs to stay pain-free for good."
+      ],
+      benefitsHeading:"What Corrective Exercise Fixes",
+      benefits:[
+        { title:"Root-Cause Fix", desc:"Address why the pain keeps returning, not just the flare." },
+        { title:"Better Mechanics", desc:"Move with efficient, safe patterns under load." },
+        { title:"Balanced Strength", desc:"Correct the imbalances that overload your joints." },
+        { title:"Lasting Relief", desc:"Build a body that holds its progress between visits." },
+        { title:"Few, Focused Drills", desc:"A short, specific routine — not an overwhelming list." },
+        { title:"Real Progression", desc:"Exercises that evolve as you get stronger." }
+      ],
+      expect:[
+        { n:"1", title:"Assessment", desc:"We find the specific restrictions and weak links." },
+        { n:"2", title:"Prescription", desc:"A short, targeted set of corrective drills built for you." },
+        { n:"3", title:"Coaching", desc:"Hands-on cues so you do each movement right." },
+        { n:"4", title:"Progression", desc:"We level up the plan as your body adapts." }
+      ],
+      techHeading:"How We Retrain Movement",
+      techniques:[
+        { name:"Activation Drills", desc:"Wake up the muscles that have gone quiet." },
+        { name:"Stability Work", desc:"Build control around vulnerable joints." },
+        { name:"Mobility Drills", desc:"Open up the restrictions that limit you." },
+        { name:"Pattern Retraining", desc:"Groove clean squat, hinge, and press mechanics." }
+      ],
+      goodFor:["Back Pain","Knee Pain","Shoulder Pain","Hip Pain"],
+      faqs:[
+        { q:"How many exercises will I get?", a:"Few, not many. We prescribe a short, specific routine you'll actually do — usually a handful of high-value movements." },
+        { q:"How long until they work?", a:"Most people feel a difference within a few weeks of consistent work. Lasting change comes from sticking with it." },
+        { q:"Do I need a gym?", a:"No. Most corrective work needs little to no equipment and can be done at home." },
+        { q:"Why not just get adjusted?", a:"Adjustments restore motion; corrective exercise teaches your body to keep it. Together they're far more durable." }
+      ],
+      related:["functional-rehabilitation","mobility-therapy","kinesiology"]
+    },
+
+    "soft-tissue-therapy": {
+      name:"Soft Tissue Therapy", tagline:"ConnectX Therapy",
+      h1:"Soft Tissue Therapy in Exton, PA",
+      heroImg:"https://images.unsplash.com/photo-1519823551278-64ac92734fb1?w=1100&q=80&auto=format&fit=crop",
+      heroSub:"ConnectX, a Graston-like instrument technique, breaks down adhesions and scar tissue — so muscles and tendons move freely again.",
+      overviewHeading:"Free Up Stuck, Restricted Tissue",
+      intro:[
+        "Years of training, old injuries, and repetitive stress leave behind adhesions and scar tissue that restrict muscles and tendons. Soft tissue therapy breaks that down — restoring healthy, gliding tissue so you move freely and pain-free.",
+        "Kinetx uses ConnectX, a Graston-like instrument-assisted technique, alongside hands-on methods to treat stubborn tissue restrictions. It's one of the most effective tools we have for tendinopathy, chronic tightness, and lingering injuries."
+      ],
+      benefitsHeading:"What Soft Tissue Therapy Treats",
+      benefits:[
+        { title:"Breaks Down Scar Tissue", desc:"Restore healthy, mobile tissue after old injuries." },
+        { title:"Relieves Chronic Tightness", desc:"Free up muscles that stretching alone won't fix." },
+        { title:"Treats Tendon Pain", desc:"Effective for stubborn tendinopathies and overuse." },
+        { title:"Restores Glide", desc:"Help muscles and tendons slide the way they should." },
+        { title:"Speeds Healing", desc:"Stimulate blood flow and tissue remodeling." },
+        { title:"Improves Range", desc:"Recover the motion lost to restriction and adhesion." }
+      ],
+      expect:[
+        { n:"1", title:"Assessment", desc:"We locate the restricted, painful tissue." },
+        { n:"2", title:"ConnectX Treatment", desc:"Instrument-assisted work to break down adhesions." },
+        { n:"3", title:"Hands-On Work", desc:"Manual techniques to complement the tools." },
+        { n:"4", title:"Load & Move", desc:"Pairing treatment with exercise so the gains last." }
+      ],
+      techHeading:"Our Soft-Tissue Tools",
+      techniques:[
+        { name:"ConnectX (IASTM)", desc:"Graston-like instrument-assisted soft-tissue work." },
+        { name:"Manual Release", desc:"Hands-on pressure to ease tight tissue." },
+        { name:"Trigger Point", desc:"Targeting the knots that refer pain." },
+        { name:"Cupping", desc:"Decompressing tissue to improve mobility." }
+      ],
+      goodFor:["Sports Injuries","Shoulder Pain","Knee Pain","Neck Pain"],
+      faqs:[
+        { q:"What is ConnectX?", a:"It's an instrument-assisted soft-tissue technique similar to Graston. Specialized tools help us treat adhesions and scar tissue precisely." },
+        { q:"Does it leave marks?", a:"Mild redness is normal and fades quickly; occasional light bruising can occur. We always work within your tolerance." },
+        { q:"What conditions does it help?", a:"It's especially effective for tendinopathy, chronic tightness, and lingering soft-tissue injuries." },
+        { q:"Is it painful?", a:"There can be some discomfort over tight spots, but it should be tolerable. We adjust the pressure to you." }
+      ],
+      related:["massage-therapy","chiropractic-care","sports-injury-recovery"]
+    },
+
+    "mobility-therapy": {
+      name:"Mobility Therapy", tagline:"Move Without Limits",
+      h1:"Mobility Therapy in Exton, PA",
+      heroImg:"https://images.unsplash.com/photo-1518611012118-696072aa579a?w=1100&q=80&auto=format&fit=crop",
+      heroSub:"Restore usable range of motion where you actually need it — deeper squats, smoother runs, a freer swing, and far fewer aches.",
+      overviewHeading:"Range of Motion You Can Actually Use",
+      intro:[
+        "Stiff hips, locked-up shoulders, and limited ankles don't just feel restrictive — they force other joints to pick up the slack, which is where pain and injury start. Mobility therapy restores usable range of motion where you actually need it.",
+        "We go joint by joint to find and fix your specific restrictions, then teach you to own that new range with strength and control. The payoff: deeper squats, smoother runs, a freer golf swing, and far fewer aches."
+      ],
+      benefitsHeading:"What Mobility Therapy Unlocks",
+      benefits:[
+        { title:"More Usable Range", desc:"Gain motion you can actually control and use." },
+        { title:"Better Positions", desc:"Hit deeper squats and stronger lifting positions." },
+        { title:"Fewer Compensations", desc:"Stop overloading the joints that pay for stiffness elsewhere." },
+        { title:"Pain Reduction", desc:"Ease the aches that come from restricted movement." },
+        { title:"Improved Performance", desc:"Move more efficiently in sport and in the gym." },
+        { title:"Long-Term Freedom", desc:"Keep your joints healthy and resilient for years." }
+      ],
+      expect:[
+        { n:"1", title:"Assessment", desc:"We map exactly which joints are restricted." },
+        { n:"2", title:"Targeted Work", desc:"Hands-on and active drills to open those areas." },
+        { n:"3", title:"Own the Range", desc:"Strength work so you keep the new motion." },
+        { n:"4", title:"Home Routine", desc:"A simple mobility plan to maintain your gains." }
+      ],
+      techHeading:"How We Build Mobility",
+      techniques:[
+        { name:"Joint Mobilization", desc:"Hands-on work to restore joint motion." },
+        { name:"Active Mobility Drills", desc:"Loaded stretching you control yourself." },
+        { name:"Soft-Tissue Prep", desc:"Releasing the tissue that limits your range." },
+        { name:"End-Range Strength", desc:"Building control at your new ranges." }
+      ],
+      goodFor:["Hip Pain","Shoulder Pain","Back Pain","Sports Injuries"],
+      faqs:[
+        { q:"What's the difference between mobility and flexibility?", a:"Flexibility is passive range; mobility is range you can actively control. We build usable mobility, not just the ability to be stretched." },
+        { q:"Will this help my squat or golf swing?", a:"Often dramatically. Restoring hip, ankle, and thoracic mobility is one of the fastest ways to improve those positions." },
+        { q:"Can I do mobility work on my own?", a:"Yes — we give you a focused home routine. The assessment just makes sure you're working on the right areas." },
+        { q:"How soon will I notice a change?", a:"Many people feel more open the same day. Lasting change comes from consistent, targeted work." }
+      ],
+      related:["corrective-exercise","soft-tissue-therapy","functional-rehabilitation"]
+    },
+
+    "sports-injury-recovery": {
+      name:"Sports Injury Recovery", tagline:"Back to Performance",
+      h1:"Sports Injury Recovery in Exton, PA",
+      heroImg:"https://images.unsplash.com/photo-1538805060514-97d9cc17730c?w=1100&q=80&auto=format&fit=crop",
+      heroSub:"From acute sprains to stubborn overuse injuries — a precise diagnosis and a real, staged return-to-sport plan that gets you back stronger.",
+      overviewHeading:"Come Back Stronger, Not Just Healed",
+      intro:[
+        "A sports injury doesn't just sideline you — handled wrong, it can linger for months or come right back the moment you return. Kinetx gets athletes and active adults back to performance with a precise diagnosis and a real, staged return-to-sport plan.",
+        "From acute sprains to stubborn overuse injuries, Dr. Serafim combines chiropractic, ConnectX soft-tissue work, and progressive rehab to treat the injury and the cause — so you come back stronger and stay healthy through your season."
+      ],
+      benefitsHeading:"Why Athletes Recover With Us",
+      benefits:[
+        { title:"Accurate Diagnosis", desc:"Know exactly what's injured and why it happened." },
+        { title:"Faster Return", desc:"A clear plan to get back to sport without setbacks." },
+        { title:"Treat the Cause", desc:"Fix the mechanics that led to the injury." },
+        { title:"Stay In Season", desc:"Care designed around your competition schedule." },
+        { title:"Bulletproofing", desc:"Build resilience so it doesn't happen again." },
+        { title:"Confidence Back", desc:"Return to full effort without second-guessing your body." }
+      ],
+      expect:[
+        { n:"1", title:"Assess", desc:"A thorough exam to pinpoint the injury and its cause." },
+        { n:"2", title:"Treat", desc:"Hands-on care to reduce pain and restore motion fast." },
+        { n:"3", title:"Rebuild", desc:"Progressive rehab to restore strength and control." },
+        { n:"4", title:"Return", desc:"A staged return-to-sport plan plus bulletproofing." }
+      ],
+      techHeading:"How We Get You Back",
+      techniques:[
+        { name:"Manual Therapy", desc:"Adjustments and soft-tissue work to calm the injury." },
+        { name:"ConnectX", desc:"Instrument-assisted tissue work for stubborn injuries." },
+        { name:"Progressive Rehab", desc:"Rebuilding strength and capacity step by step." },
+        { name:"Return-to-Sport", desc:"Staged testing to clear you for full training." }
+      ],
+      goodFor:["Sports Injuries","Knee Pain","Shoulder Pain","Back Pain"],
+      faqs:[
+        { q:"Should I rest or get treated?", a:"Pure rest rarely fixes the cause and can leave you weaker. Early assessment lets us calm the injury while keeping you moving safely." },
+        { q:"Can you treat me mid-season?", a:"Yes — that's our specialty. We design care around your schedule to keep you performing while we resolve the injury." },
+        { q:"Do I need imaging first?", a:"Usually not. Most sports injuries are diagnosed and managed with a thorough clinical exam; we'll coordinate imaging only if it's warranted." },
+        { q:"How fast can I get in?", a:"We hold same-day slots for acute injuries. Text us at (610) 368-5372 and we'll get you in quickly." }
+      ],
+      related:["functional-rehabilitation","soft-tissue-therapy","chiropractic-care"]
+    }
+  };
+
+  navItems = [
+    { label:"Home", href:"./" },
+    { label:"Meet Dr. Gene", href:"about.html" },
+    { label:"Services", href:"services.html" },
+    { label:"Conditions", href:"conditions.html" },
+    { label:"Blog", href:"blog.html" },
+    { label:"Contact", href:"contact.html" },
+  ];
+
+  toggleMenu = () => this.setState(s => ({ menuOpen: !s.menuOpen }));
+  closeMenu = () => this.setState({ menuOpen:false });
+
+  renderVals(){
+    const m = this.state.isMobile;
+    const slug = this.state.slug;
+    const isDetail = !!(slug && this.SERVICES[slug]);
+    const s = isDetail ? this.SERVICES[slug] : this.SERVICES["chiropractic-care"];
+    return {
+      showDesktopNav: !m, showMobileNav: m, menuOpen: this.state.menuOpen,
+      toggleMenu: this.toggleMenu, closeMenu: this.closeMenu, navItems: this.navItems,
+      isIndex: !isDetail, isDetail, s,
+      indexCards: this.order.map(sl => ({ name:this.SERVICES[sl].name, tagline:this.SERVICES[sl].tagline, blurb:this.SERVICES[sl].heroSub, img:this.SERVICES[sl].heroImg, href:"services.html#"+sl })),
+      goodFor: isDetail ? s.goodFor.map(name => ({ name, href: this.condHref(name) })) : [],
+      related: isDetail ? s.related.map(sl => ({ title:this.SERVICES[sl].name, tagline:this.SERVICES[sl].tagline, href:"services.html#"+sl })) : [],
+      allServices: this.order.map(sl => ({ name:this.SERVICES[sl].name, href:"services.html#"+sl })),
+      faqs: isDetail ? s.faqs.map((f,i) => ({
+        q:f.q, a:f.a, open:i===this.state.openFaq, icon:i===this.state.openFaq?"–":"+",
+        onToggle:()=>this.setState(st=>({openFaq:st.openFaq===i?-1:i})),
+      })) : [],
+    };
+  }
+}
+</script>
+</body>
+</html>

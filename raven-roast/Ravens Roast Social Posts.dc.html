@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <meta name="design_doc_mode" content="canvas">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body { margin:0; background:#EFE7D8; }
+    :root { --font-heading:'Archivo',sans-serif; --font-body:'Source Sans 3',sans-serif; }
+    a { color:#A86C2D; } a:hover { color:#B78A2E; }
+  </style>
+</helmet>
+
+<div style="padding:56px;background:#EFE7D8;font-family:var(--font-body);display:flex;flex-direction:column;gap:56px;align-items:flex-start;">
+
+  <div style="max-width:1080px;background:#F7F2E8;border:1px solid #D9C7A2;border-radius:18px;padding:48px;box-shadow:0 8px 28px rgba(23,19,15,0.10);">
+    <div style="font-family:var(--font-heading);font-size:38px;font-weight:800;color:#17130F;letter-spacing:-0.02em;">Raven's Roast Coffee — social set</div>
+    <div style="font-size:20px;line-height:1.6;color:#6D6255;margin-top:14px;">Six posts on the original template architecture: 1080×1080, 80px padding, 320px footer safe zone, Archivo headings at 66px, Source Sans 3 body.</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:28px;">
+      <div style="background:#F1E6CE;border:1px solid #D9C7A2;border-radius:12px;padding:18px 22px;"><div style="font-family:var(--font-heading);font-size:20px;font-weight:700;color:#17130F;">Palette</div><div style="font-size:18px;color:#6D6255;margin-top:4px;">Gold #B78A2E · Ink #17130F · Muted #6D6255 · Tint #F1E6CE · Surface #F7F2E8 · Border #D9C7A2 · Copper #A86C2D</div></div>
+      <div style="background:#F1E6CE;border:1px solid #D9C7A2;border-radius:12px;padding:18px 22px;"><div style="font-family:var(--font-heading);font-size:20px;font-weight:700;color:#17130F;">Contact lockup</div><div style="font-size:18px;color:#6D6255;margin-top:4px;">ravensroastcoffee.com · (970) 586-4326 · Estes Park, CO</div></div>
+    </div>
+  </div>
+
+  <div style="display:flex;flex-wrap:wrap;gap:56px;align-items:flex-start;">
+
+  <div style="flex:none;display:flex;flex-direction:column;gap:14px;">
+    <div style="font-family:var(--font-heading);font-size:15px;font-weight:700;color:#6D6255;">Layout 1 — Statement (light)</div>
+    <div data-screen-label="01" style="position:relative;flex:none;width:1080px;height:1080px;background:#F7F2E8;overflow:hidden;box-shadow:0 16px 48px rgba(23,19,15,0.18);box-sizing:border-box;padding:80px 80px 320px 80px;display:flex;flex-direction:column;justify-content:space-between;">
+      <div style="display:inline-flex;align-self:flex-start;align-items:center;gap:12px;background:#F1E6CE;border:1px solid #D9C7A2;border-radius:999px;padding:14px 26px;gap:10px;font-family:var(--font-heading);font-size:19px;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;color:#A86C2D;"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#A86C2D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex:none;"><path d="M4 8h12v6a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5V8z"></path><path d="M16 9h2a3 3 0 0 1 0 6h-2"></path><path d="M7 2v3M11 2v3"></path></svg>Raven's Roast</div>
+      <div>
+        <div style="font-family:var(--font-heading);font-size:66px;font-weight:800;line-height:1.06;letter-spacing:-0.03em;color:#17130F;text-wrap:balance;">Coffee With Character in the Heart of Estes Park.</div>
+        <div style="font-size:32px;line-height:1.55;color:#6D6255;margin-top:30px;max-width:820px;">Coffee, tea, specialty drinks and baked treats served with plenty of personality.</div>
+        <div style="display:flex;gap:14px;margin-top:26px;">
+          <div style="background:#F1E6CE;border:1px solid #D9C7A2;border-radius:999px;padding:11px 22px;font-size:20px;font-weight:600;color:#17130F;">Coffee &amp; Tea</div>
+          <div style="background:#F1E6CE;border:1px solid #D9C7A2;border-radius:999px;padding:11px 22px;font-size:20px;font-weight:600;color:#17130F;">Baked Goods</div>
+          <div style="background:#F1E6CE;border:1px solid #D9C7A2;border-radius:999px;padding:11px 22px;font-size:20px;font-weight:600;color:#17130F;">Dine-In · Takeout</div>
+        </div>
+      </div>
+      <div style="position:absolute;left:80px;right:80px;bottom:80px;display:flex;align-items:center;justify-content:space-between;gap:32px;border-top:1px solid #D9C7A2;padding-top:32px;">
+        <div style="height:90px;flex:none;display:flex;align-items:center;gap:16px;">
+          <svg viewBox="0 0 64 64" width="58" height="58" fill="#17130F"><path d="M8 40c0-11 8-19 18-21 3-4 8-7 14-7 3 0 5 1 7 2l9-2-5 6c1 2 2 5 2 8 0 5-2 9-6 13l-6 6-3 8h-8l2-7c-3 1-6 1-9 1L14 56l3-10c-6-1-9-3-9-6zm31-24a2 2 0 100 4 2 2 0 000-4z"></path></svg>
+          <div style="line-height:1.05;">
+            <div style="font-family:var(--font-heading);font-size:24px;font-weight:800;letter-spacing:0.02em;white-space:nowrap;color:#17130F;">RAVEN'S ROAST</div>
+            <div style="font-family:var(--font-heading);font-size:14px;font-weight:700;letter-spacing:0.22em;color:#B78A2E;margin-top:5px;">COFFEE</div>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;gap:24px;">
+          <div style="display:flex;flex-direction:column;align-items:flex-end;line-height:1.15;">
+            <div style="font-size:19px;font-weight:600;color:#6D6255;white-space:nowrap;">Visit Our Website</div>
+            <div style="font-family:var(--font-heading);font-size:25px;font-weight:800;color:#17130F;white-space:nowrap;">ravensroastcoffee.com</div>
+          </div>
+          <div style="background:#B78A2E;color:#17130F;border-radius:12px;padding:17px 32px;font-family:var(--font-heading);font-size:28px;font-weight:700;white-space:nowrap;box-shadow:0 8px 22px rgba(183,138,46,0.35);">(970) 586-4326</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="flex:none;display:flex;flex-direction:column;gap:14px;">
+    <div style="font-family:var(--font-heading);font-size:15px;font-weight:700;color:#6D6255;">Layout 2 — Stats (dark)</div>
+    <div data-screen-label="02" style="position:relative;flex:none;width:1080px;height:1080px;background:linear-gradient(160deg,#0B0B0A 0%,#261A12 55%,#4A2E20 100%);overflow:hidden;box-shadow:0 16px 48px rgba(23,19,15,0.18);box-sizing:border-box;padding:80px 80px 320px 80px;display:flex;flex-direction:column;justify-content:space-between;">
+      <div style="position:absolute;inset:0;opacity:0.07;background-image:radial-gradient(circle at 1px 1px,#F1E6CE 1.6px,transparent 0);background-size:26px 26px;"></div>
+      <div style="position:relative;display:inline-flex;align-self:flex-start;align-items:center;background:rgba(241,230,206,0.10);border:1px solid rgba(217,199,162,0.35);border-radius:999px;padding:14px 26px;gap:10px;font-family:var(--font-heading);font-size:19px;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;color:#E4C77F;"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#E4C77F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex:none;"><path d="M20.8 5.6a5 5 0 0 0-7.1 0L12 7.3l-1.7-1.7a5 5 0 1 0-7.1 7.1L12 21l8.8-8.3a5 5 0 0 0 0-7.1z"></path></svg>Loved in Estes Park</div>
+      <div style="position:relative;">
+        <div style="font-family:var(--font-heading);font-size:66px;font-weight:800;line-height:1.1;letter-spacing:-0.03em;color:#F7F2E8;text-wrap:balance;">A Local Coffee Stop Visitors Keep Coming Back To.</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:44px;">
+          <div style="background:rgba(241,230,206,0.07);border:1px solid rgba(217,199,162,0.28);border-radius:18px;padding:32px;"><div style="font-family:var(--font-heading);font-size:64px;font-weight:800;color:#E4C77F;">4.6 ★</div><div style="display:flex;align-items:center;gap:8px;font-size:22px;color:#D9C7A2;margin-top:6px;"><svg viewBox="0 0 48 48" width="20" height="20" style="flex:none;"><path fill="#4285F4" d="M45.1 24.5c0-1.6-.1-3.1-.4-4.5H24v8.5h11.8c-.5 2.7-2 5-4.3 6.6v5.5h7c4.1-3.8 6.6-9.4 6.6-16.1z"></path><path fill="#34A853" d="M24 46c5.8 0 10.7-1.9 14.3-5.2l-7-5.5c-1.9 1.3-4.4 2.1-7.3 2.1-5.6 0-10.4-3.8-12.1-8.9H4.7v5.6C8.3 41.4 15.6 46 24 46z"></path><path fill="#FBBC05" d="M11.9 28.5c-.4-1.3-.7-2.7-.7-4.5s.3-3.2.7-4.5v-5.6H4.7C3.1 17.1 2.2 20.4 2.2 24s.9 6.9 2.5 10.1l7.2-5.6z"></path><path fill="#EA4335" d="M24 10.6c3.2 0 6 1.1 8.2 3.2l6.2-6.2C34.7 4.1 29.8 2 24 2 15.6 2 8.3 6.6 4.7 13.9l7.2 5.6c1.7-5.1 6.5-8.9 12.1-8.9z"></path></svg>Google Rating</div></div>
+          <div style="background:rgba(241,230,206,0.07);border:1px solid rgba(217,199,162,0.28);border-radius:18px;padding:32px;"><div style="font-family:var(--font-heading);font-size:64px;font-weight:800;color:#E4C77F;">535+</div><div style="display:flex;align-items:center;gap:8px;font-size:22px;color:#D9C7A2;margin-top:6px;"><svg viewBox="0 0 48 48" width="20" height="20" style="flex:none;"><path fill="#4285F4" d="M45.1 24.5c0-1.6-.1-3.1-.4-4.5H24v8.5h11.8c-.5 2.7-2 5-4.3 6.6v5.5h7c4.1-3.8 6.6-9.4 6.6-16.1z"></path><path fill="#34A853" d="M24 46c5.8 0 10.7-1.9 14.3-5.2l-7-5.5c-1.9 1.3-4.4 2.1-7.3 2.1-5.6 0-10.4-3.8-12.1-8.9H4.7v5.6C8.3 41.4 15.6 46 24 46z"></path><path fill="#FBBC05" d="M11.9 28.5c-.4-1.3-.7-2.7-.7-4.5s.3-3.2.7-4.5v-5.6H4.7C3.1 17.1 2.2 20.4 2.2 24s.9 6.9 2.5 10.1l7.2-5.6z"></path><path fill="#EA4335" d="M24 10.6c3.2 0 6 1.1 8.2 3.2l6.2-6.2C34.7 4.1 29.8 2 24 2 15.6 2 8.3 6.6 4.7 13.9l7.2 5.6c1.7-5.1 6.5-8.9 12.1-8.9z"></path></svg>Google Reviews</div></div>
+          <div style="background:rgba(241,230,206,0.07);border:1px solid rgba(217,199,162,0.28);border-radius:18px;padding:32px;"><div style="font-family:var(--font-heading);font-size:64px;font-weight:800;color:#E4C77F;">$1–10</div><div style="font-size:22px;color:#D9C7A2;margin-top:6px;">Typical Price Range</div></div>
+          <div style="background:rgba(241,230,206,0.07);border:1px solid rgba(217,199,162,0.28);border-radius:18px;padding:32px;"><div style="font-family:var(--font-heading);font-size:64px;font-weight:800;color:#E4C77F;">2 Ways</div><div style="font-size:22px;color:#D9C7A2;margin-top:6px;">Dine-In · Takeout</div></div>
+        </div>
+      </div>
+      <div style="position:absolute;left:80px;right:80px;bottom:80px;display:flex;align-items:center;justify-content:space-between;gap:32px;border-top:1px solid rgba(217,199,162,0.35);padding-top:32px;">
+        <div style="height:90px;flex:none;display:flex;align-items:center;gap:16px;">
+          <svg viewBox="0 0 64 64" width="58" height="58" fill="#F1E6CE"><path d="M8 40c0-11 8-19 18-21 3-4 8-7 14-7 3 0 5 1 7 2l9-2-5 6c1 2 2 5 2 8 0 5-2 9-6 13l-6 6-3 8h-8l2-7c-3 1-6 1-9 1L14 56l3-10c-6-1-9-3-9-6zm31-24a2 2 0 100 4 2 2 0 000-4z"></path></svg>
+          <div style="line-height:1.05;">
+            <div style="font-family:var(--font-heading);font-size:24px;font-weight:800;letter-spacing:0.02em;white-space:nowrap;color:#F7F2E8;">RAVEN'S ROAST</div>
+            <div style="font-family:var(--font-heading);font-size:14px;font-weight:700;letter-spacing:0.22em;color:#E4C77F;margin-top:5px;">COFFEE</div>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;gap:24px;">
+          <div style="display:flex;flex-direction:column;align-items:flex-end;line-height:1.15;">
+            <div style="font-size:19px;font-weight:600;color:#D9C7A2;white-space:nowrap;">Visit Our Website</div>
+            <div style="font-family:var(--font-heading);font-size:25px;font-weight:800;color:#F7F2E8;white-space:nowrap;">ravensroastcoffee.com</div>
+          </div>
+          <div style="background:#B78A2E;color:#17130F;border-radius:12px;padding:17px 32px;font-family:var(--font-heading);font-size:28px;font-weight:700;white-space:nowrap;box-shadow:0 8px 22px rgba(183,138,46,0.35);">(970) 586-4326</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="flex:none;display:flex;flex-direction:column;gap:14px;">
+    <div style="font-family:var(--font-heading);font-size:15px;font-weight:700;color:#6D6255;">Layout 3 — Card list</div>
+    <div data-screen-label="03" style="position:relative;flex:none;width:1080px;height:1080px;background:#F1E6CE;overflow:hidden;box-shadow:0 16px 48px rgba(23,19,15,0.18);box-sizing:border-box;padding:80px 80px 320px 80px;display:flex;flex-direction:column;gap:18px;">
+      <div style="display:inline-flex;align-self:flex-start;align-items:center;background:#F7F2E8;border:1px solid #D9C7A2;border-radius:999px;padding:14px 26px;gap:10px;font-family:var(--font-heading);font-size:19px;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;color:#A86C2D;"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#A86C2D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex:none;"><path d="M12 3l2.2 5.6L20 10.8l-5.8 2.2L12 19l-2.2-6L4 10.8l5.8-2.2L12 3z"></path></svg>Find Your Favorite</div>
+      <div style="font-family:var(--font-heading);font-size:66px;font-weight:800;line-height:1.05;letter-spacing:-0.035em;color:#17130F;text-wrap:balance;">So Many Ways to Enjoy Raven's Roast.</div>
+      <div style="font-size:26px;line-height:1.5;color:#6D6255;">From coffee to chai, cocoa and baked treats.</div>
+      <div style="display:flex;flex-direction:column;gap:12px;">
+        <div style="display:flex;align-items:center;gap:20px;background:#F7F2E8;border:1px solid #D9C7A2;border-radius:16px;box-shadow:0 2px 10px rgba(23,19,15,0.06);padding:16px 24px;"><div style="flex:none;width:50px;height:50px;border-radius:12px;background:#F1E6CE;border:1px solid #D9C7A2;"></div><div><div style="font-family:var(--font-heading);font-size:25px;font-weight:700;color:#17130F;">Coffee &amp; Espresso</div><div style="font-size:19px;color:#6D6255;margin-top:2px;">Fresh coffee and espresso-based favorites.</div></div></div>
+        <div style="display:flex;align-items:center;gap:20px;background:#F7F2E8;border:1px solid #D9C7A2;border-radius:16px;box-shadow:0 2px 10px rgba(23,19,15,0.06);padding:16px 24px;"><div style="flex:none;width:50px;height:50px;border-radius:12px;background:#F1E6CE;border:1px solid #D9C7A2;"></div><div><div style="font-family:var(--font-heading);font-size:25px;font-weight:700;color:#17130F;">Tea &amp; Chai</div><div style="font-size:19px;color:#6D6255;margin-top:2px;">Plenty of choices beyond coffee.</div></div></div>
+        <div style="display:flex;align-items:center;gap:20px;background:#F7F2E8;border:1px solid #D9C7A2;border-radius:16px;box-shadow:0 2px 10px rgba(23,19,15,0.06);padding:16px 24px;"><div style="flex:none;width:50px;height:50px;border-radius:12px;background:#F1E6CE;border:1px solid #D9C7A2;"></div><div><div style="font-family:var(--font-heading);font-size:25px;font-weight:700;color:#17130F;">Specialty &amp; Iced Drinks</div><div style="font-size:19px;color:#6D6255;margin-top:2px;">Flavorful choices for every coffee break.</div></div></div>
+        <div style="display:flex;align-items:center;gap:20px;background:#F7F2E8;border:1px solid #D9C7A2;border-radius:16px;box-shadow:0 2px 10px rgba(23,19,15,0.06);padding:16px 24px;"><div style="flex:none;width:50px;height:50px;border-radius:12px;background:#F1E6CE;border:1px solid #D9C7A2;"></div><div><div style="font-family:var(--font-heading);font-size:25px;font-weight:700;color:#17130F;">Baked Goods</div><div style="font-size:19px;color:#6D6255;margin-top:2px;">Cookies, pastries and other treats.</div></div></div>
+      </div>
+      <div style="position:absolute;left:80px;right:80px;bottom:80px;display:flex;align-items:center;justify-content:space-between;gap:32px;border-top:1px solid #D9C7A2;padding-top:32px;">
+        <div style="height:90px;flex:none;display:flex;align-items:center;gap:16px;">
+          <svg viewBox="0 0 64 64" width="58" height="58" fill="#17130F"><path d="M8 40c0-11 8-19 18-21 3-4 8-7 14-7 3 0 5 1 7 2l9-2-5 6c1 2 2 5 2 8 0 5-2 9-6 13l-6 6-3 8h-8l2-7c-3 1-6 1-9 1L14 56l3-10c-6-1-9-3-9-6zm31-24a2 2 0 100 4 2 2 0 000-4z"></path></svg>
+          <div style="line-height:1.05;">
+            <div style="font-family:var(--font-heading);font-size:24px;font-weight:800;letter-spacing:0.02em;white-space:nowrap;color:#17130F;">RAVEN'S ROAST</div>
+            <div style="font-family:var(--font-heading);font-size:14px;font-weight:700;letter-spacing:0.22em;color:#B78A2E;margin-top:5px;">COFFEE</div>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;gap:24px;">
+          <div style="display:flex;flex-direction:column;align-items:flex-end;line-height:1.15;"><div style="font-size:19px;font-weight:600;color:#6D6255;white-space:nowrap;">Visit Our Website</div><div style="font-family:var(--font-heading);font-size:25px;font-weight:800;color:#17130F;white-space:nowrap;">ravensroastcoffee.com</div></div>
+          <div style="background:#B78A2E;color:#17130F;border-radius:12px;padding:17px 32px;font-family:var(--font-heading);font-size:28px;font-weight:700;white-space:nowrap;box-shadow:0 8px 22px rgba(183,138,46,0.35);">(970) 586-4326</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="flex:none;display:flex;flex-direction:column;gap:14px;">
+    <div style="font-family:var(--font-heading);font-size:15px;font-weight:700;color:#6D6255;">Layout 4 — Quote / review</div>
+    <div data-screen-label="04" style="position:relative;flex:none;width:1080px;height:1080px;background:#F7F2E8;overflow:hidden;box-shadow:0 16px 48px rgba(23,19,15,0.18);box-sizing:border-box;padding:80px 80px 320px 80px;display:flex;flex-direction:column;justify-content:space-between;">
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:24px;">
+        <div style="display:flex;gap:8px;"><svg viewBox="0 0 24 24" width="40" height="40" fill="#B78A2E"><path d="M12 2l2.9 6.3 6.9.7-5.2 4.6 1.5 6.8L12 17.8 5.9 20.4l1.5-6.8L2.2 9l6.9-.7L12 2z"></path></svg><svg viewBox="0 0 24 24" width="40" height="40" fill="#B78A2E"><path d="M12 2l2.9 6.3 6.9.7-5.2 4.6 1.5 6.8L12 17.8 5.9 20.4l1.5-6.8L2.2 9l6.9-.7L12 2z"></path></svg><svg viewBox="0 0 24 24" width="40" height="40" fill="#B78A2E"><path d="M12 2l2.9 6.3 6.9.7-5.2 4.6 1.5 6.8L12 17.8 5.9 20.4l1.5-6.8L2.2 9l6.9-.7L12 2z"></path></svg><svg viewBox="0 0 24 24" width="40" height="40" fill="#B78A2E"><path d="M12 2l2.9 6.3 6.9.7-5.2 4.6 1.5 6.8L12 17.8 5.9 20.4l1.5-6.8L2.2 9l6.9-.7L12 2z"></path></svg><svg viewBox="0 0 24 24" width="40" height="40" fill="#B78A2E"><path d="M12 2l2.9 6.3 6.9.7-5.2 4.6 1.5 6.8L12 17.8 5.9 20.4l1.5-6.8L2.2 9l6.9-.7L12 2z"></path></svg></div>
+        <div style="display:flex;align-items:center;gap:10px;font-family:var(--font-heading);font-size:19px;font-weight:700;letter-spacing:0.05em;color:#6D6255;"><svg viewBox="0 0 48 48" width="26" height="26" style="flex:none;"><path fill="#4285F4" d="M45.1 24.5c0-1.6-.1-3.1-.4-4.5H24v8.5h11.8c-.5 2.7-2 5-4.3 6.6v5.5h7c4.1-3.8 6.6-9.4 6.6-16.1z"></path><path fill="#34A853" d="M24 46c5.8 0 10.7-1.9 14.3-5.2l-7-5.5c-1.9 1.3-4.4 2.1-7.3 2.1-5.6 0-10.4-3.8-12.1-8.9H4.7v5.6C8.3 41.4 15.6 46 24 46z"></path><path fill="#FBBC05" d="M11.9 28.5c-.4-1.3-.7-2.7-.7-4.5s.3-3.2.7-4.5v-5.6H4.7C3.1 17.1 2.2 20.4 2.2 24s.9 6.9 2.5 10.1l7.2-5.6z"></path><path fill="#EA4335" d="M24 10.6c3.2 0 6 1.1 8.2 3.2l6.2-6.2C34.7 4.1 29.8 2 24 2 15.6 2 8.3 6.6 4.7 13.9l7.2 5.6c1.7-5.1 6.5-8.9 12.1-8.9z"></path></svg>4.6 avg · 535+ Google reviews</div>
+      </div>
+      <div style="background:#F1E6CE;border:1px solid #D9C7A2;border-radius:16px;box-shadow:0 2px 10px rgba(23,19,15,0.06);padding:56px;">
+        <div style="font-family:var(--font-heading);font-size:66px;font-weight:700;line-height:1.18;letter-spacing:-0.025em;color:#17130F;text-wrap:pretty;">“Great spot with so much variety and options!”</div>
+        <div style="font-size:26px;color:#6D6255;margin-top:30px;">Google Customer Review</div>
+      </div>
+      <div style="position:absolute;left:80px;right:80px;bottom:80px;display:flex;align-items:center;justify-content:space-between;gap:32px;border-top:1px solid #D9C7A2;padding-top:32px;">
+        <div style="height:90px;flex:none;display:flex;align-items:center;gap:16px;">
+          <svg viewBox="0 0 64 64" width="58" height="58" fill="#17130F"><path d="M8 40c0-11 8-19 18-21 3-4 8-7 14-7 3 0 5 1 7 2l9-2-5 6c1 2 2 5 2 8 0 5-2 9-6 13l-6 6-3 8h-8l2-7c-3 1-6 1-9 1L14 56l3-10c-6-1-9-3-9-6zm31-24a2 2 0 100 4 2 2 0 000-4z"></path></svg>
+          <div style="line-height:1.05;">
+            <div style="font-family:var(--font-heading);font-size:24px;font-weight:800;letter-spacing:0.02em;white-space:nowrap;color:#17130F;">RAVEN'S ROAST</div>
+            <div style="font-family:var(--font-heading);font-size:14px;font-weight:700;letter-spacing:0.22em;color:#B78A2E;margin-top:5px;">COFFEE</div>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;gap:24px;">
+          <div style="display:flex;flex-direction:column;align-items:flex-end;line-height:1.15;"><div style="font-size:19px;font-weight:600;color:#6D6255;white-space:nowrap;">Visit Our Website</div><div style="font-family:var(--font-heading);font-size:25px;font-weight:800;color:#17130F;white-space:nowrap;">ravensroastcoffee.com</div></div>
+          <div style="background:#B78A2E;color:#17130F;border-radius:12px;padding:17px 32px;font-family:var(--font-heading);font-size:28px;font-weight:700;white-space:nowrap;box-shadow:0 8px 22px rgba(183,138,46,0.35);">(970) 586-4326</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="flex:none;display:flex;flex-direction:column;gap:14px;">
+    <div style="font-family:var(--font-heading);font-size:15px;font-weight:700;color:#6D6255;">Layout 5 — FAQ</div>
+    <div data-screen-label="05" style="position:relative;flex:none;width:1080px;height:1080px;background:#F7F2E8;overflow:hidden;box-shadow:0 16px 48px rgba(23,19,15,0.18);box-sizing:border-box;padding:80px 80px 320px 80px;display:flex;flex-direction:column;gap:32px;">
+      <div style="display:inline-flex;align-self:flex-start;align-items:center;background:#F1E6CE;border:1px solid #D9C7A2;border-radius:999px;padding:14px 26px;gap:10px;font-family:var(--font-heading);font-size:19px;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;color:#A86C2D;"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#A86C2D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex:none;"><circle cx="12" cy="12" r="9"></circle><path d="M12 11v5M12 7.6v.2"></path></svg>Good to Know</div>
+      <div style="font-family:var(--font-heading);font-size:66px;font-weight:800;line-height:1.08;letter-spacing:-0.03em;color:#17130F;text-wrap:balance;">Planning a Raven's Roast stop?</div>
+      <div style="display:flex;flex-direction:column;gap:16px;">
+        <div style="background:#F1E6CE;border:1px solid #D9C7A2;border-radius:16px;padding:28px 30px;"><div style="font-family:var(--font-heading);font-size:26px;font-weight:700;color:#17130F;">Can I dine in?</div><div style="font-size:22px;line-height:1.55;color:#6D6255;margin-top:12px;">Yes. Raven's Roast currently offers both dine-in and takeout.</div></div>
+        <div style="background:#F1E6CE;border:1px solid #D9C7A2;border-radius:16px;padding:28px 30px;"><div style="font-family:var(--font-heading);font-size:26px;font-weight:700;color:#17130F;">Is there more than coffee?</div><div style="font-size:22px;line-height:1.55;color:#6D6255;margin-top:12px;">Yes. Raven's Roast offers coffee, tea, chai, cocoa, specialty drinks and baked goods.</div></div>
+      </div>
+      <div style="position:absolute;left:80px;right:80px;bottom:80px;display:flex;align-items:center;justify-content:space-between;gap:32px;border-top:1px solid #D9C7A2;padding-top:32px;">
+        <div style="height:90px;flex:none;display:flex;align-items:center;gap:16px;">
+          <svg viewBox="0 0 64 64" width="58" height="58" fill="#17130F"><path d="M8 40c0-11 8-19 18-21 3-4 8-7 14-7 3 0 5 1 7 2l9-2-5 6c1 2 2 5 2 8 0 5-2 9-6 13l-6 6-3 8h-8l2-7c-3 1-6 1-9 1L14 56l3-10c-6-1-9-3-9-6zm31-24a2 2 0 100 4 2 2 0 000-4z"></path></svg>
+          <div style="line-height:1.05;">
+            <div style="font-family:var(--font-heading);font-size:24px;font-weight:800;letter-spacing:0.02em;white-space:nowrap;color:#17130F;">RAVEN'S ROAST</div>
+            <div style="font-family:var(--font-heading);font-size:14px;font-weight:700;letter-spacing:0.22em;color:#B78A2E;margin-top:5px;">COFFEE</div>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;gap:24px;">
+          <div style="display:flex;flex-direction:column;align-items:flex-end;line-height:1.15;"><div style="font-size:19px;font-weight:600;color:#6D6255;white-space:nowrap;">Visit Our Website</div><div style="font-family:var(--font-heading);font-size:25px;font-weight:800;color:#17130F;white-space:nowrap;">ravensroastcoffee.com</div></div>
+          <div style="background:#B78A2E;color:#17130F;border-radius:12px;padding:17px 32px;font-family:var(--font-heading);font-size:28px;font-weight:700;white-space:nowrap;box-shadow:0 8px 22px rgba(183,138,46,0.35);">(970) 586-4326</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="flex:none;display:flex;flex-direction:column;gap:14px;">
+    <div style="font-family:var(--font-heading);font-size:15px;font-weight:700;color:#6D6255;">Layout 6 — Location / details</div>
+    <div data-screen-label="06" style="position:relative;flex:none;width:1080px;height:1080px;background:#F1E6CE;overflow:hidden;box-shadow:0 16px 48px rgba(23,19,15,0.18);box-sizing:border-box;padding:80px 80px 320px 80px;display:flex;flex-direction:column;gap:36px;">
+      <div style="display:inline-flex;align-self:flex-start;align-items:center;background:#F7F2E8;border:1px solid #D9C7A2;border-radius:999px;padding:14px 26px;gap:10px;font-family:var(--font-heading);font-size:19px;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;color:#A86C2D;"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#A86C2D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex:none;"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 1 1 16 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>Come Find the Raven</div>
+      <div style="font-family:var(--font-heading);font-size:66px;font-weight:800;line-height:1.08;letter-spacing:-0.03em;color:#17130F;text-wrap:balance;">164 East Elkhorn Ave<br>Estes Park, CO 80517</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+        <div style="background:#F7F2E8;border:1px solid #D9C7A2;border-radius:16px;padding:24px 26px;"><div style="font-family:var(--font-heading);font-size:22px;font-weight:700;color:#A86C2D;">Find Us</div><div style="font-size:21px;line-height:1.6;color:#17130F;margin-top:8px;">George Hix Riverside Plaza<br>Unit I<br>Downtown Estes Park</div></div>
+        <div style="background:#F7F2E8;border:1px solid #D9C7A2;border-radius:16px;padding:24px 26px;"><div style="font-family:var(--font-heading);font-size:22px;font-weight:700;color:#A86C2D;">At Raven's Roast</div><div style="font-size:21px;line-height:1.6;color:#17130F;margin-top:8px;">Dine-In · Takeout<br>Coffee · Tea · Cocoa<br>Baked Goods</div></div>
+      </div>
+      <div style="position:absolute;left:80px;right:80px;bottom:80px;display:flex;align-items:center;justify-content:space-between;gap:32px;border-top:1px solid #D9C7A2;padding-top:32px;">
+        <div style="height:90px;flex:none;display:flex;align-items:center;gap:16px;">
+          <svg viewBox="0 0 64 64" width="58" height="58" fill="#17130F"><path d="M8 40c0-11 8-19 18-21 3-4 8-7 14-7 3 0 5 1 7 2l9-2-5 6c1 2 2 5 2 8 0 5-2 9-6 13l-6 6-3 8h-8l2-7c-3 1-6 1-9 1L14 56l3-10c-6-1-9-3-9-6zm31-24a2 2 0 100 4 2 2 0 000-4z"></path></svg>
+          <div style="line-height:1.05;">
+            <div style="font-family:var(--font-heading);font-size:24px;font-weight:800;letter-spacing:0.02em;white-space:nowrap;color:#17130F;">RAVEN'S ROAST</div>
+            <div style="font-family:var(--font-heading);font-size:14px;font-weight:700;letter-spacing:0.22em;color:#B78A2E;margin-top:5px;">COFFEE</div>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;gap:24px;">
+          <div style="display:flex;flex-direction:column;align-items:flex-end;line-height:1.15;"><div style="font-size:19px;font-weight:600;color:#6D6255;white-space:nowrap;">Get Directions</div><div style="font-family:var(--font-heading);font-size:25px;font-weight:800;color:#17130F;white-space:nowrap;">Estes Park, CO</div></div>
+          <div style="background:#B78A2E;color:#17130F;border-radius:12px;padding:17px 32px;font-family:var(--font-heading);font-size:28px;font-weight:700;white-space:nowrap;box-shadow:0 8px 22px rgba(183,138,46,0.35);">(970) 586-4326</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="flex:none;display:flex;flex-direction:column;gap:14px;">
+    <div style="font-family:var(--font-heading);font-size:15px;font-weight:700;color:#6D6255;">Layout 7 — Visit CTA (dark)</div>
+    <div data-screen-label="07" style="position:relative;flex:none;width:1080px;height:1080px;background:linear-gradient(160deg,#0B0B0A 0%,#261A12 55%,#4A2E20 100%);overflow:hidden;box-shadow:0 16px 48px rgba(23,19,15,0.18);box-sizing:border-box;padding:80px 80px 320px 80px;display:flex;flex-direction:column;justify-content:space-between;">
+      <div style="position:absolute;inset:0;opacity:0.07;background-image:radial-gradient(circle at 1px 1px,#F1E6CE 1.6px,transparent 0);background-size:26px 26px;"></div>
+      <div style="position:relative;display:inline-flex;align-self:flex-start;align-items:center;gap:10px;background:rgba(241,230,206,0.10);border:1px solid rgba(217,199,162,0.35);border-radius:999px;padding:14px 26px;font-family:var(--font-heading);font-size:19px;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;color:#E4C77F;"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#E4C77F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex:none;"><path d="M4 8h12v6a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5V8z"></path><path d="M16 9h2a3 3 0 0 1 0 6h-2"></path><path d="M7 2v3M11 2v3"></path></svg>Come Find the Raven</div>
+      <div style="position:relative;">
+        <div style="font-family:var(--font-heading);font-size:66px;font-weight:800;line-height:1.08;letter-spacing:-0.03em;color:#F7F2E8;text-wrap:balance;">Downtown Today? Stop In for a Cup.</div>
+        <div style="font-size:32px;line-height:1.55;color:#E3D6BC;margin-top:26px;max-width:840px;">164 East Elkhorn Ave, in the George Hix Riverside Plaza. Dine in or take it with you.</div>
+        <div style="display:flex;gap:14px;margin-top:30px;">
+          <div style="background:rgba(241,230,206,0.08);border:1px solid rgba(217,199,162,0.30);border-radius:999px;padding:12px 24px;font-size:20px;font-weight:600;color:#F1E6CE;">Dine-In</div>
+          <div style="background:rgba(241,230,206,0.08);border:1px solid rgba(217,199,162,0.30);border-radius:999px;padding:12px 24px;font-size:20px;font-weight:600;color:#F1E6CE;">Takeout</div>
+          <div style="background:rgba(241,230,206,0.08);border:1px solid rgba(217,199,162,0.30);border-radius:999px;padding:12px 24px;font-size:20px;font-weight:600;color:#F1E6CE;">4.6 ★ · 535+ reviews</div>
+        </div>
+      </div>
+      <div style="position:absolute;left:80px;right:80px;bottom:80px;display:flex;align-items:center;justify-content:space-between;gap:32px;border-top:1px solid rgba(217,199,162,0.35);padding-top:32px;">
+        <div style="height:90px;flex:none;display:flex;align-items:center;gap:16px;">
+          <svg viewBox="0 0 64 64" width="58" height="58" fill="#F1E6CE"><path d="M8 40c0-11 8-19 18-21 3-4 8-7 14-7 3 0 5 1 7 2l9-2-5 6c1 2 2 5 2 8 0 5-2 9-6 13l-6 6-3 8h-8l2-7c-3 1-6 1-9 1L14 56l3-10c-6-1-9-3-9-6zm31-24a2 2 0 100 4 2 2 0 000-4z"></path></svg>
+          <div style="line-height:1.05;">
+            <div style="font-family:var(--font-heading);font-size:24px;font-weight:800;letter-spacing:0.02em;white-space:nowrap;color:#F7F2E8;">RAVEN'S ROAST</div>
+            <div style="font-family:var(--font-heading);font-size:14px;font-weight:700;letter-spacing:0.22em;color:#E4C77F;margin-top:5px;">COFFEE</div>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;gap:24px;">
+          <div style="display:flex;flex-direction:column;align-items:flex-end;line-height:1.15;"><div style="font-size:19px;font-weight:600;color:#D9C7A2;white-space:nowrap;">Visit Our Website</div><div style="font-family:var(--font-heading);font-size:25px;font-weight:800;color:#F7F2E8;white-space:nowrap;">ravensroastcoffee.com</div></div>
+          <div style="background:#B78A2E;color:#17130F;border-radius:12px;padding:17px 32px;font-family:var(--font-heading);font-size:28px;font-weight:700;white-space:nowrap;box-shadow:0 8px 22px rgba(183,138,46,0.35);">(970) 586-4326</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="flex:none;display:flex;flex-direction:column;gap:14px;">
+    <div style="font-family:var(--font-heading);font-size:15px;font-weight:700;color:#6D6255;">Layout 8 — Reasons to stop in</div>
+    <div data-screen-label="08" style="position:relative;flex:none;width:1080px;height:1080px;background:#F7F2E8;overflow:hidden;box-shadow:0 16px 48px rgba(23,19,15,0.18);box-sizing:border-box;padding:80px 80px 320px 80px;display:flex;flex-direction:column;gap:22px;">
+      <div style="display:inline-flex;align-self:flex-start;align-items:center;gap:10px;background:#F1E6CE;border:1px solid #D9C7A2;border-radius:999px;padding:14px 26px;font-family:var(--font-heading);font-size:19px;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;color:#A86C2D;"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#A86C2D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex:none;"><path d="M20.8 5.6a5 5 0 0 0-7.1 0L12 7.3l-1.7-1.7a5 5 0 1 0-7.1 7.1L12 21l8.8-8.3a5 5 0 0 0 0-7.1z"></path></svg>Estes Park Coffee</div>
+      <div style="font-family:var(--font-heading);font-size:66px;font-weight:800;line-height:1.06;letter-spacing:-0.035em;color:#17130F;text-wrap:balance;">Three Good Reasons to Stop In.</div>
+      <div style="display:flex;flex-direction:column;gap:14px;">
+        <div style="display:flex;align-items:center;gap:22px;background:#F1E6CE;border:1px solid #D9C7A2;border-radius:16px;padding:22px 26px;"><div style="flex:none;width:56px;height:56px;border-radius:14px;background:#F7F2E8;border:1px solid #D9C7A2;display:flex;align-items:center;justify-content:center;font-family:var(--font-heading);font-size:24px;font-weight:800;color:#A86C2D;">1</div><div><div style="font-family:var(--font-heading);font-size:28px;font-weight:700;color:#17130F;">Downtown and easy to find</div><div style="font-size:21px;color:#6D6255;margin-top:2px;">164 East Elkhorn Ave, Unit I.</div></div></div>
+        <div style="display:flex;align-items:center;gap:22px;background:#F1E6CE;border:1px solid #D9C7A2;border-radius:16px;padding:22px 26px;"><div style="flex:none;width:56px;height:56px;border-radius:14px;background:#F7F2E8;border:1px solid #D9C7A2;display:flex;align-items:center;justify-content:center;font-family:var(--font-heading);font-size:24px;font-weight:800;color:#A86C2D;">2</div><div><div style="font-family:var(--font-heading);font-size:28px;font-weight:700;color:#17130F;">Something for everyone</div><div style="font-size:21px;color:#6D6255;margin-top:2px;">Coffee, tea, chai, cocoa and baked goods.</div></div></div>
+        <div style="display:flex;align-items:center;gap:22px;background:#F1E6CE;border:1px solid #D9C7A2;border-radius:16px;padding:22px 26px;"><div style="flex:none;width:56px;height:56px;border-radius:14px;background:#F7F2E8;border:1px solid #D9C7A2;display:flex;align-items:center;justify-content:center;font-family:var(--font-heading);font-size:24px;font-weight:800;color:#A86C2D;">3</div><div><div style="font-family:var(--font-heading);font-size:28px;font-weight:700;color:#17130F;">Locals and visitors agree</div><div style="font-size:21px;color:#6D6255;margin-top:2px;">4.6 ★ across 535+ Google reviews.</div></div></div>
+      </div>
+      <div style="position:absolute;left:80px;right:80px;bottom:80px;display:flex;align-items:center;justify-content:space-between;gap:32px;border-top:1px solid #D9C7A2;padding-top:32px;">
+        <div style="height:90px;flex:none;display:flex;align-items:center;gap:16px;">
+          <svg viewBox="0 0 64 64" width="58" height="58" fill="#17130F"><path d="M8 40c0-11 8-19 18-21 3-4 8-7 14-7 3 0 5 1 7 2l9-2-5 6c1 2 2 5 2 8 0 5-2 9-6 13l-6 6-3 8h-8l2-7c-3 1-6 1-9 1L14 56l3-10c-6-1-9-3-9-6zm31-24a2 2 0 100 4 2 2 0 000-4z"></path></svg>
+          <div style="line-height:1.05;">
+            <div style="font-family:var(--font-heading);font-size:24px;font-weight:800;letter-spacing:0.02em;white-space:nowrap;color:#17130F;">RAVEN'S ROAST</div>
+            <div style="font-family:var(--font-heading);font-size:14px;font-weight:700;letter-spacing:0.22em;color:#B78A2E;margin-top:5px;">COFFEE</div>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;gap:24px;">
+          <div style="display:flex;flex-direction:column;align-items:flex-end;line-height:1.15;"><div style="font-size:19px;font-weight:600;color:#6D6255;white-space:nowrap;">Visit Our Website</div><div style="font-family:var(--font-heading);font-size:25px;font-weight:800;color:#17130F;white-space:nowrap;">ravensroastcoffee.com</div></div>
+          <div style="background:#B78A2E;color:#17130F;border-radius:12px;padding:17px 32px;font-family:var(--font-heading);font-size:28px;font-weight:700;white-space:nowrap;box-shadow:0 8px 22px rgba(183,138,46,0.35);">(970) 586-4326</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="flex:none;display:flex;flex-direction:column;gap:14px;">
+    <div style="font-family:var(--font-heading);font-size:15px;font-weight:700;color:#6D6255;">Layout 9 — Takeout / on your way</div>
+    <div data-screen-label="09" style="position:relative;flex:none;width:1080px;height:1080px;background:#F1E6CE;overflow:hidden;box-shadow:0 16px 48px rgba(23,19,15,0.18);box-sizing:border-box;padding:80px 80px 320px 80px;display:flex;flex-direction:column;justify-content:space-between;">
+      <div style="display:inline-flex;align-self:flex-start;align-items:center;gap:10px;background:#F7F2E8;border:1px solid #D9C7A2;border-radius:999px;padding:14px 26px;font-family:var(--font-heading);font-size:19px;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;color:#A86C2D;"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#A86C2D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex:none;"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 1 1 16 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>Coffee With Character</div>
+      <div>
+        <div style="font-family:var(--font-heading);font-size:66px;font-weight:800;line-height:1.06;letter-spacing:-0.035em;color:#17130F;text-wrap:balance;">Grab One on Your Way Up the Mountain.</div>
+        <div style="font-size:32px;line-height:1.55;color:#6D6255;margin-top:26px;max-width:840px;">Takeout is ready when you are, or stay a while with us.</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:32px;">
+          <div style="background:#F7F2E8;border:1px solid #D9C7A2;border-radius:16px;padding:24px 26px;"><div style="font-family:var(--font-heading);font-size:22px;font-weight:700;color:#A86C2D;">Where</div><div style="font-size:21px;line-height:1.6;color:#17130F;margin-top:8px;">164 East Elkhorn Ave<br>Riverside Plaza, Unit I</div></div>
+          <div style="background:#F7F2E8;border:1px solid #D9C7A2;border-radius:16px;padding:24px 26px;"><div style="font-family:var(--font-heading);font-size:22px;font-weight:700;color:#A86C2D;">Call ahead</div><div style="font-size:21px;line-height:1.6;color:#17130F;margin-top:8px;">(970) 586-4326<br>Dine-In · Takeout</div></div>
+        </div>
+      </div>
+      <div style="position:absolute;left:80px;right:80px;bottom:80px;display:flex;align-items:center;justify-content:space-between;gap:32px;border-top:1px solid #D9C7A2;padding-top:32px;">
+        <div style="height:90px;flex:none;display:flex;align-items:center;gap:16px;">
+          <svg viewBox="0 0 64 64" width="58" height="58" fill="#17130F"><path d="M8 40c0-11 8-19 18-21 3-4 8-7 14-7 3 0 5 1 7 2l9-2-5 6c1 2 2 5 2 8 0 5-2 9-6 13l-6 6-3 8h-8l2-7c-3 1-6 1-9 1L14 56l3-10c-6-1-9-3-9-6zm31-24a2 2 0 100 4 2 2 0 000-4z"></path></svg>
+          <div style="line-height:1.05;">
+            <div style="font-family:var(--font-heading);font-size:24px;font-weight:800;letter-spacing:0.02em;white-space:nowrap;color:#17130F;">RAVEN'S ROAST</div>
+            <div style="font-family:var(--font-heading);font-size:14px;font-weight:700;letter-spacing:0.22em;color:#B78A2E;margin-top:5px;">COFFEE</div>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;gap:24px;">
+          <div style="display:flex;flex-direction:column;align-items:flex-end;line-height:1.15;"><div style="font-size:19px;font-weight:600;color:#6D6255;white-space:nowrap;">Get Directions</div><div style="font-family:var(--font-heading);font-size:25px;font-weight:800;color:#17130F;white-space:nowrap;">Estes Park, CO</div></div>
+          <div style="background:#B78A2E;color:#17130F;border-radius:12px;padding:17px 32px;font-family:var(--font-heading);font-size:28px;font-weight:700;white-space:nowrap;box-shadow:0 8px 22px rgba(183,138,46,0.35);">(970) 586-4326</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="flex:none;display:flex;flex-direction:column;gap:14px;">
+    <div style="font-family:var(--font-heading);font-size:15px;font-weight:700;color:#6D6255;">Alt A — Gold field (statement)</div>
+    <div data-screen-label="10" style="position:relative;flex:none;width:1080px;height:1080px;background:#B78A2E;overflow:hidden;box-shadow:0 16px 48px rgba(23,19,15,0.18);box-sizing:border-box;padding:80px 80px 320px 80px;display:flex;flex-direction:column;justify-content:space-between;">
+      <div style="display:inline-flex;align-self:flex-start;align-items:center;gap:10px;background:rgba(23,19,15,0.14);border:1px solid rgba(23,19,15,0.28);border-radius:999px;padding:14px 26px;font-family:var(--font-heading);font-size:19px;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;color:#17130F;"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#17130F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex:none;"><path d="M4 8h12v6a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5V8z"></path><path d="M16 9h2a3 3 0 0 1 0 6h-2"></path><path d="M7 2v3M11 2v3"></path></svg>Raven's Roast</div>
+      <div>
+        <div style="font-family:var(--font-heading);font-size:66px;font-weight:800;line-height:1.06;letter-spacing:-0.03em;color:#17130F;text-wrap:balance;">Coffee With Character in the Heart of Estes Park.</div>
+        <div style="font-size:32px;line-height:1.55;color:#3A2C18;margin-top:26px;max-width:820px;">Coffee, tea, specialty drinks and baked treats served with plenty of personality.</div>
+        <div style="display:flex;gap:14px;margin-top:26px;">
+          <div style="background:rgba(247,242,232,0.55);border:1px solid rgba(23,19,15,0.20);border-radius:999px;padding:11px 22px;font-size:20px;font-weight:600;color:#17130F;">Coffee &amp; Tea</div>
+          <div style="background:rgba(247,242,232,0.55);border:1px solid rgba(23,19,15,0.20);border-radius:999px;padding:11px 22px;font-size:20px;font-weight:600;color:#17130F;">Baked Goods</div>
+          <div style="background:rgba(247,242,232,0.55);border:1px solid rgba(23,19,15,0.20);border-radius:999px;padding:11px 22px;font-size:20px;font-weight:600;color:#17130F;">Dine-In · Takeout</div>
+        </div>
+      </div>
+      <div style="position:absolute;left:80px;right:80px;bottom:80px;display:flex;align-items:center;justify-content:space-between;gap:32px;border-top:1px solid rgba(23,19,15,0.28);padding-top:32px;">
+        <div style="height:90px;flex:none;display:flex;align-items:center;gap:16px;">
+          <svg viewBox="0 0 64 64" width="58" height="58" fill="#17130F"><path d="M8 40c0-11 8-19 18-21 3-4 8-7 14-7 3 0 5 1 7 2l9-2-5 6c1 2 2 5 2 8 0 5-2 9-6 13l-6 6-3 8h-8l2-7c-3 1-6 1-9 1L14 56l3-10c-6-1-9-3-9-6zm31-24a2 2 0 100 4 2 2 0 000-4z"></path></svg>
+          <div style="line-height:1.05;">
+            <div style="font-family:var(--font-heading);font-size:24px;font-weight:800;letter-spacing:0.02em;white-space:nowrap;color:#17130F;">RAVEN'S ROAST</div>
+            <div style="font-family:var(--font-heading);font-size:14px;font-weight:700;letter-spacing:0.22em;color:#3A2C18;margin-top:5px;">COFFEE</div>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;gap:24px;">
+          <div style="display:flex;flex-direction:column;align-items:flex-end;line-height:1.15;"><div style="font-size:19px;font-weight:600;color:#3A2C18;white-space:nowrap;">Visit Our Website</div><div style="font-family:var(--font-heading);font-size:25px;font-weight:800;color:#17130F;white-space:nowrap;">ravensroastcoffee.com</div></div>
+          <div style="background:#17130F;color:#F1E6CE;border-radius:12px;padding:17px 32px;font-family:var(--font-heading);font-size:28px;font-weight:700;white-space:nowrap;box-shadow:0 8px 22px rgba(23,19,15,0.28);">(970) 586-4326</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="flex:none;display:flex;flex-direction:column;gap:14px;">
+    <div style="font-family:var(--font-heading);font-size:15px;font-weight:700;color:#6D6255;">Alt B — Copper (statement)</div>
+    <div data-screen-label="11" style="position:relative;flex:none;width:1080px;height:1080px;background:#5C3218;overflow:hidden;box-shadow:0 16px 48px rgba(23,19,15,0.18);box-sizing:border-box;padding:80px 80px 320px 80px;display:flex;flex-direction:column;justify-content:space-between;">
+      <div style="position:absolute;inset:0;opacity:0.06;background-image:radial-gradient(circle at 1px 1px,#F1E6CE 1.6px,transparent 0);background-size:26px 26px;"></div>
+      <div style="position:relative;display:inline-flex;align-self:flex-start;align-items:center;gap:10px;background:rgba(241,230,206,0.12);border:1px solid rgba(241,230,206,0.32);border-radius:999px;padding:14px 26px;font-family:var(--font-heading);font-size:19px;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;color:#F1E6CE;"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#F1E6CE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex:none;"><path d="M4 8h12v6a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5V8z"></path><path d="M16 9h2a3 3 0 0 1 0 6h-2"></path><path d="M7 2v3M11 2v3"></path></svg>Raven's Roast</div>
+      <div style="position:relative;">
+        <div style="font-family:var(--font-heading);font-size:66px;font-weight:800;line-height:1.06;letter-spacing:-0.03em;color:#F7F2E8;text-wrap:balance;">Coffee With Character in the Heart of Estes Park.</div>
+        <div style="font-size:32px;line-height:1.55;color:#E3D6BC;margin-top:26px;max-width:820px;">Coffee, tea, specialty drinks and baked treats served with plenty of personality.</div>
+        <div style="display:flex;gap:14px;margin-top:26px;">
+          <div style="background:rgba(241,230,206,0.10);border:1px solid rgba(241,230,206,0.28);border-radius:999px;padding:11px 22px;font-size:20px;font-weight:600;color:#F1E6CE;">Coffee &amp; Tea</div>
+          <div style="background:rgba(241,230,206,0.10);border:1px solid rgba(241,230,206,0.28);border-radius:999px;padding:11px 22px;font-size:20px;font-weight:600;color:#F1E6CE;">Baked Goods</div>
+          <div style="background:rgba(241,230,206,0.10);border:1px solid rgba(241,230,206,0.28);border-radius:999px;padding:11px 22px;font-size:20px;font-weight:600;color:#F1E6CE;">Dine-In · Takeout</div>
+        </div>
+      </div>
+      <div style="position:absolute;left:80px;right:80px;bottom:80px;display:flex;align-items:center;justify-content:space-between;gap:32px;border-top:1px solid rgba(241,230,206,0.30);padding-top:32px;">
+        <div style="height:90px;flex:none;display:flex;align-items:center;gap:16px;">
+          <svg viewBox="0 0 64 64" width="58" height="58" fill="#F1E6CE"><path d="M8 40c0-11 8-19 18-21 3-4 8-7 14-7 3 0 5 1 7 2l9-2-5 6c1 2 2 5 2 8 0 5-2 9-6 13l-6 6-3 8h-8l2-7c-3 1-6 1-9 1L14 56l3-10c-6-1-9-3-9-6zm31-24a2 2 0 100 4 2 2 0 000-4z"></path></svg>
+          <div style="line-height:1.05;">
+            <div style="font-family:var(--font-heading);font-size:24px;font-weight:800;letter-spacing:0.02em;white-space:nowrap;color:#F7F2E8;">RAVEN'S ROAST</div>
+            <div style="font-family:var(--font-heading);font-size:14px;font-weight:700;letter-spacing:0.22em;color:#E4C77F;margin-top:5px;">COFFEE</div>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;gap:24px;">
+          <div style="display:flex;flex-direction:column;align-items:flex-end;line-height:1.15;"><div style="font-size:19px;font-weight:600;color:#D9C7A2;white-space:nowrap;">Visit Our Website</div><div style="font-family:var(--font-heading);font-size:25px;font-weight:800;color:#F7F2E8;white-space:nowrap;">ravensroastcoffee.com</div></div>
+          <div style="background:#E4C77F;color:#17130F;border-radius:12px;padding:17px 32px;font-family:var(--font-heading);font-size:28px;font-weight:700;white-space:nowrap;box-shadow:0 8px 22px rgba(23,19,15,0.35);">(970) 586-4326</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  </div>
+</div>
+</x-dc>
+</body>
+</html>

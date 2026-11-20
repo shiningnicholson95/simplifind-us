@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>About Kafe Krave — Our Story | San Antonio Coffee & Cocktail Bar</title>
+<meta name="description" content="The story behind Kafe Krave — a San Antonio room built for slow mornings over single-origin coffee and golden evenings over thoughtful cocktails.">
+<link rel="canonical" href="https://kafekravesatx.com/about.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="About Kafe Krave — Our Story">
+<meta property="og:description" content="Coffee by day, cocktails by night. The story behind Kafe Krave in San Antonio.">
+<meta property="og:image" content="images/green-booth.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"AboutPage","name":"About Kafe Krave","url":"https://kafekravesatx.com/about.html","mainEntity":{"@type":["CafeOrCoffeeShop","BarOrPub"],"name":"Kafe Krave","address":{"@type":"PostalAddress","streetAddress":"227 Dwyer Ave, Suite 101","addressLocality":"San Antonio","addressRegion":"TX","postalCode":"78204","addressCountry":"US"}}}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { background: #111111; }
+  ::selection { background: #C6A15B; color: #111111; }
+  @keyframes kk-kenburns { 0% { transform: scale(1); } 100% { transform: scale(1.1); } }
+  .kk-reveal { opacity: 0; transform: translateY(34px); transition: opacity 1s cubic-bezier(.16,1,.3,1), transform 1s cubic-bezier(.16,1,.3,1); }
+  .kk-reveal.kk-in { opacity: 1; transform: none; }
+  .kk-zoom img { transition: transform 1.1s cubic-bezier(.16,1,.3,1); }
+  .kk-zoom:hover img { transform: scale(1.07); }
+  .kk-burger { display: none; }
+  .kk-bar { display: none; }
+  @media (max-width: 880px) {
+    .kk-desknav { display: none !important; }
+    .kk-burger { display: flex !important; }
+    .kk-bar { display: grid !important; }
+    .kk-2col { grid-template-columns: 1fr !important; }
+    .kk-exp-row { grid-template-columns: 1fr !important; }
+    .kk-exp-row > * { order: 0 !important; }
+    .kk-foot-pad { padding-bottom: 96px !important; }
+  }
+  @media (max-width: 760px) {
+    .kk-vals { grid-template-columns: 1fr !important; }
+    .kk-footer-grid { grid-template-columns: 1fr 1fr !important; }
+  }
+  @media (max-width: 460px) { .kk-footer-grid { grid-template-columns: 1fr !important; } }
+</style>
+</helmet>
+<div style="font-family: 'Inter', sans-serif; background: #111111; color: #F5F1EA; overflow-x: hidden; width: 100%;">
+
+  <!-- HEADER START -->
+  <header ref="{{ navRef }}" style="position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 14px clamp(20px, 5vw, 64px); transition: background .5s ease, padding .5s ease; background: rgba(17,17,17,.92); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(245,241,234,.08);">
+    <a href="index.html" style="font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 20px; letter-spacing: .14em; text-transform: uppercase; color: #F5F1EA; text-decoration: none; display: flex; align-items: center; gap: 10px;"><span style="width: 9px; height: 9px; border-radius: 50%; background: #C6A15B;"></span>Kafe Krave</a>
+    <nav class="kk-desknav" style="display: flex; align-items: center; gap: 38px;">
+      <a href="index.html" style="font-size: 13px; letter-spacing: .12em; text-transform: uppercase; color: #F5F1EA; text-decoration: none; opacity: .85;">Home</a>
+      <a href="about.html" style="font-size: 13px; letter-spacing: .12em; text-transform: uppercase; color: #C6A15B; text-decoration: none;">About</a>
+      <a href="gallery.html" style="font-size: 13px; letter-spacing: .12em; text-transform: uppercase; color: #F5F1EA; text-decoration: none; opacity: .85;">Gallery</a>
+      <a href="contact.html" style="font-size: 13px; letter-spacing: .12em; text-transform: uppercase; color: #F5F1EA; text-decoration: none; opacity: .85;">Visit</a>
+      <a href="reviews.html" style="font-size: 13px; letter-spacing: .12em; text-transform: uppercase; color: #F5F1EA; text-decoration: none; opacity: .85;">Reviews</a>
+      <a href="tel:+17262488930" style="font-size: 13px; letter-spacing: .12em; text-transform: uppercase; color: #111111; text-decoration: none; background: #C6A15B; padding: 11px 22px; border-radius: 999px; font-weight: 600;">Call</a>
+    </nav>
+    <button class="kk-burger" aria-label="Open menu" onClick="{{ toggleMenu }}" ref="{{ burgerRef }}" style="flex-direction: column; gap: 6px; background: none; border: none; cursor: pointer; padding: 8px;">
+      <span style="width: 26px; height: 2px; background: #F5F1EA; display: block; transition: transform .4s ease;"></span>
+      <span style="width: 26px; height: 2px; background: #F5F1EA; display: block; transition: opacity .4s ease;"></span>
+      <span style="width: 26px; height: 2px; background: #F5F1EA; display: block; transition: transform .4s ease;"></span>
+    </button>
+  </header>
+
+  <div ref="{{ mobileMenuRef }}" style="position: fixed; inset: 0; z-index: 99; background: rgba(17,17,17,.97); backdrop-filter: blur(8px); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 30px; opacity: 0; pointer-events: none; transition: opacity .5s ease;">
+    <a href="index.html" style="font-family: 'Poppins', sans-serif; font-size: 30px; color: #F5F1EA; text-decoration: none;">Home</a>
+    <a href="about.html" style="font-family: 'Poppins', sans-serif; font-size: 30px; color: #F5F1EA; text-decoration: none;">About</a>
+    <a href="gallery.html" style="font-family: 'Poppins', sans-serif; font-size: 30px; color: #F5F1EA; text-decoration: none;">Gallery</a>
+    <a href="reviews.html" style="font-family: 'Poppins', sans-serif; font-size: 30px; color: #F5F1EA; text-decoration: none;">Reviews</a>
+    <a href="contact.html" style="font-family: 'Poppins', sans-serif; font-size: 30px; color: #F5F1EA; text-decoration: none;">Visit</a>
+    <a href="tel:+17262488930" style="margin-top: 14px; font-size: 14px; letter-spacing: .12em; text-transform: uppercase; color: #111111; text-decoration: none; background: #C6A15B; padding: 14px 30px; border-radius: 999px; font-weight: 600;">Call Now</a>
+  </div>
+
+  <!-- HERO START -->
+  <section style="position: relative; height: 70vh; min-height: 460px; display: flex; align-items: flex-end; overflow: hidden;">
+    <div style="position: absolute; inset: 0; animation: kk-kenburns 16s ease-out forwards;">
+      <img src="images/interior-booths.jpg" alt="Warm modern interior of Kafe Krave" style="width: 100%; height: 100%; object-fit: cover;">
+    </div>
+    <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(17,17,17,.5) 0%, rgba(17,17,17,.2) 40%, rgba(17,17,17,.8) 100%);"></div>
+    <div style="position: relative; z-index: 2; padding: 0 clamp(20px, 5vw, 64px) clamp(54px, 8vh, 90px); max-width: 900px;">
+      <span style="display: inline-block; font-size: 12px; letter-spacing: .32em; text-transform: uppercase; color: #C6A15B; margin-bottom: 22px; font-weight: 500;">Our Story</span>
+      <h1 style="font-family: 'Poppins', sans-serif; font-weight: 600; font-size: clamp(38px, 6.5vw, 84px); line-height: 1; letter-spacing: -.02em; color: #FFFFFF;">A Place That<br>Feels Real</h1>
+    </div>
+  </section>
+
+  <!-- BRAND STORY START -->
+  <section style="background: #F5F1EA; color: #111111; padding: clamp(72px, 12vh, 150px) clamp(20px, 5vw, 64px);">
+    <div class="kk-2col" style="max-width: 1240px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: clamp(40px, 6vw, 96px); align-items: center;">
+      <div class="kk-reveal kk-zoom" style="overflow: hidden; border-radius: 18px; aspect-ratio: 4/5;">
+        <img src="images/green-booth.jpg" alt="Green booth seating in warm afternoon light" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;">
+      </div>
+      <div>
+        <span class="kk-reveal" style="display: inline-block; font-size: 12px; letter-spacing: .28em; text-transform: uppercase; color: #6F4E37; margin-bottom: 22px; font-weight: 500;">The Beginning</span>
+        <h2 class="kk-reveal" style="font-family: 'Poppins', sans-serif; font-weight: 500; font-size: clamp(30px, 4vw, 52px); line-height: 1.05; letter-spacing: -.02em; margin-bottom: 26px;">Born from two times of day we love most.</h2>
+        <p class="kk-reveal" style="font-size: 17px; line-height: 1.78; color: #3a3a3a; font-weight: 300; margin-bottom: 20px;">Kafe Krave started with a simple observation: the best parts of a day are the unhurried ones. The first quiet coffee before the city wakes. The last drink as the lights go low. We built one room to hold both.</p>
+        <p class="kk-reveal" style="font-size: 17px; line-height: 1.78; color: #3a3a3a; font-weight: 300;">By morning we're a neighborhood coffee shop — pour-overs, espresso, fresh pastry. By night the same space softens into a cocktail bar, where San Antonio gathers to slow down together.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- MISSION / PHILOSOPHY START -->
+  <section style="background: #111111; padding: clamp(72px, 12vh, 150px) clamp(20px, 5vw, 64px);">
+    <div style="max-width: 980px; margin: 0 auto; text-align: center;">
+      <span class="kk-reveal" style="display: inline-block; font-size: 12px; letter-spacing: .28em; text-transform: uppercase; color: #C6A15B; margin-bottom: 26px; font-weight: 500;">Our Philosophy</span>
+      <h2 class="kk-reveal" style="font-family: 'Poppins', sans-serif; font-weight: 400; font-size: clamp(28px, 4vw, 50px); line-height: 1.25; letter-spacing: -.01em; color: #F5F1EA;">"We don't chase trends. We chase the feeling of a room you don't want to leave — and we build everything backward from there."</h2>
+    </div>
+  </section>
+
+  <!-- VALUES START -->
+  <section style="background: #181818; padding: clamp(72px, 12vh, 150px) clamp(20px, 5vw, 64px);">
+    <div style="max-width: 1240px; margin: 0 auto;">
+      <div style="text-align: center; margin-bottom: clamp(46px, 7vh, 76px);">
+        <span class="kk-reveal" style="display: inline-block; font-size: 12px; letter-spacing: .28em; text-transform: uppercase; color: #C6A15B; margin-bottom: 18px; font-weight: 500;">Why We Exist</span>
+        <h2 class="kk-reveal" style="font-family: 'Poppins', sans-serif; font-weight: 500; font-size: clamp(28px, 4vw, 50px); line-height: 1.05; letter-spacing: -.02em;">Quality you can taste, hospitality you can feel.</h2>
+      </div>
+      <div class="kk-vals" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(20px, 3vw, 40px);">
+        <div class="kk-reveal" style="background: #111111; border: 1px solid rgba(245,241,234,.08); border-radius: 18px; padding: clamp(28px, 3vw, 40px);">
+          <span style="font-family: 'Poppins', sans-serif; font-size: 14px; color: #6F4E37; letter-spacing: .1em;">01</span>
+          <h3 style="font-family: 'Poppins', sans-serif; font-weight: 500; font-size: 24px; margin: 14px 0 12px;">Sourced with Care</h3>
+          <p style="font-size: 15px; line-height: 1.7; color: rgba(245,241,234,.7); font-weight: 300;">Beans from small roasters, spirits from makers we trust, produce that's actually in season.</p>
+        </div>
+        <div class="kk-reveal" style="background: #111111; border: 1px solid rgba(245,241,234,.08); border-radius: 18px; padding: clamp(28px, 3vw, 40px);">
+          <span style="font-family: 'Poppins', sans-serif; font-size: 14px; color: #6F4E37; letter-spacing: .1em;">02</span>
+          <h3 style="font-family: 'Poppins', sans-serif; font-weight: 500; font-size: 24px; margin: 14px 0 12px;">Made by Hand</h3>
+          <p style="font-size: 15px; line-height: 1.7; color: rgba(245,241,234,.7); font-weight: 300;">Every shot dialed in, every cocktail built to order. No shortcuts, no autopilot.</p>
+        </div>
+        <div class="kk-reveal" style="background: #111111; border: 1px solid rgba(245,241,234,.08); border-radius: 18px; padding: clamp(28px, 3vw, 40px);">
+          <span style="font-family: 'Poppins', sans-serif; font-size: 14px; color: #6F4E37; letter-spacing: .1em;">03</span>
+          <h3 style="font-family: 'Poppins', sans-serif; font-weight: 500; font-size: 24px; margin: 14px 0 12px;">Built for Staying</h3>
+          <p style="font-size: 15px; line-height: 1.7; color: rgba(245,241,234,.7); font-weight: 300;">Comfortable seats, warm light, and the kind of quiet that makes time disappear.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA START -->
+  <section style="background: #234233; color: #F5F1EA; padding: clamp(72px, 12vh, 140px) clamp(20px, 5vw, 64px); text-align: center;">
+    <span class="kk-reveal" style="display: inline-block; font-size: 12px; letter-spacing: .28em; text-transform: uppercase; color: #C6A15B; margin-bottom: 22px; font-weight: 500;">Come Visit Us</span>
+    <h2 class="kk-reveal" style="font-family: 'Poppins', sans-serif; font-weight: 500; font-size: clamp(30px, 5vw, 60px); line-height: 1.04; letter-spacing: -.02em; margin-bottom: 36px; max-width: 760px; margin-left: auto; margin-right: auto;">The room is waiting. So is the coffee.</h2>
+    <div class="kk-reveal" style="display: flex; flex-wrap: wrap; gap: 16px; justify-content: center;">
+      <a href="contact.html" style="font-size: 13px; letter-spacing: .12em; text-transform: uppercase; font-weight: 600; color: #234233; background: #C6A15B; padding: 17px 36px; border-radius: 999px; text-decoration: none;">Plan Your Visit</a>
+      <a href="gallery.html" style="font-size: 13px; letter-spacing: .12em; text-transform: uppercase; font-weight: 600; color: #F5F1EA; border: 1px solid rgba(245,241,234,.4); padding: 17px 36px; border-radius: 999px; text-decoration: none;">View Gallery</a>
+    </div>
+  </section>
+
+  <!-- FOOTER START -->
+  <footer style="background: #111111; color: #F5F1EA; padding: clamp(60px, 9vh, 100px) clamp(20px, 5vw, 64px) 0;">
+    <div class="kk-footer-grid" style="max-width: 1240px; margin: 0 auto; display: grid; grid-template-columns: 1.4fr 1fr 1fr 1.3fr; gap: clamp(32px, 5vw, 60px); padding-bottom: 60px; border-bottom: 1px solid rgba(245,241,234,.12);">
+      <div>
+        <div style="font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 22px; letter-spacing: .14em; text-transform: uppercase; margin-bottom: 18px; display: flex; align-items: center; gap: 10px;"><span style="width: 9px; height: 9px; border-radius: 50%; background: #C6A15B;"></span>Kafe Krave</div>
+        <p style="font-size: 15px; line-height: 1.7; color: rgba(245,241,234,.6); font-weight: 300; max-width: 280px;">Coffee by day, cocktails by night. A San Antonio room worth staying in.</p>
+      </div>
+      <div>
+        <h4 style="font-size: 11px; letter-spacing: .22em; text-transform: uppercase; color: #C6A15B; margin-bottom: 20px;">Explore</h4>
+        <ul style="list-style: none; display: flex; flex-direction: column; gap: 12px;">
+          <li><a href="index.html" style="font-size: 15px; color: rgba(245,241,234,.75); text-decoration: none; font-weight: 300;">Home</a></li>
+          <li><a href="about.html" style="font-size: 15px; color: rgba(245,241,234,.75); text-decoration: none; font-weight: 300;">About</a></li>
+          <li><a href="gallery.html" style="font-size: 15px; color: rgba(245,241,234,.75); text-decoration: none; font-weight: 300;">Gallery</a></li>
+          <li><a href="reviews.html" style="font-size: 15px; color: rgba(245,241,234,.75); text-decoration: none; font-weight: 300;">Reviews</a></li>
+          <li><a href="contact.html" style="font-size: 15px; color: rgba(245,241,234,.75); text-decoration: none; font-weight: 300;">Visit</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 style="font-size: 11px; letter-spacing: .22em; text-transform: uppercase; color: #C6A15B; margin-bottom: 20px;">Connect</h4>
+        <ul style="list-style: none; display: flex; flex-direction: column; gap: 12px;">
+          <li><a href="https://instagram.com" target="_blank" rel="noopener" style="font-size: 15px; color: rgba(245,241,234,.75); text-decoration: none; font-weight: 300;">Instagram</a></li>
+          <li><a href="https://facebook.com" target="_blank" rel="noopener" style="font-size: 15px; color: rgba(245,241,234,.75); text-decoration: none; font-weight: 300;">Facebook</a></li>
+          <li><a href="mailto:info@kafekravesatx.com" style="font-size: 15px; color: rgba(245,241,234,.75); text-decoration: none; font-weight: 300;">Email</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 style="font-size: 11px; letter-spacing: .22em; text-transform: uppercase; color: #C6A15B; margin-bottom: 20px;">Newsletter</h4>
+        <p style="font-size: 14px; color: rgba(245,241,234,.6); font-weight: 300; margin-bottom: 16px; line-height: 1.6;">Slow mornings, late nights, and the occasional pour. No spam.</p>
+        <form onSubmit="{{ onSubscribe }}" style="display: flex; gap: 8px;">
+          <input type="email" required placeholder="Your email" aria-label="Email address" style="flex: 1; min-width: 0; background: #181818; border: 1px solid rgba(245,241,234,.18); border-radius: 999px; padding: 12px 18px; color: #F5F1EA; font-size: 14px; font-family: inherit;">
+          <button type="submit" aria-label="Subscribe" style="background: #C6A15B; border: none; border-radius: 999px; padding: 12px 20px; color: #111111; font-weight: 600; font-size: 13px; cursor: pointer;">&rarr;</button>
+        </form>
+      </div>
+    </div>
+    <div class="kk-foot-pad" style="max-width: 1240px; margin: 0 auto; padding: 26px 0 40px; display: flex; flex-wrap: wrap; gap: 14px; justify-content: space-between; font-size: 13px; color: rgba(245,241,234,.45); font-weight: 300;">
+      <span>&copy; 2026 Kafe Krave. All rights reserved.</span>
+      <span>San Antonio, Texas</span>
+    </div>
+  </footer>
+
+  <div class="kk-bar" style="position: fixed; bottom: 0; left: 0; right: 0; z-index: 90; grid-template-columns: 1fr 1fr; background: rgba(17,17,17,.96); backdrop-filter: blur(10px); border-top: 1px solid rgba(245,241,234,.12);">
+    <a href="tel:+17262488930" style="text-align: center; padding: 16px; font-size: 13px; letter-spacing: .1em; text-transform: uppercase; font-weight: 600; color: #F5F1EA; text-decoration: none; border-right: 1px solid rgba(245,241,234,.12);">Call</a>
+    <a href="https://maps.google.com/?q=227+Dwyer+Ave+San+Antonio+TX" target="_blank" rel="noopener" style="text-align: center; padding: 16px; font-size: 13px; letter-spacing: .1em; text-transform: uppercase; font-weight: 600; color: #C6A15B; text-decoration: none;">Directions</a>
+  </div>
+
+</div>
+<template id="__bundler_thumbnail">
+  <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><rect width="200" height="200" fill="#234233"/><circle cx="100" cy="86" r="34" fill="none" stroke="#C6A15B" stroke-width="4"/><text x="100" y="150" font-family="Poppins,sans-serif" font-size="18" font-weight="600" fill="#F5F1EA" text-anchor="middle" letter-spacing="2">ABOUT</text></svg>
+</template>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      navRef: (el) => { this._nav = el; },
+      burgerRef: (el) => { this._burger = el; },
+      mobileMenuRef: (el) => { this._menu = el; },
+      toggleMenu: () => this._setMenu(!this._menuOpen),
+      onSubscribe: (e) => {
+        e.preventDefault();
+        const inp = e.target.querySelector('input');
+        if (inp) { inp.value = ''; inp.placeholder = 'Thanks \u2014 you\u2019re in.'; }
+      },
+    };
+  }
+  _setMenu(open) {
+    this._menuOpen = open;
+    if (this._menu) { this._menu.style.opacity = open ? '1' : '0'; this._menu.style.pointerEvents = open ? 'auto' : 'none'; }
+    if (this._burger) {
+      const s = this._burger.children;
+      s[0].style.transform = open ? 'translateY(8px) rotate(45deg)' : 'none';
+      s[1].style.opacity = open ? '0' : '1';
+      s[2].style.transform = open ? 'translateY(-8px) rotate(-45deg)' : 'none';
+    }
+    document.body.style.overflow = open ? 'hidden' : '';
+  }
+  componentDidMount() {
+    this._menuOpen = false;
+    if (this._menu) this._menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => this._setMenu(false)));
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(en => { if (en.isIntersecting) { en.target.classList.add('kk-in'); obs.unobserve(en.target); } });
+    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+    document.querySelectorAll('.kk-reveal').forEach((el, i) => { el.style.transitionDelay = (Math.min(i % 4, 3) * 0.08) + 's'; obs.observe(el); });
+  }
+}
+</script>
+</body>
+</html>

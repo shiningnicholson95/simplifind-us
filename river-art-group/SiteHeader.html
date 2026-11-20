@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<header style="position:sticky;top:0;z-index:50;font-family:'Mulish',system-ui,sans-serif">
+  <div style="background:#1c3d5a;color:#f3e7cf;font-size:13px;letter-spacing:.02em">
+    <div style="max-width:1200px;margin:0 auto;padding:7px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap">
+      <span style="display:flex;align-items:center;gap:8px"><span style="color:#e0a32e">◆</span>{{ hoursLine }}</span>
+      <span style="display:flex;align-items:center;gap:18px">
+        <a href="{{ phoneHref }}" style="color:#f3e7cf;text-decoration:none">{{ phone }}</a>
+        <a href="{{ shop }}" target="_blank" rel="noopener" style="color:#ffd98a;text-decoration:none;font-weight:700">Shop Online ↗</a>
+      </span>
+    </div>
+  </div>
+  <div style="background:#faf5ea;border-bottom:1px solid #e7dcc6">
+    <div style="max-width:1200px;margin:0 auto;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;gap:20px">
+      <a href="index.html" aria-label="River Art Group home" style="display:flex;align-items:center;gap:13px;text-decoration:none;flex-shrink:0">
+        <span aria-hidden="true" style="width:46px;height:46px;border-radius:50%;background:#1c3d5a;display:grid;place-items:center;flex-shrink:0">
+          <svg width="27" height="27" viewBox="0 0 40 40" fill="none"><path d="M5 27c4 0 4-4 8-4s4 4 8 4 4-4 8-4 4 4 6 4" stroke="#1f9e96" stroke-width="2.4" stroke-linecap="round"/><path d="M5 33c4 0 4-4 8-4s4 4 8 4 4-4 8-4 4 4 6 4" stroke="#3fb6ad" stroke-width="2.4" stroke-linecap="round"/><path d="M8 21c0-4 5-7 12-7s12 3 12 7" stroke="#e0a32e" stroke-width="2.4" stroke-linecap="round"/><path d="M24 6l3 9-2.4 1.6L21.5 8z" fill="#b2362c"/></svg>
+        </span>
+        <span style="line-height:1">
+          <span style="display:block;font-family:'Newsreader',serif;font-size:23px;font-weight:600;color:#1c3d5a;letter-spacing:-.01em">River Art Group</span>
+          <span style="display:block;font-size:10.5px;letter-spacing:.26em;text-transform:uppercase;color:#b2362c;font-weight:700;margin-top:2px">Gallery · Est. 1947</span>
+        </span>
+      </a>
+      <nav aria-label="Primary" style="display:flex;align-items:center;gap:2px">
+        <sc-for list="{{ navItems }}" as="item" hint-placeholder-count="8">
+          <a href="{{ item.href }}" aria-current="{{ item.current }}" style="{{ item.style }}" style-hover="background:#f0e6d2;color:#b2362c">{{ item.label }}</a>
+        </sc-for>
+      </nav>
+      <button type="button" onClick="{{ toggle }}" aria-label="Toggle menu" aria-expanded="{{ openStr }}" style="display:none;background:none;border:1.5px solid #1c3d5a;border-radius:8px;padding:8px 10px;cursor:pointer;color:#1c3d5a" class="rag-burger">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+    <nav aria-label="Mobile" style="{{ mobileStyle }}">
+      <sc-for list="{{ navItems }}" as="item" hint-placeholder-count="8">
+        <a href="{{ item.href }}" style="display:block;padding:13px 24px;text-decoration:none;color:#1c3d5a;font-weight:600;border-top:1px solid #ece1cc">{{ item.label }}</a>
+      </sc-for>
+      <a href="{{ shop }}" target="_blank" rel="noopener" style="display:block;padding:13px 24px;text-decoration:none;color:#b2362c;font-weight:800;border-top:1px solid #ece1cc">Shop Online ↗</a>
+    </nav>
+  </div>
+  <style>@media(max-width:880px){.rag-burger{display:block!important}header nav[aria-label="Primary"]{display:none!important}}</style>
+</header>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:&quot;100%&quot;,&quot;height&quot;:120},&quot;active&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;index.html&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
+class Component extends DCLogic {
+  state = { open: false };
+  toggle = () => this.setState(s => ({ open: !s.open }));
+  renderVals() {
+    const R = window.RAG || {};
+    const O = R.ORG || {};
+    const active = this.props.active || "";
+    const base = "font-family:'Mulish',sans-serif;font-size:15px;font-weight:600;text-decoration:none;padding:9px 14px;border-radius:8px;transition:background .15s,color .15s;";
+    const navItems = (R.NAV || []).map(n => {
+      const isActive = n.href === active;
+      return {
+        label: n.label, href: n.href,
+        current: isActive ? "page" : undefined,
+        style: base + (isActive ? "color:#b2362c;background:#f3e7cf;" : "color:#33454f;")
+      };
+    });
+    return {
+      navItems,
+      hoursLine: O.hours || "Open daily, 10–6",
+      phone: O.phone, phoneHref: O.phoneHref, shop: O.shop,
+      toggle: this.toggle,
+      openStr: String(this.state.open),
+      mobileStyle: "background:#faf5ea;overflow:hidden;border-bottom:" + (this.state.open ? "1px solid #e7dcc6;max-height:520px;" : "0;max-height:0;") + "transition:max-height .25s ease;"
+    };
+  }
+}
+</script>
+</body>
+</html>

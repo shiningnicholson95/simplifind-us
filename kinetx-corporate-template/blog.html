@@ -1,0 +1,477 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *{ box-sizing:border-box; }
+  body{ margin:0; }
+  @keyframes kx-fade{ from{ opacity:0; transform:translateY(14px);} to{ opacity:1; transform:none;} }
+</style>
+</helmet>
+
+<div style="--accent:#C9A227; font-family:'Inter',sans-serif; background:#111111; color:#FFFFFF; overflow-x:hidden;">
+
+  <!-- HEADER -->
+  <header style="position:sticky; top:0; z-index:50; background:rgba(17,17,17,0.92); backdrop-filter:blur(12px); border-bottom:1px solid #2D2D2D;">
+    <div style="max-width:1280px; margin:0 auto; padding:0 28px; height:74px; display:flex; align-items:center; justify-content:space-between; gap:24px;">
+      <a href="index.html" style="display:flex; align-items:center; gap:11px; text-decoration:none; flex:none;">
+        <span style="width:34px; height:34px; background:var(--accent); display:flex; align-items:center; justify-content:center; transform:skewX(-10deg);">
+          <span style="font-family:'Bebas Neue',sans-serif; color:#111; font-size:24px; transform:skewX(10deg); line-height:1;">K</span>
+        </span>
+        <span style="font-family:'Bebas Neue',sans-serif; color:#fff; font-size:25px; letter-spacing:2px; line-height:1;">KINETX<span style="color:var(--accent);"> REHAB</span></span>
+      </a>
+      <sc-if value="{{ showDesktopNav }}" hint-placeholder-val="{{ true }}">
+        <nav style="display:flex; align-items:center; gap:30px;">
+          <sc-for list="{{ navItems }}" as="item" hint-placeholder-count="6">
+            <a href="{{ item.href }}" style="font-family:'Oswald',sans-serif; font-weight:500; font-size:14px; letter-spacing:1.5px; text-transform:uppercase; color:#cfcfcf; text-decoration:none;" style-hover="color:#fff;">{{ item.label }}</a>
+          </sc-for>
+        </nav>
+      </sc-if>
+      <div style="display:flex; align-items:center; gap:12px; flex:none;">
+        <a href="sms:+16103685372" style="font-family:'Oswald',sans-serif; font-weight:600; font-size:14px; letter-spacing:1px; color:#fff; text-decoration:none; display:flex; align-items:center; gap:7px;">
+          <span style="color:var(--accent); font-size:15px;">✆</span><sc-if value="{{ showDesktopNav }}" hint-placeholder-val="{{ true }}"><span>(610) 368-5372</span></sc-if>
+        </a>
+        <a href="sms:+16103685372" style="font-family:'Oswald',sans-serif; font-weight:600; font-size:14px; letter-spacing:1.5px; text-transform:uppercase; color:#111; background:var(--accent); padding:12px 20px; text-decoration:none;" style-hover="filter:brightness(1.08);">Text to Book</a>
+        <sc-if value="{{ showMobileNav }}" hint-placeholder-val="{{ false }}">
+          <button onClick="{{ toggleMenu }}" style="background:none; border:1px solid #2D2D2D; color:#fff; width:42px; height:42px; font-size:18px; cursor:pointer;">☰</button>
+        </sc-if>
+      </div>
+    </div>
+    <sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+      <nav style="border-top:1px solid #2D2D2D; background:#111; padding:8px 28px 18px; display:flex; flex-direction:column;">
+        <sc-for list="{{ navItems }}" as="item" hint-placeholder-count="6">
+          <a href="{{ item.href }}" onClick="{{ closeMenu }}" style="font-family:'Oswald',sans-serif; font-weight:500; font-size:16px; letter-spacing:1.5px; text-transform:uppercase; color:#cfcfcf; text-decoration:none; padding:13px 0; border-bottom:1px solid #1d1d1d;">{{ item.label }}</a>
+        </sc-for>
+      </nav>
+    </sc-if>
+  </header>
+
+  <!-- ===== INDEX VIEW ===== -->
+  <sc-if value="{{ isIndex }}" hint-placeholder-val="{{ true }}">
+    <div>
+      <div style="max-width:1280px; margin:0 auto; padding:18px 28px 0;">
+        <div style="font-family:'Oswald',sans-serif; font-size:12px; letter-spacing:1px; text-transform:uppercase; color:#777;">
+          <a href="index.html" style="color:#777; text-decoration:none;" style-hover="color:#fff;">Home</a>
+          <span style="color:#444; margin:0 8px;">/</span><span style="color:var(--accent);">Blog</span>
+        </div>
+      </div>
+      <section>
+        <div style="max-width:840px; margin:0 auto; padding:clamp(40px,5vw,72px) 28px clamp(24px,3vw,40px);">
+          <div style="display:inline-flex; align-items:center; gap:10px; font-family:'Oswald',sans-serif; font-weight:600; font-size:13px; letter-spacing:2.5px; text-transform:uppercase; color:var(--accent); margin-bottom:20px;">
+            <span style="width:26px; height:1px; background:var(--accent);"></span>The Kinetx Blog
+          </div>
+          <h1 style="font-family:'Bebas Neue',sans-serif; font-weight:400; font-size:clamp(44px,6.5vw,84px); line-height:0.93; letter-spacing:1px; margin:0 0 22px;">Train Smarter. Recover Better.</h1>
+          <p style="font-size:clamp(16px,1.6vw,19px); line-height:1.65; color:#bdbdbd; max-width:600px; margin:0;">Practical, no-nonsense advice on injuries, rehab, mobility, and performance — from the team that treats Chester County's athletes and active adults.</p>
+        </div>
+      </section>
+
+      <!-- CATEGORY FILTER -->
+      <div style="max-width:1280px; margin:0 auto; padding:0 28px clamp(28px,3vw,40px);">
+        <div style="display:flex; flex-wrap:wrap; gap:10px;">
+          <sc-for list="{{ categoryChips }}" as="ch" hint-placeholder-count="8">
+            <button onClick="{{ ch.onClick }}" style="font-family:'Oswald',sans-serif; font-weight:500; font-size:13px; letter-spacing:1px; text-transform:uppercase; color:{{ ch.color }}; background:{{ ch.bg }}; border:1px solid {{ ch.border }}; padding:9px 16px; cursor:pointer;">{{ ch.label }}</button>
+          </sc-for>
+        </div>
+      </div>
+
+      <!-- ARTICLE GRID -->
+      <section style="background:#F6F5F1; color:#111; padding:clamp(44px,5vw,72px) 28px clamp(48px,6vw,80px);">
+        <div style="max-width:1280px; margin:0 auto; display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:24px;">
+          <sc-for list="{{ visibleArticles }}" as="a" hint-placeholder-count="6">
+            <a href="{{ a.href }}" style="background:#fff; border:1px solid #e7e5df; text-decoration:none; color:#111; display:flex; flex-direction:column;" style-hover="transform:translateY(-3px); border-color:var(--accent);">
+              <div style="aspect-ratio:16/10; overflow:hidden; background:#eceae3; border-bottom:1px solid #e7e5df;">
+                <img src="{{ a.img }}" alt="{{ a.title }}" loading="lazy" style="width:100%; height:100%; object-fit:cover;">
+              </div>
+              <div style="padding:24px 24px 26px;">
+                <div style="font-family:'Oswald',sans-serif; font-weight:600; font-size:11px; letter-spacing:1.5px; text-transform:uppercase; color:#a8841f; margin-bottom:12px;">{{ a.category }} • {{ a.read }}</div>
+                <h2 style="font-family:'Oswald',sans-serif; font-weight:600; font-size:21px; line-height:1.25; letter-spacing:0.2px; margin:0 0 10px;">{{ a.title }}</h2>
+                <p style="font-size:14px; line-height:1.6; color:#666; margin:0 0 14px;">{{ a.excerpt }}</p>
+                <span style="font-family:'Oswald',sans-serif; font-weight:500; font-size:13px; letter-spacing:1px; text-transform:uppercase; color:#111;">Read Article →</span>
+              </div>
+            </a>
+          </sc-for>
+        </div>
+      </section>
+    </div>
+  </sc-if>
+
+  <!-- ===== ARTICLE VIEW ===== -->
+  <sc-if value="{{ isArticle }}" hint-placeholder-val="{{ false }}">
+    <div>
+      <div style="max-width:820px; margin:0 auto; padding:18px 28px 0;">
+        <div style="font-family:'Oswald',sans-serif; font-size:12px; letter-spacing:1px; text-transform:uppercase; color:#777;">
+          <a href="index.html" style="color:#777; text-decoration:none;" style-hover="color:#fff;">Home</a>
+          <span style="color:#444; margin:0 8px;">/</span>
+          <a href="blog.html" style="color:#777; text-decoration:none;" style-hover="color:#fff;">Blog</a>
+          <span style="color:#444; margin:0 8px;">/</span><span style="color:var(--accent);">{{ post.category }}</span>
+        </div>
+      </div>
+
+      <article>
+        <div style="max-width:820px; margin:0 auto; padding:clamp(32px,4vw,52px) 28px clamp(20px,3vw,32px); animation:kx-fade .6s ease both;">
+          <div style="font-family:'Oswald',sans-serif; font-weight:600; font-size:12px; letter-spacing:2px; text-transform:uppercase; color:var(--accent); margin-bottom:18px;">{{ post.category }} • {{ post.read }} • {{ post.date }}</div>
+          <h1 style="font-family:'Bebas Neue',sans-serif; font-weight:400; font-size:clamp(38px,5.4vw,72px); line-height:0.96; letter-spacing:0.5px; margin:0 0 20px;">{{ post.title }}</h1>
+          <p style="font-size:clamp(17px,1.8vw,20px); line-height:1.6; color:#bdbdbd; margin:0;">{{ post.excerpt }}</p>
+        </div>
+        <div style="max-width:1000px; margin:0 auto; padding:0 28px;">
+          <div style="aspect-ratio:21/9; overflow:hidden; border:1px solid #2D2D2D; background:#1a1a1a;">
+            <img src="{{ post.hero }}" alt="{{ post.title }}" style="width:100%; height:100%; object-fit:cover; filter:grayscale(0.15) brightness(0.96);">
+          </div>
+        </div>
+      </article>
+
+      <section style="background:#FFFFFF; color:#111; padding:clamp(48px,6vw,80px) 28px; margin-top:clamp(32px,4vw,48px);">
+        <div style="max-width:760px; margin:0 auto;">
+          <sc-for list="{{ post.body }}" as="block" hint-placeholder-count="6">
+            <div>
+              <sc-if value="{{ block.isHeading }}" hint-placeholder-val="{{ false }}">
+                <h2 style="font-family:'Bebas Neue',sans-serif; font-size:clamp(28px,3.4vw,42px); line-height:1; letter-spacing:0.5px; margin:38px 0 16px; color:#111;">{{ block.text }}</h2>
+              </sc-if>
+              <sc-if value="{{ block.isPara }}" hint-placeholder-val="{{ true }}">
+                <p style="font-size:17px; line-height:1.8; color:#3c3c3c; margin:0 0 18px;">{{ block.text }}</p>
+              </sc-if>
+              <sc-if value="{{ block.isList }}" hint-placeholder-val="{{ false }}">
+                <div style="display:flex; flex-direction:column; gap:11px; margin:0 0 22px;">
+                  <sc-for list="{{ block.items }}" as="li" hint-placeholder-count="3">
+                    <div style="display:flex; align-items:flex-start; gap:12px; font-size:16.5px; line-height:1.6; color:#3c3c3c;">
+                      <span style="color:var(--accent); flex:none; font-weight:700;">→</span>{{ li }}
+                    </div>
+                  </sc-for>
+                </div>
+              </sc-if>
+            </div>
+          </sc-for>
+
+          <!-- AUTHOR / CTA -->
+          <div style="margin-top:44px; border-top:1px solid #e7e5df; padding-top:30px; display:flex; flex-wrap:wrap; gap:20px; align-items:center; justify-content:space-between;">
+            <div style="display:flex; align-items:center; gap:14px;">
+              <div style="width:52px; height:52px; overflow:hidden; background:#eee; flex:none;">
+                <img src="assets/dr-serafim.png" alt="Dr. Gene Serafim" style="width:100%; height:100%; object-fit:cover;">
+              </div>
+              <div>
+                <div style="font-family:'Oswald',sans-serif; font-weight:600; font-size:15px; letter-spacing:0.3px; color:#111;">Dr. Gene Serafim, DC</div>
+                <div style="font-size:13px; color:#777;">Chiropractor &amp; Kinesiologist, Kinetx Rehabilitation</div>
+              </div>
+            </div>
+            <a href="book-appointment.html" style="font-family:'Oswald',sans-serif; font-weight:600; font-size:14px; letter-spacing:1.5px; text-transform:uppercase; color:#111; background:var(--accent); padding:14px 24px; text-decoration:none;" style-hover="filter:brightness(1.08);">Book a Visit →</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- RELATED POSTS -->
+      <section style="background:#F6F5F1; color:#111; padding:clamp(48px,6vw,80px) 28px;">
+        <div style="max-width:1280px; margin:0 auto;">
+          <div style="margin-bottom:32px;">
+            <div style="font-family:'Oswald',sans-serif; font-weight:600; font-size:13px; letter-spacing:2.5px; text-transform:uppercase; color:#a8841f; margin-bottom:14px;">Keep Reading</div>
+            <h2 style="font-family:'Bebas Neue',sans-serif; font-size:clamp(28px,3.6vw,46px); line-height:0.95; margin:0;">Related Articles</h2>
+          </div>
+          <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:24px;">
+            <sc-for list="{{ relatedPosts }}" as="a" hint-placeholder-count="3">
+              <a href="{{ a.href }}" style="background:#fff; border:1px solid #e7e5df; text-decoration:none; color:#111; display:flex; flex-direction:column;" style-hover="transform:translateY(-3px); border-color:var(--accent);">
+                <div style="aspect-ratio:16/10; overflow:hidden; background:#eceae3; border-bottom:1px solid #e7e5df;">
+                  <img src="{{ a.img }}" alt="{{ a.title }}" loading="lazy" style="width:100%; height:100%; object-fit:cover;">
+                </div>
+                <div style="padding:22px 22px 24px;">
+                  <div style="font-family:'Oswald',sans-serif; font-weight:600; font-size:11px; letter-spacing:1.5px; text-transform:uppercase; color:#a8841f; margin-bottom:10px;">{{ a.category }} • {{ a.read }}</div>
+                  <h3 style="font-family:'Oswald',sans-serif; font-weight:600; font-size:19px; line-height:1.25; margin:0;">{{ a.title }}</h3>
+                </div>
+              </a>
+            </sc-for>
+          </div>
+        </div>
+      </section>
+    </div>
+  </sc-if>
+
+  <!-- NEWSLETTER + CTA -->
+  <section style="background:var(--accent); color:#111; padding:clamp(56px,7vw,96px) 28px; text-align:center;">
+    <div style="max-width:680px; margin:0 auto;">
+      <div style="font-family:'Oswald',sans-serif; font-weight:600; font-size:13px; letter-spacing:2.5px; text-transform:uppercase; color:#5c4a0f; margin-bottom:16px;">Stay In The Loop</div>
+      <h2 style="font-family:'Bebas Neue',sans-serif; font-size:clamp(36px,5vw,64px); line-height:0.94; margin:0 0 16px;">Get Our Best Recovery Tips</h2>
+      <p style="font-size:16px; line-height:1.6; color:#3a3010; margin:0 0 26px;">No spam — just practical advice on training, mobility, and staying pain-free.</p>
+      <sc-if value="{{ subscribed }}" hint-placeholder-val="{{ false }}">
+        <div style="font-family:'Oswald',sans-serif; font-weight:600; font-size:18px; letter-spacing:0.5px; color:#111; background:#111; color:#fff; display:inline-block; padding:16px 32px;">✓ You're subscribed — thank you!</div>
+      </sc-if>
+      <sc-if value="{{ showSignup }}" hint-placeholder-val="{{ true }}">
+        <form onSubmit="{{ onSubscribe }}" style="display:flex; flex-wrap:wrap; gap:12px; justify-content:center; max-width:520px; margin:0 auto;">
+          <input type="email" name="email" required="required" placeholder="your@email.com" style="flex:1 1 240px; padding:16px 18px; border:2px solid #111; background:#fff; font-family:'Inter',sans-serif; font-size:15px; color:#111;">
+          <button type="submit" style="font-family:'Oswald',sans-serif; font-weight:700; font-size:15px; letter-spacing:1.5px; text-transform:uppercase; color:#fff; background:#111; border:none; padding:16px 28px; cursor:pointer;" style-hover="background:#000;">Subscribe →</button>
+        </form>
+      </sc-if>
+    </div>
+  </section>
+
+  <footer style="--accent:#C9A227; font-family:'Inter',sans-serif; background:#0a0a0a; color:#cfcfcf; padding:clamp(54px,6vw,80px) 28px 32px;">
+  <div style="max-width:1280px; margin:0 auto; display:grid; grid-template-columns:repeat(auto-fit,minmax(170px,1fr)); gap:36px;">
+    <div style="min-width:200px;">
+      <div style="font-family:'Bebas Neue',sans-serif; font-size:26px; letter-spacing:2px; color:#fff; margin-bottom:14px;">KINETX<span style="color:var(--accent);"> REHAB</span></div>
+      <p style="font-size:14px; line-height:1.7; color:#888; margin:0 0 16px; max-width:230px;">Performance chiropractic, functional rehab &amp; massage therapy in Exton, PA.</p>
+      <div style="font-size:14px; line-height:1.85; color:#aaa;">661 Exton Commons<br>Exton, PA 19341<br><a href="sms:+16103685372" style="color:var(--accent); text-decoration:none;">Text (610) 368-5372</a><br><a href="tel:+16103048471" style="color:#9a9a9a; text-decoration:none;">Clinical: (610) 304-8471</a></div>
+      <div style="font-family:'Oswald',sans-serif; font-size:12px; letter-spacing:1px; text-transform:uppercase; color:#777; margin-top:16px; line-height:1.7;">Mon–Fri: 8am–7pm<br>Sat: 8am–12pm &nbsp;•&nbsp; Sun: Closed</div>
+    </div>
+    <div>
+      <div style="font-family:'Oswald',sans-serif; font-weight:600; font-size:13px; letter-spacing:1.5px; text-transform:uppercase; color:#fff; margin-bottom:16px;">Services</div>
+      <a href="services.html#chiropractic-care" style="display:block; font-size:14px; color:#9a9a9a; text-decoration:none; padding:5px 0;" style-hover="color:#fff;">Chiropractic Care</a>
+      <a href="services.html#functional-rehabilitation" style="display:block; font-size:14px; color:#9a9a9a; text-decoration:none; padding:5px 0;" style-hover="color:#fff;">Functional Rehabilitation</a>
+      <a href="services.html#massage-therapy" style="display:block; font-size:14px; color:#9a9a9a; text-decoration:none; padding:5px 0;" style-hover="color:#fff;">Massage Therapy</a>
+      <a href="services.html#corrective-exercise" style="display:block; font-size:14px; color:#9a9a9a; text-decoration:none; padding:5px 0;" style-hover="color:#fff;">Corrective Exercise</a>
+      <a href="services.html#soft-tissue-therapy" style="display:block; font-size:14px; color:#9a9a9a; text-decoration:none; padding:5px 0;" style-hover="color:#fff;">Soft Tissue Therapy</a>
+      <a href="services.html#sports-injury-recovery" style="display:block; font-size:14px; color:#9a9a9a; text-decoration:none; padding:5px 0;" style-hover="color:#fff;">Sports Injury Recovery</a>
+    </div>
+    <div>
+      <div style="font-family:'Oswald',sans-serif; font-weight:600; font-size:13px; letter-spacing:1.5px; text-transform:uppercase; color:#fff; margin-bottom:16px;">Conditions</div>
+      <a href="conditions.html#back-pain" style="display:block; font-size:14px; color:#9a9a9a; text-decoration:none; padding:5px 0;" style-hover="color:#fff;">Back Pain</a>
+      <a href="conditions.html#neck-pain" style="display:block; font-size:14px; color:#9a9a9a; text-decoration:none; padding:5px 0;" style-hover="color:#fff;">Neck Pain</a>
+      <a href="conditions.html#sciatica" style="display:block; font-size:14px; color:#9a9a9a; text-decoration:none; padding:5px 0;" style-hover="color:#fff;">Sciatica</a>
+      <a href="conditions.html#shoulder-pain" style="display:block; font-size:14px; color:#9a9a9a; text-decoration:none; padding:5px 0;" style-hover="color:#fff;">Shoulder Pain</a>
+      <a href="conditions.html#sports-injuries" style="display:block; font-size:14px; color:#9a9a9a; text-decoration:none; padding:5px 0;" style-hover="color:#fff;">Sports Injuries</a>
+      <a href="conditions.html" style="display:block; font-size:14px; color:var(--accent); text-decoration:none; padding:5px 0;" style-hover="color:#fff;">All Conditions →</a>
+    </div>
+    <div>
+      <div style="font-family:'Oswald',sans-serif; font-weight:600; font-size:13px; letter-spacing:1.5px; text-transform:uppercase; color:#fff; margin-bottom:16px;">Service Areas</div>
+      <a href="locations.html#exton-pa" style="display:block; font-size:14px; color:#9a9a9a; text-decoration:none; padding:5px 0;" style-hover="color:#fff;">Exton, PA</a>
+      <a href="locations.html#west-chester-pa" style="display:block; font-size:14px; color:#9a9a9a; text-decoration:none; padding:5px 0;" style-hover="color:#fff;">West Chester, PA</a>
+      <a href="locations.html#downingtown-pa" style="display:block; font-size:14px; color:#9a9a9a; text-decoration:none; padding:5px 0;" style-hover="color:#fff;">Downingtown, PA</a>
+      <a href="locations.html#malvern-pa" style="display:block; font-size:14px; color:#9a9a9a; text-decoration:none; padding:5px 0;" style-hover="color:#fff;">Malvern, PA</a>
+      <a href="locations.html#paoli-pa" style="display:block; font-size:14px; color:#9a9a9a; text-decoration:none; padding:5px 0;" style-hover="color:#fff;">Paoli, PA</a>
+      <a href="locations.html" style="display:block; font-size:14px; color:var(--accent); text-decoration:none; padding:5px 0;" style-hover="color:#fff;">All Areas →</a>
+    </div>
+    <div>
+      <div style="font-family:'Oswald',sans-serif; font-weight:600; font-size:13px; letter-spacing:1.5px; text-transform:uppercase; color:#fff; margin-bottom:16px;">Company</div>
+      <a href="about.html" style="display:block; font-size:14px; color:#9a9a9a; text-decoration:none; padding:5px 0;" style-hover="color:#fff;">About</a>
+      <a href="blog.html" style="display:block; font-size:14px; color:#9a9a9a; text-decoration:none; padding:5px 0;" style-hover="color:#fff;">Blog</a>
+      <a href="contact.html" style="display:block; font-size:14px; color:#9a9a9a; text-decoration:none; padding:5px 0;" style-hover="color:#fff;">Contact</a>
+      <a href="book-appointment.html" style="display:block; font-size:14px; color:#9a9a9a; text-decoration:none; padding:5px 0;" style-hover="color:#fff;">Book Appointment</a>
+      <div style="display:flex; gap:12px; margin-top:14px;">
+        <a href="#" aria-label="Instagram" style="width:34px; height:34px; border:1px solid #2D2D2D; display:flex; align-items:center; justify-content:center; color:#aaa; text-decoration:none; font-size:13px;" style-hover="border-color:var(--accent); color:#fff;">IG</a>
+        <a href="#" aria-label="Facebook" style="width:34px; height:34px; border:1px solid #2D2D2D; display:flex; align-items:center; justify-content:center; color:#aaa; text-decoration:none; font-size:13px;" style-hover="border-color:var(--accent); color:#fff;">FB</a>
+        <a href="#" aria-label="YouTube" style="width:34px; height:34px; border:1px solid #2D2D2D; display:flex; align-items:center; justify-content:center; color:#aaa; text-decoration:none; font-size:13px;" style-hover="border-color:var(--accent); color:#fff;">YT</a>
+      </div>
+    </div>
+  </div>
+  <div style="max-width:1280px; margin:40px auto 0; padding-top:24px; border-top:1px solid #1d1d1d; display:flex; flex-wrap:wrap; gap:14px; justify-content:space-between; align-items:center;">
+    <span style="font-size:13px; color:#666;">© 2026 Kinetx Rehabilitation, Chiropractic &amp; Massage. All rights reserved.</span>
+    <div style="display:flex; flex-wrap:wrap; gap:20px;">
+      <a href="#" style="font-size:13px; color:#666; text-decoration:none;" style-hover="color:#fff;">Privacy Policy</a>
+      <a href="#" style="font-size:13px; color:#666; text-decoration:none;" style-hover="color:#fff;">Terms</a>
+      <a href="#" style="font-size:13px; color:#666; text-decoration:none;" style-hover="color:#fff;">Accessibility</a>
+      <a href="book-appointment.html" style="font-family:'Oswald',sans-serif; font-weight:600; font-size:13px; letter-spacing:1px; text-transform:uppercase; color:#111; background:var(--accent); padding:9px 16px; text-decoration:none;" style-hover="filter:brightness(1.08);">Book Now</a>
+    </div>
+  </div>
+</footer>
+
+  <a href="sms:+16103685372" aria-label="Text to schedule" style="position:fixed; bottom:22px; right:22px; z-index:60; min-width:60px; height:60px; padding:0 22px; border-radius:30px; background:var(--accent); color:#111; display:flex; align-items:center; gap:9px; justify-content:center; font-family:'Oswald',sans-serif; font-weight:700; font-size:14px; letter-spacing:1px; text-transform:uppercase; text-decoration:none; box-shadow:0 8px 24px rgba(0,0,0,0.4);" style-hover="filter:brightness(1.08);"><span style="font-size:18px;">✉</span>Text Us</a>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1440,&quot;height&quot;:2000}}">
+class Component extends DCLogic {
+  state = { menuOpen:false, isMobile:false, slug:"", category:"All", subscribed:false };
+
+  componentDidMount(){
+    this._onResize = () => this.setState({ isMobile: window.innerWidth < 900 });
+    this._onResize();
+    this._sync = () => {
+      const h = (location.hash || "").replace("#","").trim();
+      const slug = this.POSTS[h] ? h : "";
+      if (slug !== this.state.slug){ this.setState({ slug }); try{ window.scrollTo(0,0); }catch(e){} }
+    };
+    this._sync();
+    window.addEventListener("hashchange", this._sync);
+    window.addEventListener("resize", this._onResize);
+  }
+  componentWillUnmount(){
+    window.removeEventListener("hashchange", this._sync);
+    window.removeEventListener("resize", this._onResize);
+  }
+
+  categories = ["All","Sports Injuries","Rehabilitation","Chiropractic","Mobility","Recovery","Exercise"];
+
+  order = ["mobility-drills-before-squatting","runners-knee-fix","desk-neck-fix","sleep-and-recovery","sciatica-vs-piriformis","return-to-running-after-injury"];
+
+  P(slug, title, category, read, date, img, excerpt, body){
+    return { slug, title, category, read, date, img, hero:img.replace("w=700","w=1400"), excerpt, body };
+  }
+
+  POSTS = {
+    "mobility-drills-before-squatting": this.P(
+      "mobility-drills-before-squatting",
+      "5 Mobility Drills Every Lifter Should Do Before Squatting",
+      "Mobility", "6 min read", "Jun 2026",
+      "https://images.unsplash.com/photo-1599058917212-d750089bc07e?w=700&q=80&auto=format&fit=crop",
+      "If your squat feels tight, shallow, or hard on your low back, the fix usually isn't more stretching — it's the right mobility work in the right order.",
+      [
+        { type:"p", text:"A good squat demands mobility from three places at once: your ankles, your hips, and your upper back. When any one of them is stiff, your body finds the range somewhere it shouldn't — usually your lower back or knees. That's where the aches start." },
+        { type:"p", text:"These five drills take about six minutes and prime exactly the joints a squat needs. Do them as part of your warm-up, not as a separate stretching session." },
+        { type:"h", text:"1. Ankle Rock-Backs" },
+        { type:"p", text:"Limited ankle dorsiflexion is the most common reason lifters can't keep their heels down or hit depth. In a half-kneeling position, drive your knee forward over your toes and rock back. Do 10 slow reps per side." },
+        { type:"h", text:"2. 90/90 Hip Switches" },
+        { type:"p", text:"Your hips need both internal and external rotation to sit into a squat cleanly. Sitting in the 90/90 position, rotate from one side to the other under control. This opens the hips far more effectively than a static stretch." },
+        { type:"h", text:"3. Deep Squat Pry" },
+        { type:"p", text:"Sit into the bottom of a bodyweight squat, place your elbows against your knees, and gently pry them out while lifting your chest. Spend 30–45 seconds here, breathing into the position." },
+        { type:"h", text:"4. Thoracic Extensions" },
+        { type:"p", text:"A rounded upper back collapses your squat and shifts load to the spine. Use a foam roller under your mid-back and extend over it for 8–10 reps to restore upper-back extension." },
+        { type:"h", text:"5. Banded Hip Flexor Openers" },
+        { type:"p", text:"Tight hip flexors from sitting all day pull you into a forward lean. A half-kneeling hip flexor stretch with a posterior pelvic tilt resets them before you load up." },
+        { type:"h", text:"The Bottom Line" },
+        { type:"p", text:"Mobility is range you can control — not just the ability to be stretched. If you've run through these and your squat still hurts, that's a sign something more specific is going on, and it's worth getting assessed." },
+        { type:"list", items:["Do these as a warm-up, not a standalone routine","Quality and control beat speed and reps","Persistent pain in a squat is a reason to get assessed"] }
+      ]
+    ),
+    "runners-knee-fix": this.P(
+      "runners-knee-fix",
+      "Runner's Knee: Why It Happens and How to Actually Fix It",
+      "Sports Injuries", "8 min read", "Jun 2026",
+      "https://images.unsplash.com/photo-1486218119243-13883505764c?w=700&q=80&auto=format&fit=crop",
+      "That ache around or under your kneecap rarely starts at the knee. Here's what's really driving runner's knee — and the approach that resolves it for good.",
+      [
+        { type:"p", text:"Runner's knee — pain around or under the kneecap that flares with running, stairs, or sitting too long — is one of the most common injuries we see. It's frustrating because it often shows up without any single injury, and rest alone rarely keeps it away." },
+        { type:"h", text:"The Knee Is the Victim, Not the Cause" },
+        { type:"p", text:"The knee is a simple hinge caught between two very mobile joints: the hip above and the ankle below. When the hip is weak or the ankle is stiff, the knee absorbs forces it was never designed to handle. Over thousands of running strides, that adds up to irritation." },
+        { type:"p", text:"The most common driver we find is weak hip and glute musculature, which lets the knee collapse inward on each step. Fix the hip, and the knee usually settles." },
+        { type:"h", text:"What Actually Helps" },
+        { type:"list", items:["Hip and glute strengthening to control how the knee tracks","Calf and ankle mobility to reduce stress traveling up the chain","Temporary running adjustments — volume, cadence, and surface","Soft-tissue work to calm the irritated tissue while you rebuild"] },
+        { type:"h", text:"What Usually Doesn't" },
+        { type:"p", text:"Rest feels productive but rarely fixes the cause — the pain returns the moment you ramp back up. Braces and straps can take the edge off short-term, but they don't address why the knee is irritated in the first place." },
+        { type:"h", text:"How Long Until It's Better?" },
+        { type:"p", text:"Most runners feel meaningful improvement within a few weeks of targeted work, and many can keep running through it with smart modifications. The key is treating the cause — the hip and ankle — not just the spot that hurts." },
+        { type:"p", text:"If your knee pain has stuck around for more than a couple of weeks or keeps coming back, a proper assessment will pinpoint exactly which link in the chain needs attention." }
+      ]
+    ),
+    "desk-neck-fix": this.P(
+      "desk-neck-fix",
+      "Desk Neck: Reversing the Damage of Sitting All Day",
+      "Chiropractic", "5 min read", "May 2026",
+      "https://images.unsplash.com/photo-1591343395082-e120087004b4?w=700&q=80&auto=format&fit=crop",
+      "Forward-head posture from screens drives neck pain, tension, and headaches. Here's how to undo it — without quitting your job.",
+      [
+        { type:"p", text:"If your neck is stiff and achy by mid-afternoon, your screen is a likely suspect. The average head weighs about 11 pounds when balanced over your shoulders — but tilt it forward to look at a laptop, and the effective load on your neck multiplies." },
+        { type:"h", text:"Why It Hurts" },
+        { type:"p", text:"Hours in a forward-head position keep the muscles at the back of your neck and upper shoulders under constant tension. Over time, the joints at the top of your neck stiffen, and that tension often climbs into headaches." },
+        { type:"h", text:"Three Things That Actually Move the Needle" },
+        { type:"list", items:["Reset your setup: screen at eye level, so you're not looking down all day","Move often: a 30-second posture reset every 30–45 minutes beats one big stretch","Strengthen the back of your neck and mid-back so good posture costs less effort"] },
+        { type:"h", text:"The Posture Reset" },
+        { type:"p", text:"Every so often, sit tall, gently draw your chin straight back (think 'making a double chin'), and squeeze your shoulder blades down and back. Hold for a few seconds. This counteracts hours of forward drift in seconds." },
+        { type:"h", text:"When to Get Help" },
+        { type:"p", text:"If you're getting frequent tension headaches, waking up stiff, or feeling tingling into your arms, that's worth a professional look. We treat the joints and muscles driving the pain and build the strength to hold a better posture — so the relief lasts." }
+      ]
+    ),
+    "sleep-and-recovery": this.P(
+      "sleep-and-recovery",
+      "The Most Underrated Recovery Tool? Sleep.",
+      "Recovery", "5 min read", "May 2026",
+      "https://images.unsplash.com/photo-1520206183501-b80df61043c2?w=700&q=80&auto=format&fit=crop",
+      "You can foam roll all you want, but nothing rebuilds tissue like sleep. Here's why it matters for injury recovery and performance.",
+      [
+        { type:"p", text:"Athletes spend money on massage guns, supplements, and recovery boots — then sleep six hours a night. If recovery is the goal, sleep is the single highest-return investment you can make, and it's free." },
+        { type:"h", text:"What Happens When You Sleep" },
+        { type:"p", text:"Deep sleep is when your body releases the bulk of its growth hormone, repairs muscle tissue, and consolidates the motor patterns you practiced that day. Skimp on it, and you're asking your body to rebuild without the materials." },
+        { type:"h", text:"Sleep and Injury Risk" },
+        { type:"p", text:"Research consistently links short sleep with higher injury rates in athletes. Less sleep means slower reaction time, poorer coordination, and reduced tissue tolerance — a recipe for the kind of breakdown that lands you in our office." },
+        { type:"h", text:"Simple Wins" },
+        { type:"list", items:["Aim for 7–9 hours, consistently — regularity matters as much as total","Keep the room cool and dark; cut screens 30–60 minutes before bed","Watch caffeine after early afternoon","Treat sleep like a training session — schedule it"] },
+        { type:"p", text:"If you're doing everything right in the gym and clinic but still feel beat up, take an honest look at your sleep. It's often the missing piece." }
+      ]
+    ),
+    "sciatica-vs-piriformis": this.P(
+      "sciatica-vs-piriformis",
+      "Sciatica vs. Piriformis Syndrome: What's the Difference?",
+      "Rehabilitation", "6 min read", "Apr 2026",
+      "https://images.unsplash.com/photo-1556817411-31ae72fa3ea0?w=700&q=80&auto=format&fit=crop",
+      "Both cause pain down the leg, but they come from different places — and the right treatment depends on telling them apart.",
+      [
+        { type:"p", text:"Pain that travels from your low back or buttock down your leg gets labeled 'sciatica' a lot. But true sciatica and piriformis syndrome are different problems, and treating one as the other slows you down." },
+        { type:"h", text:"What Sciatica Actually Is" },
+        { type:"p", text:"Sciatica is a symptom — pain, numbness, or tingling along the path of the sciatic nerve — usually caused by irritation of the nerve root in the lower back, often from a disc. It frequently worsens with sitting, bending, or coughing." },
+        { type:"h", text:"Where Piriformis Comes In" },
+        { type:"p", text:"The piriformis is a deep muscle in your buttock that sits right near the sciatic nerve. When it's tight or overworked, it can compress the nerve and mimic sciatica — but the source is the muscle, not the spine." },
+        { type:"h", text:"How We Tell Them Apart" },
+        { type:"list", items:["Where symptoms start and what makes them worse","Specific orthopedic and movement tests","Whether the low back or the deep hip reproduces your pain","Your history — recent lifting, sitting, or training changes"] },
+        { type:"h", text:"Why It Matters" },
+        { type:"p", text:"A disc-driven sciatica responds to very different positions and exercises than a piriformis problem. Getting the diagnosis right means your treatment actually targets the cause — and you get better faster. If leg pain has lingered, an assessment is the fastest way to sort it out." }
+      ]
+    ),
+    "return-to-running-after-injury": this.P(
+      "return-to-running-after-injury",
+      "How to Return to Running After an Injury (Without Re-Injuring)",
+      "Exercise", "7 min read", "Apr 2026",
+      "https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?w=700&q=80&auto=format&fit=crop",
+      "Coming back too fast is the fastest way back to the sidelines. Here's how to build a return-to-running plan that sticks.",
+      [
+        { type:"p", text:"The hardest part of a running injury often isn't the injury itself — it's the comeback. Too many runners feel better, jump straight back to their old mileage, and re-injure within weeks. A staged return is how you avoid that loop." },
+        { type:"h", text:"Rule One: Pain Is Your Guardrail" },
+        { type:"p", text:"A useful guideline: mild discomfort that settles quickly is usually okay, but pain that climbs during a run, or lingers the next day, means you've done too much. Let symptoms guide your progression, not your ego." },
+        { type:"h", text:"Build the Base Before You Build Speed" },
+        { type:"p", text:"Start with a walk-run progression on flat ground. Add time on feet before you add pace or hills. Your tissues need to re-adapt to load gradually — bone, tendon, and muscle all rebuild on different timelines." },
+        { type:"h", text:"A Simple Framework" },
+        { type:"list", items:["Phase 1: Pain-free walking and basic strength","Phase 2: Walk-run intervals on flat ground","Phase 3: Continuous easy running, building time first","Phase 4: Reintroduce pace, hills, and volume — one variable at a time"] },
+        { type:"h", text:"Don't Skip Strength" },
+        { type:"p", text:"Running doesn't build the kind of strength that protects you from running injuries. Hip, calf, and foot strengthening should run alongside your return — it's what makes the comeback durable." },
+        { type:"p", text:"If you're not sure how hard to push or your injury keeps flaring, a return-to-sport plan takes the guesswork out. We map the stages to your body and goals so you come back once — not three times." }
+      ]
+    )
+  };
+
+  navItems = [
+    { label:"Home", href:"index.html" },
+    { label:"Services", href:"services.html" },
+    { label:"Conditions", href:"conditions.html" },
+    { label:"About", href:"about.html" },
+    { label:"Blog", href:"blog.html" },
+    { label:"Contact", href:"contact.html" },
+  ];
+
+  toggleMenu = () => this.setState(s => ({ menuOpen: !s.menuOpen }));
+  closeMenu = () => this.setState({ menuOpen:false });
+  setCategory = (cat) => this.setState({ category:cat });
+  onSubscribe = (e) => { e.preventDefault(); this.setState({ subscribed:true }); };
+
+  cardOf(slug){ const p = this.POSTS[slug]; return { title:p.title, category:p.category, read:p.read, img:p.img, excerpt:p.excerpt, href:"blog.html#"+slug }; }
+
+  renderVals(){
+    const m = this.state.isMobile;
+    const slug = this.state.slug;
+    const isArticle = !!(slug && this.POSTS[slug]);
+    const post = isArticle ? this.POSTS[slug] : null;
+    const cat = this.state.category;
+    const all = this.order;
+    const visible = cat === "All" ? all : all.filter(s => this.POSTS[s].category === cat);
+
+    let relatedPosts = [];
+    if (isArticle){
+      relatedPosts = all.filter(s => s !== slug && this.POSTS[s].category === post.category);
+      if (relatedPosts.length < 3) relatedPosts = relatedPosts.concat(all.filter(s => s !== slug && !relatedPosts.includes(s)));
+      relatedPosts = relatedPosts.slice(0,3).map(s => this.cardOf(s));
+    }
+
+    return {
+      showDesktopNav: !m, showMobileNav: m, menuOpen: this.state.menuOpen,
+      toggleMenu: this.toggleMenu, closeMenu: this.closeMenu, navItems: this.navItems,
+      isIndex: !isArticle, isArticle, post,
+      subscribed: this.state.subscribed, showSignup: !this.state.subscribed, onSubscribe: this.onSubscribe,
+      categoryChips: this.categories.map(c => ({
+        label:c, onClick:()=>this.setCategory(c),
+        color: c===cat ? "#111" : "#cfcfcf",
+        bg: c===cat ? "#C9A227" : "transparent",
+        border: c===cat ? "#C9A227" : "#2D2D2D",
+      })),
+      visibleArticles: visible.map(s => this.cardOf(s)),
+      relatedPosts,
+      post: isArticle ? Object.assign({}, post, { body: post.body.map(b => ({
+        isHeading: b.type==="h", isPara: b.type==="p", isList: b.type==="list",
+        text: b.text || "", items: b.items || [],
+      })) }) : null,
+    };
+  }
+}
+</script>
+</body>
+</html>

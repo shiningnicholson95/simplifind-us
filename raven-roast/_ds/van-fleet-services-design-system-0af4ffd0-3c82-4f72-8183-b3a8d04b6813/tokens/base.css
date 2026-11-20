@@ -1,0 +1,82 @@
+/* ============================================================
+   Van Fleet Services — Base element styles & utilities
+   Applied on top of tokens. Mobile-first, fast, legible.
+   ============================================================ */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  color: var(--text-body);
+  background: var(--surface-page);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  color: var(--text-heading);
+  line-height: var(--lh-heading);
+  letter-spacing: var(--ls-snug);
+  margin: 0 0 0.5em;
+  font-weight: var(--fw-bold);
+  text-wrap: balance;
+}
+
+h1 { font-size: var(--fs-h1); font-weight: var(--fw-extrabold); letter-spacing: var(--ls-tight); }
+h2 { font-size: var(--fs-h2); }
+h3 { font-size: var(--fs-h3); }
+h4 { font-size: var(--fs-h4); }
+
+p { margin: 0 0 1em; text-wrap: pretty; }
+
+a { color: var(--text-link); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+img { max-width: 100%; display: block; }
+
+/* --- Layout helpers --- */
+.vf-container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--container-pad);
+}
+.vf-section { padding-block: var(--section-y); }
+.vf-section--gray { background: var(--surface-section); }
+.vf-section--navy { background: var(--surface-navy); color: var(--text-on-navy); }
+
+/* --- Eyebrow label --- */
+.vf-eyebrow {
+  font-family: var(--font-heading);
+  font-size: var(--fs-eyebrow);
+  font-weight: var(--fw-bold);
+  letter-spacing: var(--ls-eyebrow);
+  text-transform: uppercase;
+  color: var(--color-secondary);
+  margin: 0 0 var(--space-3);
+  display: block;
+}
+
+@media (max-width: 768px) {
+  :root {
+    --fs-display: 38px;
+    --fs-h1: 32px;
+    --fs-h2: 26px;
+    --fs-h3: 21px;
+    --fs-lead: 18px;
+    --section-y: 56px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}

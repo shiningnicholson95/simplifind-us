@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Fraunces:ital,opsz,wght,SOFT@0,9..144,400..700,0..100;1,9..144,400..700,0..100&family=Source+Sans+3:wght@400;600;700&family=Caveat:wght@600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css?v=3">
+<style>
+  *{ box-sizing:border-box; }
+  body{ margin:0; }
+  @keyframes kx-fade{ from{ opacity:0; transform:translateY(14px);} to{ opacity:1; transform:none;} }
+</style>
+</helmet>
+
+<div class="kx-page">
+
+    <!-- HEADER -->
+  <div class="kx-note">Welcoming new patients from Exton &amp; across Chester County &nbsp;·&nbsp; <a href="sms:+16103685372">Text (610) 368-5372</a><span class="kx-note-mail"> &nbsp;·&nbsp; <a href="mailto:info@kinetx.org">info@kinetx.org</a></span></div>
+  <header class="kx-header">
+    <div class="kx-header-in">
+      <a href="./" class="kx-brand" aria-label="KinetX Rehab with Dr. Gene Serafim, home">
+        <span class="kx-logo-mark" aria-hidden="true"><span>K</span></span>
+        <span><span class="kx-logo-word">KINETX<span> REHAB</span></span><span class="kx-brand-sub"><img src="assets/dr-serafim-200.jpg" alt="" width="20" height="20">with Dr. Gene Serafim, DC</span></span>
+      </a>
+      <sc-if value="{{ showDesktopNav }}" hint-placeholder-val="{{ true }}">
+        <nav class="kx-nav" aria-label="Main">
+          <sc-for list="{{ navItems }}" as="item" hint-placeholder-count="6">
+            <a href="{{ item.href }}">{{ item.label }}</a>
+          </sc-for>
+        </nav>
+      </sc-if>
+      <div class="kx-head-cta">
+        <a href="tel:+16103048471" class="kx-head-phone">(610) 304-8471</a>
+        <a href="sms:+16103685372" class="btn btn-primary">Text to book</a>
+        <sc-if value="{{ showMobileNav }}" hint-placeholder-val="{{ false }}">
+          <button onClick="{{ toggleMenu }}" class="kx-burger" aria-label="Open menu">☰</button>
+        </sc-if>
+      </div>
+    </div>
+    <sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+      <nav class="kx-mnav" aria-label="Mobile">
+        <sc-for list="{{ navItems }}" as="item" hint-placeholder-count="6">
+          <a href="{{ item.href }}" onClick="{{ closeMenu }}">{{ item.label }}</a>
+        </sc-for>
+        <a href="tel:+16103048471">Call (610) 304-8471</a>
+      </nav>
+    </sc-if>
+  </header>
+
+  <!-- ===== INDEX VIEW ===== -->
+  <sc-if value="{{ isIndex }}" hint-placeholder-val="{{ true }}">
+    <div>
+      <div style="max-width:1280px; margin:0 auto; padding:18px 28px 0;">
+        <div style="font-family:var(--sans); font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-3); font-weight:600;">
+          <a href="./" style="color:var(--ink-3); text-decoration:none;">Home</a>
+          <span style="color:var(--ink-2); margin:0 8px;">/</span><span style="color:var(--accent-ink);">Service Areas</span>
+        </div>
+      </div>
+      <section>
+        <div style="max-width:840px; margin:0 auto; padding:clamp(40px,5vw,72px) 28px clamp(28px,4vw,44px);">
+          <div style="display:inline-flex; align-items:center; gap:10px; font-family:var(--sans); font-weight:600; font-size:13px; letter-spacing:.08em; text-transform:uppercase; color:var(--accent-ink); margin-bottom:20px;">
+            <span style="width:26px; height:1px; background:var(--accent); color:#fff;"></span>Serving Chester County
+          </div>
+          <h1 style="font-family:var(--serif); font-weight:500; font-size:clamp(32.6px,4.8vw,62.2px); line-height:1.1; margin:0 0 22px;">Your neighborhood chiropractor in Chester County</h1>
+          <p style="font-size:clamp(16px,1.6vw,19px); line-height:1.65; color:var(--ink-2); max-width:620px; margin:0;">From our clinic at 661 Exton Commons, we treat athletes and active adults across Chester County and the Main Line. Find your town below for local directions, hours, and care.</p>
+        </div>
+      </section>
+      <section style="background:var(--cream); color:var(--ink); padding:clamp(44px,5vw,72px) 28px clamp(40px,5vw,64px);">
+        <div style="max-width:1280px; margin:0 auto; display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:14px;">
+          <sc-for list="{{ indexCards }}" as="l" hint-placeholder-count="14">
+            <a href="{{ l.href }}" style="background:var(--card); border:1px solid var(--line); padding:26px 24px; text-decoration:none; color:var(--ink); display:flex; flex-direction:column; justify-content:space-between; min-height:140px; border-radius:16px;">
+              <div>
+                <div style="font-family:var(--serif); font-size:17.8px; color:var(--accent-ink); line-height:1.1; margin-bottom:10px; font-weight:500;">{{ l.drive }}</div>
+                <h2 style="font-family:var(--sans); font-weight:600; font-size:21px; margin:0 0 6px;">{{ l.name }}, PA</h2>
+                <p style="font-size:13.5px; line-height:1.5; color:var(--ink-3); margin:0;">{{ l.tagline }}</p>
+              </div>
+              <span style="font-family:var(--sans); font-weight:600; font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:var(--accent-ink); margin-top:16px;">View Area →</span>
+            </a>
+          </sc-for>
+        </div>
+      </section>
+      <section style="background:var(--forest-deep); padding:clamp(48px,6vw,80px) 28px; border-top:1px solid var(--line-dark); color:var(--on-dark);">
+        <div style="max-width:1280px; margin:0 auto;">
+          <div style="aspect-ratio:21/9; border:1px solid var(--line-dark); overflow:hidden; border-radius:18px;">
+            <iframe title="Kinetx Rehabilitation service area — Chester County, PA" src="https://www.google.com/maps?q=661+Exton+Commons,+Exton,+PA+19341&output=embed" style="width:100%; height:100%; border:0; display:block;" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+        </div>
+      </section>
+    </div>
+  </sc-if>
+
+  <!-- ===== DETAIL VIEW ===== -->
+  <sc-if value="{{ isDetail }}" hint-placeholder-val="{{ false }}">
+    <div>
+      <div style="max-width:1280px; margin:0 auto; padding:18px 28px 0;">
+        <div style="font-family:var(--sans); font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-3); font-weight:600;">
+          <a href="./" style="color:var(--ink-3); text-decoration:none;">Home</a>
+          <span style="color:var(--ink-2); margin:0 8px;">/</span>
+          <a href="locations.html" style="color:var(--ink-3); text-decoration:none;">Service Areas</a>
+          <span style="color:var(--ink-2); margin:0 8px;">/</span><span style="color:var(--accent-ink);">{{ l.name }}, PA</span>
+        </div>
+      </div>
+
+      <section>
+        <div style="max-width:1280px; margin:0 auto; padding:clamp(36px,5vw,64px) 28px clamp(40px,5vw,72px); display:flex; flex-wrap:wrap; gap:48px; align-items:center;">
+          <div style="flex:1 1 460px; min-width:300px; animation:kx-fade .6s ease both;">
+            <div style="display:inline-flex; align-items:center; gap:10px; font-family:var(--sans); font-weight:600; font-size:13px; letter-spacing:.08em; text-transform:uppercase; color:var(--accent-ink); margin-bottom:20px;">
+              <span style="width:26px; height:1px; background:var(--accent); color:#fff;"></span>Serving {{ l.name }}, PA
+            </div>
+            <h1 style="font-family:var(--serif); font-weight:500; font-size:clamp(29.6px,4.1vw,56.2px); line-height:1.1; margin:0 0 22px;">{{ l.h1 }}</h1>
+            <p style="font-size:clamp(16px,1.6vw,19px); line-height:1.65; color:var(--ink-2); max-width:540px; margin:0 0 30px;">{{ l.heroSub }}</p>
+            <div style="display:flex; flex-wrap:wrap; gap:14px; margin-bottom:30px;">
+              <a href="sms:+16103685372" style="font-family:var(--sans); font-weight:600; font-size:16.5px; color:#fff; background:var(--accent); padding:17px 30px; text-decoration:none; border-radius:999px;">Text to Book →</a>
+              <a href="tel:+16103048471" style="font-family:var(--sans); font-weight:600; font-size:16.5px; color:var(--ink); border:1px solid var(--line); padding:17px 30px; text-decoration:none; border-radius:999px;">Call the Clinic</a>
+            </div>
+            <div style="display:flex; flex-wrap:wrap; gap:11px;">
+              <sc-for list="{{ trustBadges }}" as="b" hint-placeholder-count="4">
+                <div style="display:flex; align-items:center; gap:8px; border:1px solid var(--line-dark); background:var(--forest-2); padding:9px 14px; color:var(--on-dark);">
+                  <span style="color:#F2C4AE; font-size:13px;">{{ b.icon }}</span>
+                  <span style="font-family:var(--sans); font-weight:600; font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:var(--on-dark);">{{ b.label }}</span>
+                </div>
+              </sc-for>
+            </div>
+          </div>
+          <div style="flex:1 1 360px; min-width:300px;">
+            <div style="aspect-ratio:4/3; border:1px solid var(--line-dark); overflow:hidden; background:var(--forest-2); color:var(--on-dark); border-radius:18px;">
+              <img src="{{ l.heroImg }}" alt="Chiropractor serving {{ l.name }}, PA" style="width:100%; height:100%; object-fit:cover;">
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- INTRO + CLINIC INFO -->
+      <section style="background:var(--paper); color:var(--ink); padding:clamp(56px,7vw,96px) 28px;">
+        <div style="max-width:1280px; margin:0 auto; display:flex; flex-wrap:wrap; gap:48px;">
+          <div style="flex:2 1 460px; min-width:300px;">
+            <div style="font-family:var(--sans); font-weight:600; font-size:13px; letter-spacing:.08em; text-transform:uppercase; color:var(--accent-ink); margin-bottom:14px;">Your {{ l.name }} Clinic</div>
+            <h2 style="font-family:var(--serif); font-size:clamp(23.7px,3.1vw,40px); line-height:1.1; margin:0 0 22px; max-width:620px; font-weight:500;">{{ l.introHeading }}</h2>
+            <sc-for list="{{ l.intro }}" as="p" hint-placeholder-count="2">
+              <p style="font-size:16.5px; line-height:1.75; color:var(--ink-2); max-width:640px; margin:0 0 18px;">{{ p }}</p>
+            </sc-for>
+          </div>
+          <div style="flex:1 1 260px; min-width:250px; border:1px solid var(--line); padding:30px 28px; align-self:flex-start; border-radius:16px;">
+            <div style="font-family:var(--sans); font-weight:600; font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:var(--accent-ink); margin-bottom:18px;">Clinic Details</div>
+            <div style="font-size:15px; line-height:1.7; color:var(--ink-2); margin-bottom:18px;"><strong style="font-family:var(--sans); font-weight:600; font-size:17.5px;">Address</strong><br>661 Exton Commons<br>Exton, PA 19341</div>
+            <div style="font-size:15px; line-height:1.7; color:var(--ink-2); margin-bottom:18px;"><strong style="font-family:var(--sans); font-weight:600; font-size:17.5px;">From {{ l.name }}</strong><br>{{ l.directions }}</div>
+            <div style="font-size:15px; line-height:1.7; color:var(--ink-2); margin-bottom:18px;"><strong style="font-family:var(--sans); font-weight:600; font-size:17.5px;">Text to Schedule</strong><br><a href="sms:+16103685372" style="color:var(--accent-ink); text-decoration:none;">(610) 368-5372</a></div>
+            <div style="font-size:15px; line-height:1.7; color:var(--ink-2);"><strong style="font-family:var(--sans); font-weight:600; font-size:17.5px;">Hours</strong><br>Mon–Fri: 8am–7pm<br>Sat: 8am–12pm</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SERVICES -->
+      <section style="background:var(--cream); color:var(--ink); padding:clamp(56px,7vw,90px) 28px;">
+        <div style="max-width:1280px; margin:0 auto;">
+          <div style="text-align:center; margin-bottom:40px;">
+            <div style="font-family:var(--sans); font-weight:600; font-size:13px; letter-spacing:.08em; text-transform:uppercase; color:var(--accent-ink); margin-bottom:14px;">What We Offer</div>
+            <h2 style="font-family:var(--serif); font-size:clamp(23.7px,3.1vw,40px); line-height:1.1; margin:0 auto; max-width:680px; font-weight:500;">Care for {{ l.name }} Athletes &amp; Active Adults</h2>
+          </div>
+          <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:14px;">
+            <sc-for list="{{ services }}" as="s" hint-placeholder-count="6">
+              <a href="{{ s.href }}" style="background:var(--card); border:1px solid var(--line); padding:26px 24px; text-decoration:none; color:var(--ink); display:flex; flex-direction:column; justify-content:space-between; min-height:140px; border-radius:16px;">
+                <div>
+                  <div style="font-family:var(--serif); font-size:17.8px; color:var(--accent-ink); line-height:1.1; margin-bottom:12px; font-weight:500;">{{ s.n }}</div>
+                  <h3 style="font-family:var(--sans); font-weight:600; font-size:19px; margin:0;">{{ s.title }}</h3>
+                </div>
+                <span style="font-family:var(--sans); font-weight:600; font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:var(--accent-ink); margin-top:18px;">Learn More →</span>
+              </a>
+            </sc-for>
+          </div>
+        </div>
+      </section>
+
+      <!-- MAP + DIRECTIONS -->
+      <section style="background:var(--forest-deep); padding:clamp(56px,7vw,90px) 28px; border-top:1px solid var(--line-dark); color:var(--on-dark);">
+        <div style="max-width:1280px; margin:0 auto; display:flex; flex-wrap:wrap; gap:40px;">
+          <div style="flex:1 1 320px; min-width:280px;">
+            <div style="font-family:var(--sans); font-weight:600; font-size:13px; letter-spacing:.08em; text-transform:uppercase; color:#F2C4AE; margin-bottom:14px;">Find Us</div>
+            <h2 style="font-family:var(--serif); font-size:clamp(22.2px,3vw,37px); line-height:1.1; margin:0 0 20px; font-weight:500;">A Short Drive From {{ l.name }}</h2>
+            <p style="font-size:15.5px; line-height:1.7; color:var(--on-dark-2); max-width:440px; margin:0 0 22px;">{{ l.mapNote }}</p>
+            <a href="https://www.google.com/maps/dir/?api=1&destination=661+Exton+Commons,+Exton,+PA+19341" target="_blank" rel="noopener" style="font-family:var(--sans); font-weight:600; font-size:15.5px; color:#fff; background:var(--accent); padding:14px 24px; text-decoration:none; display:inline-block; border-radius:999px;">Get Directions →</a>
+          </div>
+          <div style="flex:1 1 360px; min-width:300px;">
+            <div style="aspect-ratio:16/11; border:1px solid var(--line-dark); overflow:hidden; border-radius:18px;">
+              <iframe title="Kinetx Rehabilitation — 661 Exton Commons, Exton, PA 19341" src="https://www.google.com/maps?q=661+Exton+Commons,+Exton,+PA+19341&output=embed" style="width:100%; height:100%; border:0; display:block;" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- NEARBY AREAS -->
+      <section style="background:var(--paper); color:var(--ink); padding:clamp(48px,6vw,80px) 28px;">
+        <div style="max-width:1280px; margin:0 auto;">
+          <div style="font-family:var(--sans); font-weight:600; font-size:13px; letter-spacing:.08em; text-transform:uppercase; color:var(--accent-ink); margin-bottom:18px;">Nearby Areas We Serve</div>
+          <div style="display:flex; flex-wrap:wrap; gap:10px;">
+            <sc-for list="{{ nearby }}" as="n" hint-placeholder-count="8">
+              <a href="{{ n.href }}" style="font-family:var(--sans); font-weight:600; font-size:15px; color:var(--ink-2); border:1px solid var(--line); padding:9px 16px; text-decoration:none; border-radius:999px;">{{ n.name }}, PA</a>
+            </sc-for>
+          </div>
+        </div>
+      </section>
+    </div>
+  </sc-if>
+
+    <!-- DOCTOR CTA -->
+  <section class="dr-cta bg-forest kx-section">
+    <div class="kx-wrap dr-cta-in">
+      <div class="dr-cta-photo"><img src="assets/dr-serafim-1000.jpg" alt="Dr. Gene Serafim, DC" loading="lazy"></div>
+      <div class="dr-cta-text">
+        <h2 class="h2">Not sure if I can help? Just ask.</h2>
+        <p>Text my office with what's going on and we'll get back to you, usually the same day. If it sounds like something I can fix, we'll find you a time. If it isn't, I'll point you to someone who can.</p>
+        <div class="btn-row">
+          <a href="sms:+16103685372" class="btn btn-light">Text (610) 368-5372</a>
+          <a href="tel:+16103048471" class="btn btn-ghost">Call (610) 304-8471</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+    <!-- FOOTER -->
+  <footer class="kx-footer">
+    <div class="kx-wrap">
+      <div class="kx-foot-grid">
+        <div>
+          <div class="kx-foot-logo"><span class="kx-logo-mark" aria-hidden="true"><span>K</span></span><span class="kx-logo-word">KINETX<span> REHAB</span></span></div>
+          <div class="kx-foot-dr">
+            <img src="assets/dr-serafim-200.jpg" alt="Dr. Gene Serafim" loading="lazy">
+            <div><div class="n">Dr. Gene Serafim, DC</div><div class="s">Chiropractor &amp; Kinesiologist · Founder</div></div>
+          </div>
+          <p style="margin:0 0 14px; max-width:300px;">Kinetx Rehabilitation, Chiropractic &amp; Massage. A neighborhood practice in Exton, PA.</p>
+          <p style="margin:0; line-height:1.8;">661 Exton Commons, Exton, PA 19341<br><a href="sms:+16103685372" style="color:#F2C4AE; font-weight:600;">Text (610) 368-5372</a><br><a href="tel:+16103048471">Call (610) 304-8471</a><br><a href="mailto:info@kinetx.org">info@kinetx.org</a></p>
+          <p style="margin:14px 0 0; line-height:1.7; color:var(--on-dark-3);">Mon–Fri 8am–7pm · Sat 8am–12pm · Sun closed</p>
+        </div>
+        <div>
+          <div class="kx-foot-h">Care</div>
+          <div class="kx-foot-links">
+            <a href="services.html#chiropractic-care">Chiropractic Care</a>
+            <a href="services.html#functional-rehabilitation">Functional Rehab</a>
+            <a href="services.html#massage-therapy">Massage Therapy</a>
+            <a href="services.html#soft-tissue-therapy">Soft Tissue Therapy</a>
+            <a href="services.html">All services</a>
+          </div>
+        </div>
+        <div>
+          <div class="kx-foot-h">Conditions</div>
+          <div class="kx-foot-links">
+            <a href="conditions.html#back-pain">Back Pain</a>
+            <a href="conditions.html#neck-pain">Neck Pain</a>
+            <a href="conditions.html#sciatica">Sciatica</a>
+            <a href="conditions.html#headaches">Headaches</a>
+            <a href="conditions.html">All conditions</a>
+          </div>
+        </div>
+        <div>
+          <div class="kx-foot-h">Nearby</div>
+          <div class="kx-foot-links">
+            <a href="locations.html#exton-pa">Exton</a>
+            <a href="locations.html#west-chester-pa">West Chester</a>
+            <a href="locations.html#downingtown-pa">Downingtown</a>
+            <a href="locations.html#malvern-pa">Malvern</a>
+            <a href="locations.html">All towns</a>
+          </div>
+        </div>
+        <div>
+          <div class="kx-foot-h">The practice</div>
+          <div class="kx-foot-links">
+            <a href="about.html">Meet Dr. Gene</a>
+            <a href="blog.html">Blog</a>
+            <a href="contact.html">Contact</a>
+            <a href="book-appointment.html">Request a visit</a>
+          </div>
+        </div>
+      </div>
+      <div class="kx-foot-bottom">
+        <span>© 2026 Kinetx Rehabilitation, Chiropractic &amp; Massage</span>
+        <span><a href="#">Privacy</a><a href="#">Accessibility</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <a href="sms:+16103685372" class="kx-float" aria-label="Text Dr. Gene's office"><img src="assets/dr-serafim-200.jpg" alt="">Text us</a>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1440,&quot;height&quot;:2200}}">
+class Component extends DCLogic {
+  state = { menuOpen:false, isMobile:false, slug:"" };
+
+  componentDidMount(){
+    this._onResize = () => this.setState({ isMobile: window.innerWidth < 980 });
+    this._onResize();
+    this._sync = () => {
+      const h = (location.hash || "").replace("#","").trim();
+      const slug = this.DATA[h] ? h : "";
+      if (slug !== this.state.slug){ this.setState({ slug }); try{ window.scrollTo(0,0); }catch(e){} }
+    };
+    this._sync();
+    window.addEventListener("hashchange", this._sync);
+    window.addEventListener("resize", this._onResize);
+  }
+  componentWillUnmount(){
+    window.removeEventListener("hashchange", this._sync);
+    window.removeEventListener("resize", this._onResize);
+  }
+
+  order = ["exton-pa","west-chester-pa","downingtown-pa","malvern-pa","chester-springs-pa","lionville-pa","phoenixville-pa","paoli-pa","frazer-pa","eagleview-pa","wayne-pa","king-of-prussia-pa","thorndale-pa","coatesville-pa"];
+
+  heroImgs = [
+    "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?w=1100&q=80&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1100&q=80&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=1100&q=80&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1546483875-ad9014c88eba?w=1100&q=80&auto=format&fit=crop"
+  ];
+
+  build(name, drive, tagline, neighborhoods, directions){
+    return {
+      name, drive, tagline,
+      h1:`${name}'s Performance Chiropractor`,
+      heroSub:`Performance chiropractic, functional rehab, and massage therapy a short drive from ${name} — built for athletes, runners, lifters, and professionals who refuse to slow down.`,
+      introHeading:`Sports-Focused Care for ${name}`,
+      intro:[
+        `${name} residents don't have to settle for a generic crack-and-go chiropractor. At Kinetx, Dr. Gene Serafim combines chiropractic, ConnectX soft-tissue therapy, and progressive rehab into one plan that treats the root cause of your pain — whether you train at a local gym, run the trails, or sit at a desk all week.`,
+        `Our clinic at 661 Exton Commons is an easy drive from ${neighborhoods}, with simple parking and same-day appointments for acute injuries. We help ${name} athletes and active adults move better, recover faster, and stay healthy long-term.`
+      ],
+      directions, 
+      mapNote:`We're at 661 Exton Commons, Exton — a quick, convenient drive from ${name} and the surrounding Chester County area. Easy parking and ground-floor access.`
+    };
+  }
+
+  DATA = {
+    "exton-pa": this.build("Exton","Local","Our home clinic in the heart of Exton.","Eagleview, Lionville, and West Whiteland","Minutes away via Route 30 or Pottstown Pike — you're practically here."),
+    "west-chester-pa": this.build("West Chester","~15 min","Serving the county seat and its active community.","Route 100, West Goshen, and East Bradford","Take Route 100 North to Route 30; we're just off the highway in Exton."),
+    "downingtown-pa": this.build("Downingtown","~10 min","Care for Downingtown's runners and families.","the Brandywine, Marsh Creek, and Lionville","Hop on Route 30 East — we're a short, straight drive into Exton."),
+    "malvern-pa": this.build("Malvern","~12 min","Sports rehab for Malvern and the Great Valley.","Frazer, Paoli, and the Great Valley corridor","Take Route 30 or the Lincoln Highway West straight into Exton."),
+    "chester-springs-pa": this.build("Chester Springs","~15 min","Performance care for Chester Springs athletes.","Eagleview, Ludwig's Corner, and Byers","Head south on Route 100, then Route 30 — an easy run into Exton."),
+    "lionville-pa": this.build("Lionville","~6 min","Your neighborhood clinic, just minutes away.","Eagleview, Dowlin Forge, and Byers Station","You're right around the corner — a few minutes down Route 113 or 100."),
+    "phoenixville-pa": this.build("Phoenixville","~20 min","Care for Phoenixville's active community.","Kimberton, Charlestown, and Schuylkill","Take Route 113 South into Exton — a straightforward drive."),
+    "paoli-pa": this.build("Paoli","~14 min","Main Line sports rehab and chiropractic.","Malvern, Frazer, and the Main Line","Take Route 30 (Lancaster Ave) West straight into Exton."),
+    "frazer-pa": this.build("Frazer","~8 min","Quick, convenient care for Frazer.","Malvern, Glenloch, and the Route 30 corridor","A short hop west on Route 30 brings you right to us."),
+    "eagleview-pa": this.build("Eagleview","~4 min","Right next door to Eagleview Town Center.","Lionville, Byers Station, and Exton","You're minutes away — we're just south at Exton Commons."),
+    "wayne-pa": this.build("Wayne","~20 min","Premium sports care for Wayne and the Main Line.","Devon, Strafford, and the Main Line","Take Route 30 West through Paoli and Malvern into Exton."),
+    "king-of-prussia-pa": this.build("King of Prussia","~22 min","Worth the short drive from KOP.","Wayne, Valley Forge, and the 202 corridor","Take Route 202 South to Route 30 West into Exton."),
+    "thorndale-pa": this.build("Thorndale","~12 min","Care for Thorndale and western Chester County.","Coatesville, Caln, and the Route 30 corridor","Take Route 30 East — a direct, easy drive into Exton."),
+    "coatesville-pa": this.build("Coatesville","~18 min","Sports rehab for the Coatesville area.","Thorndale, Caln, and the Brandywine Valley","Take Route 30 East through Thorndale straight into Exton.")
+  };
+
+  trustBadges = [
+    { icon:"★★★★★", label:"Google Reviews" },
+    { icon:"⚡", label:"Same-Day Appts" },
+    { icon:"✓", label:"Insurance Accepted" },
+    { icon:"●", label:"Athlete Approved" },
+  ];
+
+  services = [
+    { n:"01", title:"Chiropractic Care", href:"services.html#chiropractic-care" },
+    { n:"02", title:"Functional Rehabilitation", href:"services.html#functional-rehabilitation" },
+    { n:"03", title:"Massage Therapy", href:"services.html#massage-therapy" },
+    { n:"04", title:"Corrective Exercise", href:"services.html#corrective-exercise" },
+    { n:"05", title:"Soft Tissue Therapy", href:"services.html#soft-tissue-therapy" },
+    { n:"06", title:"Sports Injury Recovery", href:"services.html#sports-injury-recovery" },
+  ];
+
+  navItems = [
+    { label:"Home", href:"./" },
+    { label:"Meet Dr. Gene", href:"about.html" },
+    { label:"Services", href:"services.html" },
+    { label:"Conditions", href:"conditions.html" },
+    { label:"Blog", href:"blog.html" },
+    { label:"Contact", href:"contact.html" },
+  ];
+
+  toggleMenu = () => this.setState(s => ({ menuOpen: !s.menuOpen }));
+  closeMenu = () => this.setState({ menuOpen:false });
+
+  renderVals(){
+    const m = this.state.isMobile;
+    const slug = this.state.slug;
+    const isDetail = !!(slug && this.DATA[slug]);
+    const l = isDetail ? Object.assign({}, this.DATA[slug], { heroImg: this.heroImgs[Math.max(0, this.order.indexOf(slug)) % this.heroImgs.length] }) : null;
+    return {
+      showDesktopNav: !m, showMobileNav: m, menuOpen: this.state.menuOpen,
+      toggleMenu: this.toggleMenu, closeMenu: this.closeMenu, navItems: this.navItems,
+      isIndex: !isDetail, isDetail, l,
+      trustBadges: this.trustBadges, services: this.services,
+      indexCards: this.order.map(s => ({ name:this.DATA[s].name, drive:this.DATA[s].drive, tagline:this.DATA[s].tagline, href:"locations.html#"+s })),
+      nearby: isDetail ? this.order.filter(s => s !== slug).slice(0,8).map(s => ({ name:this.DATA[s].name, href:"locations.html#"+s })) : [],
+    };
+  }
+}
+</script>
+</body>
+</html>

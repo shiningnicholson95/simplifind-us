@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Visit Kafe Krave — Contact, Hours & Directions | San Antonio</title>
+<meta name="description" content="Visit Kafe Krave in San Antonio. Find our address, hours, phone and email, get directions, or send us a message. Coffee by day, cocktails by night.">
+<link rel="canonical" href="https://kafekravesatx.com/contact.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Visit Kafe Krave — Contact & Directions">
+<meta property="og:description" content="Address, hours, phone and directions for Kafe Krave, San Antonio.">
+<meta property="og:image" content="images/storefront-dusk.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"ContactPage","name":"Visit Kafe Krave","url":"https://kafekravesatx.com/contact.html","mainEntity":{"@type":["CafeOrCoffeeShop","BarOrPub"],"name":"Kafe Krave","telephone":"+1-726-248-8930","email":"info@kafekravesatx.com","address":{"@type":"PostalAddress","streetAddress":"227 Dwyer Ave, Suite 101","addressLocality":"San Antonio","addressRegion":"TX","postalCode":"78204","addressCountry":"US"},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"07:00","closes":"00:00"}]}}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { background: #111111; }
+  ::selection { background: #C6A15B; color: #111111; }
+  .kk-reveal { opacity: 0; transform: translateY(30px); transition: opacity .9s cubic-bezier(.16,1,.3,1), transform .9s cubic-bezier(.16,1,.3,1); }
+  .kk-reveal.kk-in { opacity: 1; transform: none; }
+  .kk-burger { display: none; }
+  .kk-bar { display: none; }
+  .kk-input::placeholder { color: rgba(245,241,234,.4); }
+  .kk-input:focus { outline: none; border-color: #C6A15B !important; }
+  @media (max-width: 880px) {
+    .kk-desknav { display: none !important; }
+    .kk-burger { display: flex !important; }
+    .kk-bar { display: grid !important; }
+    .kk-2col { grid-template-columns: 1fr !important; }
+    .kk-foot-pad { padding-bottom: 96px !important; }
+  }
+  @media (max-width: 760px) {
+    .kk-cards { grid-template-columns: 1fr 1fr !important; }
+    .kk-formrow { grid-template-columns: 1fr !important; }
+    .kk-footer-grid { grid-template-columns: 1fr 1fr !important; }
+  }
+  @media (max-width: 460px) {
+    .kk-cards { grid-template-columns: 1fr !important; }
+    .kk-footer-grid { grid-template-columns: 1fr !important; }
+  }
+</style>
+</helmet>
+<div style="font-family: 'Inter', sans-serif; background: #111111; color: #F5F1EA; overflow-x: hidden; width: 100%;">
+
+  <!-- HEADER START -->
+  <header style="position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 14px clamp(20px, 5vw, 64px); background: rgba(17,17,17,.92); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(245,241,234,.08);">
+    <a href="index.html" style="font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 20px; letter-spacing: .14em; text-transform: uppercase; color: #F5F1EA; text-decoration: none; display: flex; align-items: center; gap: 10px;"><span style="width: 9px; height: 9px; border-radius: 50%; background: #C6A15B;"></span>Kafe Krave</a>
+    <nav class="kk-desknav" style="display: flex; align-items: center; gap: 38px;">
+      <a href="index.html" style="font-size: 13px; letter-spacing: .12em; text-transform: uppercase; color: #F5F1EA; text-decoration: none; opacity: .85;">Home</a>
+      <a href="about.html" style="font-size: 13px; letter-spacing: .12em; text-transform: uppercase; color: #F5F1EA; text-decoration: none; opacity: .85;">About</a>
+      <a href="gallery.html" style="font-size: 13px; letter-spacing: .12em; text-transform: uppercase; color: #F5F1EA; text-decoration: none; opacity: .85;">Gallery</a>
+      <a href="contact.html" style="font-size: 13px; letter-spacing: .12em; text-transform: uppercase; color: #C6A15B; text-decoration: none;">Visit</a>
+      <a href="reviews.html" style="font-size: 13px; letter-spacing: .12em; text-transform: uppercase; color: #F5F1EA; text-decoration: none; opacity: .85;">Reviews</a>
+      <a href="tel:+17262488930" style="font-size: 13px; letter-spacing: .12em; text-transform: uppercase; color: #111111; text-decoration: none; background: #C6A15B; padding: 11px 22px; border-radius: 999px; font-weight: 600;">Call</a>
+    </nav>
+    <button class="kk-burger" aria-label="Open menu" onClick="{{ toggleMenu }}" ref="{{ burgerRef }}" style="flex-direction: column; gap: 6px; background: none; border: none; cursor: pointer; padding: 8px;">
+      <span style="width: 26px; height: 2px; background: #F5F1EA; display: block; transition: transform .4s ease;"></span>
+      <span style="width: 26px; height: 2px; background: #F5F1EA; display: block; transition: opacity .4s ease;"></span>
+      <span style="width: 26px; height: 2px; background: #F5F1EA; display: block; transition: transform .4s ease;"></span>
+    </button>
+  </header>
+
+  <div ref="{{ mobileMenuRef }}" style="position: fixed; inset: 0; z-index: 99; background: rgba(17,17,17,.97); backdrop-filter: blur(8px); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 30px; opacity: 0; pointer-events: none; transition: opacity .5s ease;">
+    <a href="index.html" style="font-family: 'Poppins', sans-serif; font-size: 30px; color: #F5F1EA; text-decoration: none;">Home</a>
+    <a href="about.html" style="font-family: 'Poppins', sans-serif; font-size: 30px; color: #F5F1EA; text-decoration: none;">About</a>
+    <a href="gallery.html" style="font-family: 'Poppins', sans-serif; font-size: 30px; color: #F5F1EA; text-decoration: none;">Gallery</a>
+    <a href="reviews.html" style="font-family: 'Poppins', sans-serif; font-size: 30px; color: #F5F1EA; text-decoration: none;">Reviews</a>
+    <a href="contact.html" style="font-family: 'Poppins', sans-serif; font-size: 30px; color: #F5F1EA; text-decoration: none;">Visit</a>
+    <a href="tel:+17262488930" style="margin-top: 14px; font-size: 14px; letter-spacing: .12em; text-transform: uppercase; color: #111111; text-decoration: none; background: #C6A15B; padding: 14px 30px; border-radius: 999px; font-weight: 600;">Call Now</a>
+  </div>
+
+  <!-- HERO START -->
+  <section style="padding: clamp(130px, 20vh, 200px) clamp(20px, 5vw, 64px) clamp(46px, 7vh, 80px); text-align: center; max-width: 900px; margin: 0 auto;">
+    <span style="display: inline-block; font-size: 12px; letter-spacing: .32em; text-transform: uppercase; color: #C6A15B; margin-bottom: 20px; font-weight: 500;">Visit Us</span>
+    <h1 style="font-family: 'Poppins', sans-serif; font-weight: 600; font-size: clamp(38px, 7vw, 88px); line-height: 1; letter-spacing: -.02em; color: #FFFFFF; margin-bottom: 22px;">Visit Kafe Krave</h1>
+    <p style="font-size: clamp(15px, 1.6vw, 18px); line-height: 1.6; color: rgba(245,241,234,.7); font-weight: 300; max-width: 520px; margin: 0 auto;">Stop in for a morning cup or an evening pour. We're easy to find and always glad to see you.</p>
+  </section>
+
+  <!-- CONTACT CARDS START -->
+  <section style="padding: 0 clamp(20px, 5vw, 64px) clamp(56px, 8vh, 90px);">
+    <div class="kk-cards" style="max-width: 1240px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(16px, 2vw, 24px);">
+      <div class="kk-reveal" style="background: #181818; border: 1px solid rgba(245,241,234,.08); border-radius: 18px; padding: clamp(26px, 2.6vw, 36px);">
+        <span style="font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: #C6A15B;">Phone</span>
+        <a href="tel:+17262488930" style="display: block; font-family: 'Poppins', sans-serif; font-size: 21px; color: #F5F1EA; text-decoration: none; margin-top: 12px; font-weight: 400;">(726) 248-8930</a>
+      </div>
+      <div class="kk-reveal" style="background: #181818; border: 1px solid rgba(245,241,234,.08); border-radius: 18px; padding: clamp(26px, 2.6vw, 36px);">
+        <span style="font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: #C6A15B;">Email</span>
+        <a href="mailto:info@kafekravesatx.com" style="display: block; font-family: 'Poppins', sans-serif; font-size: 17px; color: #F5F1EA; text-decoration: none; margin-top: 12px; font-weight: 400; word-break: break-word;">info@kafekravesatx.com</a>
+      </div>
+      <div class="kk-reveal" style="background: #181818; border: 1px solid rgba(245,241,234,.08); border-radius: 18px; padding: clamp(26px, 2.6vw, 36px);">
+        <span style="font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: #C6A15B;">Address</span>
+        <p style="font-size: 16px; color: #F5F1EA; margin-top: 12px; font-weight: 300; line-height: 1.5;">227 Dwyer Ave, Suite 101, San Antonio, TX</p>
+      </div>
+      <div class="kk-reveal" style="background: #181818; border: 1px solid rgba(245,241,234,.08); border-radius: 18px; padding: clamp(26px, 2.6vw, 36px);">
+        <span style="font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: #C6A15B;">Hours</span>
+        <p style="font-size: 16px; color: #F5F1EA; margin-top: 12px; font-weight: 300; line-height: 1.5;">Mon&ndash;Sun<br>7am &ndash; Late</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAP + FORM START -->
+  <section style="padding: 0 clamp(20px, 5vw, 64px) clamp(72px, 12vh, 130px);">
+    <div class="kk-2col" style="max-width: 1240px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: clamp(32px, 4vw, 56px); align-items: start;">
+
+      <div class="kk-reveal" style="display: flex; flex-direction: column; gap: 20px;">
+        <div style="overflow: hidden; border-radius: 18px; aspect-ratio: 4/3; box-shadow: 0 24px 60px rgba(0,0,0,.4);">
+          <iframe title="Map to Kafe Krave" src="https://www.openstreetmap.org/export/embed.html?bbox=-98.51%2C29.41%2C-98.46%2C29.45&layer=mapnik&marker=29.43,-98.485" style="width: 100%; height: 100%; border: 0; filter: grayscale(.3) contrast(1.05);" loading="lazy"></iframe>
+        </div>
+        <a href="https://maps.google.com/?q=227+Dwyer+Ave+San+Antonio+TX" target="_blank" rel="noopener" style="text-align: center; font-size: 13px; letter-spacing: .12em; text-transform: uppercase; font-weight: 600; color: #111111; background: #C6A15B; padding: 16px; border-radius: 999px; text-decoration: none;">Get Directions</a>
+      </div>
+
+      <div class="kk-reveal">
+        <h2 style="font-family: 'Poppins', sans-serif; font-weight: 500; font-size: clamp(26px, 3vw, 38px); line-height: 1.1; letter-spacing: -.01em; margin-bottom: 10px;">Send Us a Note</h2>
+        <p style="font-size: 15px; color: rgba(245,241,234,.65); font-weight: 300; margin-bottom: 28px; line-height: 1.6;">Questions, private events, or just saying hello — we'll get back to you soon.</p>
+        <!-- Form structured for WordPress / Gravity Forms conversion -->
+        <form ref="{{ formRef }}" onSubmit="{{ onSubmit }}" novalidate style="display: flex; flex-direction: column; gap: 16px;">
+          <div class="kk-formrow" style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+            <label style="display: flex; flex-direction: column; gap: 8px;">
+              <span style="font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: rgba(245,241,234,.6);">Name</span>
+              <input class="kk-input" type="text" name="name" required autocomplete="name" placeholder="Your name" style="background: #181818; border: 1px solid rgba(245,241,234,.16); border-radius: 12px; padding: 14px 16px; color: #F5F1EA; font-size: 15px; font-family: inherit; transition: border-color .3s;">
+            </label>
+            <label style="display: flex; flex-direction: column; gap: 8px;">
+              <span style="font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: rgba(245,241,234,.6);">Phone</span>
+              <input class="kk-input" type="tel" name="phone" autocomplete="tel" placeholder="(726) 248-8930" style="background: #181818; border: 1px solid rgba(245,241,234,.16); border-radius: 12px; padding: 14px 16px; color: #F5F1EA; font-size: 15px; font-family: inherit; transition: border-color .3s;">
+            </label>
+          </div>
+          <label style="display: flex; flex-direction: column; gap: 8px;">
+            <span style="font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: rgba(245,241,234,.6);">Email</span>
+            <input class="kk-input" type="email" name="email" required autocomplete="email" placeholder="you@email.com" style="background: #181818; border: 1px solid rgba(245,241,234,.16); border-radius: 12px; padding: 14px 16px; color: #F5F1EA; font-size: 15px; font-family: inherit; transition: border-color .3s;">
+          </label>
+          <label style="display: flex; flex-direction: column; gap: 8px;">
+            <span style="font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: rgba(245,241,234,.6);">Message</span>
+            <textarea class="kk-input" name="message" required rows="5" placeholder="How can we help?" style="background: #181818; border: 1px solid rgba(245,241,234,.16); border-radius: 12px; padding: 14px 16px; color: #F5F1EA; font-size: 15px; font-family: inherit; resize: vertical; transition: border-color .3s;"></textarea>
+          </label>
+          <button type="submit" style="margin-top: 6px; font-size: 13px; letter-spacing: .12em; text-transform: uppercase; font-weight: 600; color: #111111; background: #C6A15B; border: none; padding: 17px; border-radius: 999px; cursor: pointer;">Send Message</button>
+          <p ref="{{ statusRef }}" role="status" style="font-size: 14px; color: #C6A15B; min-height: 18px; margin-top: 2px;"></p>
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER START -->
+  <footer style="background: #181818; color: #F5F1EA; padding: clamp(60px, 9vh, 100px) clamp(20px, 5vw, 64px) 0;">
+    <div class="kk-footer-grid" style="max-width: 1240px; margin: 0 auto; display: grid; grid-template-columns: 1.4fr 1fr 1fr 1.3fr; gap: clamp(32px, 5vw, 60px); padding-bottom: 60px; border-bottom: 1px solid rgba(245,241,234,.12);">
+      <div>
+        <div style="font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 22px; letter-spacing: .14em; text-transform: uppercase; margin-bottom: 18px; display: flex; align-items: center; gap: 10px;"><span style="width: 9px; height: 9px; border-radius: 50%; background: #C6A15B;"></span>Kafe Krave</div>
+        <p style="font-size: 15px; line-height: 1.7; color: rgba(245,241,234,.6); font-weight: 300; max-width: 280px;">Coffee by day, cocktails by night. A San Antonio room worth staying in.</p>
+      </div>
+      <div>
+        <h4 style="font-size: 11px; letter-spacing: .22em; text-transform: uppercase; color: #C6A15B; margin-bottom: 20px;">Explore</h4>
+        <ul style="list-style: none; display: flex; flex-direction: column; gap: 12px;">
+          <li><a href="index.html" style="font-size: 15px; color: rgba(245,241,234,.75); text-decoration: none; font-weight: 300;">Home</a></li>
+          <li><a href="about.html" style="font-size: 15px; color: rgba(245,241,234,.75); text-decoration: none; font-weight: 300;">About</a></li>
+          <li><a href="gallery.html" style="font-size: 15px; color: rgba(245,241,234,.75); text-decoration: none; font-weight: 300;">Gallery</a></li>
+          <li><a href="reviews.html" style="font-size: 15px; color: rgba(245,241,234,.75); text-decoration: none; font-weight: 300;">Reviews</a></li>
+          <li><a href="contact.html" style="font-size: 15px; color: rgba(245,241,234,.75); text-decoration: none; font-weight: 300;">Visit</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 style="font-size: 11px; letter-spacing: .22em; text-transform: uppercase; color: #C6A15B; margin-bottom: 20px;">Connect</h4>
+        <ul style="list-style: none; display: flex; flex-direction: column; gap: 12px;">
+          <li><a href="https://instagram.com" target="_blank" rel="noopener" style="font-size: 15px; color: rgba(245,241,234,.75); text-decoration: none; font-weight: 300;">Instagram</a></li>
+          <li><a href="https://facebook.com" target="_blank" rel="noopener" style="font-size: 15px; color: rgba(245,241,234,.75); text-decoration: none; font-weight: 300;">Facebook</a></li>
+          <li><a href="mailto:info@kafekravesatx.com" style="font-size: 15px; color: rgba(245,241,234,.75); text-decoration: none; font-weight: 300;">Email</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 style="font-size: 11px; letter-spacing: .22em; text-transform: uppercase; color: #C6A15B; margin-bottom: 20px;">Newsletter</h4>
+        <p style="font-size: 14px; color: rgba(245,241,234,.6); font-weight: 300; margin-bottom: 16px; line-height: 1.6;">Slow mornings, late nights, and the occasional pour. No spam.</p>
+        <form onSubmit="{{ onSubscribe }}" style="display: flex; gap: 8px;">
+          <input type="email" required placeholder="Your email" aria-label="Email address" style="flex: 1; min-width: 0; background: #111111; border: 1px solid rgba(245,241,234,.18); border-radius: 999px; padding: 12px 18px; color: #F5F1EA; font-size: 14px; font-family: inherit;">
+          <button type="submit" aria-label="Subscribe" style="background: #C6A15B; border: none; border-radius: 999px; padding: 12px 20px; color: #111111; font-weight: 600; font-size: 13px; cursor: pointer;">&rarr;</button>
+        </form>
+      </div>
+    </div>
+    <div class="kk-foot-pad" style="max-width: 1240px; margin: 0 auto; padding: 26px 0 40px; display: flex; flex-wrap: wrap; gap: 14px; justify-content: space-between; font-size: 13px; color: rgba(245,241,234,.45); font-weight: 300;">
+      <span>&copy; 2026 Kafe Krave. All rights reserved.</span>
+      <span>San Antonio, Texas</span>
+    </div>
+  </footer>
+
+  <div class="kk-bar" style="position: fixed; bottom: 0; left: 0; right: 0; z-index: 90; grid-template-columns: 1fr 1fr; background: rgba(17,17,17,.96); backdrop-filter: blur(10px); border-top: 1px solid rgba(245,241,234,.12);">
+    <a href="tel:+17262488930" style="text-align: center; padding: 16px; font-size: 13px; letter-spacing: .1em; text-transform: uppercase; font-weight: 600; color: #F5F1EA; text-decoration: none; border-right: 1px solid rgba(245,241,234,.12);">Call</a>
+    <a href="https://maps.google.com/?q=227+Dwyer+Ave+San+Antonio+TX" target="_blank" rel="noopener" style="text-align: center; padding: 16px; font-size: 13px; letter-spacing: .1em; text-transform: uppercase; font-weight: 600; color: #C6A15B; text-decoration: none;">Directions</a>
+  </div>
+
+</div>
+<template id="__bundler_thumbnail">
+  <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><rect width="200" height="200" fill="#111111"/><path d="M62 70h76v52H62z" fill="none" stroke="#C6A15B" stroke-width="4"/><path d="M62 74l38 28 38-28" fill="none" stroke="#C6A15B" stroke-width="4"/><text x="100" y="158" font-family="Poppins,sans-serif" font-size="17" font-weight="600" fill="#F5F1EA" text-anchor="middle" letter-spacing="2">VISIT</text></svg>
+</template>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      burgerRef: (el) => { this._burger = el; },
+      mobileMenuRef: (el) => { this._menu = el; },
+      formRef: (el) => { this._form = el; },
+      statusRef: (el) => { this._status = el; },
+      toggleMenu: () => this._setMenu(!this._menuOpen),
+      onSubmit: (e) => {
+        e.preventDefault();
+        const f = this._form;
+        if (!f) return;
+        if (!f.checkValidity()) { f.reportValidity(); return; }
+        if (this._status) this._status.textContent = 'Thanks — your message is on its way. We\u2019ll be in touch soon.';
+        f.reset();
+      },
+      onSubscribe: (e) => { e.preventDefault(); const i = e.target.querySelector('input'); if (i) { i.value=''; i.placeholder='Thanks \u2014 you\u2019re in.'; } },
+    };
+  }
+  _setMenu(open) {
+    this._menuOpen = open;
+    if (this._menu) { this._menu.style.opacity = open ? '1' : '0'; this._menu.style.pointerEvents = open ? 'auto' : 'none'; }
+    if (this._burger) {
+      const s = this._burger.children;
+      s[0].style.transform = open ? 'translateY(8px) rotate(45deg)' : 'none';
+      s[1].style.opacity = open ? '0' : '1';
+      s[2].style.transform = open ? 'translateY(-8px) rotate(-45deg)' : 'none';
+    }
+    document.body.style.overflow = open ? 'hidden' : '';
+  }
+  componentDidMount() {
+    this._menuOpen = false;
+    if (this._menu) this._menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => this._setMenu(false)));
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(en => { if (en.isIntersecting) { en.target.classList.add('kk-in'); obs.unobserve(en.target); } });
+    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+    document.querySelectorAll('.kk-reveal').forEach((el, i) => { el.style.transitionDelay = (Math.min(i % 4, 3) * 0.07) + 's'; obs.observe(el); });
+  }
+}
+</script>
+</body>
+</html>

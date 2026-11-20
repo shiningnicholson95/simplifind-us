@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>About Liz Kelly — Liz Kelly Pottery</title>
+<meta name="description" content="Meet Liz Kelly, potter and NC State College of Design graduate, running her studio practice in Boylan Heights, Raleigh, NC.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='32' fill='%23a8674b'/%3E%3Ctext x='32' y='42' font-size='28' font-family='Georgia,serif' fill='white' text-anchor='middle'%3ELK%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  body { margin:0; background:oklch(0.97 0.015 90); }
+  a { color: oklch(0.64 0.12 40); }
+  a:hover { color: oklch(0.52 0.12 40); }
+</style>
+<template id="__bundler_thumbnail"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400"><rect width="400" height="400" fill="#e8ded2"/><text x="200" y="210" font-size="140" font-family="Georgia,serif" fill="#a8674b" text-anchor="middle">LK</text></svg></template>
+</helmet>
+
+<dc-import name="nav" current-page="about" hint-size="100%,72px"></dc-import>
+
+<main style="font-family:'Work Sans',sans-serif;color:oklch(0.24 0.02 50);">
+  <section style="max-width:1100px;margin:0 auto;padding:clamp(36px,6vw,64px) clamp(16px,4vw,32px);display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(32px,5vw,64px);align-items:center;">
+    <div>
+      <div style="font-size:13px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:oklch(0.52 0.12 40);margin-bottom:14px;">About</div>
+      <h1 style="font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;font-size:clamp(34px,5vw,52px);margin:0 0 20px;">Liz Kelly</h1>
+      <p style="font-size:16px;line-height:1.75;color:oklch(0.42 0.02 50);margin:0 0 16px;text-wrap:pretty;">Originally from Raleigh, NC, she's brought her collective travels, education and life experience back home to a pottery studio practice. Passionate about expressive home goods and intentional consumerism, she grounds her fun wares in functionality.</p>
+      <p style="font-size:16px;line-height:1.75;color:oklch(0.42 0.02 50);margin:0 0 16px;text-wrap:pretty;">Traditional craft and contemporary design inspire her work — functional home goods that connect people with material and experience, earthy and elegant with a modern approach to handmade pottery. The pieces accent your home, inspire ritual, and encourage hospitality.</p>
+      <p style="font-size:16px;line-height:1.75;color:oklch(0.42 0.02 50);margin:0 0 28px;text-wrap:pretty;">Her degree in Design Studies from the renowned NC State College of Design grounds her studio practice in the craft origins of design — the maker/designer's legacy of functional beauty — and shapes a values-driven approach to her work and business.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:14px;">
+        <a href="Studio Visits.html" style="text-decoration:none;background:oklch(0.64 0.12 40);color:oklch(0.99 0.008 90);font-weight:600;font-size:15px;padding:14px 24px;border-radius:11px;">Book a Studio Visit</a>
+        <a href="Shop.html" style="text-decoration:none;background:transparent;border:1.5px solid oklch(0.24 0.02 50);color:oklch(0.24 0.02 50);font-weight:600;font-size:15px;padding:13px 24px;border-radius:11px;">Shop the Studio</a>
+      </div>
+    </div>
+    <div style="border-radius:22px;overflow:hidden;aspect-ratio:4/5;box-shadow:0 20px 50px -20px oklch(0.24 0.02 50 / 0.35);">
+      <img src="assets/liz-kelly-portrait.webp" alt="Portrait of Liz Kelly, owner and potter at Liz Kelly Pottery" style="width:100%;height:100%;object-fit:cover;display:block;">
+    </div>
+  </section>
+
+  <section style="background:oklch(0.24 0.02 50);">
+    <div style="max-width:1100px;margin:0 auto;padding:clamp(44px,7vw,68px) clamp(16px,4vw,32px);text-align:center;color:oklch(0.97 0.015 90);">
+      <h2 style="font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;font-size:clamp(24px,3.4vw,32px);margin:0 0 14px;">Studio shopping is welcome.</h2>
+      <p style="font-size:15.5px;line-height:1.65;color:oklch(0.82 0.015 80);max-width:52ch;margin:0 auto 24px;">The studio is located in the historic Boylan Heights neighborhood of Raleigh, NC. Book a visit to browse pieces in person.</p>
+      <a href="Studio Visits.html" style="text-decoration:none;background:oklch(0.72 0.11 40);color:oklch(0.2 0.02 50);font-weight:700;font-size:15px;padding:14px 26px;border-radius:11px;display:inline-block;">Book a Time</a>
+    </div>
+  </section>
+</main>
+
+<dc-import name="footer" hint-size="100%,320px"></dc-import>
+</x-dc>
+</body>
+</html>

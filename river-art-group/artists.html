@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Our Artists | 150+ San Antonio Artists at River Art Group</title>
+<meta name="description" content="Browse the 150+ juried member artists of River Art Group, working in acrylic, oil, watercolor, pen & ink, pastel, photography, clay, metal, wood and more. Search by name or browse alphabetically.">
+<link rel="icon" type="image/png" href="assets/favicon-icon.png">
+<link rel="apple-touch-icon" href="assets/favicon-icon.png">
+<link rel="canonical" href="https://riverartgroup.com/our-artists">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Our Artists · River Art Group">
+<meta property="og:description" content="150+ juried San Antonio member artists working across a wide range of media.">
+<meta property="og:image" content="assets/img/gallery-interior.jpg">
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>body{margin:0;background:#FBF5E9;}*{box-sizing:border-box;}</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://riverartgroup.com/"},{"@type":"ListItem","position":2,"name":"Our Artists","item":"https://riverartgroup.com/our-artists"}]}
+</script>
+</helmet>
+<div style="font-family:'Hanken Grotesk',system-ui,sans-serif;color:#2B2622;background:#FBF5E9;min-height:100vh;">
+  <dc-import name="Header" active="artists" hint-size="100%,118px"></dc-import>
+
+  <section style="background:linear-gradient(180deg,#F6ECD6,#FBF5E9);">
+    <div style="max-width:1180px;margin:0 auto;padding:46px 24px 36px;">
+      <nav aria-label="Breadcrumb" style="font-size:13.5px;color:#8a7f6d;margin-bottom:18px;"><a href="index.html" style="color:#16726D;text-decoration:none;">Home</a> <span style="color:#c3b594;">/</span> <span>Our Artists</span></nav>
+      <span style="font-size:12.5px;letter-spacing:.2em;text-transform:uppercase;color:#1F8F89;font-weight:700;">The makers</span>
+      <h1 style="font-family:'Spectral',serif;font-weight:600;font-size:clamp(34px,4.6vw,54px);line-height:1.08;margin:12px 0 0;color:#1C3B57;">Our artists</h1>
+      <p style="font-size:18px;line-height:1.65;color:#5a5246;margin:16px 0 0;max-width:640px;">More than 150 juried members from San Antonio and the surrounding communities, working across every medium imaginable. Search below, or browse by letter.</p>
+    </div>
+  </section>
+
+  <!-- BROWSE BY MEDIUM -->
+  <section style="max-width:1180px;margin:0 auto;padding:28px 24px 0;">
+    <p style="font-size:12.5px;letter-spacing:.16em;text-transform:uppercase;color:#8a7f6d;font-weight:700;margin:0 0 12px;">Browse by medium</p>
+    <div style="display:flex;flex-wrap:wrap;gap:10px;">
+      <a href="gallery.html" style="padding:8px 16px;border-radius:999px;background:#fff;border:1px solid #e3d6ba;color:#1C3B57;text-decoration:none;font-size:14px;font-weight:600;" style-hover="border-color:#1F8F89;color:#16726D;">Painting</a>
+      <a href="gallery.html" style="padding:8px 16px;border-radius:999px;background:#fff;border:1px solid #e3d6ba;color:#1C3B57;text-decoration:none;font-size:14px;font-weight:600;" style-hover="border-color:#1F8F89;color:#16726D;">Watercolor</a>
+      <a href="gallery.html" style="padding:8px 16px;border-radius:999px;background:#fff;border:1px solid #e3d6ba;color:#1C3B57;text-decoration:none;font-size:14px;font-weight:600;" style-hover="border-color:#1F8F89;color:#16726D;">Pen &amp; Ink</a>
+      <a href="gallery.html" style="padding:8px 16px;border-radius:999px;background:#fff;border:1px solid #e3d6ba;color:#1C3B57;text-decoration:none;font-size:14px;font-weight:600;" style-hover="border-color:#1F8F89;color:#16726D;">Photography</a>
+      <a href="gallery.html" style="padding:8px 16px;border-radius:999px;background:#fff;border:1px solid #e3d6ba;color:#1C3B57;text-decoration:none;font-size:14px;font-weight:600;" style-hover="border-color:#1F8F89;color:#16726D;">Printmaking</a>
+      <a href="gallery.html" style="padding:8px 16px;border-radius:999px;background:#fff;border:1px solid #e3d6ba;color:#1C3B57;text-decoration:none;font-size:14px;font-weight:600;" style-hover="border-color:#1F8F89;color:#16726D;">Clay &amp; Pottery</a>
+      <a href="gallery.html" style="padding:8px 16px;border-radius:999px;background:#fff;border:1px solid #e3d6ba;color:#1C3B57;text-decoration:none;font-size:14px;font-weight:600;" style-hover="border-color:#1F8F89;color:#16726D;">Metal &amp; Wood</a>
+    </div>
+  </section>
+
+  <!-- SEARCH + LETTER RAIL -->
+  <section style="max-width:1180px;margin:0 auto;padding:28px 24px 0;">
+    <div style="display:flex;gap:14px;flex-wrap:wrap;align-items:center;">
+      <div style="position:relative;flex:1;min-width:240px;">
+        <span aria-hidden="true" style="position:absolute;left:15px;top:50%;transform:translateY(-50%);color:#a79a82;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.5" y2="16.5"/></svg></span>
+        <input type="search" value="{{ query }}" onInput="{{ onSearch }}" placeholder="Search artists by name…" aria-label="Search artists by name" style="width:100%;padding:14px 16px 14px 44px;border-radius:11px;border:1px solid #e0d3b6;background:#fff;font-size:16px;font-family:inherit;color:#2B2622;">
+      </div>
+      <span style="font-size:14.5px;color:#857b6c;white-space:nowrap;"><strong style="color:#1C3B57;">{{ count }}</strong> artists</span>
+    </div>
+    <div role="tablist" aria-label="Filter by first letter" style="display:flex;flex-wrap:wrap;gap:6px;margin-top:18px;">
+      <sc-for list="{{ letters }}" as="L" hint-placeholder-count="14">
+        <button type="button" onClick="{{ L.onClick }}" aria-pressed="{{ L.active }}" style="{{ L.style }}">{{ L.label }}</button>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- GRID -->
+  <section style="max-width:1180px;margin:0 auto;padding:30px 24px 80px;">
+    <sc-if value="{{ hasResults }}" hint-placeholder-val="{{ true }}">
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px;">
+        <sc-for list="{{ results }}" as="a" hint-placeholder-count="12">
+          <a href="{{ a.href }}" style="{{ a.cardStyle }}">
+            <span aria-hidden="true" style="{{ a.avatarStyle }}">{{ a.initials }}</span>
+            <span style="min-width:0;">
+              <span style="display:block;font-family:'Spectral',serif;font-size:17px;font-weight:600;color:#1C3B57;line-height:1.2;">{{ a.name }}</span>
+              <span style="display:block;font-size:13px;color:#1F8F89;font-weight:600;margin-top:3px;">{{ a.tag }}</span>
+            </span>
+          </a>
+        </sc-for>
+      </div>
+    </sc-if>
+    <sc-if value="{{ empty }}" hint-placeholder-val="{{ false }}">
+      <div style="text-align:center;padding:70px 20px;color:#857b6c;">
+        <p style="font-family:'Spectral',serif;font-size:24px;color:#1C3B57;margin:0 0 8px;">No artists found</p>
+        <p style="font-size:15.5px;margin:0;">Try a different name or clear your search.</p>
+      </div>
+    </sc-if>
+  </section>
+
+  <dc-import name="Footer" hint-size="100%,420px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { query: "", letter: "All" };
+  ROSTER = [
+    ["Rita Albrecht"],["Kathy Allen",1],["Ann Eason Andersson",1],["Ana Marie Arrieta"],["Alice Aubry"],["Alan R. Avery"],
+    ["Kimberly Barker"],["Margie Barker"],["JoAnn Beissner",1],["Motoe Belote"],["Magali Benavides"],["Pat Bentine"],["Susan Best"],["Flora Biggs",1],["Dawn Boult",1],["Paul G. Brinkmann"],["Katherine Patten Brooks"],["Victoria Brown"],["Barbara Brunner",1],
+    ["David Carlson"],["Becky Carr"],["Katherine Carey"],["Cindy Silvers Carter",1],["Constance W. Cash"],["Chris G. Celusniak"],["Debbie Celusniak"],["Shelley Christ-Pizana",1,"Mosaic"],["Wanita Christensen"],["Kim Clark"],["Pamela Clarkson",1],["Ilna Colemere"],["Jim Collier"],["Erin Creese"],["Barbara Ann Cross"],["Laurel Cyrene"],["Lee Czapla"],
+    ["Cheryl Damschen"],["Glenda L. Deal"],["Debbie DeLaRosa"],["Michelle Del Toro"],["Patricia J. Deltz"],["Maria T. Diaz"],["Kathleen Dietz"],
+    ["Gina Eby"],["Lucille Edgarian"],["Marc Eisenberg",1],["Lydia Evans",1],
+    ["Bill K. Finley"],["Karen Fodge"],["Barbara Fowler"],["Julene Franki"],["Irene A. Frazier"],["Noma Freeman"],["Wendell Fuqua",1,"Printmaking"],
+    ["Galo Garcia Jr."],["Gloria Garcia"],["Barbara Garstecki"],["Juanita Garza"],["Robert Garza"],["Joy Gibson"],["Sage Gibson",1],["Sally Gildart"],["Nellie Gill"],["Pat Glenn"],["Susan Gleye"],["M. Donna Good"],["Lisa Gonzalez"],["John M. Gueldner"],["Jennifer Guerra",1],["Maria Guerrero"],
+    ["Acayla Haile"],["Sarah Hairgrove"],["Marilyn Hamilton"],["Shirley R. Hammett"],["Carole Hartman-King",1],["Irma Jean Henderson"],["Nora Hernandez"],["Debbie Hill"],["James Mike Hinkle"],["Marianne H. Hinojosa"],["Sue Hosack",1],["Hawkins Huey"],
+    ["Gail Jackson",1],["Norma L. Jaksik"],["Betty L. Jameson"],["George Jameson"],["Janice Joplin"],
+    ["Jeton Kellogg"],["Byron Kelly"],["Kris Kelson",1],["Sandra Kinslow"],["Sharon M. Kotzur"],["Rose Alice Kuehner"],["Robert E. Kunert"],
+    ["Mary Ladd"],["Flo Landsteiner"],["Nell Latham"],["Jacqueline A. Lauver"],["Donna Legendre-Hofmann"],["Kandy S. Lilly"],["Voni Lineberger"],["Katie Loughman",1],["Imogene Luhrman"],
+    ["Marilu Mann"],["Susan Mapes"],["Roxanne Markline"],["Symone Martinez"],["Virginia (Betty) Mathis"],["Mable McAdams"],["Karen A. McCauley"],["Julie A. McCollum"],["Jeanie McCraw"],["Marjorie H. McFarland"],["Beth McLeod"],["Josephine McMahon"],["Christopher Mendez"],["Jannine Meszler"],["Albert C. Metts"],["Doug Meyer"],["Joan Sears Miller"],["Doug Mischer"],["Linda Monson",1],["Janice O. Montieth"],["Susie Moore"],["Cindy Morawski",1],["Barbie Moroney"],["Brent Mosher"],["Maureen Mosher"],
+    ["Martha J. Neathery"],["Denise (Dee) Lund Nelson"],["Lafaye Newkirk"],["Bev J. Nicholson"],["Estelle R. Nixon"],["Patricia Norman"],
+    ["D'ann Owen"],
+    ["Christine Patterson"],["Ann Pearce"],["Thomas Pehl"],["Nancy A. Pennington"],["Abigail Perales"],["Izetta Perkins"],["Patricia Perryman"],["Rose Marie Peschke"],["Jo M. Pollock"],["Bobbye Porter",1,"Watercolor"],["Dick Porter"],
+    ["John Ramones"],["Jean Ann Reeves",1],["Lilly Lerner Reilley"],["Robert G. Richter"],["Elaine Ries",1],["Doris A. Rives"],["Connie Roberts"],["Alfredo Rodriguez"],["Isela Rodriguez"],["Kathleene Runnels",1],["Gail Rutledge",1],
+    ["Sylvia St. Jean"],["Michael S. St. John"],["Miosotis Saldana"],["Emily F. Saylors"],["Cathern Scheel"],["George Schwegmann"],["Cecilia M. Shadrock"],["Mary Shepard",1],["Mary Silver"],["Glenn E. Smiley"],["Vera Smith",1],["Alice Smrcka"],["Douglas Stewart"],["Maria (Malena) Stidham"],["Sheila Swanson"],["Peter Szarmach",1],
+    ["Barbara Tarsikes"],["Curtisine Taylor"],["Irena Taylor"],["Michael Tidwell"],["Cynthia A. Todd"],["Brigitte Tuttle"],
+    ["Geri VanHeuverswyn"],["Marie Valero"],["Adolfo Vigil"],
+    ["Ann Wadsworth"],["Pakalie Walker"],["Jennifer Warner"],["Jill Wilson"],["Sue N. Wilson"],
+    ["Jeffrey Yentz",0,"Pen & Ink"]
+  ];
+  GRAD = ["#1F8F89,#16726D","#E0A02E,#c4861a","#B4434E,#963641","#1C3B57,#13293c","#3a7d6e,#2c5f54","#a8742a,#8a5e1f"];
+  initials(name){
+    const clean = name.replace(/\(.*?\)/g,"").trim().split(/\s+/);
+    const first = clean[0]?.[0]||"";
+    const last = clean.length>1 ? clean[clean.length-1][0] : "";
+    return (first+last).toUpperCase();
+  }
+  firstLetter(name){ const c = name.replace(/[^A-Za-z]/,"")[0]; return (c||"#").toUpperCase(); }
+  renderVals(){
+    const q = this.state.query.trim().toLowerCase();
+    const letter = this.state.letter;
+    let list = this.ROSTER.map((r,i)=>({ name:r[0], profile:!!r[1], tagText:r[2]||"", idx:i }));
+    if(letter!=="All") list = list.filter(a=>this.firstLetter(a.name)===letter);
+    if(q) list = list.filter(a=>a.name.toLowerCase().includes(q));
+    const results = list.map(a=>({
+      name:a.name,
+      initials:this.initials(a.name),
+      tag: a.tagText || (a.profile ? "View profile →" : "Member artist"),
+      href: a.profile ? "artist-profile.html" : "#",
+      cardStyle:`display:flex;align-items:center;gap:14px;text-decoration:none;background:#fff;border:1px solid #ece1c8;border-radius:14px;padding:14px 16px;transition:border-color .15s;${a.profile?'':'pointer-events:auto;'}`,
+      avatarStyle:`flex-shrink:0;width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Spectral',serif;font-weight:600;font-size:17px;color:#fff;background:linear-gradient(135deg,${this.GRAD[a.idx%this.GRAD.length]});`
+    }));
+    const ALPH = ["All","A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","Y"];
+    const letters = ALPH.map(L=>({
+      label:L, active: letter===L,
+      onClick: ()=>this.setState({letter:L}),
+      style:`cursor:pointer;font-family:inherit;font-weight:700;font-size:14px;min-width:38px;padding:8px 6px;border-radius:9px;border:1px solid ${letter===L?'#1F8F89':'#e3d6ba'};background:${letter===L?'#1F8F89':'#fff'};color:${letter===L?'#fff':'#1C3B57'};`
+    }));
+    return {
+      query:this.state.query,
+      onSearch:(e)=>this.setState({query:e.target.value}),
+      count:results.length, results, letters,
+      hasResults: results.length>0, empty: results.length===0
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Meet Dr. Gene Serafim, DC | Chiropractor &amp; Kinesiologist in Exton, PA</title>
+<meta name="description" content="Dr. Gene Serafim, DC, DACRB, is the chiropractor and kinesiologist behind Kinetx Rehabilitation in Exton, PA. Learn about his training and how he treats patients.">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Fraunces:ital,opsz,wght,SOFT@0,9..144,400..700,0..100;1,9..144,400..700,0..100&family=Source+Sans+3:wght@400;600;700&family=Caveat:wght@600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css?v=3">
+
+</helmet>
+
+<div class="kx-page">
+
+  <!-- HEADER -->
+  <div class="kx-note">Welcoming new patients from Exton &amp; across Chester County &nbsp;·&nbsp; <a href="sms:+16103685372">Text (610) 368-5372</a><span class="kx-note-mail"> &nbsp;·&nbsp; <a href="mailto:info@kinetx.org">info@kinetx.org</a></span></div>
+  <header class="kx-header">
+    <div class="kx-header-in">
+      <a href="./" class="kx-brand" aria-label="KinetX Rehab with Dr. Gene Serafim, home">
+        <span class="kx-logo-mark" aria-hidden="true"><span>K</span></span>
+        <span><span class="kx-logo-word">KINETX<span> REHAB</span></span><span class="kx-brand-sub"><img src="assets/dr-serafim-200.jpg" alt="" width="20" height="20">with Dr. Gene Serafim, DC</span></span>
+      </a>
+      <sc-if value="{{ showDesktopNav }}" hint-placeholder-val="{{ true }}">
+        <nav class="kx-nav" aria-label="Main">
+          <sc-for list="{{ navItems }}" as="item" hint-placeholder-count="6">
+            <a href="{{ item.href }}">{{ item.label }}</a>
+          </sc-for>
+        </nav>
+      </sc-if>
+      <div class="kx-head-cta">
+        <a href="tel:+16103048471" class="kx-head-phone">(610) 304-8471</a>
+        <a href="sms:+16103685372" class="btn btn-primary">Text to book</a>
+        <sc-if value="{{ showMobileNav }}" hint-placeholder-val="{{ false }}">
+          <button onClick="{{ toggleMenu }}" class="kx-burger" aria-label="Open menu">☰</button>
+        </sc-if>
+      </div>
+    </div>
+    <sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+      <nav class="kx-mnav" aria-label="Mobile">
+        <sc-for list="{{ navItems }}" as="item" hint-placeholder-count="6">
+          <a href="{{ item.href }}" onClick="{{ closeMenu }}">{{ item.label }}</a>
+        </sc-for>
+        <a href="tel:+16103048471">Call (610) 304-8471</a>
+      </nav>
+    </sc-if>
+  </header>
+
+
+  <div class="kx-crumbs"><a href="./">Home</a><span class="sep">/</span><span class="here">Meet Dr. Gene</span></div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="kx-wrap split">
+      <div style="animation:kx-fade .6s ease both;">
+        <div class="eyebrow">Meet the doctor</div>
+        <h1 class="h1">Dr. Gene Serafim, DC</h1>
+        <p class="lede" style="margin-bottom:10px; color:var(--ink);"><strong>Chiropractor &amp; Kinesiologist · Founder of Kinetx Rehabilitation</strong></p>
+        <p class="lede">I've spent my career where chiropractic, rehabilitation and human movement meet. I treat the root cause of pain by combining adjustments, muscle activation, mobility work and corrective exercise into a plan built for each person who walks through my door.</p>
+        <div class="btn-row">
+          <a href="sms:+16103685372" class="btn btn-primary">Text to book with Dr. Gene</a>
+          <a href="contact.html" class="btn btn-ghost">Visit the office</a>
+        </div>
+      </div>
+      <div>
+        <div class="hero-photo">
+          <div class="photo"><img src="assets/dr-serafim-1000.jpg" alt="Portrait of Dr. Gene Serafim, DC"></div>
+          <div class="hero-rating"><b>DACRB</b>Rehab diplomate</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STORY -->
+  <section class="kx-section bg-cream">
+    <div class="kx-narrow">
+      <div class="center" style="margin-bottom:32px;">
+        <div class="eyebrow">My story</div>
+        <h2 class="h2">Treatment that actually holds</h2>
+      </div>
+      <div class="letter">
+        <p>Too many people bounce between providers who only treat the symptom. A quick adjustment here, a massage there, and a week later they're right back in pain. I started Kinetx to break that cycle: find the root cause, treat it, then build the strength and movement to keep it from coming back.</p>
+        <p>That means bringing together things that usually live in separate offices. Chiropractic, soft-tissue therapy and progressive rehab, all under one roof and one plan. The adjustment restores motion; the rehab makes it last. Together they get you better faster and keep you that way.</p>
+        <p>I trained alongside both chiropractors and physical therapists, and I've taught anatomy and physiology at the graduate level. That background shapes every visit: I want you to understand what's going on in your body and leave knowing exactly what to do about it.</p>
+        <p>Whether you're chasing a personal best, training for a race, or just want to pick up your kids without your back complaining, I'll meet you where you are.</p>
+        <div class="sign">
+          <img src="assets/dr-serafim-200.jpg" alt="">
+          <div>
+            <div class="hand">Dr. Gene Serafim</div>
+            <div class="small">Exton, PA</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROMISES -->
+  <section class="kx-section">
+    <div class="kx-wrap">
+      <div class="center" style="margin-bottom:44px;">
+        <div class="eyebrow">What you can count on</div>
+        <h2 class="h2">My promises to every patient</h2>
+      </div>
+      <div class="grid">
+        <sc-for list="{{ values }}" as="v" hint-placeholder-count="6">
+          <div class="card flat">
+            <span class="dot"></span>
+            <h3 class="h3">{{ v.title }}</h3>
+            <p>{{ v.desc }}</p>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRAINING -->
+  <section class="kx-section bg-sage">
+    <div class="kx-wrap split" style="align-items:flex-start;">
+      <div>
+        <div class="eyebrow">Education &amp; training</div>
+        <h2 class="h2">Where I learned what I do</h2>
+        <p class="muted" style="margin:0 0 24px; max-width:480px;">I hold the DACRB rehabilitation diplomate, an advanced certification earned by only a few hundred chiropractors nationwide, and I'm certified in ConnectX, a Graston-like soft-tissue technique.</p>
+        <div class="chips">
+          <sc-for list="{{ certifications }}" as="cert" hint-placeholder-count="5">
+            <span class="chip">{{ cert }}</span>
+          </sc-for>
+        </div>
+      </div>
+      <div>
+        <div class="card" style="padding:34px 30px;">
+          <ul class="timeline">
+            <sc-for list="{{ education }}" as="ed" hint-placeholder-count="3">
+              <li><div class="yr">{{ ed.year }}</div><div class="deg">{{ ed.degree }}</div><div class="sch">{{ ed.school }}</div></li>
+            </sc-for>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AT A GLANCE -->
+  <section class="kx-section tight">
+    <div class="kx-wrap">
+      <div class="grid">
+        <sc-for list="{{ stats }}" as="st" hint-placeholder-count="4">
+          <div class="card flat center">
+            <div style="font-family:var(--serif); font-size:clamp(34px,4vw,46px); font-weight:600; color:var(--accent-ink); line-height:1.1;">{{ st.num }}</div>
+            <div class="muted" style="margin-top:6px;">{{ st.label }}</div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- DOCTOR CTA -->
+  <section class="dr-cta bg-forest kx-section">
+    <div class="kx-wrap dr-cta-in">
+      <div class="dr-cta-photo"><img src="assets/dr-serafim-1000.jpg" alt="Dr. Gene Serafim, DC" loading="lazy"></div>
+      <div class="dr-cta-text">
+        <h2 class="h2">Not sure if I can help? Just ask.</h2>
+        <p>Text my office with what's going on and we'll get back to you, usually the same day. If it sounds like something I can fix, we'll find you a time. If it isn't, I'll point you to someone who can.</p>
+        <div class="btn-row">
+          <a href="sms:+16103685372" class="btn btn-light">Text (610) 368-5372</a>
+          <a href="tel:+16103048471" class="btn btn-ghost">Call (610) 304-8471</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- FOOTER -->
+  <footer class="kx-footer">
+    <div class="kx-wrap">
+      <div class="kx-foot-grid">
+        <div>
+          <div class="kx-foot-logo"><span class="kx-logo-mark" aria-hidden="true"><span>K</span></span><span class="kx-logo-word">KINETX<span> REHAB</span></span></div>
+          <div class="kx-foot-dr">
+            <img src="assets/dr-serafim-200.jpg" alt="Dr. Gene Serafim" loading="lazy">
+            <div><div class="n">Dr. Gene Serafim, DC</div><div class="s">Chiropractor &amp; Kinesiologist · Founder</div></div>
+          </div>
+          <p style="margin:0 0 14px; max-width:300px;">Kinetx Rehabilitation, Chiropractic &amp; Massage. A neighborhood practice in Exton, PA.</p>
+          <p style="margin:0; line-height:1.8;">661 Exton Commons, Exton, PA 19341<br><a href="sms:+16103685372" style="color:#F2C4AE; font-weight:600;">Text (610) 368-5372</a><br><a href="tel:+16103048471">Call (610) 304-8471</a><br><a href="mailto:info@kinetx.org">info@kinetx.org</a></p>
+          <p style="margin:14px 0 0; line-height:1.7; color:var(--on-dark-3);">Mon–Fri 8am–7pm · Sat 8am–12pm · Sun closed</p>
+        </div>
+        <div>
+          <div class="kx-foot-h">Care</div>
+          <div class="kx-foot-links">
+            <a href="services.html#chiropractic-care">Chiropractic Care</a>
+            <a href="services.html#functional-rehabilitation">Functional Rehab</a>
+            <a href="services.html#massage-therapy">Massage Therapy</a>
+            <a href="services.html#soft-tissue-therapy">Soft Tissue Therapy</a>
+            <a href="services.html">All services</a>
+          </div>
+        </div>
+        <div>
+          <div class="kx-foot-h">Conditions</div>
+          <div class="kx-foot-links">
+            <a href="conditions.html#back-pain">Back Pain</a>
+            <a href="conditions.html#neck-pain">Neck Pain</a>
+            <a href="conditions.html#sciatica">Sciatica</a>
+            <a href="conditions.html#headaches">Headaches</a>
+            <a href="conditions.html">All conditions</a>
+          </div>
+        </div>
+        <div>
+          <div class="kx-foot-h">Nearby</div>
+          <div class="kx-foot-links">
+            <a href="locations.html#exton-pa">Exton</a>
+            <a href="locations.html#west-chester-pa">West Chester</a>
+            <a href="locations.html#downingtown-pa">Downingtown</a>
+            <a href="locations.html#malvern-pa">Malvern</a>
+            <a href="locations.html">All towns</a>
+          </div>
+        </div>
+        <div>
+          <div class="kx-foot-h">The practice</div>
+          <div class="kx-foot-links">
+            <a href="about.html">Meet Dr. Gene</a>
+            <a href="blog.html">Blog</a>
+            <a href="contact.html">Contact</a>
+            <a href="book-appointment.html">Request a visit</a>
+          </div>
+        </div>
+      </div>
+      <div class="kx-foot-bottom">
+        <span>© 2026 Kinetx Rehabilitation, Chiropractic &amp; Massage</span>
+        <span><a href="#">Privacy</a><a href="#">Accessibility</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <a href="sms:+16103685372" class="kx-float" aria-label="Text Dr. Gene's office"><img src="assets/dr-serafim-200.jpg" alt="">Text us</a>
+
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1440,&quot;height&quot;:2200}}">
+class Component extends DCLogic {
+  state = { menuOpen:false, isMobile:false };
+  componentDidMount(){
+    this._onResize = () => this.setState({ isMobile: window.innerWidth < 980 });
+    this._onResize();
+    window.addEventListener("resize", this._onResize);
+  }
+  componentWillUnmount(){ window.removeEventListener("resize", this._onResize); }
+
+  navItems = [
+    { label:"Home", href:"./" },
+    { label:"Meet Dr. Gene", href:"about.html" },
+    { label:"Services", href:"services.html" },
+    { label:"Conditions", href:"conditions.html" },
+    { label:"Blog", href:"blog.html" },
+    { label:"Contact", href:"contact.html" },
+  ];
+
+  certifications = ["DACRB Rehab Diplomate","FMS I & II","ConnectX (Graston-like)","Kinesiology","Muscle Activation"];
+
+  education = [
+    { year:"1994", degree:"BS, Applied Human Anatomy", school:"Undergraduate studies" },
+    { year:"1998", degree:"Doctor of Chiropractic", school:"New York Chiropractic College" },
+    { year:"2019", degree:"MS, Anatomy & Physiology Instruction", school:"Northeast College of Health Sciences" },
+  ];
+
+  values = [
+    { title:"Root cause first", desc:"I want to know why you're hurting, not just where, and then treat that." },
+    { title:"Hands-on, every visit", desc:"You see me and get real manual treatment. No passing you off." },
+    { title:"Built around you", desc:"Your plan fits your body, your schedule and your goals. Never cookie-cutter." },
+    { title:"Back to what you love", desc:"The goal isn't just less pain. It's getting you back to doing the things you enjoy." },
+    { title:"You'll understand it", desc:"I'll explain what's going on and you'll leave knowing exactly what to do at home." },
+    { title:"Results that last", desc:"We build strength and resilience so the problem stays solved." },
+  ];
+
+  stats = [
+    { num:"1998", label:"Doctor of Chiropractic since" },
+    { num:"DACRB", label:"Rehab diplomate" },
+    { num:"4.9★", label:"Google rating" },
+    { num:"Same day", label:"Visits for flare-ups" },
+  ];
+
+  toggleMenu = () => this.setState(s => ({ menuOpen: !s.menuOpen }));
+  closeMenu = () => this.setState({ menuOpen:false });
+
+  renderVals(){
+    const m = this.state.isMobile;
+    return {
+      showDesktopNav: !m, showMobileNav: m, menuOpen: this.state.menuOpen,
+      toggleMenu: this.toggleMenu, closeMenu: this.closeMenu, navItems: this.navItems,
+      certifications: this.certifications, education: this.education, values: this.values, stats: this.stats,
+    };
+  }
+}
+</script>
+</body>
+</html>

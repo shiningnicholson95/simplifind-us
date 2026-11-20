@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Gallery | Browse Original Art by San Antonio Artists · River Art Group</title>
+<meta name="description" content="Browse original paintings, prints, watercolor, pen & ink, photography and fine craft by River Art Group's San Antonio member artists. Filter by medium or search by artist and title.">
+<link rel="icon" type="image/png" href="assets/favicon-icon.png">
+<link rel="apple-touch-icon" href="assets/favicon-icon.png">
+<link rel="canonical" href="https://riverartgroup.com/gallery">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Gallery · River Art Group">
+<meta property="og:description" content="Browse original art by 150+ San Antonio artists across every medium.">
+<meta property="og:image" content="assets/img/art-tower-at-sunset.jpg">
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>body{margin:0;background:#FBF5E9;}*{box-sizing:border-box;}</style>
+<script src="assets/data.js"></script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://riverartgroup.com/"},{"@type":"ListItem","position":2,"name":"Gallery","item":"https://riverartgroup.com/gallery"}]}
+</script>
+</helmet>
+<div style="font-family:'Hanken Grotesk',system-ui,sans-serif;color:#2B2622;background:#FBF5E9;min-height:100vh;">
+  <dc-import name="Header" active="gallery" hint-size="100%,118px"></dc-import>
+
+  <section style="background:linear-gradient(180deg,#F6ECD6,#FBF5E9);">
+    <div style="max-width:1180px;margin:0 auto;padding:46px 24px 36px;">
+      <nav aria-label="Breadcrumb" style="font-size:13.5px;color:#8a7f6d;margin-bottom:18px;"><a href="index.html" style="color:#16726D;text-decoration:none;">Home</a> <span style="color:#c3b594;">/</span> <span>Gallery</span></nav>
+      <span style="font-size:12.5px;letter-spacing:.2em;text-transform:uppercase;color:#1F8F89;font-weight:700;">On the walls</span>
+      <h1 style="font-family:'Spectral',serif;font-weight:600;font-size:clamp(34px,4.6vw,54px);line-height:1.08;margin:12px 0 0;color:#1C3B57;">The gallery</h1>
+      <p style="font-size:18px;line-height:1.65;color:#5a5246;margin:16px 0 0;max-width:640px;">Our collection changes constantly. Browse current originals across drawing, mixed media, oil painting, photography, sculpture and handmade jewelry — filter by category or search by artist and title.</p>
+    </div>
+  </section>
+
+  <!-- FILTER BAR -->
+  <section style="max-width:1180px;margin:0 auto;padding:28px 24px 0;">
+    <div style="display:flex;gap:14px;flex-wrap:wrap;align-items:center;margin-bottom:16px;">
+      <div style="position:relative;flex:1;min-width:240px;">
+        <span aria-hidden="true" style="position:absolute;left:15px;top:50%;transform:translateY(-50%);color:#a79a82;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.5" y2="16.5"/></svg></span>
+        <input type="search" value="{{ query }}" onInput="{{ onSearch }}" placeholder="Search by title or artist…" aria-label="Search artwork" style="width:100%;padding:14px 16px 14px 44px;border-radius:11px;border:1px solid #e0d3b6;background:#fff;font-size:16px;font-family:inherit;color:#2B2622;">
+      </div>
+      <span style="font-size:14.5px;color:#857b6c;white-space:nowrap;"><strong style="color:#1C3B57;">{{ count }}</strong> works</span>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;gap:8px;">
+      <sc-for list="{{ chips }}" as="c" hint-placeholder-count="8">
+        <button type="button" onClick="{{ c.onClick }}" aria-pressed="{{ c.active }}" style="{{ c.style }}">{{ c.label }}</button>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- FEATURED GRID -->
+  <section style="max-width:1180px;margin:0 auto;padding:28px 24px 0;">
+    <sc-if value="{{ hasResults }}" hint-placeholder-val="{{ true }}">
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:26px;">
+        <sc-for list="{{ results }}" as="w" hint-placeholder-count="3">
+          <a href="{{ w.href }}" style="text-decoration:none;color:inherit;background:#fff;border-radius:16px;overflow:hidden;border:1px solid #ece1c8;box-shadow:0 10px 26px -16px rgba(28,59,87,.3);display:flex;flex-direction:column;" style-hover="box-shadow:0 18px 38px -16px rgba(28,59,87,.42);">
+            <div style="aspect-ratio:1/1;background:#f3ecdb;overflow:hidden;"><img src="{{ w.img }}" alt="{{ w.alt }}" loading="lazy" style="width:100%;height:100%;object-fit:cover;"></div>
+            <div style="padding:18px 20px 20px;">
+              <span style="display:inline-block;font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:#1F8F89;font-weight:700;margin-bottom:8px;">{{ w.medium }}</span>
+              <div style="display:flex;justify-content:space-between;align-items:baseline;gap:10px;"><h3 style="font-family:'Spectral',serif;font-size:20px;margin:0;color:#1C3B57;font-weight:600;">{{ w.title }}</h3><span style="font-weight:700;color:#16726D;">{{ w.price }}</span></div>
+              <p style="margin:6px 0 0;font-size:14.5px;color:#857b6c;">{{ w.artist }}</p>
+            </div>
+          </a>
+        </sc-for>
+      </div>
+    </sc-if>
+    <sc-if value="{{ empty }}" hint-placeholder-val="{{ false }}">
+      <div style="text-align:center;padding:56px 20px;background:#fff;border:1px dashed #d8c9a8;border-radius:16px;">
+        <p style="font-family:'Spectral',serif;font-size:22px;color:#1C3B57;margin:0 0 6px;">More {{ emptyLabel }} in the gallery</p>
+        <p style="font-size:15px;color:#857b6c;margin:0 0 18px;">Our full collection rotates weekly — see everything in person or browse the online shop.</p>
+        <a href="https://riverartgalleries.com/" target="_blank" rel="noopener" style="display:inline-block;padding:12px 22px;border-radius:10px;background:#1F8F89;color:#fff;text-decoration:none;font-weight:700;font-size:15px;">Shop online →</a>
+      </div>
+    </sc-if>
+  </section>
+
+  <!-- SHOP BY CATEGORY -->
+  <section style="max-width:1180px;margin:0 auto;padding:64px 24px 0;">
+    <h2 style="font-family:'Spectral',serif;font-weight:600;font-size:clamp(24px,3vw,32px);color:#1C3B57;margin:0 0 8px;">Shop by category</h2>
+    <p style="font-size:16px;color:#5a5246;margin:0 0 26px;max-width:620px;">Browse the full catalog by category — every piece is an original or limited edition by a River Art Group member.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:18px;">
+      <a href="products.html?category=drawing" style="text-decoration:none;color:inherit;border-radius:16px;padding:28px;background:linear-gradient(135deg,#1C3B57,#13293c);color:#fff;min-height:150px;display:flex;flex-direction:column;justify-content:space-between;" style-hover="filter:brightness(1.12);">
+        <span style="font-family:'Spectral',serif;font-size:24px;font-weight:600;">Drawing</span><span style="font-size:13.5px;opacity:.85;">Pen &amp; ink, pencil &amp; scratchboard · Explore →</span>
+      </a>
+      <a href="products.html?category=mixed-media" style="text-decoration:none;color:inherit;border-radius:16px;padding:28px;background:linear-gradient(135deg,#E0A02E,#c4861a);color:#fff;min-height:150px;display:flex;flex-direction:column;justify-content:space-between;" style-hover="filter:brightness(1.08);">
+        <span style="font-family:'Spectral',serif;font-size:24px;font-weight:600;">Mixed Media</span><span style="font-size:13.5px;opacity:.9;">Layered originals · Explore →</span>
+      </a>
+      <a href="products.html?category=oil-paintings" style="text-decoration:none;color:inherit;border-radius:16px;padding:28px;background:linear-gradient(135deg,#1F8F89,#16726D);color:#fff;min-height:150px;display:flex;flex-direction:column;justify-content:space-between;" style-hover="filter:brightness(1.08);">
+        <span style="font-family:'Spectral',serif;font-size:24px;font-weight:600;">Oil Paintings</span><span style="font-size:13.5px;opacity:.85;">Landscapes &amp; studies · Explore →</span>
+      </a>
+      <a href="products.html?category=photography" style="text-decoration:none;color:inherit;border-radius:16px;padding:28px;background:linear-gradient(135deg,#3B6E8F,#274A63);color:#fff;min-height:150px;display:flex;flex-direction:column;justify-content:space-between;" style-hover="filter:brightness(1.1);">
+        <span style="font-family:'Spectral',serif;font-size:24px;font-weight:600;">Photography</span><span style="font-size:13.5px;opacity:.85;">River Walk &amp; Texas scenes · Explore →</span>
+      </a>
+      <a href="products.html?category=sculpture" style="text-decoration:none;color:inherit;border-radius:16px;padding:28px;background:linear-gradient(135deg,#8A6D3B,#6B5228);color:#fff;min-height:150px;display:flex;flex-direction:column;justify-content:space-between;" style-hover="filter:brightness(1.1);">
+        <span style="font-family:'Spectral',serif;font-size:24px;font-weight:600;">Sculpture</span><span style="font-size:13.5px;opacity:.85;">Metal, wood &amp; mixed media · Explore →</span>
+      </a>
+      <a href="products.html?category=jewelry" style="text-decoration:none;color:inherit;border-radius:16px;padding:28px;background:linear-gradient(135deg,#B4434E,#8f2f39);color:#fff;min-height:150px;display:flex;flex-direction:column;justify-content:space-between;" style-hover="filter:brightness(1.1);">
+        <span style="font-family:'Spectral',serif;font-size:24px;font-weight:600;">Jewelry</span><span style="font-size:13.5px;opacity:.85;">Copper, silver &amp; stone · Explore →</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- SHOP CTA -->
+  <section style="max-width:1180px;margin:0 auto;padding:56px 24px 80px;">
+    <div style="background:#F4E9D2;border-radius:20px;padding:44px;text-align:center;">
+      <h2 style="font-family:'Spectral',serif;font-weight:600;font-size:clamp(24px,3vw,34px);color:#1C3B57;margin:0 0 10px;">Shop original art online, anytime</h2>
+      <p style="font-size:16.5px;color:#5a5246;margin:0 auto 22px;max-width:560px;line-height:1.6;">Can't make it to La Villita today? Browse and buy unique work by Texas artists in our online store.</p>
+      <a href="https://riverartgalleries.com/" target="_blank" rel="noopener" style="display:inline-block;padding:15px 30px;border-radius:11px;background:#1F8F89;color:#fff;text-decoration:none;font-weight:700;font-size:16px;box-shadow:0 8px 22px rgba(31,143,137,.28);" style-hover="background:#16726D;">Visit the online shop →</a>
+    </div>
+  </section>
+
+  <dc-import name="Footer" hint-size="100%,420px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { ready:false, query:"", cat:"All" };
+  componentDidMount(){
+    this._tick = () => { if(window.RAG){ this.setState({ ready:true }); } else { setTimeout(this._tick, 30); } };
+    this._tick();
+  }
+  renderVals(){
+    const RAG = window.RAG;
+    const cats = (RAG && RAG.CATEGORIES) || [];
+    const all = (RAG && RAG.PRODUCTS) || [];
+    const q = this.state.query.trim().toLowerCase();
+    const cat = this.state.cat;
+    let list = all.slice();
+    if(cat!=="All") list = list.filter(w=>w.categorySlug===cat);
+    if(q) list = list.filter(w=>(w.title+" "+w.artist+" "+w.category).toLowerCase().includes(q));
+    const results = list.map(w=>({
+      href:"product.html?id="+w.id, img:w.img, alt:w.title+" — "+w.medium+" by "+w.artist,
+      medium:w.category, title:w.title, price:w.price, artist:w.artist
+    }));
+    const chipDefs = [{slug:"All",name:"All"}].concat(cats.map(c=>({slug:c.slug,name:c.name})));
+    const chips = chipDefs.map(c=>{
+      const on = c.slug===cat;
+      return {
+        label:c.name, active:on,
+        onClick:()=>this.setState({cat:c.slug}),
+        style:`cursor:pointer;font-family:inherit;font-weight:600;font-size:14px;padding:9px 16px;border-radius:999px;border:1px solid ${on?'#1F8F89':'#e3d6ba'};background:${on?'#1F8F89':'#fff'};color:${on?'#fff':'#1C3B57'};`
+      };
+    });
+    const activeCat = cats.find(c=>c.slug===cat);
+    return {
+      query:this.state.query, onSearch:(e)=>this.setState({query:e.target.value}),
+      count:results.length, results, chips,
+      hasResults: this.state.ready && results.length>0,
+      empty: this.state.ready && results.length===0,
+      emptyLabel: (activeCat ? activeCat.name.toLowerCase() : "work")
+    };
+  }
+}
+</script>
+</body>
+</html>

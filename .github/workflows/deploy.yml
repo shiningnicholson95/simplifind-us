@@ -1,0 +1,66 @@
+# Deploys the client HTML sites in this repo to the WordPress server's public/ folder over SFTP.
+# Trigger: every push to main (or run it by hand from the Actions tab).
+#
+# Required GitHub secrets (repo → Settings → Secrets and variables → Actions):
+#   SFTP_HOST      e.g. 163.192.209.112
+#   SFTP_PORT      e.g. 49191
+#   SFTP_USER      e.g. simplifi
+#   SFTP_PASSWORD  the SFTP password
+#   REMOTE_PATH    e.g. /www/simplifi_780/public   (no trailing slash)
+#
+# Safety:
+#   - Only top-level client folders are uploaded (artshow/, lizkellypottery/, ...).
+#     Files at the repo root and any wp-* folder are never uploaded,
+#     so WordPress core on the server cannot be touched.
+#   - Nothing is ever deleted on the server.
+
+name: Deploy client sites
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: deploy
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v4
+
+      - name: Install lftp
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq lftp
+
+      - name: Upload client folders over SFTP
+        env:
+          LFTP_PASSWORD: ${{ secrets.SFTP_PASSWORD }}
+          SFTP_HOST: ${{ secrets.SFTP_HOST }}
+          SFTP_PORT: ${{ secrets.SFTP_PORT }}
+          SFTP_USER: ${{ secrets.SFTP_USER }}
+          REMOTE_PATH: ${{ secrets.REMOTE_PATH }}
+        run: |
+          set -e
+          CMDS="set sftp:auto-confirm yes; set net:max-retries 2; set net:timeout 20;"
+          CMDS="$CMDS open --env-password -u $SFTP_USER -p $SFTP_PORT sftp://$SFTP_HOST;"
+
+          found=0
+          for dir in */ ; do
+            dir="${dir%/}"
+            case "$dir" in
+              .*|wp-*) continue ;;
+            esac
+            echo "Will upload: $dir"
+            found=1
+            CMDS="$CMDS mirror --reverse --verbose --parallel=4 --exclude-glob .DS_Store --exclude-glob Thumbs.db --exclude-glob .git/ \"$dir\" \"$REMOTE_PATH/$dir\";"
+          done
+
+          if [ "$found" -eq 0 ]; then
+            echo "No client folders found - nothing to deploy."
+            exit 0
+          fi
+
+          lftp -c "$CMDS"
