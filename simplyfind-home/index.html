@@ -146,7 +146,7 @@
     position: absolute; margin: 0; background: var(--card); padding: 10px 10px 14px;
     border-radius: 6px; box-shadow: var(--shadow-lift); transition: transform .5s var(--ease);
   }
-  .polaroid img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 3px; background: var(--paper-2); }
+  .polaroid img { width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 3px; background: var(--paper-2); }
   .polaroid figcaption { display: flex; justify-content: space-between; gap: 12px; margin-top: 10px; font-size: 13px; color: var(--muted); }
   .polaroid figcaption b { font-family: var(--font-display); font-weight: 600; font-size: 16px; color: var(--ink); }
   .p1 { width: 70%; top: 0; right: 0; transform: rotate(2.5deg); z-index: 2; }
@@ -324,7 +324,11 @@
     .search { padding-left: 16px; }
     .search .btn span { display: none; }
     .search .btn { width: 46px; padding: 0; }
-    .collage { height: 340px; }
+    .collage { height: 330px; }
+    .p1 { width: 78%; }
+    .p2 { width: 58%; bottom: 10px; }
+    .p3 { display: none; }
+    .stamp { left: 2%; top: 2%; }
     .stamp { width: 92px; height: 92px; font-size: 12px; }
     .stamp strong { font-size: 26px; }
     .stat { padding: 20px 14px; flex-direction: column; gap: 6px; }
